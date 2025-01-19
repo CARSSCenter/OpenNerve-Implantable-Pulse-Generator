@@ -1,0 +1,37 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: OpenNerve Implantable Pulse Generator
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Victor
+    family-names: Pikov
+    name-suffix: PhD
+    email: pikov@hotmail.com
+    affiliation: 'Medipace Inc., Pasadena, CA, USA'
+    orcid: 'https://orcid.org/0000-0003-0124-0877'
+url: 'https://sites.usc.edu/carss/'
+abstract: >-
+  Open-source implantable devices for neuromodulation holds
+  the promise of lowering costs and increasing therapy
+  translation to human use. The OpenNerve Implantable Pulse
+  Generator (IPG) is designed for multi-electrode
+  stimulation, recording, and interfacing digitally with
+  other devices via I2C and BLE. The system consists of the
+  IPG itself, a wireless charger, and control software
+  (Windows and Android). The PCBA can be used as a
+  development board for benchtop or percutaneous animal
+  studies.
+keywords:
+  - neuromodulation
+  - bioelectronic medicine
+  - implantable medical device
+  - neurotech
+  - open-source medical device
+license: CC-BY-4.0
+version: '1.0'
+date-released: '2025-01-01'
