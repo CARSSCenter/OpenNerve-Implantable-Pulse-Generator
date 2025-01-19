@@ -5,14 +5,13 @@ Source files for the OpenNerve implantable pulse generator (IPG), charger, and u
 <img width="292" alt="image" src="https://github.com/user-attachments/assets/0e993144-663c-4f87-89fd-8b9107a24e88" />
 
 The OpenNerve IPG will perform current-based neuromodulation, measure impedance, monitor electronic biosignals, and interface with chemical and physical sensors. Features include:
-Four 4-contact or two 8-contact Bal-Seal connectors (16 total contacts)
-8 stimulation and 8 sensing channels, configurable among the 4 header connectors
-Impedance measurement on all stimulation electrodes
-Bluetooth Low Energy (BLE) communication
-2x rechargeable 400mAh Quallion QL0200I cells (primary cell option also available)
-<img width="540" alt="image" src="https://github.com/user-attachments/assets/548d8c45-a2d0-48d3-b9b7-df0d6fbf4569" />
+* Four 4-contact or two 8-contact Bal-Seal connectors (16 total contacts)
+* 8 stimulation and 8 sensing channels, configurable among the 4 header connectors
+* Impedance measurement on all stimulation electrodes
+* Bluetooth Low Energy (BLE) communication
+* 2x rechargeable 400mAh Quallion QL0200I cells (primary cell option also available)
 
-
+# Electrical Specifications (V1.0)
 
 # Disclaimer
 
