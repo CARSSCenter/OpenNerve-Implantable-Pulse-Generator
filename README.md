@@ -12,15 +12,14 @@ The OpenNerve IPG will perform current-based neuromodulation, measure impedance,
 * 2x rechargeable 400mAh Quallion QL0200I cells (primary cell option also available)
 
 # Electrical Specifications (V1.0)
-<img width="168" alt="image" src="https://github.com/user-attachments/assets/986222a2-6f7a-4552-8aa5-1cbaa1a6c5a4" />
 
 * Sequential bipolar stimulation: select any of 8 channels or IPG case as anode and cathode  
 * Max stimulation current of ±5mA at 1.6kΩ (typical for SNS) or ±4mA at 2kΩ (typical for cVNS)
 * Analog front ends (AFEs) configurable in hardware for multiple biosignals
+* I2C connectivity in header for interfacing with digital sensors
+* Neural recording front end for compound action potentials
   
 <img width="336" alt="image" src="https://github.com/user-attachments/assets/aaaf9424-3e01-4599-bdc6-231b073c5793" />
-
-
 
 # Disclaimer
 
