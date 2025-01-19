@@ -3,7 +3,8 @@ Source files for the OpenNerve implantable pulse generator (IPG), charger, and u
 
 # About
 
-Text Text Text
+<img width="282" alt="image" src="https://github.com/user-attachments/assets/9dfc5c78-6af6-408c-86a1-4fae9b9367a3" />
+
 
 # Disclaimer
 
