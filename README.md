@@ -13,11 +13,13 @@ The OpenNerve IPG will perform current-based neuromodulation, measure impedance,
 
 # Electrical Specifications (V1.0)
 <img width="168" alt="image" src="https://github.com/user-attachments/assets/986222a2-6f7a-4552-8aa5-1cbaa1a6c5a4" />
+
 * Sequential bipolar stimulation: select any of 8 channels or IPG case as anode and cathode  
 * Max stimulation current of ±5mA at 1.6kΩ (typical for SNS) or ±4mA at 2kΩ (typical for cVNS)
 * Analog front ends (AFEs) configurable in hardware for multiple biosignals
+  
+<img width="336" alt="image" src="https://github.com/user-attachments/assets/aaaf9424-3e01-4599-bdc6-231b073c5793" />
 
-<img width="311" alt="image" src="https://github.com/user-attachments/assets/0b40b3c7-1d7f-4ed7-b071-ec03d528f331" />
 
 
 # Disclaimer
