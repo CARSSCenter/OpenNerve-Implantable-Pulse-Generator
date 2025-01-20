@@ -14,6 +14,12 @@ authors:
     email: pikov@hotmail.com
     affiliation: 'Medipace Inc., Pasadena, CA, USA'
     orcid: 'https://orcid.org/0000-0003-0124-0877'
+  - given-names: Raja
+    family-names: Hitti
+    name-suffix: 
+    email: raja@med-ally.com
+    affiliation: 'Med-Ally LLC, Goose Creek, SC, USA'
+    orcid: 
 url: 'https://sites.usc.edu/carss/'
 abstract: >-
   Open-source implantable devices for neuromodulation holds
