@@ -20,7 +20,25 @@ authors:
     email: raja@med-ally.com
     affiliation: 'Med-Ally LLC, Goose Creek, SC, USA'
     orcid: 
-url: 'https://sites.usc.edu/carss/'
+  - given-names: Alex
+    family-names: Baldwin
+    name-suffix: PhD
+    email: abbaldwi@usc.edu
+    affiliation: 'University of Southern California, Los Angeles, CA, USA'
+    orcid:
+  - given-names: Sahar
+    family-names: Elyahoodayan
+    name-suffix: PhD
+    email: elyahood@usc.edu
+    affiliation: 'University of Southern California, Los Angeles, CA, USA'
+    orcid:
+  - given-names: Ellis
+    family-names: Meng
+    name-suffix: PhD
+    email: ellis.meng@usc.edu
+    affiliation: 'University of Southern California, Los Angeles, CA, USA'
+    orcid: 
+url: 'https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator'
 abstract: >-
   Open-source implantable devices for neuromodulation holds
   the promise of lowering costs and increasing therapy
