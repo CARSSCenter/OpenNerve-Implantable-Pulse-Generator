@@ -4,9 +4,7 @@ This document describes how to flash the nRF52810 microcontroller (referred to a
 ### Materials needed
 * J-Link EDU Mini (https://shop-us.segger.com/product/j-link-edu-mini-8-08-91/)
 * J-Link software (https://www.segger.com/downloads/jlink)
-* nRF Connect for Desktop (https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download#infotabs 
-<img width="889" height="42" alt="image" src="https://github.com/user-attachments/assets/b9650d81-06b4-4473-852c-65cc292f9e5b" />
-
+* nRF Connect for Desktop (https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download#infotabs)
 
 ### Setup
 
