@@ -1,0 +1,31 @@
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_crc.h:156:22:LL_CRC_ResetCRCCalculationUnit	1
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_crc.h:172:22:LL_CRC_SetPolynomialSize	1
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_crc.h:290:22:LL_CRC_SetPolynomialCoef	1
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_crc.h:324:22:LL_CRC_FeedData32	1
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_crc.h:336:22:LL_CRC_FeedData16	1
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_crc.h:374:26:LL_CRC_ReadData16	1
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_bus.h:425:22:LL_AHB1_GRP1_EnableClock	1
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:198:11:EE_Init	171
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:634:11:EE_Format	20
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:717:11:EE_ReadVariable96bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:745:11:EE_ReadVariable32bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:774:11:EE_ReadVariable16bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:802:11:EE_ReadVariable8bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:833:11:EE_WriteVariable96bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:858:11:EE_WriteVariable32bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:886:11:EE_WriteVariable16bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:913:11:EE_WriteVariable8bits	3
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:938:11:EE_CleanUp	18
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1010:11:EE_CleanUp_IT	18
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1070:11:EE_DeleteCorruptedFlashAddress	1
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1079:13:EE_EndOfCleanup_UserCallback	1
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1107:18:ReadVariable	22
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1211:18:WriteVariable	2
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1240:18:VerifyPageFullyErased	4
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1279:17:FindPage	36
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1432:18:PagesTransfer	76
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1689:18:VerifyPagesFullWriteVariable	11
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:1787:18:SetPageState	25
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:2013:22:GetPageState	9
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:2068:6:ConfigureCrc	1
+/Users/alexbaldwin/Desktop/OpenNerveTest/OpenNerve PCBA documentation/Final docs and FW from Coforce/FW-MCU-H2-251226/Middlewares/EEPROM_Emul/Core/eeprom_emul.c:2101:10:CalculateCrc	1

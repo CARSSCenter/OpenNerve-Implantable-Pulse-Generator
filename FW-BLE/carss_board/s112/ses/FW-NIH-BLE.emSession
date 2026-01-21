@@ -1,0 +1,108 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="8" refreshPeriod="0" name="ble_app_nus_spi_nRF52810" radix="0" sizeText="31" addressText="0x20002ef8"/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="8" refreshPeriod="0" name="FW-NIH-BLE" radix="0" sizeText="4" addressText="0x10001208"/>
+ </Memory1>
+ <Memory2>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="ble_app_nus_spi_nRF52810" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="FW-NIH-BLE" radix="0" sizeText="" addressText=""/>
+ </Memory2>
+ <Memory3>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="ble_app_nus_spi_nRF52810" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="FW-NIH-BLE" radix="0" sizeText="" addressText=""/>
+ </Memory3>
+ <Memory4>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="ble_app_nus_spi_nRF52810" radix="0" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="FW-NIH-BLE" radix="0" sizeText="" addressText=""/>
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="FW-NIH-BLE"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;Application"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;Application;Config"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;Application;Unity Test"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;nRF_BLE"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;nRF_BLE_Services"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;nRF_Drivers"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;nRF_Libraries"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;Segger Startup Files"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;Segger Startup Files;nRF_Segger_RTT"/>
+  <ProjectSessionItem path="FW-NIH-BLE;FW-NIH-BLE;Unity"/>
+ </Project>
+ <Register1>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal;FICR/CODEPAGESIZE;FICR/CODESIZE;FICR/DEVICEID[0];FICR/DEVICEID[1];FICR/ER[0];FICR/ER[1];FICR/ER[2];FICR/ER[3];FICR/IR[0];FICR/IR[1];FICR/IR[2];FICR/IR[3];FICR/DEVICEADDRTYPE;FICR/DEVICEADDR[0];FICR/DEVICEADDR[1];FICR/INFO.PART;FICR/INFO.VARIANT;FICR/INFO.PACKAGE;FICR/INFO.RAM;FICR/INFO.FLASH;FICR/TEMP.A0;FICR/TEMP.A1;FICR/TEMP.A2;FICR/TEMP.A3;FICR/TEMP.A4;FICR/TEMP.A5;FICR/TEMP.B0;FICR/TEMP.B1;FICR/TEMP.B2;FICR/TEMP.B3;FICR/TEMP.B4;FICR/TEMP.B5;FICR/TEMP.T0;FICR/TEMP.T1;FICR/TEMP.T2;FICR/TEMP.T3;FICR/TEMP.T4" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context;FICR;FICR/INFO.PACKAGE" name="ble_app_nus_spi_nRF52810" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal;UICR/NRFFW[0];UICR/NRFFW[1];UICR/NRFFW[2];UICR/NRFFW[3];UICR/NRFFW[4];UICR/NRFFW[5];UICR/NRFFW[6];UICR/NRFFW[7];UICR/NRFFW[8];UICR/NRFFW[9];UICR/NRFFW[10];UICR/NRFFW[11];UICR/NRFFW[12];UICR/NRFHW[0];UICR/NRFHW[1];UICR/NRFHW[2];UICR/NRFHW[3];UICR/NRFHW[4];UICR/NRFHW[5];UICR/NRFHW[6];UICR/NRFHW[7];UICR/NRFHW[8];UICR/NRFHW[9];UICR/NRFHW[10];UICR/NRFHW[11];UICR/CUSTOMER[0];UICR/CUSTOMER[1];UICR/CUSTOMER[2];UICR/CUSTOMER[3];UICR/CUSTOMER[4];UICR/CUSTOMER[5];UICR/CUSTOMER[6];UICR/CUSTOMER[7];UICR/CUSTOMER[8];UICR/CUSTOMER[9];UICR/CUSTOMER[10];UICR/CUSTOMER[11];UICR/CUSTOMER[12];UICR/CUSTOMER[13];UICR/CUSTOMER[14];UICR/CUSTOMER[15];UICR/CUSTOMER[16];UICR/CUSTOMER[17];UICR/CUSTOMER[18];UICR/CUSTOMER[19];UICR/CUSTOMER[20];UICR/CUSTOMER[21];UICR/CUSTOMER[22];UICR/CUSTOMER[23];UICR/CUSTOMER[24];UICR/CUSTOMER[25];UICR/CUSTOMER[26];UICR/CUSTOMER[27];UICR/CUSTOMER[28];UICR/CUSTOMER[29];UICR/CUSTOMER[30];UICR/CUSTOMER[31];UICR/PSELRESET[0];UICR/PSELRESET[1];UICR/APPROTECT;FICR/CODEPAGESIZE;FICR/CODESIZE;FICR/DEVICEID[0];FICR/DEVICEID[1];FICR/ER[0];FICR/ER[1];FICR/ER[2];FICR/ER[3];FICR/IR[0];FICR/IR[1];FICR/IR[2];FICR/IR[3];FICR/DEVICEADDRTYPE;FICR/DEVICEADDR[0];FICR/DEVICEADDR[1];FICR/INFO.PART;FICR/INFO.VARIANT;FICR/INFO.PACKAGE;FICR/INFO.RAM;FICR/INFO.FLASH;FICR/TEMP.A0;FICR/TEMP.A1;FICR/TEMP.A2;FICR/TEMP.A3;FICR/TEMP.A4;FICR/TEMP.A5;FICR/TEMP.B0;FICR/TEMP.B1;FICR/TEMP.B2;FICR/TEMP.B3;FICR/TEMP.B4;FICR/TEMP.B5;FICR/TEMP.T0;FICR/TEMP.T1;FICR/TEMP.T2;FICR/TEMP.T3;FICR/TEMP.T4;APPROTECT/FORCEPROTECT;APPROTECT/DISABLE" binaryNodes="" asciiNodes="" openNodes="UICR/APPROTECT;FICR/INFO.PART;FICR/INFO.VARIANT;APPROTECT;APPROTECT/FORCEPROTECT;APPROTECT/DISABLE" name="FW-NIH-BLE" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register1>
+ <Register2>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="ble_app_nus_spi_nRF52810" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="FW-NIH-BLE" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register2>
+ <Register3>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="ble_app_nus_spi_nRF52810" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="FW-NIH-BLE" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register3>
+ <Register4>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="ble_app_nus_spi_nRF52810" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="FW-NIH-BLE" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register4>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never">
+   <Watchpoint expression="*(unsigned *)0x10001208" name="APPROTECT" radix="16" linenumber="0" filename="../ses"/>
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="59" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/app_cmd.c" selected="0" top="54" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="47" useTextEdit="1" openedFrom="D:/Workspace/CARSS/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_cmd.c" useBinaryEdit="0" left="0" path="../../../app/app_cmd.h" selected="0" top="31" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="18" useTextEdit="1" openedFrom="D:/Workspace/CARSS/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_cmd.c" useBinaryEdit="0" left="0" path="../../../app/app_ble.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="71" y="44" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp.c" useBinaryEdit="0" left="0" path="../../../app/app_ble.c" selected="0" top="27" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="760" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_ble.c" useBinaryEdit="0" left="0" path="../../../../../../components/softdevice/s112/headers/ble_gap.h" selected="0" top="744" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="53" useTextEdit="1" openedFrom="D:/Workspace/CARSS/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/components/softdevice/s112/headers/ble_gap.h" useBinaryEdit="0" left="0" path="../../../../../../components/softdevice/s112/headers/ble_hci.h" selected="0" top="51" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="25" y="30" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp_spis.c" useBinaryEdit="0" left="0" path="../../../app/app_sp.c" selected="0" top="12" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="55" y="30" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/app_sp_spis.c" selected="1" top="15" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="9" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/test/test_app_ble.h" selected="0" top="3" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="47" y="34" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/app_sp_uart.c" selected="0" top="21" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="84" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_ble.c" useBinaryEdit="0" left="0" path="../../../app/app_ble_nus.c" selected="0" top="72" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../external/segger_rtt/SEGGER_RTT.c" selected="0" top="147" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="448" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../external/segger_rtt/SEGGER_RTT_printf.c" selected="0" top="437" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="135" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/app_ble_adv.c" selected="0" top="121" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="190" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_ble_adv.c" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_advertising/ble_advertising.h" selected="0" top="180" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="10066" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/components/ble/ble_services/ble_nus/ble_nus.h" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="10054" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="49" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/app_ble_pm.c" selected="0" top="36" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="25" y="75" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="0" top="51" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="24" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../app/test/test_app_cmd.c" selected="0" top="12" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="4" y="322" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_ble_nus.c" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_services/ble_nus/ble_nus.c" selected="0" top="321" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="353" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_ble.c" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/util/app_util.h" selected="0" top="340" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="19" y="13" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp_uart.c" useBinaryEdit="0" left="0" path="../../../app/app_sp.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="146" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp_uart.c" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/uart/app_uart.h" selected="0" top="127" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="19" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp_uart.c" useBinaryEdit="0" left="0" path="../../../app/app_sp_uart.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="378" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.c" selected="0" top="362" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="63" y="103" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp.h" useBinaryEdit="0" left="0" path="../../../../../../components/ble/ble_services/ble_nus/ble_nus.h" selected="0" top="85" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../config/app_config.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="26" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_ble_nus.c" useBinaryEdit="0" left="0" path="../../../app/app_ble_nus.h" selected="0" top="1" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="103" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/app/app_sp_spis.c" useBinaryEdit="0" left="0" path="../../../../../../integration/nrfx/legacy/nrf_drv_spis.h" selected="0" top="90" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="388" useTextEdit="1" openedFrom="G:/Workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/integration/nrfx/legacy/nrf_drv_spis.h" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/src/nrfx_spis.c" selected="0" top="372" codecName="Default"/>
+ </Files>
+ <ARMCrossStudioWindow activeProject="FW-NIH-BLE" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="C:/Users/louie.liu/workspace/Firmware/NIH/BLE/nRF5_SDK/nRF5_SDK_17.1.0_ddde560/project/ble_peripheral/FW-NIH-BLE/main.c&#xa;" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3711"/>
+</session>

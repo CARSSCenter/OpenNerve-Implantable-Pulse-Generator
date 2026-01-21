@@ -1,0 +1,6 @@
+../App/Bsp/Src/bsp_fram.c:18:6:bsp_fram_init	1
+../App/Bsp/Src/bsp_fram.c:28:6:bsp_fram_deinit	2
+../App/Bsp/Src/bsp_fram.c:43:13:bsp_fram_write	4
+../App/Bsp/Src/bsp_fram.c:65:13:bsp_fram_read	1
+../App/Bsp/Src/bsp_fram.c:75:13:bsp_fram_erase	1
+../App/Bsp/Src/bsp_fram.c:85:6:bsp_fram_write_cplt_cb	1

@@ -1,0 +1,4 @@
+../App/Functions/Src/app_func_authentication.c:35:6:app_func_auth_verify_sign_admin	3
+../App/Functions/Src/app_func_authentication.c:69:10:app_func_auth_compare_fram_hash	7
+../App/Functions/Src/app_func_authentication.c:112:6:app_func_auth_compare_flash_hash	5
+../App/Functions/Src/app_func_authentication.c:130:9:app_func_auth_user_class_get	7

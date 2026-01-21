@@ -1,0 +1,4 @@
+../Core/Src/rtc.c:33:6:MX_RTC_Init	64	static
+../Core/Src/rtc.c:121:6:HAL_RTC_MspInit	224	static
+../Core/Src/rtc.c:154:6:HAL_RTC_MspDeInit	16	static
+../Core/Src/rtc.c:176:6:RTC_TimeStampBackup	4	static,ignoring_inline_asm

@@ -1,0 +1,3 @@
+../App/Bsp/Src/bsp_watchdog.c:16:6:bsp_wdg_enable	16	static
+../App/Bsp/Src/bsp_watchdog.c:25:6:bsp_wdg_refresh	8	static
+../App/Bsp/Src/bsp_watchdog.c:35:6:HAL_IWDG_EarlyWakeupCallback	16	static

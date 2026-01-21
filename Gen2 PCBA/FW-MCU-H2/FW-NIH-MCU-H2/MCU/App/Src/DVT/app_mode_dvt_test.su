@@ -1,0 +1,2 @@
+../App/Src/DVT/app_mode_dvt_test.c:16:18:test_cmd_gen	32	static
+../App/Src/DVT/app_mode_dvt_test.c:857:6:app_mode_dvt_test_handler	72	static

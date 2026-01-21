@@ -1,0 +1,3 @@
+../Core/Src/hash.c:30:6:MX_HASH_Init	2
+../Core/Src/hash.c:51:6:HAL_HASH_MspInit	1
+../Core/Src/hash.c:68:6:HAL_HASH_MspDeInit	1

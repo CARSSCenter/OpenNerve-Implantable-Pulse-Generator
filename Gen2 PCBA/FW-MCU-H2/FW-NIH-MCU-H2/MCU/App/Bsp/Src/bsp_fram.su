@@ -1,0 +1,6 @@
+../App/Bsp/Src/bsp_fram.c:18:6:bsp_fram_init	16	static
+../App/Bsp/Src/bsp_fram.c:28:6:bsp_fram_deinit	8	static,ignoring_inline_asm
+../App/Bsp/Src/bsp_fram.c:43:13:bsp_fram_write	24	static,ignoring_inline_asm
+../App/Bsp/Src/bsp_fram.c:65:13:bsp_fram_read	24	static
+../App/Bsp/Src/bsp_fram.c:75:13:bsp_fram_erase	16	static
+../App/Bsp/Src/bsp_fram.c:85:6:bsp_fram_write_cplt_cb	16	static
