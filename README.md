@@ -2,16 +2,16 @@
 Source files for the OpenNerve implantable pulse generator (IPG), charger, and user interface software
 
 ## Overview
-<img width="292" alt="image" src="https://github.com/user-attachments/assets/0e993144-663c-4f87-89fd-8b9107a24e88" />
+<img width="215" height="167" alt="image" src="https://github.com/user-attachments/assets/124067fc-942d-4503-9161-75e3edae0d8b" />
+
 
 The OpenNerve IPG is designed to enable researchers to develop novel therapies in the neuromodulation and bioelectronic medicine spaces. It is currently being used by a number of groups for acute and chronic preclinical studies, with plan to transition to clinical studies when ready.The IPG is capable of providing current-based bipolar electrical stimulation, measuring biosignals using multiple analog front ends (AFEs), and connecting with third-party sensors via an in-body I2C network. It communicates with a user controller over Bluetooth Low Energy (BLE) and can be easily configured to be rechargeable over inductive link. All source files are released under the CC-BY 4.0 open source copyright license, which requires attribution but allows their use for closed-source and commercial applications.
 
 ## Electronics
 Two versions of the printed circuit board inside OpenNerve have been designed and manufactured. The [Gen1 PCBA](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/Gen1%20PCBA) has eight pseudo-independent monopolar stimulation channels (configurable as four bipolar channels), two differential biosignal amplifiers for recording ECG, EMG, or eCAPS, and an I2C port for connection to an accelerometer or other in-body digital sensors. The [Gen2 PCBA](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/tree/main/Gen2%20PCBA) has two fully independent bipolar stimulation channels capable of square wave stimulation up to 1200 Hz or low frequency sine wave stimulation, four configurable analog front ends, and an I2C port. See below for electrical specifications for the Gen2 IPG (square wave stimulation and analog front-ends).
 
-<img width="311" height="108" alt="image" src="https://github.com/user-attachments/assets/67caa058-5af3-4cf4-9e9c-89c642d1a52f" />
+<img width="327" height="224" alt="image" src="https://github.com/user-attachments/assets/89c9d8c7-1bac-4f09-b840-aaf73949bcbe" />
 
-<img width="311" height="108" alt="image" src="https://github.com/user-attachments/assets/fe6e759d-a834-4aaf-a2fe-37a4f55fcf86" />
 
 ## Firmware
 OpenNerve contains two microcontrollers: an nRF52810 which controlls BLE communication (referred to as "BLE"), and an STM32 which controls most other functions (referred to as "MCU"). BLE firmware is the same for both Gen1 and Gen2 PCBAs and can be found [here](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/tree/main/FW-BLE). Instructions for programming a new board can be found in the [BLE Flashing Guide](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/blob/main/Docs/BLE-Flashing-Guide.md) under Docs. MCU firmware is different for Gen1 and Gen2 IPGs; the source code and hex files for each board's MCU firmware can be found in their respective folders, and instructions for compiling and flashing can be found at [MCU Flashing Guide](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/blob/main/Docs/MCU-Flashing-Guide.md).
