@@ -1,25 +1,34 @@
 # OpenNerve-Implantable-Pulse-Generator
 Source files for the OpenNerve implantable pulse generator (IPG), charger, and user interface software
 
-# About
+## Overview
 <img width="292" alt="image" src="https://github.com/user-attachments/assets/0e993144-663c-4f87-89fd-8b9107a24e88" />
 
-The OpenNerve IPG will perform current-based neuromodulation, measure impedance, monitor electronic biosignals, and interface with chemical and physical sensors. Features include:
-* Four 4-contact or two 8-contact Bal-Seal connectors (16 total contacts)
-* 8 stimulation and 8 sensing channels, configurable among the 4 header connectors
-* Impedance measurement on all stimulation electrodes
-* Bluetooth Low Energy (BLE) communication
-* 2x rechargeable 400mAh Quallion QL0200I cells (primary cell option also available)
+The OpenNerve IPG is designed to enable researchers to develop novel therapies in the neuromodulation and bioelectronic medicine spaces. It is currently being used by a number of groups for acute and chronic preclinical studies, with plan to transition to clinical studies when ready.The IPG is capable of providing current-based bipolar electrical stimulation, measuring biosignals using multiple analog front ends (AFEs), and connecting with third-party sensors via an in-body I2C network. It communicates with a user controller over Bluetooth Low Energy (BLE) and can be easily configured to be rechargeable over inductive link. All source files are released under the CC-BY 4.0 open source copyright license, which requires attribution but allows their use for closed-source and commercial applications.
 
-# Electrical Specifications (V1.0)
+## Electronics
+Two versions of the printed circuit board inside OpenNerve have been designed and manufactured. The [Gen1 PCBA](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/Gen1%20PCBA) has eight pseudo-independent monopolar stimulation channels (configurable as four bipolar channels), two differential biosignal amplifiers for recording ECG, EMG, or eCAPS, and an I2C port for connection to an accelerometer or other in-body digital sensors. The [Gen2 PCBA](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/tree/main/Gen2%20PCBA) has two fully independent bipolar stimulation channels capable of square wave stimulation up to 1200 Hz or low frequency sine wave stimulation, four configurable analog front ends, and an I2C port. See below for electrical specifications for the Gen2 IPG (square wave stimulation and analog front-ends).
 
-* Sequential bipolar stimulation: select any of 8 channels or IPG case as anode and cathode  
-* Max stimulation current of ±5mA at 1.6kΩ (typical for SNS) or ±4mA at 2kΩ (typical for cVNS)
-* Analog front ends (AFEs) configurable in hardware for multiple biosignals
-* I2C connectivity in header for interfacing with digital sensors
-* Neural recording front end for compound action potentials
+<img width="311" height="108" alt="image" src="https://github.com/user-attachments/assets/67caa058-5af3-4cf4-9e9c-89c642d1a52f" />
+
+<img width="311" height="108" alt="image" src="https://github.com/user-attachments/assets/fe6e759d-a834-4aaf-a2fe-37a4f55fcf86" />
+
+## Firmware
+OpenNerve contains two microcontrollers: an nRF52810 which controlls BLE communication (referred to as "BLE"), and an STM32 which controls most other functions (referred to as "MCU"). BLE firmware is the same for both Gen1 and Gen2 PCBAs and can be found [here](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/tree/main/FW-BLE). Instructions for programming a new board can be found in the [BLE Flashing Guide](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/blob/main/Docs/BLE-Flashing-Guide.md) under Docs. MCU firmware is different for Gen1 and Gen2 IPGs; the source code and hex files for each board's MCU firmware can be found in their respective folders, and instructions for compiling and flashing can be found at [MCU Flashing Guide](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/blob/main/Docs/MCU-Flashing-Guide.md).
+
+## Software
+A Windows application has been written in VSCode to control OpenNerve's functions and download/save measurements. The source code for this app can be found in the [OpenNerve Windows App repo](https://github.com/CARSSCenter/OpenNerve-Windows-App). To communicate with OpenNerve using this app requires an encryption private key. To get the key used for the open-source builds of MCU2 firmware please reach out to carss@usc.edu. There are also instructions included [here](https://github.com/CARSSCenter/OpenNerve-Windows-App/blob/main/encryption-instructions.md) on how to create your own encryption keys and firmware build.
+
+## Contributors
+The OpenNerve IPG has been designed and manufactured in partnership with a number of contributors from the academic and private sectors, all of whom are committed to open source neurotech and lowering the barrier to developing new therapies. See below for a list of contributing organizations (last updated 22/01/2026).
+* [Biomedical Microsystems Lab, University of Southern California](https://biomems.usc.edu/) - lead the larger CARSS center, set up and maintains open source resources, performs integration testing, software development, and preclinical studies
+* [Med-Ally LLC](https://med-ally.com/) - designed the hermetic enclosure for OpenNerve, and provides final assembly services for chronic studies
+* [Medipace Inc](https://www.medipaceinc.com/) - Manages electronics and firmware development, performs software development
+* [Focus Uy](https://focus.uy/) - Designed the printed circuit board for OpenNerve IPG and charger
+* [CoForce Ltd.](https://www.coforcemed.com/) - Peformed firmware development for OpenNerve
+
+Funding for OpenNerve has been provided by the US National Institutes of Health's SPARC program # [1U41NS129514](https://reporter.nih.gov/project-details/10557000) as well as by the US National Science Foundation's POSE Phase 1 program # [2449357](https://www.nsf.gov/awardsearch/show-award?AWD_ID=2449357). 
   
-<img width="336" alt="image" src="https://github.com/user-attachments/assets/aaaf9424-3e01-4599-bdc6-231b073c5793" />
 
 # Disclaimer
 
