@@ -19,6 +19,9 @@ OpenNerve contains two microcontrollers: an nRF52810 which controlls BLE communi
 ## Software
 A Windows application has been written in VSCode to control OpenNerve's functions and download/save measurements. The source code for this app can be found in the [OpenNerve Windows App repo](https://github.com/CARSSCenter/OpenNerve-Windows-App). To communicate with OpenNerve using this app requires an encryption private key. To get the key used for the open-source builds of MCU2 firmware please reach out to carss@usc.edu. There are also instructions included [here](https://github.com/CARSSCenter/OpenNerve-Windows-App/blob/main/encryption-instructions.md) on how to create your own encryption keys and firmware build.
 
+## Wireless charger
+The OpenNerve IPG can be charged inductively using the [OpenNerve Charger](https://github.com/CARSSCenter/OpenNerve-Charger).
+
 ## Contributors
 The OpenNerve IPG has been designed and manufactured in partnership with a number of contributors from the academic and private sectors, all of whom are committed to open source neurotech and lowering the barrier to developing new therapies. See below for a list of contributing organizations (last updated 22/01/2026).
 * [Biomedical Microsystems Lab, University of Southern California](https://biomems.usc.edu/) - lead the larger CARSS center, set up and maintains open source resources, performs integration testing, software development, and preclinical studies
