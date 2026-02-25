@@ -1,0 +1,2 @@
+../App/Src/app_mode_battery_test.c:21:6:app_mode_battery_test_volt_get	1
+../App/Src/app_mode_battery_test.c:34:6:app_mode_battery_test_handler	7

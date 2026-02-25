@@ -1,0 +1,13 @@
+../App/Functions/Src/app_func_ble.c:18:13:app_func_ble_resp_cmd_parser	32	static
+../App/Functions/Src/app_func_ble.c:111:6:app_func_ble_enable	16	static
+../App/Functions/Src/app_func_ble.c:150:6:app_func_ble_adv_start	32	static
+../App/Functions/Src/app_func_ble.c:163:6:app_func_ble_disconnect	24	static
+../App/Functions/Src/app_func_ble.c:177:6:app_func_ble_curr_state_update	16	static
+../App/Functions/Src/app_func_ble.c:188:9:app_func_ble_curr_state_get	4	static
+../App/Functions/Src/app_func_ble.c:197:6:app_func_ble_disc_reason_update	16	static
+../App/Functions/Src/app_func_ble.c:208:9:app_func_ble_disc_reason_get	4	static
+../App/Functions/Src/app_func_ble.c:216:6:app_func_ble_new_state_get	24	static
+../App/Functions/Src/app_func_ble.c:229:6:app_func_ble_peers_del	24	static
+../App/Functions/Src/app_func_ble.c:243:6:app_func_ble_default_timer_cb	8	static
+../App/Functions/Src/app_func_ble.c:260:6:app_func_ble_is_default	4	static
+../App/Functions/Src/app_func_ble.c:274:6:app_func_ble_magnet_lost_cb	40	static

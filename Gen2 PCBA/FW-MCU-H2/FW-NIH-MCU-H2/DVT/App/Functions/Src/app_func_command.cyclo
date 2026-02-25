@@ -1,0 +1,8 @@
+../App/Functions/Src/app_func_command.c:23:13:app_func_command_crc_confirm	2
+../App/Functions/Src/app_func_command.c:45:13:app_func_command_resp_parser	3
+../App/Functions/Src/app_func_command.c:67:16:app_func_command_req_parser	5
+../App/Functions/Src/app_func_command.c:103:6:app_func_command_req_parser_set	1
+../App/Functions/Src/app_func_command.c:112:6:app_func_command_resp_parser_set	1
+../App/Functions/Src/app_func_command.c:124:9:app_func_command_parser	3
+../App/Functions/Src/app_func_command.c:160:6:app_func_command_req_send	3
+../App/Functions/Src/app_func_command.c:180:6:app_func_command_resp_send	3

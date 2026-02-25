@@ -1,0 +1,3 @@
+../Core/Src/pka.c:30:6:MX_PKA_Init	2
+../Core/Src/pka.c:51:6:HAL_PKA_MspInit	2
+../Core/Src/pka.c:71:6:HAL_PKA_MspDeInit	2

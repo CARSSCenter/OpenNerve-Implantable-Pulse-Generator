@@ -1,0 +1,12 @@
+../App/Functions/Src/app_func_parameter.c:227:17:app_func_para_write	48	static
+../App/Functions/Src/app_func_parameter.c:269:17:app_func_para_read	48	static
+../App/Functions/Src/app_func_parameter.c:307:21:app_func_para_get	24	static
+../App/Functions/Src/app_func_parameter.c:326:6:app_func_para_init	88	static
+../App/Functions/Src/app_func_parameter.c:430:9:app_func_para_datatype_get	24	static
+../App/Functions/Src/app_func_parameter.c:455:9:app_func_para_datalen_get	32	static
+../App/Functions/Src/app_func_parameter.c:478:6:app_func_para_data_set	40	static
+../App/Functions/Src/app_func_parameter.c:512:6:app_func_para_data_get	40	static
+../App/Functions/Src/app_func_parameter.c:538:6:app_func_para_defdata_get	32	static
+../App/Functions/Src/app_func_parameter.c:560:10:app_func_para_stepsize_get	32	static
+../App/Functions/Src/app_func_parameter.c:582:6:app_func_para_val_in_range	40	static
+../App/Functions/Src/app_func_parameter.c:605:10:app_func_para_val_quant_clip	40	static

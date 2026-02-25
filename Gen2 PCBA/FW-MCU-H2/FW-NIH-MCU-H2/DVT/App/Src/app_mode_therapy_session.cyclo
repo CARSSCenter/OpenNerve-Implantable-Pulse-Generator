@@ -1,0 +1,4 @@
+../App/Src/app_mode_therapy_session.c:19:6:app_mode_therapy_start	20
+../App/Src/app_mode_therapy_session.c:219:6:app_mode_therapy_stop	1
+../App/Src/app_mode_therapy_session.c:230:6:app_mode_therapy_confirm	1
+../App/Src/app_mode_therapy_session.c:238:6:app_mode_therapy_handler	5
