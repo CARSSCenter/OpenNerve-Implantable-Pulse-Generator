@@ -1,0 +1,5 @@
+../App/Bsp/Src/bsp_magnet.c:16:6:bsp_magnet_init	1
+../App/Bsp/Src/bsp_magnet.c:24:6:bsp_magnet_timer_cb	2
+../App/Bsp/Src/bsp_magnet.c:35:6:bsp_magnet_detect_cb	5
+../App/Bsp/Src/bsp_magnet.c:55:6:HAL_GPIO_EXTI_Rising_Callback	2
+../App/Bsp/Src/bsp_magnet.c:67:6:HAL_GPIO_EXTI_Falling_Callback	2

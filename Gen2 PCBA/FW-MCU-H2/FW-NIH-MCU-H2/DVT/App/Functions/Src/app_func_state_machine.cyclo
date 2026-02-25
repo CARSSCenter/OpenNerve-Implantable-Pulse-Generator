@@ -1,0 +1,9 @@
+../App/Functions/Src/app_func_state_machine.c:44:6:app_func_sm_current_state_set	1
+../App/Functions/Src/app_func_state_machine.c:53:10:app_func_sm_current_state_get	1
+../App/Functions/Src/app_func_state_machine.c:61:6:app_func_sm_impedance_timer_enable	1
+../App/Functions/Src/app_func_state_machine.c:71:6:app_func_sm_battery_timer_enable	1
+../App/Functions/Src/app_func_state_machine.c:81:6:app_func_sm_init	11
+../App/Functions/Src/app_func_state_machine.c:137:6:app_func_sm_schd_therapy_enable	4
+../App/Functions/Src/app_func_state_machine.c:164:6:app_func_sm_wakeup_timer_cb	3
+../App/Functions/Src/app_func_state_machine.c:178:6:app_func_sm_confirmation_timer_cb	10
+../App/Functions/Src/app_func_state_machine.c:212:6:app_func_sm_magnet_lost_cb	7

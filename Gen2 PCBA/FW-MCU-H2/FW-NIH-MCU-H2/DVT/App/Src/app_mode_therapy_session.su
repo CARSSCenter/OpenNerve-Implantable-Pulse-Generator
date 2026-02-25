@@ -1,0 +1,4 @@
+../App/Src/app_mode_therapy_session.c:19:6:app_mode_therapy_start	256	static
+../App/Src/app_mode_therapy_session.c:219:6:app_mode_therapy_stop	8	static
+../App/Src/app_mode_therapy_session.c:230:6:app_mode_therapy_confirm	4	static
+../App/Src/app_mode_therapy_session.c:238:6:app_mode_therapy_handler	24	static

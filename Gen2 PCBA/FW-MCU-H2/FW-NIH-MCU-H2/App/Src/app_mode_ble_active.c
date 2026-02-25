@@ -179,6 +179,12 @@ void app_mode_ble_act_handler(void) {
 	app_func_command_req_parser_set(&app_mode_ble_act_cmd_parser);
 	ble_act_user_class = USER_CLASS_INVALID;
 
+	//Enabling thermistor in production mode
+	app_func_meas_therm_enable(true);
+
+	//Enabling battery monitor in production mode
+	app_func_meas_batt_mon_enable(true);
+
 	BLE_ADV_Setting_t setting = {0};
 	_Float64 adv_timeout_f = 0.0;
 

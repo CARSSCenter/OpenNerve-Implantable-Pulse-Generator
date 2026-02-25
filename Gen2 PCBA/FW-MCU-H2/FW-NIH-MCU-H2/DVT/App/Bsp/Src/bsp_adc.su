@@ -1,0 +1,11 @@
+../App/Bsp/Src/bsp_adc.c:57:13:bsp_adc_sample_rate_config	32	static
+../App/Bsp/Src/bsp_adc.c:70:13:bsp_adc_deinit	16	static
+../App/Bsp/Src/bsp_adc.c:83:31:bsp_adc_channel_add	64	static
+../App/Bsp/Src/bsp_adc.c:112:13:bsp_adc_reinit	32	static
+../App/Bsp/Src/bsp_adc.c:128:13:bsp_adc_sampling	24	static
+../App/Bsp/Src/bsp_adc.c:156:6:HAL_ADC_ConvCpltCallback	16	static
+../App/Bsp/Src/bsp_adc.c:171:6:bsp_adc_init	64	static
+../App/Bsp/Src/bsp_adc.c:200:13:bsp_adc_single_sampling	64	static
+../App/Bsp/Src/bsp_adc.c:220:13:bsp_adc_sampling_continue_IT	16	static
+../App/Bsp/Src/bsp_adc.c:234:13:bsp_adc_sampling_conversion	24	static
+../App/Bsp/Src/bsp_adc.c:247:6:bsp_adc_sampling_is_completed	4	static
