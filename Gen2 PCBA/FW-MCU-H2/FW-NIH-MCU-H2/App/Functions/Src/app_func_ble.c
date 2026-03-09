@@ -136,6 +136,9 @@ void app_func_ble_enable(bool enable) {
 			bsp_wdg_refresh();
 			app_func_ble_new_state_get();
 			while(!bsp_sp_cmd_handler()) {
+				// Uncomment the line below to refresh the watchdog timer while waiting for BLE MCU to boot
+				//Not good practice, but may be necessary if you've flashed MCU but not BLE yet
+				//bsp_wdg_refresh();
 				HAL_Delay(1);
 			}
 		}

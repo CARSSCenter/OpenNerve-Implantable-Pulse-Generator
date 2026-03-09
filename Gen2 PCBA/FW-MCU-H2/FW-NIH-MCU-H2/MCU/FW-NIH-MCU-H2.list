@@ -33,11 +33,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  14 .debug_macro  0004c6c4  00000000  00000000  0009370b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   00063d0f  00000000  00000000  000dfdcf  2**0
+ 15 .debug_line   00063d11  00000000  00000000  000dfdcf  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    00192dc5  00000000  00000000  00143ade  2**0
+ 16 .debug_str    00192dc5  00000000  00000000  00143ae0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000043  00000000  00000000  002d68a3  2**0
+ 17 .comment      00000043  00000000  00000000  002d68a5  2**0
                   CONTENTS, READONLY
  18 .debug_frame  0000f78c  00000000  00000000  002d68e8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -4751,6 +4751,9 @@ void app_func_ble_enable(bool enable) {
  80026aa:	f000 f87d 	bl	80027a8 <app_func_ble_new_state_get>
 			while(!bsp_sp_cmd_handler()) {
  80026ae:	e002      	b.n	80026b6 <app_func_ble_enable+0xb2>
+				// Uncomment the line below to refresh the watchdog timer while waiting for BLE MCU to boot
+				//Not good practice, but may be necessary if you've flashed MCU but not BLE yet
+				//bsp_wdg_refresh();
 				HAL_Delay(1);
  80026b0:	2001      	movs	r0, #1
  80026b2:	f00e fb3b 	bl	8010d2c <HAL_Delay>
@@ -8579,9 +8582,9 @@ void app_func_meas_therm_meas(uint8_t thermID, uint8_t* buff, uint8_t bufferSize
  8004252:	46bd      	mov	sp, r7
  8004254:	bd80      	pop	{r7, pc}
  8004256:	bf00      	nop
- 8004258:	04000002 	.word	0x04000002
+ 8004258:	0c000008 	.word	0x0c000008
  800425c:	08000004 	.word	0x08000004
- 8004260:	0c000008 	.word	0x0c000008
+ 8004260:	04000002 	.word	0x04000002
 
 08004264 <app_func_meas_off>:
 
@@ -9386,67 +9389,67 @@ void app_func_para_init (void) {
  800482e:	3330      	adds	r3, #48	@ 0x30
  8004830:	b2db      	uxtb	r3, r3
  8004832:	727b      	strb	r3, [r7, #9]
- 8004834:	2346      	movs	r3, #70	@ 0x46
+ 8004834:	234d      	movs	r3, #77	@ 0x4d
  8004836:	2b4a      	cmp	r3, #74	@ 0x4a
  8004838:	d105      	bne.n	8004846 <app_func_para_init+0x376>
- 800483a:	2365      	movs	r3, #101	@ 0x65
+ 800483a:	2361      	movs	r3, #97	@ 0x61
  800483c:	2b61      	cmp	r3, #97	@ 0x61
  800483e:	d102      	bne.n	8004846 <app_func_para_init+0x376>
- 8004840:	2362      	movs	r3, #98	@ 0x62
+ 8004840:	2372      	movs	r3, #114	@ 0x72
  8004842:	2b6e      	cmp	r3, #110	@ 0x6e
  8004844:	d037      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 8004846:	2346      	movs	r3, #70	@ 0x46
+ 8004846:	234d      	movs	r3, #77	@ 0x4d
  8004848:	2b46      	cmp	r3, #70	@ 0x46
  800484a:	d034      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 800484c:	2346      	movs	r3, #70	@ 0x46
+ 800484c:	234d      	movs	r3, #77	@ 0x4d
  800484e:	2b4d      	cmp	r3, #77	@ 0x4d
  8004850:	d105      	bne.n	800485e <app_func_para_init+0x38e>
- 8004852:	2365      	movs	r3, #101	@ 0x65
+ 8004852:	2361      	movs	r3, #97	@ 0x61
  8004854:	2b61      	cmp	r3, #97	@ 0x61
  8004856:	d102      	bne.n	800485e <app_func_para_init+0x38e>
- 8004858:	2362      	movs	r3, #98	@ 0x62
+ 8004858:	2372      	movs	r3, #114	@ 0x72
  800485a:	2b72      	cmp	r3, #114	@ 0x72
  800485c:	d02b      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 800485e:	2346      	movs	r3, #70	@ 0x46
+ 800485e:	234d      	movs	r3, #77	@ 0x4d
  8004860:	2b41      	cmp	r3, #65	@ 0x41
  8004862:	d102      	bne.n	800486a <app_func_para_init+0x39a>
- 8004864:	2365      	movs	r3, #101	@ 0x65
+ 8004864:	2361      	movs	r3, #97	@ 0x61
  8004866:	2b70      	cmp	r3, #112	@ 0x70
  8004868:	d025      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 800486a:	2346      	movs	r3, #70	@ 0x46
+ 800486a:	234d      	movs	r3, #77	@ 0x4d
  800486c:	2b4d      	cmp	r3, #77	@ 0x4d
  800486e:	d105      	bne.n	800487c <app_func_para_init+0x3ac>
- 8004870:	2365      	movs	r3, #101	@ 0x65
+ 8004870:	2361      	movs	r3, #97	@ 0x61
  8004872:	2b61      	cmp	r3, #97	@ 0x61
  8004874:	d102      	bne.n	800487c <app_func_para_init+0x3ac>
- 8004876:	2362      	movs	r3, #98	@ 0x62
+ 8004876:	2372      	movs	r3, #114	@ 0x72
  8004878:	2b79      	cmp	r3, #121	@ 0x79
  800487a:	d01c      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 800487c:	2346      	movs	r3, #70	@ 0x46
+ 800487c:	234d      	movs	r3, #77	@ 0x4d
  800487e:	2b4a      	cmp	r3, #74	@ 0x4a
  8004880:	d105      	bne.n	800488e <app_func_para_init+0x3be>
- 8004882:	2365      	movs	r3, #101	@ 0x65
+ 8004882:	2361      	movs	r3, #97	@ 0x61
  8004884:	2b75      	cmp	r3, #117	@ 0x75
  8004886:	d102      	bne.n	800488e <app_func_para_init+0x3be>
- 8004888:	2362      	movs	r3, #98	@ 0x62
+ 8004888:	2372      	movs	r3, #114	@ 0x72
  800488a:	2b6e      	cmp	r3, #110	@ 0x6e
  800488c:	d013      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 800488e:	2346      	movs	r3, #70	@ 0x46
+ 800488e:	234d      	movs	r3, #77	@ 0x4d
  8004890:	2b4a      	cmp	r3, #74	@ 0x4a
  8004892:	d105      	bne.n	80048a0 <app_func_para_init+0x3d0>
- 8004894:	2365      	movs	r3, #101	@ 0x65
+ 8004894:	2361      	movs	r3, #97	@ 0x61
  8004896:	2b75      	cmp	r3, #117	@ 0x75
  8004898:	d102      	bne.n	80048a0 <app_func_para_init+0x3d0>
- 800489a:	2362      	movs	r3, #98	@ 0x62
+ 800489a:	2372      	movs	r3, #114	@ 0x72
  800489c:	2b6c      	cmp	r3, #108	@ 0x6c
  800489e:	d00a      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 80048a0:	2346      	movs	r3, #70	@ 0x46
+ 80048a0:	234d      	movs	r3, #77	@ 0x4d
  80048a2:	2b41      	cmp	r3, #65	@ 0x41
  80048a4:	d102      	bne.n	80048ac <app_func_para_init+0x3dc>
- 80048a6:	2365      	movs	r3, #101	@ 0x65
+ 80048a6:	2361      	movs	r3, #97	@ 0x61
  80048a8:	2b75      	cmp	r3, #117	@ 0x75
  80048aa:	d004      	beq.n	80048b6 <app_func_para_init+0x3e6>
- 80048ac:	2346      	movs	r3, #70	@ 0x46
+ 80048ac:	234d      	movs	r3, #77	@ 0x4d
  80048ae:	2b53      	cmp	r3, #83	@ 0x53
  80048b0:	d001      	beq.n	80048b6 <app_func_para_init+0x3e6>
  80048b2:	2301      	movs	r3, #1
@@ -9456,73 +9459,73 @@ void app_func_para_init (void) {
  80048ba:	3330      	adds	r3, #48	@ 0x30
  80048bc:	b2db      	uxtb	r3, r3
  80048be:	72bb      	strb	r3, [r7, #10]
- 80048c0:	2346      	movs	r3, #70	@ 0x46
+ 80048c0:	234d      	movs	r3, #77	@ 0x4d
  80048c2:	2b4a      	cmp	r3, #74	@ 0x4a
  80048c4:	d105      	bne.n	80048d2 <app_func_para_init+0x402>
- 80048c6:	2365      	movs	r3, #101	@ 0x65
+ 80048c6:	2361      	movs	r3, #97	@ 0x61
  80048c8:	2b61      	cmp	r3, #97	@ 0x61
  80048ca:	d102      	bne.n	80048d2 <app_func_para_init+0x402>
- 80048cc:	2362      	movs	r3, #98	@ 0x62
+ 80048cc:	2372      	movs	r3, #114	@ 0x72
  80048ce:	2b6e      	cmp	r3, #110	@ 0x6e
  80048d0:	d051      	beq.n	8004976 <app_func_para_init+0x4a6>
- 80048d2:	2346      	movs	r3, #70	@ 0x46
+ 80048d2:	234d      	movs	r3, #77	@ 0x4d
  80048d4:	2b46      	cmp	r3, #70	@ 0x46
  80048d6:	d04c      	beq.n	8004972 <app_func_para_init+0x4a2>
- 80048d8:	2346      	movs	r3, #70	@ 0x46
+ 80048d8:	234d      	movs	r3, #77	@ 0x4d
  80048da:	2b4d      	cmp	r3, #77	@ 0x4d
  80048dc:	d105      	bne.n	80048ea <app_func_para_init+0x41a>
- 80048de:	2365      	movs	r3, #101	@ 0x65
+ 80048de:	2361      	movs	r3, #97	@ 0x61
  80048e0:	2b61      	cmp	r3, #97	@ 0x61
  80048e2:	d102      	bne.n	80048ea <app_func_para_init+0x41a>
- 80048e4:	2362      	movs	r3, #98	@ 0x62
+ 80048e4:	2372      	movs	r3, #114	@ 0x72
  80048e6:	2b72      	cmp	r3, #114	@ 0x72
  80048e8:	d041      	beq.n	800496e <app_func_para_init+0x49e>
- 80048ea:	2346      	movs	r3, #70	@ 0x46
+ 80048ea:	234d      	movs	r3, #77	@ 0x4d
  80048ec:	2b41      	cmp	r3, #65	@ 0x41
  80048ee:	d102      	bne.n	80048f6 <app_func_para_init+0x426>
- 80048f0:	2365      	movs	r3, #101	@ 0x65
+ 80048f0:	2361      	movs	r3, #97	@ 0x61
  80048f2:	2b70      	cmp	r3, #112	@ 0x70
  80048f4:	d039      	beq.n	800496a <app_func_para_init+0x49a>
- 80048f6:	2346      	movs	r3, #70	@ 0x46
+ 80048f6:	234d      	movs	r3, #77	@ 0x4d
  80048f8:	2b4d      	cmp	r3, #77	@ 0x4d
  80048fa:	d105      	bne.n	8004908 <app_func_para_init+0x438>
- 80048fc:	2365      	movs	r3, #101	@ 0x65
+ 80048fc:	2361      	movs	r3, #97	@ 0x61
  80048fe:	2b61      	cmp	r3, #97	@ 0x61
  8004900:	d102      	bne.n	8004908 <app_func_para_init+0x438>
- 8004902:	2362      	movs	r3, #98	@ 0x62
+ 8004902:	2372      	movs	r3, #114	@ 0x72
  8004904:	2b79      	cmp	r3, #121	@ 0x79
  8004906:	d02e      	beq.n	8004966 <app_func_para_init+0x496>
- 8004908:	2346      	movs	r3, #70	@ 0x46
+ 8004908:	234d      	movs	r3, #77	@ 0x4d
  800490a:	2b4a      	cmp	r3, #74	@ 0x4a
  800490c:	d105      	bne.n	800491a <app_func_para_init+0x44a>
- 800490e:	2365      	movs	r3, #101	@ 0x65
+ 800490e:	2361      	movs	r3, #97	@ 0x61
  8004910:	2b75      	cmp	r3, #117	@ 0x75
  8004912:	d102      	bne.n	800491a <app_func_para_init+0x44a>
- 8004914:	2362      	movs	r3, #98	@ 0x62
+ 8004914:	2372      	movs	r3, #114	@ 0x72
  8004916:	2b6e      	cmp	r3, #110	@ 0x6e
  8004918:	d023      	beq.n	8004962 <app_func_para_init+0x492>
- 800491a:	2346      	movs	r3, #70	@ 0x46
+ 800491a:	234d      	movs	r3, #77	@ 0x4d
  800491c:	2b4a      	cmp	r3, #74	@ 0x4a
  800491e:	d105      	bne.n	800492c <app_func_para_init+0x45c>
- 8004920:	2365      	movs	r3, #101	@ 0x65
+ 8004920:	2361      	movs	r3, #97	@ 0x61
  8004922:	2b75      	cmp	r3, #117	@ 0x75
  8004924:	d102      	bne.n	800492c <app_func_para_init+0x45c>
- 8004926:	2362      	movs	r3, #98	@ 0x62
+ 8004926:	2372      	movs	r3, #114	@ 0x72
  8004928:	2b6c      	cmp	r3, #108	@ 0x6c
  800492a:	d018      	beq.n	800495e <app_func_para_init+0x48e>
- 800492c:	2346      	movs	r3, #70	@ 0x46
+ 800492c:	234d      	movs	r3, #77	@ 0x4d
  800492e:	2b41      	cmp	r3, #65	@ 0x41
  8004930:	d102      	bne.n	8004938 <app_func_para_init+0x468>
- 8004932:	2365      	movs	r3, #101	@ 0x65
+ 8004932:	2361      	movs	r3, #97	@ 0x61
  8004934:	2b75      	cmp	r3, #117	@ 0x75
  8004936:	d010      	beq.n	800495a <app_func_para_init+0x48a>
- 8004938:	2346      	movs	r3, #70	@ 0x46
+ 8004938:	234d      	movs	r3, #77	@ 0x4d
  800493a:	2b53      	cmp	r3, #83	@ 0x53
  800493c:	d00b      	beq.n	8004956 <app_func_para_init+0x486>
- 800493e:	2346      	movs	r3, #70	@ 0x46
+ 800493e:	234d      	movs	r3, #77	@ 0x4d
  8004940:	2b4f      	cmp	r3, #79	@ 0x4f
  8004942:	d006      	beq.n	8004952 <app_func_para_init+0x482>
- 8004944:	2346      	movs	r3, #70	@ 0x46
+ 8004944:	234d      	movs	r3, #77	@ 0x4d
  8004946:	2b4e      	cmp	r3, #78	@ 0x4e
  8004948:	d101      	bne.n	800494e <app_func_para_init+0x47e>
  800494a:	2331      	movs	r3, #49	@ 0x31
@@ -9549,10 +9552,10 @@ void app_func_para_init (void) {
  8004974:	e000      	b.n	8004978 <app_func_para_init+0x4a8>
  8004976:	2331      	movs	r3, #49	@ 0x31
  8004978:	72fb      	strb	r3, [r7, #11]
- 800497a:	2332      	movs	r3, #50	@ 0x32
+ 800497a:	2320      	movs	r3, #32
  800497c:	2b20      	cmp	r3, #32
  800497e:	d10b      	bne.n	8004998 <app_func_para_init+0x4c8>
- 8004980:	2335      	movs	r3, #53	@ 0x35
+ 8004980:	2339      	movs	r3, #57	@ 0x39
  8004982:	3b30      	subs	r3, #48	@ 0x30
  8004984:	4a36      	ldr	r2, [pc, #216]	@ (8004a60 <app_func_para_init+0x590>)
  8004986:	fb82 1203 	smull	r1, r2, r2, r3
@@ -9563,14 +9566,14 @@ void app_func_para_init (void) {
  8004992:	3330      	adds	r3, #48	@ 0x30
  8004994:	b2db      	uxtb	r3, r3
  8004996:	e013      	b.n	80049c0 <app_func_para_init+0x4f0>
- 8004998:	2332      	movs	r3, #50	@ 0x32
+ 8004998:	2320      	movs	r3, #32
  800499a:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
  800499e:	4613      	mov	r3, r2
  80049a0:	009b      	lsls	r3, r3, #2
  80049a2:	4413      	add	r3, r2
  80049a4:	005b      	lsls	r3, r3, #1
  80049a6:	461a      	mov	r2, r3
- 80049a8:	2335      	movs	r3, #53	@ 0x35
+ 80049a8:	2339      	movs	r3, #57	@ 0x39
  80049aa:	3b30      	subs	r3, #48	@ 0x30
  80049ac:	4413      	add	r3, r2
  80049ae:	4a2c      	ldr	r2, [pc, #176]	@ (8004a60 <app_func_para_init+0x590>)
@@ -9582,10 +9585,10 @@ void app_func_para_init (void) {
  80049bc:	3330      	adds	r3, #48	@ 0x30
  80049be:	b2db      	uxtb	r3, r3
  80049c0:	733b      	strb	r3, [r7, #12]
- 80049c2:	2332      	movs	r3, #50	@ 0x32
+ 80049c2:	2320      	movs	r3, #32
  80049c4:	2b20      	cmp	r3, #32
  80049c6:	d111      	bne.n	80049ec <app_func_para_init+0x51c>
- 80049c8:	2335      	movs	r3, #53	@ 0x35
+ 80049c8:	2339      	movs	r3, #57	@ 0x39
  80049ca:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
  80049ce:	4b24      	ldr	r3, [pc, #144]	@ (8004a60 <app_func_para_init+0x590>)
  80049d0:	fb83 1302 	smull	r1, r3, r3, r2
@@ -9601,14 +9604,14 @@ void app_func_para_init (void) {
  80049e6:	3330      	adds	r3, #48	@ 0x30
  80049e8:	b2db      	uxtb	r3, r3
  80049ea:	e018      	b.n	8004a1e <app_func_para_init+0x54e>
- 80049ec:	2332      	movs	r3, #50	@ 0x32
+ 80049ec:	2320      	movs	r3, #32
  80049ee:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
  80049f2:	4613      	mov	r3, r2
  80049f4:	009b      	lsls	r3, r3, #2
  80049f6:	4413      	add	r3, r2
  80049f8:	005b      	lsls	r3, r3, #1
  80049fa:	461a      	mov	r2, r3
- 80049fc:	2335      	movs	r3, #53	@ 0x35
+ 80049fc:	2339      	movs	r3, #57	@ 0x39
  80049fe:	3b30      	subs	r3, #48	@ 0x30
  8004a00:	441a      	add	r2, r3
  8004a02:	4b17      	ldr	r3, [pc, #92]	@ (8004a60 <app_func_para_init+0x590>)
@@ -31623,9 +31626,9 @@ void MX_IWDG_Init(void)
  800f574:	4b0a      	ldr	r3, [pc, #40]	@ (800f5a0 <MX_IWDG_Init+0x3c>)
  800f576:	f640 72ff 	movw	r2, #4095	@ 0xfff
  800f57a:	60da      	str	r2, [r3, #12]
-  hiwdg.Init.Reload = 1000;
+  hiwdg.Init.Reload = 2000;	// Time in ms for watchdog timer. When set to 1s, it appears that for certain boards BLE MCU does not initialize in time. If you observe this, try increasing to 4s
  800f57c:	4b08      	ldr	r3, [pc, #32]	@ (800f5a0 <MX_IWDG_Init+0x3c>)
- 800f57e:	f44f 727a 	mov.w	r2, #1000	@ 0x3e8
+ 800f57e:	f44f 62fa 	mov.w	r2, #2000	@ 0x7d0
  800f582:	609a      	str	r2, [r3, #8]
   hiwdg.Init.EWI = 100;
  800f584:	4b06      	ldr	r3, [pc, #24]	@ (800f5a0 <MX_IWDG_Init+0x3c>)
