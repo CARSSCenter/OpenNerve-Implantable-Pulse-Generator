@@ -86,6 +86,11 @@ void app_handler(void) {
 		app_mode_dvt_handler();
 		break;
 
+	case STATE_ACT_MODE_WPT_HIGH:
+	case STATE_ACT_MODE_WPT_PAUSED:
+		app_mode_wpt_handler();
+		break;
+
 	default:
 		break;
 	}
@@ -107,6 +112,7 @@ void HAL_IncTick(void)
   app_mode_ble_act_timer_cb();
   app_mode_ble_conn_timer_cb();
   app_mode_dvt_acc_timer_cb();
+  app_mode_wpt_timer_cb();
 }
 
 /**

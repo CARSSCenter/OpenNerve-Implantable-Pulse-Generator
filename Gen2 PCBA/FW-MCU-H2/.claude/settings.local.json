@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "WebFetch(domain:www.analog.com)",
+      "WebFetch(domain:www.alldatasheet.com)",
+      "WebFetch(domain:cds.linear.com)"
+    ]
+  }
+}

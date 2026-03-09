@@ -5,5 +5,6 @@
 ../App/Functions/Src/app_func_state_machine.c:81:6:app_func_sm_init	11
 ../App/Functions/Src/app_func_state_machine.c:137:6:app_func_sm_schd_therapy_enable	4
 ../App/Functions/Src/app_func_state_machine.c:164:6:app_func_sm_wakeup_timer_cb	3
-../App/Functions/Src/app_func_state_machine.c:178:6:app_func_sm_confirmation_timer_cb	10
-../App/Functions/Src/app_func_state_machine.c:212:6:app_func_sm_magnet_lost_cb	7
+../App/Functions/Src/app_func_state_machine.c:179:6:app_func_sm_vrect_coil_cb	7
+../App/Functions/Src/app_func_state_machine.c:195:6:app_func_sm_confirmation_timer_cb	12
+../App/Functions/Src/app_func_state_machine.c:234:6:app_func_sm_magnet_lost_cb	7

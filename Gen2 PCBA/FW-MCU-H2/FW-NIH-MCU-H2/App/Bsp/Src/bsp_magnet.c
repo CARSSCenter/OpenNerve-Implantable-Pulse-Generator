@@ -57,6 +57,10 @@ void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)
 	if (GPIO_Pin == MAG_DET_Pin) {
 		bsp_magnet_detect_cb(true);
 	}
+	else if (GPIO_Pin == VRECT_DETn_Pin) {
+		/* Rising = VRECT_DETn high = coil removed */
+		app_func_sm_vrect_coil_cb(false);
+	}
 }
 
 /**
@@ -68,5 +72,9 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
 {
 	if (GPIO_Pin == MAG_DET_Pin) {
 		bsp_magnet_detect_cb(false);
+	}
+	else if (GPIO_Pin == VRECT_DETn_Pin) {
+		/* Falling = VRECT_DETn low = coil present */
+		app_func_sm_vrect_coil_cb(true);
 	}
 }

@@ -19,6 +19,8 @@
 #define	STATE_ACT_MODE_OAD				0x0206U		/*!< Active state with OAD mode */
 #define	STATE_ACT_MODE_BSL				0x0207U		/*!< Active state with BSL mode */
 #define	STATE_ACT_MODE_DVT				0x0208U		/*!< Active state with DVT mode */
+#define	STATE_ACT_MODE_WPT_HIGH			0x0209U		/*!< Active state with WPT charging active */
+#define	STATE_ACT_MODE_WPT_PAUSED		0x020AU		/*!< Active state with WPT charging paused */
 #define	STATE_SHUTDOWN					0xFFFFU		/*!< Shutdown state */
 
 /**
@@ -78,5 +80,12 @@ void app_func_sm_confirmation_timer_cb(void);
  * @param detected_time Detected time
  */
 void app_func_sm_magnet_lost_cb(uint8_t detected_time);
+
+/**
+ * @brief Callback when VRECT coil is detected or lost
+ *
+ * @param coil_present true = coil present (VRECT_DETn falling/low), false = coil removed (VRECT_DETn rising/high)
+ */
+void app_func_sm_vrect_coil_cb(bool coil_present);
 
 #endif /* FUNCTIONS_INC_APP_FUNC_STATE_MACHINE_H_ */

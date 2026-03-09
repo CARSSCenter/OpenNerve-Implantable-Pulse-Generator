@@ -21,6 +21,7 @@
 "./App/Src/app_mode_impedance_test.o"
 "./App/Src/app_mode_oad.o"
 "./App/Src/app_mode_therapy_session.o"
+"./App/Src/app_mode_wpt.o"
 "./App/Src/app_state.o"
 "./Core/Src/adc.o"
 "./Core/Src/crc.o"
