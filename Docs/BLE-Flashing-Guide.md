@@ -36,4 +36,12 @@ If the J-Link driver is not in USB devices, Start J-Link Configurator, right cli
 
 <img width="612" height="290" alt="image" src="https://github.com/user-attachments/assets/7326a29b-080e-4f01-86cd-7b0feebe81c3" />
 
+### Debugging
+
+For debugging, load the file "UICR_APPROTECT_HwDisabled.hex" to disable AP Protection. The BLE firmware .hex file used for production does not include this hex file, so AP Protection remains enabled.
+
+Please refer to the figure below for the SEGGER Embedded Studio configuration settings.
+
+<img width="468" height="279" alt="image" src="https://github.com/user-attachments/assets/da9af7e2-eee9-4eb3-af91-2e6972a41305" />
+
 
