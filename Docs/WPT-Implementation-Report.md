@@ -17,8 +17,6 @@ This implementation adds a complete autonomous charging state machine. When a WP
 
 ## 2. Hardware Overview
 
-Understanding the charging hardware is essential context for the firmware.
-
 ### 2.1 Signal Path
 
 ```
@@ -53,7 +51,7 @@ This combination selects **50 mA** charge rate. Other combinations are available
 
 ### 2.2a Charger IC Autonomous Operation (LTC4065)
 
-The charger IC is the **LTC4065**, a standalone linear Li-Ion charger. An important design principle governs how the firmware interacts with it: **`CHGx_EN` is held HIGH for the entire coil-present session and the IC manages its own charge cycle autonomously.** The firmware never toggles `CHGx_EN` in response to charge status.
+The charger IC is the **LTC4065**, a standalone linear Li-Ion charger. **`CHGx_EN` is held HIGH for the entire coil-present session and the IC manages its own charge cycle autonomously.** The firmware never toggles `CHGx_EN` in response to charge status.
 
 The LTC4065's `nCHRG` pin (connected directly to `CHGx_STATUS` with no inverting circuit) is an open-drain output with three states:
 
@@ -65,7 +63,7 @@ The LTC4065's `nCHRG` pin (connected directly to `CHGx_STATUS` with no inverting
 
 After reaching C/10 termination, the IC enters standby and monitors the battery voltage internally. When the battery self-discharges sufficiently, the IC restarts the charge cycle automatically with no firmware interaction. `nCHRG` will go LOW again at that point.
 
-The firmware reads `CHGx_STATUS` every second purely for **telemetry** — it is broadcast in the BLE advertisement. It does not gate any state transition.
+The firmware reads `CHGx_STATUS` every second purely for **telemetry** — it is broadcast in the BLE advertisement. It does not gate any state transition, and **the system does not enter `WPT_PAUSED` when one or both batteries report charge complete**. `CHGx_EN` remains HIGH and the device stays in `WPT_HIGH` indefinitely while the coil is present; the LTC4065 autonomously manages termination and re-charge without any firmware involvement.
 
 The only conditions that cause the firmware to intervene (pull `CHGx_EN` LOW and assert `VCHG_DISABLE`) are external protection faults that the IC cannot self-manage: **over-temperature** and **VRECT overvoltage**.
 
@@ -227,7 +225,7 @@ void app_func_sm_confirmation_timer_cb(void) {
 
 ## 5. Boot-Time Safety Fix: VCHG_DISABLE
 
-Prior to this change, `VCHG_DISABLE` (PC8) was initialized `LOW` at boot, which enabled the LTC3130 buck-boost converter immediately on power-up — even when no coil was present and no charger was intended to run. This was corrected in `gpio.c`:
+Prior to this change, `VCHG_DISABLE` (PC8) was initialized `LOW` at boot, which enabled the LTC3130 buck-boost converter immediately on power-up — even when no coil was present and no charger was intended to run. This was modified in `gpio.c`:
 
 ```c
 // Core/Src/gpio.c — before
@@ -316,7 +314,7 @@ curr_state = STATE_ACT_MODE_WPT_PAUSED
 
 #### WPT_PAUSED → WPT_HIGH
 
-Resume requires only that the protection faults have cleared and at least one battery is present. The firmware does not consult `CHGx_STATUS` for resume decisions — the LTC4065 autonomously manages its own charge cycle (including re-charge after self-discharge) once `CHGx_EN` is asserted and `VCHG_DISABLE` is de-asserted.
+Resume requires that the protection faults have cleared, at least one battery is present, and the OVP hold timer has expired. The firmware does not consult `CHGx_STATUS` for resume decisions — the LTC4065 autonomously manages its own charge cycle (including re-charge after self-discharge) once `CHGx_EN` is asserted and `VCHG_DISABLE` is de-asserted.
 
 Battery voltage is measured and broadcast in the BLE advertisement every second but does not gate any state transition.
 
@@ -325,6 +323,7 @@ Battery voltage is measured and broadcast in the BLE advertisement every second 
 | At least one battery present | `battery_a_present OR battery_b_present` |
 | Temperature below threshold | `temp_c < 42.0°C` |
 | No rectifier overvoltage | `VRECT_OVPn = HIGH` |
+| OVP pause hold expired | `wpt_paused_hold_ms == 0` (always 0 unless a VRECT OVP fault caused the pause; see `WPT_OVP_PAUSE_HOLD_MS`) |
 
 On resuming:
 ```
@@ -469,55 +468,7 @@ Values outside the table range (> 126,400 Ω → < 20°C, or < 33,790 Ω → > 5
 
 ---
 
-## 9. BLE Advertisement MSD Layout
-
-`app_mode_ble_act_adv_msd_update()` populates the MSD buffer. This function is shared between BLE active mode and WPT mode; WPT bits are always written based on current state.
-
-### Byte fields (MSD[0..7])
-
-| Byte | Content | Scale |
-|------|---------|-------|
-| 0 | DVDD supply voltage | × 100 mV (e.g., 33 → 3.3 V) |
-| 1 | Battery A voltage | × 100 mV |
-| 2 | Battery B voltage | × 100 mV |
-| 3 | Impedance channel A voltage | × 10 mV |
-| 4 | Impedance channel B voltage | × 10 mV |
-| 5 | THERM_REF voltage | × 10 mV |
-| 6 | THERM_OUT voltage | × 10 mV |
-| 7 | THERM_OFST voltage | × 10 mV |
-
-### Bit field (MSD[8..9], starting at buff_offset)
-
-The 16 bits packed into bytes 8–9 are:
-
-| Bit | Signal | Active | Source |
-|-----|--------|--------|--------|
-| 0 | VRECT_DETn | 1 = coil absent (pin high) | GPIO |
-| 1 | VRECT_OVPn | 1 = no OVP (pin high) | GPIO |
-| 2 | VCHG_PGOOD | 1 = converter output good | GPIO |
-| 3 | CHG1_STATUS | 1 = battery A charge complete | GPIO |
-| 4 | CHG1_OVP_ERRn | 1 = no OVP error (pin high) | GPIO |
-| 5 | CHG2_STATUS | 1 = battery B charge complete | GPIO |
-| 6 | CHG2_OVP_ERRn | 1 = no OVP error (pin high) | GPIO |
-| 7 | ENG2_SDNn | engine 2 shutdown state | GPIO |
-| 8 | ENG1_SDNn | engine 1 shutdown state | GPIO |
-| 9 | ECG_RLD | ECG right-leg drive state | GPIO |
-| 10 | ECG_HR_SDNn | ECG HR shutdown state | GPIO |
-| 11 | ECG_RR_SDNn | ECG RR shutdown state | GPIO |
-| 12 | TEMP_EN | temperature circuit enable | GPIO |
-| 13 | IMP_EN | impedance circuit enable | GPIO |
-| **14** | **WPT_ACTIVE** | **1 = WPT_HIGH or WPT_PAUSED** | **State** |
-| **15** | **WPT_PAUSED** | **1 = specifically WPT_PAUSED** | **State** |
-
-Bits 14–15 are written directly into `buff_offset[1]` (MSD byte 9) bits 6 and 7. They reflect the firmware state, not a GPIO pin.
-
-### MSD[LEN_BLE_MSD_MAX - 1]
-
-The last byte is always the hardware version (`HW_VERSION = 21`).
-
----
-
-## 10. GPIO Reference Table
+## 9. GPIO Reference Table
 
 All pins relevant to WPT, with their port, pin number, direction, and active level:
 
@@ -547,9 +498,9 @@ All pins relevant to WPT, with their port, pin number, direction, and active lev
 
 ---
 
-## 11. Interrupt and Timer Architecture
+## 10. Interrupt and Timer Architecture
 
-### 11.1 EXTI7 (VRECT_DETn)
+### 10.1 EXTI7 (VRECT_DETn)
 
 ```
 Hardware edge on PC7
@@ -569,7 +520,7 @@ HAL_GPIO_EXTI_IRQHandler(VRECT_DETn_Pin)
 
 EXTI3 (MAG_DET) and EXTI7 (VRECT_DETn) share the same callback functions; each is dispatched by pin ID.
 
-### 11.2 WPT 1-Second Sample Timer
+### 10.2 WPT 1-Second Sample Timer
 
 ```
 SysTick (1 ms)
@@ -590,7 +541,7 @@ The WPT timer callback runs every 1 ms regardless of current application state �
 
 ---
 
-## 12. Constants Reference
+## 11. Constants Reference
 
 All thresholds are defined in `App/Inc/app_mode_wpt.h`:
 
@@ -599,217 +550,16 @@ All thresholds are defined in `App/Inc/app_mode_wpt.h`:
 #define WPT_BATT_ABSENT_CONSECUTIVE    2U        // 2 consecutive samples required to declare absent
 #define WPT_THERM_PAUSE_THRESHOLD_C    42.0f    // > 42°C → pause charging
 #define WPT_THERM_RESUME_THRESHOLD_C   42.0f    // < 42°C → may resume (protection condition, not IC-driven)
+#define WPT_OVP_PAUSE_HOLD_MS          5000U    // ms to hold in PAUSED after a VRECT OVP event before allowing resume
 #define WPT_THERM_SENSE_RESISTOR_OHM   49900.0f // 49.9 kΩ series sense resistor
 ```
 
 Battery voltage is **not** used to gate charge state transitions. The `WPT_BATT_ABSENT_THRESHOLD_MV` constant is used solely for detecting whether a physical battery is present at all (both at handler entry and during the 2-strike absence check in the main loop). Charge-complete and resume decisions are managed autonomously by the LTC4065; the firmware only intervenes for thermal and OVP protection faults.
 
----
-
-## 13. How to Verify
-
-This section describes a systematic verification procedure. Work through the steps in order; each step assumes the previous steps passed.
 
 ---
 
-### Step 1 — Boot: VCHG_DISABLE starts HIGH
-
-**Purpose:** Confirm the safety fix — the boost converter must not run on power-up.
-
-**Method:**
-1. Flash the new firmware.
-2. Immediately after power-on (before bringing any charger near), measure `VCHG_DISABLE` (PC8) with a multimeter or logic analyzer.
-3. Expected: `VCHG_DISABLE = HIGH` (≈ 3.3 V).
-4. Confirm `CHG1_EN` (PE10) and `CHG2_EN` (PE11) are LOW.
-5. Confirm `VRECT_MON_EN` (PC10) is LOW.
-
-**Pass criteria:** All charging outputs are de-asserted at boot, regardless of whether a coil is present.
-
----
-
-### Step 2 — BLE Active Mode: No False WPT Transitions
-
-**Purpose:** Confirm the device stays in BLE active mode when no coil is present.
-
-**Method:**
-1. Put the device in range of a BLE scanner (nRF Connect app or similar).
-2. Verify it advertises normally with state bits 14–15 = `00` (WPT_ACTIVE = 0, WPT_PAUSED = 0).
-3. Observe MSD byte 9 bit 0 (VRECT_DETn) = `1` (pin high, no coil).
-4. Leave for several minutes. Confirm no spontaneous WPT state entry.
-
-**Pass criteria:** MSD bit 14 stays 0. Device does not exit BLE active mode.
-
----
-
-### Step 3 — Coil Detection: EXTI and State Transition
-
-**Purpose:** Confirm VRECT_DETn EXTI fires and drives a state transition to WPT_HIGH.
-
-**Method:**
-1. Monitor BLE advertisement MSD with a BLE scanner in continuous scan mode.
-2. Bring the WPT charging coil near the device.
-3. Observe `VRECT_DETn` (PC8) go LOW with a logic analyzer or voltmeter.
-4. Within one BLE advertisement interval (≤ 2 s), observe MSD bit 14 (`WPT_ACTIVE`) set to `1`.
-5. Observe MSD bit 15 (`WPT_PAUSED`) = `0` (charging is active, not paused).
-6. Observe MSD bit 0 (`VRECT_DETn`) = `0` (pin now low = coil present).
-7. Confirm `CHG1_EN` and/or `CHG2_EN` have gone HIGH (depending on battery presence).
-8. Confirm `VCHG_DISABLE` is LOW (converter running).
-9. Confirm `VCHG_PGOOD` goes HIGH (converter output is good) — visible in MSD bit 2.
-
-**Pass criteria:** State transitions to WPT_HIGH within one advertisement cycle of coil placement. Charging outputs assert correctly.
-
----
-
-### Step 4 — Charging in Progress: BLE Advertisement Reflects Live Data
-
-**Purpose:** Confirm that MSD values update every second with real measurements.
-
-**Method:**
-1. With the coil present and charging active, capture BLE advertisements continuously for at least 30 seconds.
-2. Verify MSD bytes 1–2 (battery voltages) gradually increase over time.
-3. Verify MSD bytes 5–7 (thermistor voltages) are non-zero and plausible.
-4. Verify the advertisement interval is approximately 1 Hz.
-5. Confirm MSD byte `LEN_BLE_MSD_MAX - 1` = 21 (hardware version).
-
-**Pass criteria:** Live measurements appear in the advertisement and increment as the battery charges.
-
----
-
-### Step 5 — Single Battery Operation
-
-**Purpose:** Confirm that a missing battery does not prevent charging of the present battery.
-
-**Method:**
-1. Physically disconnect Battery B (or ensure its voltage is < 1 V).
-2. Bring the coil near the device.
-3. Confirm `CHG1_EN = HIGH` (Battery A charging).
-4. Confirm `CHG2_EN = LOW` (Battery B not enabled).
-5. Monitor over 2 seconds — `CHG2_EN` must remain LOW.
-
-**Pass criteria:** Only the present battery's charger is enabled. The absent battery does not cause a fault.
-
----
-
-### Step 6 — 2-Strike Battery Absence Detection
-
-**Purpose:** Confirm that a single low voltage reading does not immediately disable a charger.
-
-**Method:** This test is best done in a DVT harness or via a bench power supply simulating a battery voltage. Applying a single sub-1V pulse should not result in `CHGx_EN` going low; two consecutive low readings (≥ 2 seconds apart) should.
-
-**Alternatively:** Review the code path in `app_mode_wpt.c` lines 202–225 and confirm the counter logic in code review.
-
-**Pass criteria:** `CHGx_EN` only deasserts after `battery_x_low_count >= 2` (two consecutive 1-second samples below 1 V).
-
----
-
-### Step 7 — WPT Pause: Charge Complete (CHGx_STATUS)
-
-**Purpose:** Confirm that when a battery reports charge complete, charging pauses correctly.
-
-**Method:**
-1. Charge to full (or simulate by raising `CHGx_STATUS` line HIGH using a test fixture).
-2. Monitor MSD:
-   - Bit 3 (`CHG1_STATUS`) or bit 5 (`CHG2_STATUS`) should read `1`.
-3. If both present batteries report STATUS = HIGH, observe:
-   - `VCHG_DISABLE` goes HIGH.
-   - `CHG1_EN`, `CHG2_EN` go LOW.
-   - MSD bit 14 (`WPT_ACTIVE`) remains `1`.
-   - MSD bit 15 (`WPT_PAUSED`) goes `1`.
-4. Leave the coil in place. Verify the device stays in WPT_PAUSED, advertising continuously.
-
-**Pass criteria:** Device enters WPT_PAUSED. VCHG_DISABLE = HIGH. BLE advertising continues.
-
----
-
-### Step 8 — WPT Resume from Paused
-
-**Purpose:** Confirm that charging resumes once protection faults clear, with the LTC4065 managing the charge cycle autonomously.
-
-**Method:**
-1. Start from WPT_PAUSED triggered by a thermal or OVP fault (see Steps 7/9/10).
-2. Allow the fault condition to clear (e.g., let the device cool below 42°C, or remove the OVP condition).
-3. Confirm `VRECT_OVPn = HIGH` (no rectifier OVP).
-4. Observe within one 1-second sample:
-   - `VCHG_DISABLE` goes LOW.
-   - `CHGx_EN` reasserts for present batteries.
-   - MSD bit 15 (`WPT_PAUSED`) returns to `0`.
-   - MSD bit 14 (`WPT_ACTIVE`) remains `1`.
-5. Confirm `nCHRG` (observed via `CHGx_STATUS` in MSD) goes LOW — indicating the LTC4065 has resumed charging.
-6. **Negative test:** Confirm the device does NOT fail to resume simply because battery voltage is high — once faults are cleared and a battery is present, the firmware resumes and the IC manages the charge cycle.
-
-**Pass criteria:** Device transitions back to WPT_HIGH once protection conditions clear, with thermal < 42°C and VRECT_OVPn HIGH. LTC4065 autonomously manages the charge current.
-
----
-
-### Step 9 — WPT Pause: Thermal (Temperature > 42°C)
-
-**Purpose:** Confirm that over-temperature pauses charging.
-
-**Method:**
-1. With charging active (WPT_HIGH), apply heat to the thermistor or simulate a high-temperature reading by reducing `THERM_OUT` voltage relative to `THERM_REF` to raise the measured resistance.
-2. When the calculated temperature exceeds 42°C, observe:
-   - `VCHG_DISABLE` goes HIGH.
-   - `CHGx_EN` goes LOW.
-   - MSD bit 15 (`WPT_PAUSED`) = `1`.
-3. Allow the device to cool. Observe charging resuming when temperature drops below 42°C.
-
-**Pass criteria:** Charging halts within 1 second of the thermal threshold being crossed.
-
----
-
-### Step 10 — WPT Exit: Coil Removed
-
-**Purpose:** Confirm the device returns cleanly to BLE active mode when the coil is removed.
-
-**Method:**
-1. With charging active (WPT_HIGH or WPT_PAUSED), remove the coil.
-2. Observe `VRECT_DETn` (PC7) go HIGH.
-3. Confirm within one BLE advertisement cycle:
-   - `VCHG_DISABLE = HIGH`.
-   - `CHG1_EN = LOW`, `CHG2_EN = LOW`.
-   - `VRECT_MON_EN = LOW`.
-   - MSD bit 14 (`WPT_ACTIVE`) = `0`.
-   - MSD bit 15 (`WPT_PAUSED`) = `0`.
-   - MSD bit 0 (`VRECT_DETn`) = `1` (pin high again).
-4. Confirm BLE advertising continues (device is now in BLE active mode).
-
-**Pass criteria:** All charging outputs de-assert immediately on coil removal. Device returns to BLE active mode without requiring a reset.
-
----
-
-### Step 11 — No Battery/Impedance Test During Charging
-
-**Purpose:** Confirm that the RTC-based periodic test scheduler does not interrupt charging.
-
-**Method:**
-1. Set a short impedance test or battery test interval (via parameter write in DVT mode or BLE connection).
-2. Begin a WPT charging session.
-3. Wait for the timer to expire (observe it would normally fire in non-WPT mode).
-4. Confirm the device stays in WPT_HIGH or WPT_PAUSED — it does **not** transition to `STATE_ACT_MODE_BATT_TEST` or `STATE_ACT_MODE_IMPED_TEST`.
-
-**Pass criteria:** The `app_func_sm_confirmation_timer_cb()` WPT guard correctly returns early and no test mode is entered during a charging session.
-
----
-
-### Step 12 — End-to-End Charge Cycle
-
-**Purpose:** Full system validation of a complete charge from depleted to full.
-
-**Method:**
-1. Start with both batteries at a low-but-valid voltage (e.g., 3.5 V each).
-2. Place the device on the WPT charging pad.
-3. Monitor BLE advertisement throughout. Log: timestamps, battery A voltage (MSD[1] × 100 mV), battery B voltage (MSD[2] × 100 mV), WPT_ACTIVE (bit 14), WPT_PAUSED (bit 15), CHG1_STATUS (bit 3), CHG2_STATUS (bit 5).
-4. Confirm batteries rise steadily toward 4.2 V.
-5. Confirm CHGx_STATUS bits assert as each battery reaches full charge.
-6. Confirm device transitions to WPT_PAUSED after both batteries complete.
-7. Remove coil. Confirm clean return to BLE active mode.
-8. Remove and reinsert coil. Confirm re-entry into WPT_HIGH and immediate correct operation.
-
-**Pass criteria:** Complete charge cycle completes without manual intervention. BLE data accurately reflects hardware state throughout.
-
----
-
-## 14. Known Limitations and Future Considerations
+## 12. Known Limitations and Future Considerations
 
 - **No hysteresis on thermal resume:** The pause and resume thresholds are both 42.0°C. In a real thermal environment this may cause repeated pause/resume cycling near the threshold. Consider adding a lower resume threshold (e.g., 40°C) if this is observed in testing.
 
