@@ -67,7 +67,7 @@ void bsp_sp_deinit(void) {
 		init = false;
 	}
 
-	HAL_GPIO_WritePin(SPI1_FRAM_CSn_GPIO_Port, SPI1_FRAM_CSn_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
+	HAL_GPIO_WritePin(SPI1_FRAM_CSn_GPIO_Port, SPI1_FRAM_CSn_Pin, GPIO_PIN_RESET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
 	HAL_GPIO_WritePin(SPI1_BLE_CSn_GPIO_Port, SPI1_BLE_CSn_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
 	CY15B108QN_mem_wr_opcode = 0;
 }

@@ -81,7 +81,8 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(CB_EN_GPIO_Port, CB_EN_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, ECG_RR_SDNn_Pin|VRECT_MON_EN_Pin|VCHG_DISABLE_Pin|TEMP_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, ECG_RR_SDNn_Pin|VRECT_MON_EN_Pin|TEMP_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, VCHG_DISABLE_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, IPG_SHDN_Pin|FRAM_EN_Pin|BATT_MON_EN_Pin|SPI1_FRAM_CSn_Pin, GPIO_PIN_RESET);
