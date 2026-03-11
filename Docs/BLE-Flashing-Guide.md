@@ -6,6 +6,14 @@ This document describes how to flash the nRF52810 microcontroller (referred to a
 * J-Link software (https://www.segger.com/downloads/jlink)
 * nRF Connect for Desktop (https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download#infotabs)
 
+### Important Note
+Power to BLE is turned on by a GPIO pin from MCU (BLE_PWRn). During MCU's startup sequence in Production mode it activates power to BLE and then listens for an acknowlegement over the SPI lines; if it does not receive an ack before its watchdog timer triggers (2 seconds) it will cycle power to BLE and try again. The net effect is that if MCU is flashed but BLE has not yet been flashed, MCU will not provide power to BLE for long enough to flash it. There are several ways to work around this:
+1. Flash MCU with the DVT version of firmware, then flash BLE, then re-flash MCU with Production firmware
+2. Connect to MCU using an STLink and start it up in debug mode, adding a breakpoint after it sets BLE_PWRn high to maintain that state while flashing BLE
+3. Physically connect the +VDD and +VDD_BLE nets, eliminating the need for MCU to power BLE. This can be easily done using a jumper wire with the female end attached to the DVDD pin J1300 and the male end inserted into the first port of the JLink's ribbon cable, or by soldering a wire to VDD_BLE at TP401.
+
+<img width="2502" height="1012" alt="Jumper Wire DVDD BLE" src="https://github.com/user-attachments/assets/9abf876b-0c06-4ab7-abb5-c8c6dad68820" />
+
 ### Setup
 
 **Step 1:** When installing the J-Link software, ensure that the box for "Install legacy USB driver" is checked
