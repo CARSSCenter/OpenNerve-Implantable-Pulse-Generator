@@ -49,6 +49,15 @@ Wireless coil → rectifier → VRECT rail
 
 This combination selects **50 mA** charge rate. Other combinations are available but not used in production WPT mode.
 
+These lines are set at the top of `app_mode_wpt_handler()` in `App/Src/app_mode_wpt.c` (lines 114–115):
+
+```c
+HAL_GPIO_WritePin(CHG_RATE1_GPIO_Port, CHG_RATE1_Pin, GPIO_PIN_RESET); /* LOW  */
+HAL_GPIO_WritePin(CHG_RATE2_GPIO_Port, CHG_RATE2_Pin, GPIO_PIN_SET);   /* HIGH → 50 mA */
+```
+
+To change the charge rate, modify these two `HAL_GPIO_WritePin` calls using the LTC4065 datasheet's RATE1/RATE2 truth table.
+
 ### 2.2a Charger IC Autonomous Operation (LTC4065)
 
 The charger IC is the **LTC4065**, a standalone linear Li-Ion charger. **`CHGx_EN` is held HIGH for the entire coil-present session and the IC manages its own charge cycle autonomously.** The firmware never toggles `CHGx_EN` in response to charge status.
@@ -111,6 +120,7 @@ The thermistor is a **104AP-2 NTC (10 kΩ at 25°C)**. A **49.9 kΩ** sense resi
 | `App/Src/app_mode_ble_active.c` | VRECT_DETn poll in main loop; WPT status bits 14–15 in MSD |
 | `App/Bsp/Src/bsp_magnet.c` | VRECT_DETn coil detection in existing EXTI callbacks |
 | `App/Config/app_config.h` | `#include "app_mode_wpt.h"` added |
+| `App/Src/app_state.c` | `bsp_adc_init()` added to wake sequence after STOP mode |
 
 ---
 
@@ -130,24 +140,21 @@ These slot into the existing state hierarchy alongside the other `STATE_ACT_MODE
 
 ```
 STATE_SLEEP (0x0100)
-    │  ▲
-    │  │ magnet
-    ▼  │
-STATE_ACT (0x0200)
-    │
-    ▼
-STATE_ACT_MODE_BLE_ACT (0x0201) ◄────────────────────┐
-    │  ▲                                               │
-    │  │ VRECT_DETn rising (coil removed)             │
-    │  │                                               │
-    ▼  │                                               │
-STATE_ACT_MODE_WPT_HIGH (0x0209)                      │
-    │  ▲                                               │
-    │  │ batteries < 4.1V AND temp < 42°C             │
-    │  │ AND VRECT_OVPn high                           │
-    ▼  │                                               │
-STATE_ACT_MODE_WPT_PAUSED (0x020A) ──────────────────►┘
-                                     VRECT_DETn rising
+    │  ▲                    │
+    │  │ magnet             │ VRECT_DETn falling (coil present)
+    ▼  │                    ▼
+STATE_ACT (0x0200)    STATE_ACT_MODE_BLE_ACT (0x0201) ◄────────────────────┐
+    │                       │  ▲                                             │
+    └──────────────────────►│  │ VRECT_DETn rising (coil removed)           │
+                            │  │                                             │
+                            ▼  │                                             │
+                   STATE_ACT_MODE_WPT_HIGH (0x0209)                         │
+                            │  ▲                                             │
+                            │  │ temp < 42°C AND VRECT_OVPn high            │
+                            │  │ AND no OVP error                           │
+                            ▼  │                                             │
+                   STATE_ACT_MODE_WPT_PAUSED (0x020A) ──────────────────────┘
+                                                        VRECT_DETn rising
 ```
 
 ### 4.3 WPT Entry: Coil Detected
@@ -169,6 +176,8 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) {
 }
 ```
 
+EXTI7 fires even while the device is in STOP mode — the EXTI line remains active in low-power sleep, so a coil placement wakes the CPU directly.
+
 **Path 2 — Polling (belt-and-suspenders):**
 In the BLE active mode main loop, VRECT_DETn is polled every ~50 ms:
 
@@ -179,7 +188,7 @@ if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_RESET) {
 }
 ```
 
-This ensures that if an EXTI edge is missed (e.g., device was sleeping), the transition still occurs on the next polling pass.
+This is the final backstop in `STATE_ACT_MODE_BLE_ACT`: once BLE is initialized and the main loop is running, any coil presence that was not caught by EXTI will be caught here.
 
 **State machine callback:**
 
@@ -187,9 +196,17 @@ This ensures that if an EXTI edge is missed (e.g., device was sleeping), the tra
 // App/Functions/Src/app_func_state_machine.c
 void app_func_sm_vrect_coil_cb(bool coil_present) {
     if (coil_present) {
-        if (curr_state >= STATE_ACT && curr_state != STATE_SHUTDOWN
-                                    && curr_state != STATE_ACT_MODE_DVT) {
-            curr_state = STATE_ACT_MODE_WPT_HIGH;
+        if ((curr_state == STATE_SLEEP || curr_state >= STATE_ACT)
+                && curr_state != STATE_SHUTDOWN
+                && curr_state != STATE_ACT_MODE_DVT) {
+            if (curr_state == STATE_SLEEP) {
+                /* Wake via BLE_ACT so BLE is fully cold-started before entering
+                 * WPT mode. app_mode_ble_act_handler polls VRECT_DETn every 50 ms
+                 * and will self-transition to STATE_ACT_MODE_WPT_HIGH immediately. */
+                curr_state = STATE_ACT_MODE_BLE_ACT;
+            } else {
+                curr_state = STATE_ACT_MODE_WPT_HIGH;
+            }
         }
     } else {
         if (curr_state == STATE_ACT_MODE_WPT_HIGH
@@ -200,7 +217,9 @@ void app_func_sm_vrect_coil_cb(bool coil_present) {
 }
 ```
 
-The coil-detect path will not interrupt DVT mode or the SHUTDOWN state. All other active states (BLE_ACT, BLE_CONN, THERAPY, etc.) will yield to the charger.
+When the coil is detected from `STATE_SLEEP`, the device routes through `STATE_ACT_MODE_BLE_ACT` rather than jumping directly to `STATE_ACT_MODE_WPT_HIGH`. This is necessary because BLE must be fully cold-started (nRF52810 powered and initialized) before entering WPT mode, which also advertises over BLE. `app_mode_ble_act_handler` polls VRECT_DETn every 50 ms and transitions to `WPT_HIGH` immediately on the first poll pass.
+
+The coil-detect path will not interrupt DVT mode or the SHUTDOWN state. All other states — including `STATE_SLEEP` and all active sub-states — yield to the charger.
 
 ### 4.4 WPT Exit: Coil Removed
 
@@ -244,7 +263,31 @@ HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_SET);
 
 ---
 
-## 6. WPT Handler Deep Dive
+## 6. STOP Mode Wake Fix: ADC Reinitialization
+
+After exiting STOP mode, the STM32U585 ADC loses its calibration factors. The first thing `app_mode_ble_act_handler()` does — before powering on the BLE chip — is call `app_mode_ble_act_adv_msd_update()`, which calls `bsp_adc_single_sampling()` eight times (DVDD, two battery voltages, two impedances, three thermistor voltages). Each call goes through `bsp_adc_sampling()`, which polls `while(!sampling.isCompleted)` waiting for the GPDMA transfer-complete callback. If the ADC is uncalibrated, the conversion never completes, the DMA interrupt never fires, and the loop spins forever.
+
+Because TIM6's period-elapsed ISR calls `bsp_wdg_refresh()` during ADC sampling, the IWDG never expires. The device hangs at elevated current draw, `app_func_ble_enable(true)` is never reached, and `BLE_PWRn` stays HIGH — no BLE advertisements appear and the charger never transitions to yellow-light (active charge) mode.
+
+The fix adds `bsp_adc_init()` to the STOP mode wake sequence in `app_state_sleep_handler()`, mirroring what `app_init()` does at cold boot:
+
+```c
+// App/Src/app_state.c — post-STOP wake sequence (after fix)
+SystemClock_Config();
+__HAL_PWR_CLEAR_FLAG(PWR_FLAG_STOPF);
+HAL_ResumeTick();
+
+bsp_wdg_refresh();
+bsp_sp_init(&app_func_command_parser, &bsp_fram_write_cplt_cb);
+bsp_fram_init(&app_func_logs_write_cplt_cb);
+bsp_adc_init();   // ← recalibrate ADC1/ADC4 and relink DMA after STOP mode
+```
+
+`bsp_adc_init()` runs `HAL_ADCEx_Calibration_Start()` on both ADC1 and ADC4, reinitializes the GPDMA handles, and samples the internal voltage reference to establish `vrefanalog_mv`. With this in place the ADC/DMA subsystem is in the same state as after a cold-boot `app_init()`, and the wake-from-sleep WPT charging path works identically to the reset path.
+
+---
+
+## 7. WPT Handler Deep Dive
 
 `app_mode_wpt_handler()` in `App/Src/app_mode_wpt.c` owns the entire charging session. It is called from `app_handler()` when the state is `STATE_ACT_MODE_WPT_HIGH` or `STATE_ACT_MODE_WPT_PAUSED`, and it does not return until the coil is removed.
 
@@ -400,7 +443,7 @@ app_func_ble_enable(false)
 
 ---
 
-## 7. Battery Absence Detection
+## 8. Battery Absence Detection
 
 The "2-strike" rule prevents spurious absence detection from a single noisy ADC reading:
 
@@ -422,7 +465,7 @@ if (vbat[x] < 1000 mV) {
 
 ---
 
-## 8. Temperature Measurement
+## 9. Temperature Measurement
 
 ### 8.1 Circuit Model
 
@@ -468,7 +511,7 @@ Values outside the table range (> 126,400 Ω → < 20°C, or < 33,790 Ω → > 5
 
 ---
 
-## 9. GPIO Reference Table
+## 10. GPIO Reference Table
 
 All pins relevant to WPT, with their port, pin number, direction, and active level:
 
@@ -498,7 +541,7 @@ All pins relevant to WPT, with their port, pin number, direction, and active lev
 
 ---
 
-## 10. Interrupt and Timer Architecture
+## 11. Interrupt and Timer Architecture
 
 ### 10.1 EXTI7 (VRECT_DETn)
 
@@ -541,7 +584,7 @@ The WPT timer callback runs every 1 ms regardless of current application state �
 
 ---
 
-## 11. Constants Reference
+## 12. Constants Reference
 
 All thresholds are defined in `App/Inc/app_mode_wpt.h`:
 
@@ -559,7 +602,7 @@ Battery voltage is **not** used to gate charge state transitions. The `WPT_BATT_
 
 ---
 
-## 12. Known Limitations and Future Considerations
+## 13. Known Limitations and Future Considerations
 
 - **No hysteresis on thermal resume:** The pause and resume thresholds are both 42.0°C. In a real thermal environment this may cause repeated pause/resume cycling near the threshold. Consider adding a lower resume threshold (e.g., 40°C) if this is observed in testing.
 

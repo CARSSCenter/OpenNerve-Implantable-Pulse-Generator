@@ -6,5 +6,5 @@
 ../App/Functions/Src/app_func_state_machine.c:137:6:app_func_sm_schd_therapy_enable	48	static
 ../App/Functions/Src/app_func_state_machine.c:164:6:app_func_sm_wakeup_timer_cb	4	static
 ../App/Functions/Src/app_func_state_machine.c:179:6:app_func_sm_vrect_coil_cb	16	static
-../App/Functions/Src/app_func_state_machine.c:195:6:app_func_sm_confirmation_timer_cb	40	static
-../App/Functions/Src/app_func_state_machine.c:234:6:app_func_sm_magnet_lost_cb	40	static
+../App/Functions/Src/app_func_state_machine.c:202:6:app_func_sm_confirmation_timer_cb	40	static
+../App/Functions/Src/app_func_state_machine.c:241:6:app_func_sm_magnet_lost_cb	40	static

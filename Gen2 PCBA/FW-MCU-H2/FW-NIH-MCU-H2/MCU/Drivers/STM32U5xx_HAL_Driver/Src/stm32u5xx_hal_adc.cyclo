@@ -17,7 +17,7 @@
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:5721:26:LL_ADC_INJ_IsTriggerSourceSWStart	2
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:6342:22:LL_ADC_SetChannelSamplingTime	4
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:6532:22:LL_ADC_SetChannelSingleDiff	1
-../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:6726:22:LL_ADC_SetAnalogWDMonitChannels	3
+../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:6726:22:LL_ADC_SetAnalogWDMonitChannels	2
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:7184:22:LL_ADC_ConfigAnalogWDThresholds	4
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:7255:22:LL_ADC_SetAWDFilteringConfiguration	1
 ../Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_adc.h:7785:22:LL_ADC_DisableDeepPowerDown	1

@@ -75,6 +75,7 @@ void app_state_sleep_handler(void) {
 	bsp_wdg_refresh();
 	bsp_sp_init(&app_func_command_parser, &bsp_fram_write_cplt_cb);
 	bsp_fram_init(&app_func_logs_write_cplt_cb);
+	bsp_adc_init();
 }
 
 /**
