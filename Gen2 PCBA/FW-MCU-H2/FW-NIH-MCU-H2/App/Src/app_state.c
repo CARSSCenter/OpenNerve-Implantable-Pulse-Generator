@@ -24,8 +24,8 @@ static void app_state_power_off(void) {
  */
 void app_state_shutdown_handler(void) {
 
-	bsp_sp_deinit();
 	bsp_fram_deinit();
+	bsp_sp_deinit();
 
 	app_state_power_off();
 
@@ -38,8 +38,9 @@ void app_state_shutdown_handler(void) {
  */
 void app_state_sleep_handler(void) {
 	bsp_wdg_refresh();
-	bsp_sp_deinit();
 	bsp_fram_deinit();
+	bsp_sp_deinit();
+
 	app_state_power_off();
 
 	HAL_SuspendTick();

@@ -113,33 +113,32 @@ void app_func_ble_enable(bool enable) {
 	bsp_wdg_refresh();
 
 	bsp_sp_deinit();
-	HAL_GPIO_WritePin(BLE_PWRn_GPIO_Port, BLE_PWRn_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
-	HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_RESET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
+	HAL_GPIO_WritePin(BLE_PWRn_GPIO_Port, BLE_PWRn_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_RESET);
 	HAL_Delay(100);
 
 	if (enable) {
 		app_func_command_resp_parser_set(&app_func_ble_resp_cmd_parser);
-		HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
-		HAL_GPIO_WritePin(BLE_PWRn_GPIO_Port, BLE_PWRn_Pin, GPIO_PIN_RESET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
+		HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(BLE_PWRn_GPIO_Port, BLE_PWRn_Pin, GPIO_PIN_RESET);
 		HAL_Delay(100);
 		bsp_sp_init(&app_func_command_parser, &bsp_fram_write_cplt_cb);
 		HAL_Delay(10);
-		while(HAL_GPIO_ReadPin(BLE_RDY_GPIO_Port, BLE_RDY_Pin) == GPIO_PIN_RESET) { /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
-			bsp_wdg_refresh();
-			HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_RESET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
-			HAL_Delay(100);
-			HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
-			HAL_Delay(100);
-		}
 
+		bsp_wdg_refresh();
+		uint8_t counter = 0;
 		while(ble_curr_state == BLE_STATE_INVALID) {	//Wait for BLE to be ready
-			bsp_wdg_refresh();
+			while(HAL_GPIO_ReadPin(BLE_RDY_GPIO_Port, BLE_RDY_Pin) == GPIO_PIN_RESET) {
+				HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_RESET);
+				HAL_Delay(50);
+				HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_SET);
+				HAL_Delay(200);
+			}
+
 			app_func_ble_new_state_get();
-			while(!bsp_sp_cmd_handler()) {
-				// Uncomment the line below to refresh the watchdog timer while waiting for BLE MCU to boot
-				//Not good practice, but may be necessary if you've flashed MCU but not BLE yet
-				//bsp_wdg_refresh();
-				HAL_Delay(1);
+			counter = 0U;
+			while(!bsp_sp_cmd_handler() && counter < 100U) {
+				counter++;
 			}
 		}
 	}
