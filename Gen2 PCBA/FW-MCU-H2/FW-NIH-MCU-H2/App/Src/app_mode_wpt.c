@@ -165,6 +165,29 @@ void app_mode_wpt_handler(void)
 
     app_func_ble_enable(true);
     uint8_t curr_ble_state = app_func_ble_curr_state_get();
+
+    /* Safety net: if BLE is still in CONNECT state (disconnect may still be
+     * in flight from app_mode_ble_conn_handler), wait for the CONNECT bit to
+     * clear before starting advertising.  On the normal entry path from
+     * STATE_ACT_MODE_BLE_ACT the bit will already be clear and this block is
+     * skipped entirely.                                                        */
+    if ((curr_ble_state & BLE_STATE_CONNECT) != 0U) {
+        uint32_t conn_wait = 3000U;
+        while (conn_wait > 0U) {
+            bsp_wdg_refresh();
+            app_func_ble_new_state_get();
+            while (!bsp_sp_cmd_handler()) {
+                HAL_Delay(1);
+            }
+            curr_ble_state = app_func_ble_curr_state_get();
+            if ((curr_ble_state & BLE_STATE_CONNECT) == 0U) {
+                break;
+            }
+            HAL_Delay(1);
+            conn_wait--;
+        }
+    }
+
     app_mode_ble_act_adv_msd_update((uint8_t*)setting.msd);
     app_func_ble_adv_start(&setting);
     while (!bsp_sp_cmd_handler()) {

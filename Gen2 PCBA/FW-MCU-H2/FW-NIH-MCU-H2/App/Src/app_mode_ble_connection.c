@@ -774,6 +774,35 @@ void app_mode_ble_conn_handler(void) {
 		}
 		curr_state = app_func_sm_current_state_get();
 	}
+
+	/* ---- WPT entry cleanup -------------------------------------------------
+	 * If the VRECT EXTI fired while connected, the state is now WPT_HIGH.
+	 * Stop stimulation and sensors before returning, then wait for BLE to
+	 * fully disconnect so app_mode_wpt_handler() starts with a clean BLE state.
+	 * -----------------------------------------------------------------------*/
+	curr_state = app_func_sm_current_state_get();
+	if (curr_state == STATE_ACT_MODE_WPT_HIGH || curr_state == STATE_ACT_MODE_WPT_PAUSED) {
+
+		if (stim_en) {
+			app_mode_therapy_stop();
+			stim_en = false;
+		}
+
+		if (sens_en) {
+			sens_en = false;
+			app_func_meas_vdda_sup_enable(false);
+			app_func_meas_sensor_enable(SENSOR_ID_ECG_HR, false);
+			app_func_meas_sensor_enable(SENSOR_ID_ECG_RR, false);
+			app_func_meas_sensor_enable(SENSOR_ID_ENG1,   false);
+			app_func_meas_sensor_enable(SENSOR_ID_ENG2,   false);
+		}
+
+		/* Power off the BLE chip. This immediately ends the link-layer
+		 * connection and resets ble_curr_state to BLE_STATE_INVALID.
+		 * app_mode_wpt_handler() will call app_func_ble_enable(true) to
+		 * bring it back up fresh before starting advertising.             */
+		app_func_ble_enable(false);
+	}
 }
 
 /**

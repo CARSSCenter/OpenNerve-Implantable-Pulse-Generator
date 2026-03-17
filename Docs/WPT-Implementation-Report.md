@@ -121,6 +121,8 @@ The thermistor is a **104AP-2 NTC (10 kΩ at 25°C)**. A **49.9 kΩ** sense resi
 | `App/Bsp/Src/bsp_magnet.c` | VRECT_DETn coil detection in existing EXTI callbacks |
 | `App/Config/app_config.h` | `#include "app_mode_wpt.h"` added |
 | `App/Src/app_state.c` | `bsp_adc_init()` added to wake sequence after STOP mode |
+| `App/Src/app_mode_ble_connection.c` | WPT cleanup block added after while loop: stops stimulation, disables sensors, power-cycles BLE chip on `WPT_HIGH`/`WPT_PAUSED` exit |
+| `App/Src/app_mode_wpt.c` | BLE-connected guard added at entry: waits for `BLE_STATE_CONNECT` bit to clear before calling `app_func_ble_adv_start()` |
 
 ---
 
@@ -219,7 +221,12 @@ void app_func_sm_vrect_coil_cb(bool coil_present) {
 
 When the coil is detected from `STATE_SLEEP`, the device routes through `STATE_ACT_MODE_BLE_ACT` rather than jumping directly to `STATE_ACT_MODE_WPT_HIGH`. This is necessary because BLE must be fully cold-started (nRF52810 powered and initialized) before entering WPT mode, which also advertises over BLE. `app_mode_ble_act_handler` polls VRECT_DETn every 50 ms and transitions to `WPT_HIGH` immediately on the first poll pass.
 
-The coil-detect path will not interrupt DVT mode or the SHUTDOWN state. All other states — including `STATE_SLEEP` and all active sub-states — yield to the charger.
+The coil-detect path will not interrupt DVT mode or the SHUTDOWN state. All other states yield to the charger, but the behaviour differs by state:
+
+- **`STATE_SLEEP`** — routes through `STATE_ACT_MODE_BLE_ACT` first so BLE cold-starts before WPT mode is entered.
+- **`STATE_ACT_MODE_BLE_ACT`** — transitions directly to `WPT_HIGH`; BLE is already in advertising mode, no teardown needed.
+- **`STATE_ACT_MODE_BLE_CONN`** — transitions to `WPT_HIGH`, then `app_mode_ble_conn_handler()` runs a cleanup block on exit: any active manual stimulation is stopped via `app_mode_therapy_stop()`, any active sensor sampling is disabled, and `app_func_ble_enable(false)` power-cycles the nRF52810 to immediately terminate the BLE link-layer connection. The WPT handler then calls `app_func_ble_enable(true)` to cold-start BLE fresh before advertising.
+- **All other active sub-states** (therapy session, impedance test, battery test, etc.) — transition to `WPT_HIGH` directly; the respective handler exits its while loop on the next iteration and calls its normal cleanup.
 
 ### 4.4 WPT Exit: Coil Removed
 
@@ -291,7 +298,7 @@ bsp_adc_init();   // ← recalibrate ADC1/ADC4 and relink DMA after STOP mode
 
 `app_mode_wpt_handler()` in `App/Src/app_mode_wpt.c` owns the entire charging session. It is called from `app_handler()` when the state is `STATE_ACT_MODE_WPT_HIGH` or `STATE_ACT_MODE_WPT_PAUSED`, and it does not return until the coil is removed.
 
-### 6.1 Entry Sequence
+### 7.1 Entry Sequence
 
 ```
 1. CHG_RATE1 = LOW, CHG_RATE2 = HIGH        → select 50 mA charge rate
@@ -304,10 +311,17 @@ bsp_adc_init();   // ← recalibrate ADC1/ADC4 and relink DMA after STOP mode
    - If  < 1000 mV → battery_x_present = false (no charger enabled)
 7. CHG1_EN = HIGH if battery A present
    CHG2_EN = HIGH if battery B present
-8. Start BLE advertising (see §6.4)
+8. app_func_ble_enable(true)                 → cold-start nRF52810
+   - If entering from STATE_ACT_MODE_BLE_CONN, the conn handler will have
+     already called app_func_ble_enable(false) during cleanup, so this is
+     a true cold-start. From all other paths BLE may already be running,
+     but app_func_ble_enable() is idempotent (power-cycles then reinits).
+   - Guard: if BLE_STATE_CONNECT bit is still set after enable(true),
+     poll until it clears (up to 3 s) before proceeding to advertising.
+9. Start BLE advertising (see §7.4)
 ```
 
-### 6.2 Main Loop (every 50 ms iteration, sample every 1 s)
+### 7.2 Main Loop (every 50 ms iteration, sample every 1 s)
 
 The `wpt_ms_timer` static variable is decremented in `app_mode_wpt_timer_cb()`, which is called from `HAL_IncTick()` at 1 ms intervals. When it reaches zero, the 1-second measurement block runs and the timer resets to 1000.
 
@@ -334,7 +348,7 @@ HAL_Delay(50)
 ```
 If the BLE advertisement burst ends (`BLE_STATE_ADV_STOP`), a new burst is immediately started with refreshed MSD.
 
-### 6.3 Charging State Transitions
+### 7.3 Charging State Transitions
 
 #### WPT_HIGH → WPT_PAUSED
 
@@ -378,7 +392,7 @@ curr_state = STATE_ACT_MODE_WPT_HIGH
 
 Once `CHGx_EN` is HIGH and the converter is enabled, the LTC4065 takes over: it charges at the programmed rate, terminates at C/10, and autonomously re-initiates a charge cycle if the battery self-discharges below its internal re-charge threshold.
 
-### 6.4 BLE Advertising During WPT
+### 7.4 BLE Advertising During WPT
 
 WPT mode uses the same BLE infrastructure as BLE active mode. `app_mode_ble_act_adv_msd_update()` is called to populate the MSD, which means every BLE scan of a charging device returns live measurements: battery voltages, thermistor readings, impedance, DVDD, and all GPIO status flags.
 
@@ -429,9 +443,9 @@ The MSD payload is 24 bytes total. Bytes 0–7 carry analog measurements; bytes 
 
 Interpretation: device idle in BLE active mode, no coil present, thermistor powered, both chargers idle, all protection signals healthy.
 
-### 6.5 Exit Sequence
+### 7.5 Exit Sequence
 
-Triggered when `curr_state` is no longer `WPT_HIGH` or `WPT_PAUSED` (set by the VRECT rising-edge EXTI callback or a BLE authentication transitioning to BLE_CONN):
+Triggered when `curr_state` is no longer `WPT_HIGH` or `WPT_PAUSED` (set by the VRECT rising-edge EXTI callback):
 
 ```
 VCHG_DISABLE = HIGH    (disable converter)
@@ -467,7 +481,7 @@ if (vbat[x] < 1000 mV) {
 
 ## 9. Temperature Measurement
 
-### 8.1 Circuit Model
+### 9.1 Circuit Model
 
 ```
 THERM_REF ──── 49.9 kΩ sense ──── THERM_OUT ──── NTC thermistor ──── THERM_OFST (ground ref)
@@ -475,7 +489,7 @@ THERM_REF ──── 49.9 kΩ sense ──── THERM_OUT ──── NTC th
 
 All three voltages are measured by the ADC and passed to `app_mode_wpt_calc_temperature()`.
 
-### 8.2 Resistance Calculation
+### 9.2 Resistance Calculation
 
 ```c
 float voltage      = therm_out_mv - therm_ofst_mv;   // voltage across thermistor
@@ -486,7 +500,7 @@ float resistance   = voltage / current;               // thermistor resistance i
 
 If either `voltage` or `voltage_drop` is ≤ 0 (thermistor unpowered or shorted), the function returns 0.0°C and charging is not paused on temperature grounds.
 
-### 8.3 Lookup Table and Interpolation
+### 9.3 Lookup Table and Interpolation
 
 The 104AP-2 NTC characteristic is stored as a 5-point table (ported from the OpenNerve charger firmware):
 
@@ -543,7 +557,7 @@ All pins relevant to WPT, with their port, pin number, direction, and active lev
 
 ## 11. Interrupt and Timer Architecture
 
-### 10.1 EXTI7 (VRECT_DETn)
+### 11.1 EXTI7 (VRECT_DETn)
 
 ```
 Hardware edge on PC7
@@ -563,7 +577,7 @@ HAL_GPIO_EXTI_IRQHandler(VRECT_DETn_Pin)
 
 EXTI3 (MAG_DET) and EXTI7 (VRECT_DETn) share the same callback functions; each is dispatched by pin ID.
 
-### 10.2 WPT 1-Second Sample Timer
+### 11.2 WPT 1-Second Sample Timer
 
 ```
 SysTick (1 ms)
@@ -611,3 +625,7 @@ Battery voltage is **not** used to gate charge state transitions. The `WPT_BATT_
 - **BLE command parsing during WPT:** The WPT handler does not call `app_func_command_req_parser_set()`. Whichever parser was active before WPT mode (typically the BLE active mode parser) remains set. This means an authenticated BLE connection during WPT mode will transition the state machine to `STATE_ACT_MODE_BLE_CONN`, which will exit the WPT handler's while loop and trigger the clean exit sequence (charging disabled, BLE disabled). If BLE connectivity during charging is required, the WPT mode's command handling should be revisited.
 
 - **VRECT_MON ADC not yet consumed:** `VRECT_MON_EN` is asserted during WPT mode but the `VRECT_MON` ADC channel is not sampled by the WPT handler. The rectified voltage is not yet reported in the BLE advertisement. This could be added as a future enhancement.
+
+- **Charger applied during active BLE connection — fixed:** When a charger is detected while in `STATE_ACT_MODE_BLE_CONN`, a cleanup block now runs after `app_mode_ble_conn_handler()` exits its while loop. If manual stimulation was active (`stim_en`), `app_mode_therapy_stop()` is called. If sensor sampling was active (`sens_en`), all sensor channels are disabled. Then `app_func_ble_enable(false)` is called, which immediately power-cycles the nRF52810 and terminates the BLE link-layer connection at the hardware level — reliably ending the host's connection regardless of protocol state. The WPT handler's `app_func_ble_enable(true)` call then performs a clean cold-start before advertising begins. A secondary guard in `app_mode_wpt_handler()` checks for the `BLE_STATE_CONNECT` bit after `app_func_ble_enable(true)` and polls until it clears, providing a safety net against any future path that enters WPT from a connected state. Validated in testing: stimulation stops within one main-loop iteration (~1 s) and WPT BLE advertising begins promptly thereafter.
+
+- **`STATE_ACT_MODE_THERAPY_SESSION` → WPT during stimulation initialization (deferred, not yet fixed):** If VRECT_DETn fires while `app_mode_therapy_start()` is mid-execution (during one of the three `HAL_Delay(100)` setup calls or the timer initialization sequence), `curr_state` will flip to `WPT_HIGH` before the therapy handler's while loop is entered. When control returns to `app_mode_therapy_handler()`, the while loop condition is immediately false, and `app_mode_therapy_stop()` is called — which is the correct cleanup path. However, `app_func_stim_off()` is being called on partially-initialized stimulation hardware (HV supply may be on, DAC may be mid-ramp, timers may or may not be running depending on exactly where execution was). The safety risk is low because `app_func_stim_off()` is designed for unconditional shutdown, but the exact hardware state at the moment of interrupt has not been characterized under this race condition. A future hardening measure would be to set a `therapy_init_complete` flag only after `app_mode_therapy_start()` returns successfully, and to re-check the WPT state at the top of the therapy handler's while loop before arming the scheduled-therapy logic.
