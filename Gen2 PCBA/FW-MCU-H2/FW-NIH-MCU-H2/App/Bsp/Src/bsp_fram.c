@@ -29,7 +29,7 @@ void bsp_fram_deinit(void) {
 	while(bsp_sp_CY15B108QN_is_busy()) {
 		__NOP();
 	};
-	HAL_GPIO_WritePin(FRAM_EN_GPIO_Port, FRAM_EN_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
+	HAL_GPIO_WritePin(FRAM_EN_GPIO_Port, FRAM_EN_Pin, GPIO_PIN_RESET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
 }
 
 /**

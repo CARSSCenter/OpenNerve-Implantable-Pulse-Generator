@@ -335,6 +335,7 @@ void app_func_meas_therm_meas(uint8_t thermID, uint8_t* buff, uint8_t bufferSize
 void app_func_meas_off(void) {
 	app_func_meas_batt_mon_enable(false);
 	app_func_meas_imp_enable(false);
+	app_func_meas_vdda_sup_enable(false);
 	app_func_meas_sensor_enable(SENSOR_ID_ECG_HR, false);
 	app_func_meas_sensor_enable(SENSOR_ID_ECG_RR, false);
 	app_func_meas_sensor_enable(SENSOR_ID_ENG1, false);
