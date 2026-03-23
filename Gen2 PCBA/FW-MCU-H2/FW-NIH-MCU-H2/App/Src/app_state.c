@@ -72,6 +72,7 @@ void app_state_sleep_handler(void) {
 	app_func_sm_schd_therapy_enable(false);
 
 	SystemClock_Config();
+	PeriphCommonClock_Config();
 	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_STOPF);
 	HAL_ResumeTick();
 
