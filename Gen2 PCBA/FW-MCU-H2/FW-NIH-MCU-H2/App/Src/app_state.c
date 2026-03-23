@@ -96,5 +96,5 @@ void app_state_active_handler(void) {
 	HAL_Delay(idle_duration_ms);
 	bsp_wdg_enable(true);
 
-	app_func_sm_current_state_set(STATE_SLEEP);
+	app_func_sm_current_state_set(STATE_SLEEP); //Change to STATE_SHUTDOWN to test shutdown on sleep timer
 }
