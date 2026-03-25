@@ -59,6 +59,7 @@ Event label strings are exactly 5 bytes (padded with spaces):
 
 | Label | Constant | Trigger |
 |---|---|---|
+| `PO   ` | `EVENT_POWER_ON` | MCU powered on and fully initialized (written once per clean boot, not on wakeup from sleep) |
 | `ER   ` | `EVENT_ER` | Battery voltage has been in the Early Replacement range for 3 consecutive checks |
 | `EOS  ` | `EVENT_EOS` | Battery voltage has been at End of Service level for 3 consecutive checks; device shuts down immediately after |
 | `UF   ` | `EVENT_UNRESPONSIVE_FUNCTION` | Watchdog timer fired — written on the **next boot** by checking the reset-cause register |
@@ -67,16 +68,19 @@ Event label strings are exactly 5 bytes (padded with spaces):
 | `HI   ` | `EVENT_HIGH_IMPED` | High impedance detected during impedance measurement |
 | `NI   ` | `EVENT_NORMAL_IMPED` | Normal impedance confirmed during impedance measurement |
 | `LSA  ` | `EVENT_LOWER_STIM_AMP` | Commanded stimulation amplitude exceeded `MAX_SAFE_AMPLITUDE`; was clamped down automatically |
+| `SS   ` | `EVENT_STIM_START` | Stimulation session started (scheduled or manual) |
+| `SE   ` | `EVENT_STIM_STOP` | Stimulation session stopped (scheduled end, manual BLE command, or forced stop on sleep/shutdown) |
+| `BC   ` | `EVENT_BLE_CONNECT` | BLE client authenticated and connected (auth opcode accepted) |
+| `BD   ` | `EVENT_BLE_DISCONNECT` | BLE client disconnected (idle timeout, explicit disconnect request, or hardware-side link loss) |
+| `SL   ` | `EVENT_SLEEP` | Device entering sleep (low-power STOP) state |
+| `WK   ` | `EVENT_WAKEUP` | Device woken from sleep and peripherals re-initialized |
+| `SD   ` | `EVENT_SHUTDOWN` | Intentional shutdown commanded via BLE (`OP_SHUTDOWN_SYSTEM`). Does not appear for EOS shutdowns — those are logged as `EOS  ` instead. |
 
 > **Note:** `OC   ` (open circuit) is defined in the header but has no call site — it is never written by current firmware.
 
 ### What is NOT currently logged
 
-- Power on (clean boot is invisible; a watchdog reset appears as `UF   ` on the next boot)
-- Stimulation start or stop
-- BLE connection / disconnection
 - OTA firmware update completion
-- Intentional shutdown (FRAM is deinitialized before the power rail cuts, so a write is not possible at that moment)
 
 ---
 
@@ -136,6 +140,51 @@ Use with caution — this is irreversible.
 
 ---
 
+## Setting the Real-Time Clock
+
+Accurate log timestamps require the RTC to be set before logs are collected. Both commands require an active **Admin-authenticated** BLE session.
+
+### OP_WRITE_TIME_AND_DATE — `0xB1`
+
+Sets the RTC to the specified date and time. All fields are plain binary integers (not BCD).
+
+**Request payload (6 bytes):**
+
+| Byte | Field | Range | Notes |
+|---|---|---|---|
+| 0 | Year | 0–99 | 2-digit year offset from 2000, e.g. `26` for 2026 |
+| 1 | Month | 1–12 | |
+| 2 | Day | 1–31 | |
+| 3 | Hour | 0–23 | UTC |
+| 4 | Minute | 0–59 | |
+| 5 | Second | 0–59 | |
+
+The firmware validates all fields before applying. Any out-of-range value returns `STATUS_INVALID` and the RTC is not changed.
+
+**Example — setting 2026-03-24 15:30:00 UTC:**
+```csharp
+SendCommand(0xB1, new byte[] { 26, 3, 24, 15, 30, 0 });
+```
+
+**Practical note:** To minimize clock error, capture the target time in your software immediately before sending the command. Round to the nearest second and account for BLE round-trip latency if sub-second accuracy matters.
+
+---
+
+### OP_READ_TIME_AND_DATE — `0xB0`
+
+Reads the current RTC value. No request payload.
+
+**Response payload (6 bytes):** Same layout as the write command — Year, Month, Day, Hour, Minute, Second.
+
+Use this to verify the time was set correctly:
+```csharp
+var resp = SendCommand(0xB0, new byte[0]);
+// resp.Payload: [YY, MM, DD, hh, mm, ss]
+Console.WriteLine($"20{resp.Payload[0]:D2}-{resp.Payload[1]:D2}-{resp.Payload[2]:D2}T{resp.Payload[3]:D2}:{resp.Payload[4]:D2}:{resp.Payload[5]:D2}Z");
+```
+
+---
+
 ## Timestamp Parsing
 
 The timestamp in a log entry looks like:
@@ -178,9 +227,12 @@ byte[] ParseTimestamp(string entry) {
 | `App/Functions/Src/app_func_logs.c` | All log read/write/erase logic |
 | `App/Functions/Inc/app_func_logs.h` | Event label constants and function prototypes |
 | `App/Bsp/Inc/bsp_fram.h` | FRAM address map (`ADDR_LOG_BASE`, `SIZE_LOG`, etc.) |
+| `App/Src/app.c` | Writes `PO` event on boot |
+| `App/Src/app_state.c` | Writes `SL` (sleep entry), `WK` (wakeup), and `SE` (stim stop on forced power-off) events |
 | `App/Src/app_mode_battery_test.c` | Writes `<BA>`, `ER`, `EOS` events |
 | `App/Src/app_mode_impedance_test.c` | Writes `<IM>`, `SC`, `HI`, `NI` events |
-| `App/Src/app_mode_therapy_session.c` | Writes `LSA` event |
+| `App/Src/app_mode_therapy_session.c` | Writes `LSA`, `SS`, `SE` events |
+| `App/Src/app_mode_ble_active.c` | Writes `BC` event on successful BLE authentication |
+| `App/Src/app_mode_ble_connection.c` | Handles `OP_READ_IPG_LOG` and `OP_ERASE_IPG_LOG` opcodes; writes `<PA>` entries on parameter changes; writes `BD` (BLE disconnect) and `SD` (shutdown) events |
 | `App/Functions/Src/app_func_state_machine.c` | Writes `UF` (watchdog reset) and `MD` (magnet) events |
 | `App/Functions/Src/app_func_ble.c` | Also writes `MD` event on magnet detection |
-| `App/Src/app_mode_ble_connection.c` | Handles `OP_READ_IPG_LOG` and `OP_ERASE_IPG_LOG` opcodes; writes `<PA>` entries on parameter changes |

@@ -13,6 +13,9 @@ extern bool schd_therapy_enable;
  * 
  */
 static void app_state_power_off(void) {
+	if (app_mode_therapy_confirm()) {
+		app_func_logs_event_write(EVENT_STIM_STOP, NULL);
+	}
 	app_func_stim_off();
 	app_func_meas_off();
 	app_func_ble_enable(false);
@@ -38,6 +41,7 @@ void app_state_shutdown_handler(void) {
  */
 void app_state_sleep_handler(void) {
 	bsp_wdg_refresh();
+	app_func_logs_event_write(EVENT_SLEEP, NULL);
 	bsp_fram_deinit();
 	bsp_sp_deinit();
 
@@ -79,6 +83,7 @@ void app_state_sleep_handler(void) {
 	bsp_wdg_refresh();
 	bsp_fram_init(&app_func_logs_write_cplt_cb);
 	bsp_sp_init(&app_func_command_parser, &bsp_fram_write_cplt_cb);
+	app_func_logs_event_write(EVENT_WAKEUP, NULL);
 }
 
 /**

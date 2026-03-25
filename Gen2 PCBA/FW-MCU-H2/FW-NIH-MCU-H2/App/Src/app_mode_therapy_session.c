@@ -208,6 +208,7 @@ bool app_mode_therapy_start(void) {
 			app_func_stim_sync();
 		}
 		therapy_session_status = true;
+		app_func_logs_event_write(EVENT_STIM_START, NULL);
 	}
 	return therapy_session_status;
 }
@@ -217,6 +218,7 @@ bool app_mode_therapy_start(void) {
  * 
  */
 void app_mode_therapy_stop(void) {
+	app_func_logs_event_write(EVENT_STIM_STOP, NULL);
 	app_func_stim_off();
 	therapy_session_status = false;
 }

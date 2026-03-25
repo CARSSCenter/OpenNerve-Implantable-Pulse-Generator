@@ -176,6 +176,7 @@ static Cmd_Resp_t app_mode_ble_conn_cmd_parser(Cmd_Req_t req) {
 			resp.Status = STATUS_USER_CLASS_ERR;
 		}
 		else {
+			app_func_logs_event_write(EVENT_SHUTDOWN, NULL);
 			app_func_sm_current_state_set(STATE_SHUTDOWN);
 		}
 	}
@@ -741,6 +742,7 @@ void app_mode_ble_conn_handler(void) {
 		bsp_wdg_refresh();
 		if (((idle_connection_ms_timer == 0) || (disconnect_request_ms_timer == 0)) && (app_mode_therapy_confirm() == false)) {
 			app_func_ble_disconnect();
+			app_func_logs_event_write(EVENT_BLE_DISCONNECT, NULL);
 			idle_connection_ms_timer = -1;
 			disconnect_request_ms_timer = -1;
 			app_func_sm_current_state_set(STATE_ACT);
@@ -769,6 +771,7 @@ void app_mode_ble_conn_handler(void) {
 			HAL_Delay(100);
 		}
 		else if (curr_ble_state == BLE_STATE_ADV_STOP) {
+			app_func_logs_event_write(EVENT_BLE_DISCONNECT, NULL);
 			sens_en = false;
 			app_func_sm_current_state_set(STATE_ACT_MODE_BLE_ACT);
 		}

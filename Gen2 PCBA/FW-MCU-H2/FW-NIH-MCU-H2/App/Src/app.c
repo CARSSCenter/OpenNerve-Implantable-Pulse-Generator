@@ -32,6 +32,8 @@ void app_init(void) {
 	app_func_para_init();
 	app_func_sm_init();
 
+	app_func_logs_event_write(EVENT_POWER_ON, NULL);
+
 	bsp_wdg_enable(true);
 }
 

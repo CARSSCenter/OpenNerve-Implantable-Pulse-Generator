@@ -85,6 +85,7 @@ static Cmd_Resp_t app_mode_ble_act_cmd_parser(Cmd_Req_t req) {
 					app_func_para_data_set((const uint8_t*)HPID_LINKED_PRC_BLE_ID, 		&req.Payload[sizeof(ECDSA_Data_t) + datalen_ipg_fw_version]);
 				}
 				app_func_sm_current_state_set(STATE_ACT_MODE_BLE_CONN);
+			app_func_logs_event_write(EVENT_BLE_CONNECT, NULL);
 			}
 			resp.PayloadLen = (uint8_t)sizeof(uint8_t);
 			resp.Payload = &ble_act_user_class;
