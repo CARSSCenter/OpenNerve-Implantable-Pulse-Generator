@@ -112,11 +112,11 @@ The thermistor is a **104AP-2 NTC (10 kΩ at 25°C)**. A **49.9 kΩ** sense resi
 
 | File | Summary of Changes |
 |------|--------------------|
-| `Core/Src/gpio.c` | VCHG_DISABLE defaults HIGH at boot; VRECT_DETn reconfigured as EXTI interrupt |
+| `Core/Src/gpio.c` | VCHG_DISABLE defaults LOW at boot (supports dead-battery cold-start); VRECT_DETn reconfigured as EXTI interrupt |
 | `Core/Src/stm32u5xx_it.c` | Added `EXTI7_IRQHandler` for VRECT_DETn (PC7) |
 | `App/Functions/Inc/app_func_state_machine.h` | Two new state constants; `app_func_sm_vrect_coil_cb()` declaration |
 | `App/Functions/Src/app_func_state_machine.c` | New `app_func_sm_vrect_coil_cb()`; WPT guard in `app_func_sm_confirmation_timer_cb()` |
-| `App/Src/app.c` | WPT cases in main switch; `app_mode_wpt_timer_cb()` in `HAL_IncTick` |
+| `App/Src/app.c` | WPT cases in main switch; `app_mode_wpt_timer_cb()` in `HAL_IncTick`; dead-battery cold-start guard at top of `app_init()` |
 | `App/Src/app_mode_ble_active.c` | VRECT_DETn poll in main loop; WPT status bits 14–15 in MSD |
 | `App/Bsp/Src/bsp_magnet.c` | VRECT_DETn coil detection in existing EXTI callbacks |
 | `App/Config/app_config.h` | `#include "app_mode_wpt.h"` added |
@@ -249,24 +249,52 @@ void app_func_sm_confirmation_timer_cb(void) {
 
 ---
 
-## 5. Boot-Time Safety Fix: VCHG_DISABLE
+## 5. Boot-Time Behavior: VCHG_DISABLE and Dead-Battery Cold-Start
 
-Prior to this change, `VCHG_DISABLE` (PC8) was initialized `LOW` at boot, which enabled the LTC3130 buck-boost converter immediately on power-up — even when no coil was present and no charger was intended to run. This was modified in `gpio.c`:
+### 5.1 Problem
+
+When the device battery is fully depleted, the only power source available at startup is the wireless charger via VCHG_RAIL. If `VCHG_DISABLE` is driven HIGH immediately on boot (disabling the LTC3130), VCHG_RAIL collapses, the MCU loses power, and the device resets — creating an infinite boot loop that prevents a dead battery from ever being charged.
+
+### 5.2 Solution
+
+`VCHG_DISABLE` is now initialized **LOW** (converter enabled) in `gpio.c`, allowing VCHG_RAIL to remain live through the entire startup sequence. `app_init()` then performs a one-time check before any other initialization:
 
 ```c
-// Core/Src/gpio.c — before
-HAL_GPIO_WritePin(GPIOC,
-    ECG_RR_SDNn_Pin | VRECT_MON_EN_Pin | VCHG_DISABLE_Pin | TEMP_EN_Pin,
-    GPIO_PIN_RESET);
-
-// Core/Src/gpio.c — after
-HAL_GPIO_WritePin(GPIOC,
-    ECG_RR_SDNn_Pin | VRECT_MON_EN_Pin | TEMP_EN_Pin,
-    GPIO_PIN_RESET);
-HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_SET);
+// Core/Src/gpio.c
+/* VCHG_DISABLE starts LOW (converter enabled) to support dead-battery WPT cold-start.
+ * app_init() gates it off ~500 ms later if no coil is detected. */
+HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_RESET);
 ```
 
-`VCHG_DISABLE = HIGH` means the converter is **disabled**. The WPT handler drives it LOW only when a coil is confirmed present and charging should proceed.
+```c
+// App/Src/app.c — top of app_init(), before bsp_sp_init()
+/* Dead-battery WPT cold-start guard.
+ * VCHG_DISABLE was held LOW since gpio.c init so that VCHG_RAIL stays alive
+ * if the device is powered by a wireless charger with a depleted battery.
+ * Wait ~500 ms then check VRECT_DETn. If no coil is present, disable the
+ * converter. Kick IWDG mid-delay since the refresh LPTIM is not yet running. */
+HAL_Delay(250);
+HAL_IWDG_Refresh(&hiwdg);
+HAL_Delay(250);
+if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_SET) {
+    /* VRECT_DETn HIGH = no coil present. Disable converter, continue on battery. */
+    HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_SET);
+}
+/* If VRECT_DETn LOW (coil present), leave VCHG enabled.
+ * The state machine will enter WPT mode and manage VCHG_DISABLE from there. */
+```
+
+### 5.3 Behavior by Scenario
+
+| Scenario | Result |
+|----------|--------|
+| Dead battery + charger present | VCHG_DISABLE stays LOW → VCHG_RAIL sustained → MCU boots fully → WPT mode entered normally |
+| Battery OK + no charger | After 500 ms, VRECT_DETn HIGH → VCHG_DISABLE driven HIGH → converter off, normal operation |
+| Battery OK + charger present | VRECT_DETn LOW → VCHG stays enabled → WPT mode entered via state machine |
+
+The IWDG is initialized by `MX_IWDG_Init()` before `app_init()` is called, but the LPTIM-based watchdog refresh timer has not yet started. The two 250 ms half-delays with an explicit `HAL_IWDG_Refresh()` between them ensure the watchdog does not expire during the startup check.
+
+`VCHG_DISABLE = HIGH` means the converter is **disabled**. After the startup check, the WPT handler drives it LOW when a coil is confirmed present and charging should proceed (see §7.1), and returns it HIGH on exit or pause.
 
 ---
 
@@ -535,7 +563,7 @@ All pins relevant to WPT, with their port, pin number, direction, and active lev
 | VRECT_OVPn | PC | 6 | Input | LOW = OVP fault | Pulled up |
 | VRECT_MON_EN | PC | 10 | Output | HIGH = enabled | Enable VRECT ADC path |
 | VRECT_MON | PC | 4 | Analog | — | ADC input |
-| VCHG_DISABLE | PC | 8 | Output | HIGH = disabled | Starts HIGH at boot |
+| VCHG_DISABLE | PC | 8 | Output | HIGH = disabled | Starts LOW at boot; app_init() drives HIGH ~500 ms later if no coil detected |
 | VCHG_PGOOD | PC | 9 | Input | HIGH = good | No pull |
 | CHG1_EN | PE | 10 | Output | HIGH = enabled | Starts LOW |
 | CHG1_STATUS | PE | 14 | Input | HIGH = complete | Pulled up |

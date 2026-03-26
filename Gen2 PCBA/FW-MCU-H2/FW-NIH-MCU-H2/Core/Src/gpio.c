@@ -83,8 +83,9 @@ void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, ECG_RR_SDNn_Pin|VRECT_MON_EN_Pin|TEMP_EN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level - VCHG_DISABLE starts HIGH (converter disabled) per CAR-212 */
-  HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_SET);
+  /* VCHG_DISABLE starts LOW (converter enabled) to support dead-battery WPT cold-start.
+   * app_init() gates it off ~500 ms later if no coil is detected on VRECT_DETn. */
+  HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, IPG_SHDN_Pin|FRAM_EN_Pin|BATT_MON_EN_Pin|SPI1_FRAM_CSn_Pin, GPIO_PIN_RESET);

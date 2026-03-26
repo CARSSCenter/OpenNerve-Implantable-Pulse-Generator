@@ -1,9 +1,9 @@
 ../App/Src/app.c:14:13:app_magnet_lost_cb	1
-../App/Src/app.c:23:6:app_init	1
-../App/Src/app.c:42:6:app_handler	17
-../App/Src/app.c:108:6:HAL_IncTick	1
-../App/Src/app.c:123:6:HAL_LPTIM_UpdateEventCallback	5
-../App/Src/app.c:144:6:HAL_RTCEx_WakeUpTimerEventCallback	1
-../App/Src/app.c:156:6:HAL_TIM_PWM_PulseFinishedCallback	7
-../App/Src/app.c:174:6:HAL_TIM_PeriodElapsedCallback	6
-../App/Src/app.c:195:6:HAL_TIM_OC_DelayElapsedCallback	7
+../App/Src/app.c:23:6:app_init	2
+../App/Src/app.c:59:6:app_handler	17
+../App/Src/app.c:125:6:HAL_IncTick	1
+../App/Src/app.c:140:6:HAL_LPTIM_UpdateEventCallback	5
+../App/Src/app.c:161:6:HAL_RTCEx_WakeUpTimerEventCallback	1
+../App/Src/app.c:173:6:HAL_TIM_PWM_PulseFinishedCallback	7
+../App/Src/app.c:191:6:HAL_TIM_PeriodElapsedCallback	6
+../App/Src/app.c:212:6:HAL_TIM_OC_DelayElapsedCallback	7
