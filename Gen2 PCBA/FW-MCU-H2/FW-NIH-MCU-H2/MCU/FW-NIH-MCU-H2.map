@@ -22080,7 +22080,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_macro   0x0004cbe6       0x7b ./exDrivers/Src/MIS2DHTR_driver.o
  .debug_macro   0x0004cc61      0x18a ./exDrivers/Src/MIS2DHTR_driver.o
 
-.debug_line     0x00000000    0x6567a
+.debug_line     0x00000000    0x6567c
  .debug_line    0x00000000      0xf9c ./App/Bsp/Src/bsp_adc.o
  .debug_line    0x00000f9c      0xdb0 ./App/Bsp/Src/bsp_fram.o
  .debug_line    0x00001d4c     0x12a6 ./App/Bsp/Src/bsp_magnet.o
@@ -22103,68 +22103,68 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_line    0x00019559     0x1364 ./App/Src/app_mode_impedance_test.o
  .debug_line    0x0001a8bd     0x1324 ./App/Src/app_mode_oad.o
  .debug_line    0x0001bbe1     0x1424 ./App/Src/app_mode_therapy_session.o
- .debug_line    0x0001d005     0x152a ./App/Src/app_mode_wpt.o
- .debug_line    0x0001e52f     0x12ba ./App/Src/app_state.o
- .debug_line    0x0001f7e9      0xc2a ./Core/Src/adc.o
- .debug_line    0x00020413      0xa5c ./Core/Src/crc.o
- .debug_line    0x00020e6f      0xa0c ./Core/Src/gpdma.o
- .debug_line    0x0002187b      0xb51 ./Core/Src/gpio.o
- .debug_line    0x000223cc      0xa43 ./Core/Src/hash.o
- .debug_line    0x00022e0f      0xb52 ./Core/Src/i2c.o
- .debug_line    0x00023961      0xa12 ./Core/Src/icache.o
- .debug_line    0x00024373      0xa1b ./Core/Src/iwdg.o
- .debug_line    0x00024d8e      0xbde ./Core/Src/lptim.o
- .debug_line    0x0002596c     0x131f ./Core/Src/main.o
- .debug_line    0x00026c8b      0xa49 ./Core/Src/pka.o
- .debug_line    0x000276d4      0xa64 ./Core/Src/rng.o
- .debug_line    0x00028138      0xb5c ./Core/Src/rtc.o
- .debug_line    0x00028c94      0xacd ./Core/Src/spi.o
- .debug_line    0x00029761      0xa10 ./Core/Src/stm32u5xx_hal_msp.o
- .debug_line    0x0002a171      0xd3d ./Core/Src/stm32u5xx_it.o
- .debug_line    0x0002aeae      0xb0a ./Core/Src/system_stm32u5xx.o
- .debug_line    0x0002b9b8      0xd77 ./Core/Src/tim.o
- .debug_line    0x0002c72f      0xabc ./Core/Src/usart.o
- .debug_line    0x0002d1eb       0x79 ./Core/Startup/startup_stm32u585qiixq.o
- .debug_line    0x0002d264      0xea9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
- .debug_line    0x0002e10d     0x2985 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
- .debug_line    0x00030a92     0x19f6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
- .debug_line    0x00032488     0x1059 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
- .debug_line    0x000334e1      0xcc5 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
- .debug_line    0x000341a6      0xac3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
- .debug_line    0x00034c69     0x148b ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
- .debug_line    0x000360f4     0x2918 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
- .debug_line    0x00038a0c      0xd6f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
- .debug_line    0x0003977b     0x11a1 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
- .debug_line    0x0003a91c      0xfa8 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
- .debug_line    0x0003b8c4     0x2100 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
- .debug_line    0x0003d9c4      0xd6c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
- .debug_line    0x0003e730     0x3d5c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
- .debug_line    0x0004248c      0xc56 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
- .debug_line    0x000430e2      0xcf9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
- .debug_line    0x00043ddb      0xb09 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
- .debug_line    0x000448e4     0x1f88 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
- .debug_line    0x0004686c     0x2186 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
- .debug_line    0x000489f2      0xca3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
- .debug_line    0x00049695     0x1396 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
- .debug_line    0x0004aa2b     0x1897 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
- .debug_line    0x0004c2c2     0x24fc ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
- .debug_line    0x0004e7be      0xd5a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
- .debug_line    0x0004f518     0x12b6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
- .debug_line    0x000507ce     0x1a72 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
- .debug_line    0x00052240     0x2711 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
- .debug_line    0x00054951      0xbe9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
- .debug_line    0x0005553a     0x47c2 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
- .debug_line    0x00059cfc     0x2479 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
- .debug_line    0x0005c175     0x368d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
- .debug_line    0x0005f802     0x104a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
- .debug_line    0x0006084c      0x3fe ./Libraries/ECDSA/prime256v1.o
- .debug_line    0x00060c4a     0x2693 ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
- .debug_line    0x000632dd      0xdb9 ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
- .debug_line    0x00064096      0x692 ./exDrivers/Src/CY15B108QN_driver.o
- .debug_line    0x00064728      0x4c4 ./exDrivers/Src/DAC8050x_driver.o
- .debug_line    0x00064bec      0x499 ./exDrivers/Src/ISL23315T_driver.o
- .debug_line    0x00065085      0x12b ./exDrivers/Src/LT1615_driver.o
- .debug_line    0x000651b0      0x4ca ./exDrivers/Src/MIS2DHTR_driver.o
+ .debug_line    0x0001d005     0x152c ./App/Src/app_mode_wpt.o
+ .debug_line    0x0001e531     0x12ba ./App/Src/app_state.o
+ .debug_line    0x0001f7eb      0xc2a ./Core/Src/adc.o
+ .debug_line    0x00020415      0xa5c ./Core/Src/crc.o
+ .debug_line    0x00020e71      0xa0c ./Core/Src/gpdma.o
+ .debug_line    0x0002187d      0xb51 ./Core/Src/gpio.o
+ .debug_line    0x000223ce      0xa43 ./Core/Src/hash.o
+ .debug_line    0x00022e11      0xb52 ./Core/Src/i2c.o
+ .debug_line    0x00023963      0xa12 ./Core/Src/icache.o
+ .debug_line    0x00024375      0xa1b ./Core/Src/iwdg.o
+ .debug_line    0x00024d90      0xbde ./Core/Src/lptim.o
+ .debug_line    0x0002596e     0x131f ./Core/Src/main.o
+ .debug_line    0x00026c8d      0xa49 ./Core/Src/pka.o
+ .debug_line    0x000276d6      0xa64 ./Core/Src/rng.o
+ .debug_line    0x0002813a      0xb5c ./Core/Src/rtc.o
+ .debug_line    0x00028c96      0xacd ./Core/Src/spi.o
+ .debug_line    0x00029763      0xa10 ./Core/Src/stm32u5xx_hal_msp.o
+ .debug_line    0x0002a173      0xd3d ./Core/Src/stm32u5xx_it.o
+ .debug_line    0x0002aeb0      0xb0a ./Core/Src/system_stm32u5xx.o
+ .debug_line    0x0002b9ba      0xd77 ./Core/Src/tim.o
+ .debug_line    0x0002c731      0xabc ./Core/Src/usart.o
+ .debug_line    0x0002d1ed       0x79 ./Core/Startup/startup_stm32u585qiixq.o
+ .debug_line    0x0002d266      0xea9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
+ .debug_line    0x0002e10f     0x2985 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
+ .debug_line    0x00030a94     0x19f6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
+ .debug_line    0x0003248a     0x1059 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
+ .debug_line    0x000334e3      0xcc5 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
+ .debug_line    0x000341a8      0xac3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
+ .debug_line    0x00034c6b     0x148b ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
+ .debug_line    0x000360f6     0x2918 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
+ .debug_line    0x00038a0e      0xd6f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
+ .debug_line    0x0003977d     0x11a1 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
+ .debug_line    0x0003a91e      0xfa8 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
+ .debug_line    0x0003b8c6     0x2100 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
+ .debug_line    0x0003d9c6      0xd6c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
+ .debug_line    0x0003e732     0x3d5c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
+ .debug_line    0x0004248e      0xc56 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
+ .debug_line    0x000430e4      0xcf9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
+ .debug_line    0x00043ddd      0xb09 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
+ .debug_line    0x000448e6     0x1f88 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
+ .debug_line    0x0004686e     0x2186 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
+ .debug_line    0x000489f4      0xca3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
+ .debug_line    0x00049697     0x1396 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
+ .debug_line    0x0004aa2d     0x1897 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
+ .debug_line    0x0004c2c4     0x24fc ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
+ .debug_line    0x0004e7c0      0xd5a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
+ .debug_line    0x0004f51a     0x12b6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
+ .debug_line    0x000507d0     0x1a72 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
+ .debug_line    0x00052242     0x2711 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
+ .debug_line    0x00054953      0xbe9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
+ .debug_line    0x0005553c     0x47c2 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
+ .debug_line    0x00059cfe     0x2479 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
+ .debug_line    0x0005c177     0x368d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
+ .debug_line    0x0005f804     0x104a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
+ .debug_line    0x0006084e      0x3fe ./Libraries/ECDSA/prime256v1.o
+ .debug_line    0x00060c4c     0x2693 ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
+ .debug_line    0x000632df      0xdb9 ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
+ .debug_line    0x00064098      0x692 ./exDrivers/Src/CY15B108QN_driver.o
+ .debug_line    0x0006472a      0x4c4 ./exDrivers/Src/DAC8050x_driver.o
+ .debug_line    0x00064bee      0x499 ./exDrivers/Src/ISL23315T_driver.o
+ .debug_line    0x00065087      0x12b ./exDrivers/Src/LT1615_driver.o
+ .debug_line    0x000651b2      0x4ca ./exDrivers/Src/MIS2DHTR_driver.o
 
 .debug_str      0x00000000   0x1930db
  .debug_str     0x00000000   0x1930db ./App/Bsp/Src/bsp_adc.o

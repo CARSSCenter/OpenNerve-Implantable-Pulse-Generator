@@ -111,8 +111,17 @@ void app_mode_wpt_handler(void)
     uint16_t curr_state = app_func_sm_current_state_get();
 
     /* ---- Entry: configure charging hardware ---- */
-    HAL_GPIO_WritePin(CHG_RATE1_GPIO_Port, CHG_RATE1_Pin, GPIO_PIN_RESET); /* LOW  */
-    HAL_GPIO_WritePin(CHG_RATE2_GPIO_Port, CHG_RATE2_Pin, GPIO_PIN_SET);   /* HIGH → 50 mA */
+    /*
+     * CHG_RATE1 and CHG_RATE2 control the charging rate from each of the LTC4065 PMICs
+     * CHG_RATE1 -> LOW, CHG_RATE2 -> LOW = 20mA
+     * CHG_RATE1 -> LOW, CHG_RATE2 -> HIGH = 50mA
+     * CHG_RATE1 -> HIGH, CHG_RATE2 -> LOW = 70mA
+     * CHG_RATE1 -> HIGH, CHG_RATE2 -> HIGH = 100mA
+     */
+    HAL_GPIO_WritePin(CHG_RATE1_GPIO_Port, CHG_RATE1_Pin, GPIO_PIN_SET); /* HIGH  */
+    HAL_GPIO_WritePin(CHG_RATE2_GPIO_Port, CHG_RATE2_Pin, GPIO_PIN_SET);   /* HIGH → 100 mA */
+
+
     HAL_GPIO_WritePin(VRECT_MON_EN_GPIO_Port, VRECT_MON_EN_Pin, GPIO_PIN_SET);   /* enable VRECT monitor */
     HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_RESET); /* enable converter */
 
