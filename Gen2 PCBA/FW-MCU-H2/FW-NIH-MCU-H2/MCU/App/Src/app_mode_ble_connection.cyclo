@@ -1,3 +1,0 @@
-../App/Src/app_mode_ble_connection.c:38:19:app_mode_ble_conn_cmd_parser	148
-../App/Src/app_mode_ble_connection.c:730:6:app_mode_ble_conn_handler	12
-../App/Src/app_mode_ble_connection.c:786:6:app_mode_ble_conn_timer_cb	4

@@ -1,4 +1,0 @@
-../App/Src/app_state.c:15:13:app_state_power_off	2
-../App/Src/app_state.c:28:6:app_state_shutdown_handler	1
-../App/Src/app_state.c:42:6:app_state_sleep_handler	9
-../App/Src/app_state.c:192:6:app_state_active_handler	1

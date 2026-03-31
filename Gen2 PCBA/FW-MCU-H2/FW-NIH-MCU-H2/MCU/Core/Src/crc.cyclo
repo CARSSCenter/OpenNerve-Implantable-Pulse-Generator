@@ -1,3 +1,0 @@
-../Core/Src/crc.c:30:6:MX_CRC_Init	2
-../Core/Src/crc.c:59:6:HAL_CRC_MspInit	2
-../Core/Src/crc.c:75:6:HAL_CRC_MspDeInit	2
