@@ -1,0 +1,99 @@
+# ============================================================
+# .gitattributes — OpenNerve IPG
+# Text files: normalized to LF in repo, merged textually.
+# Binary files: no diff/merge attempted; conflicts require
+#               manual resolution (pick ours or theirs).
+# ============================================================
+
+# ---------- Defaults ----------
+# Catch-all: let Git auto-detect text vs binary.
+* text=auto
+
+# ---------- C / Assembly / Linker source ----------
+*.c   text eol=lf diff=c
+*.h   text eol=lf diff=c
+*.s   text eol=lf
+*.S   text eol=lf
+*.ld  text eol=lf
+*.icf text eol=lf
+
+# ---------- Build system ----------
+[Mm]akefile  text eol=lf
+*.mk         text eol=lf
+*.mak        text eol=lf
+
+# ---------- STM32CubeMX / IDE / config ----------
+# .ioc is text (INI format) — merge textually so pin
+# assignments from both branches are preserved.
+*.ioc       text eol=lf
+
+*.xml       text eol=lf
+*.cfg       text eol=lf
+*.launch    text eol=lf
+*.emProject text eol=lf
+*.emSession text eol=lf
+*.jlink     text eol=lf
+
+# Windows batch — keep CRLF
+*.bat text eol=crlf
+
+# ---------- Documentation ----------
+*.md   text eol=lf
+*.txt  text eol=lf
+*.htm  text eol=lf
+*.cff  text eol=lf
+
+# ---------- Firmware hex images ----------
+# Intel HEX is ASCII text, but these are build outputs.
+# Treat as text so diffs are readable; CRLF matches
+# STM32CubeIDE output convention.
+*.hex text eol=crlf
+
+# ---------- Build artifacts (binary) ----------
+# These should ideally be in .gitignore.
+# Marked binary so Git never attempts a text merge.
+*.o     binary
+*.a     binary
+*.d     binary
+*.su    binary
+*.cyclo binary
+
+# ---------- Compiled firmware images ----------
+*.elf binary
+*.bin binary
+
+# ---------- Altium Designer project files ----------
+# All Altium formats are proprietary binary — Git cannot
+# merge them. Any conflict must be resolved manually in
+# Altium Designer (accept one side or hand-merge in tool).
+*.PcbDoc          binary
+*.SchDoc          binary
+*.PrjPcb          binary
+*.PrjPcbStructure binary
+*.PrjPcbVariants  binary
+*.BomDoc          binary
+*.OutJob          binary
+*.PCBDwf          binary
+*.SchDocPreview   binary
+*.Harness         binary
+
+# ---------- CAD / 3D models ----------
+*.step binary
+*.STEP binary
+*.stp  binary
+*.STL  binary
+
+# ---------- Office / archive ----------
+*.pdf  binary
+*.PDF  binary
+*.xlsx binary
+*.pptx binary
+*.zip  binary
+*.Zip  binary
+
+# ---------- Images ----------
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.bmp  binary
