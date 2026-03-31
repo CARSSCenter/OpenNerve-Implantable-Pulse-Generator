@@ -172,10 +172,39 @@ void app_func_sm_wakeup_timer_cb(void) {
 }
 
 /**
+ * @brief Callback when VRECT coil is detected or lost
+ *
+ * @param coil_present true = coil present (VRECT_DETn low), false = coil removed (VRECT_DETn high)
+ */
+void app_func_sm_vrect_coil_cb(bool coil_present) {
+	if (coil_present) {
+		if ((curr_state == STATE_SLEEP || curr_state >= STATE_ACT) && curr_state != STATE_SHUTDOWN && curr_state != STATE_ACT_MODE_DVT) {
+			if (curr_state == STATE_SLEEP) {
+				/* Wake via BLE_ACT so BLE is fully cold-started before entering
+				 * WPT mode. app_mode_ble_act_handler polls VRECT_DETn every 50 ms
+				 * and will self-transition to STATE_ACT_MODE_WPT_HIGH immediately. */
+				curr_state = STATE_ACT_MODE_BLE_ACT;
+			} else {
+				curr_state = STATE_ACT_MODE_WPT_HIGH;
+			}
+		}
+	} else {
+		if (curr_state == STATE_ACT_MODE_WPT_HIGH || curr_state == STATE_ACT_MODE_WPT_PAUSED) {
+			curr_state = STATE_ACT_MODE_BLE_ACT;
+		}
+	}
+}
+
+/**
  * @brief Callback for confirmation timer in sleep state
  *
  */
 void app_func_sm_confirmation_timer_cb(void) {
+	/* Battery voltage is elevated during WPT charging — suppress test transitions */
+	if (curr_state == STATE_ACT_MODE_WPT_HIGH || curr_state == STATE_ACT_MODE_WPT_PAUSED) {
+		return;
+	}
+
 	RTC_TimeTypeDef curr_time;
 	RTC_DateTypeDef curr_date;
 	HAL_ERROR_CHECK(HAL_RTC_GetTime(&hrtc, &curr_time, RTC_FORMAT_BIN));

@@ -26,10 +26,8 @@ static void app_state_power_off(void) {
  * 
  */
 void app_state_shutdown_handler(void) {
-
 	bsp_fram_deinit();
 	bsp_sp_deinit();
-
 	app_state_power_off();
 
 	HAL_GPIO_WritePin(IPG_SHDN_GPIO_Port, IPG_SHDN_Pin, GPIO_PIN_SET);

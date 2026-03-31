@@ -25,6 +25,7 @@
 #include "app_mode_oad.h"
 #include "app_mode_therapy_session.h"
 #include "app_mode_dvt.h"
+#include "app_mode_wpt.h"
 #include "app_state.h"
 #include "app.h"
 
@@ -67,7 +68,7 @@
 #ifdef DVT
 #define	DEFAULT_STATE	STATE_ACT_MODE_DVT			/*!< The default state after power-on */
 #else
-#define	DEFAULT_STATE	 STATE_SLEEP //STATE_ACT_MODE_BLE_ACT	/*!< The default state after power-on */
+#define	DEFAULT_STATE	STATE_ACT_MODE_BLE_ACT		/*!< The default state after power-on */
 #endif
 
 //#define SWV_TRACE

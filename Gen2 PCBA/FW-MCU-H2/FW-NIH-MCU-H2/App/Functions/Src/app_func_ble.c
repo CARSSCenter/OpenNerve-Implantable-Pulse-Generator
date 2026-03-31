@@ -113,8 +113,8 @@ void app_func_ble_enable(bool enable) {
 	bsp_wdg_refresh();
 
 	bsp_sp_deinit();
-	HAL_GPIO_WritePin(BLE_PWRn_GPIO_Port, BLE_PWRn_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(BLE_PWRn_GPIO_Port, BLE_PWRn_Pin, GPIO_PIN_SET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
+	HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_RESET); /* parasoft-suppress MISRAC2012-RULE_11_4-a "This definition comes from HAL." */
 	HAL_Delay(100);
 
 	if (enable) {

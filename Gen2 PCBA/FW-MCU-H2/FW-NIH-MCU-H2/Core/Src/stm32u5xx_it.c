@@ -248,6 +248,20 @@ void EXTI3_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles EXTI Line7 interrupt (VRECT_DETn).
+  */
+void EXTI7_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI7_IRQn 0 */
+
+  /* USER CODE END EXTI7_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(VRECT_DETn_Pin);
+  /* USER CODE BEGIN EXTI7_IRQn 1 */
+
+  /* USER CODE END EXTI7_IRQn 1 */
+}
+
+/**
   * @brief This function handles IWDG global interrupt.
   */
 void IWDG_IRQHandler(void)

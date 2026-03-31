@@ -82,7 +82,10 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, ECG_RR_SDNn_Pin|VRECT_MON_EN_Pin|TEMP_EN_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(GPIOC, VCHG_DISABLE_Pin, GPIO_PIN_SET);
+
+  /* VCHG_DISABLE starts LOW (converter enabled) to support dead-battery WPT cold-start.
+   * app_init() gates it off ~500 ms later if no coil is detected on VRECT_DETn. */
+  HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, IPG_SHDN_Pin|FRAM_EN_Pin|BATT_MON_EN_Pin|SPI1_FRAM_CSn_Pin, GPIO_PIN_RESET);
@@ -144,11 +147,17 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ECG_RR_LOD_Pin ECG_HR_LOD_Pin VRECT_DETn_Pin VRECT_OVPn_Pin */
-  GPIO_InitStruct.Pin = ECG_RR_LOD_Pin|ECG_HR_LOD_Pin|VRECT_DETn_Pin|VRECT_OVPn_Pin;
+  /*Configure GPIO pins : ECG_RR_LOD_Pin ECG_HR_LOD_Pin VRECT_OVPn_Pin */
+  GPIO_InitStruct.Pin = ECG_RR_LOD_Pin|ECG_HR_LOD_Pin|VRECT_OVPn_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : VRECT_DETn_Pin - EXTI rising+falling for coil detection */
+  GPIO_InitStruct.Pin = VRECT_DETn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(VRECT_DETn_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : BATT_SW_EN_Pin */
   GPIO_InitStruct.Pin = BATT_SW_EN_Pin;
@@ -276,6 +285,9 @@ void MX_GPIO_Init(void)
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI7_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI7_IRQn);
 
 }
 
