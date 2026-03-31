@@ -67,7 +67,7 @@
 #ifdef DVT
 #define	DEFAULT_STATE	STATE_ACT_MODE_DVT			/*!< The default state after power-on */
 #else
-#define	DEFAULT_STATE	STATE_ACT_MODE_BLE_ACT		/*!< The default state after power-on */
+#define	DEFAULT_STATE	 STATE_SLEEP //STATE_ACT_MODE_BLE_ACT	/*!< The default state after power-on */
 #endif
 
 //#define SWV_TRACE
