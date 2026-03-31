@@ -1,3 +1,0 @@
-../App/Src/app_mode_wpt.c:53:14:app_mode_wpt_calc_temperature	8
-../App/Src/app_mode_wpt.c:91:6:app_mode_wpt_timer_cb	3
-../App/Src/app_mode_wpt.c:109:6:app_mode_wpt_handler	44

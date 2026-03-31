@@ -1,9 +1,0 @@
-../App/Src/app.c:14:13:app_magnet_lost_cb	16	static
-../App/Src/app.c:23:6:app_init	8	static
-../App/Src/app.c:59:6:app_handler	8	static
-../App/Src/app.c:125:6:HAL_IncTick	8	static
-../App/Src/app.c:140:6:HAL_LPTIM_UpdateEventCallback	16	static
-../App/Src/app.c:161:6:HAL_RTCEx_WakeUpTimerEventCallback	16	static
-../App/Src/app.c:173:6:HAL_TIM_PWM_PulseFinishedCallback	16	static
-../App/Src/app.c:191:6:HAL_TIM_PeriodElapsedCallback	16	static
-../App/Src/app.c:212:6:HAL_TIM_OC_DelayElapsedCallback	16	static
