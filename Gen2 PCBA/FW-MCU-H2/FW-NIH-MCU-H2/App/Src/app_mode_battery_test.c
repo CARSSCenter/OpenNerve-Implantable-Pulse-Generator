@@ -7,7 +7,6 @@
 #include "app_config.h"
 
 #define	COUNT_MAX_ER	3		/*!< The maximum count value that triggers the "ER" event */
-#define	COUNT_MAX_EOS	3		/*!< The maximum count value that triggers the "EOS" event */
 
 uint32_t battery_er_counter = 0;
 uint32_t battery_eos_counter = 0;
@@ -74,7 +73,7 @@ void app_mode_battery_test_handler(void) {
 
 	if (battery_eos_counter >= (uint8_t)COUNT_MAX_EOS) {
 		app_func_logs_event_write((const char*)EVENT_EOS, NULL);
-		curr_state = STATE_SHUTDOWN;
+		curr_state = STATE_SLEEP;
 	}
 	else {
 		curr_state = STATE_ACT;

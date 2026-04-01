@@ -106,6 +106,13 @@ void app_func_sm_init(void) {
 	}
 	__HAL_RCC_CLEAR_RESET_FLAGS();
 
+	if (curr_state != STATE_ACT_MODE_DVT && curr_state != STATE_SHUTDOWN) {
+		uint32_t eos_counter = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2);
+		if (eos_counter >= COUNT_MAX_EOS) {
+			curr_state = STATE_SLEEP;
+		}
+	}
+
 	app_func_sm_impedance_timer_enable();
 	app_func_sm_battery_timer_enable();
 
