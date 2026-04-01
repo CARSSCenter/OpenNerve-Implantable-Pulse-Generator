@@ -39,7 +39,7 @@ void app_state_shutdown_handler(void) {
  */
 void app_state_sleep_handler(void) {
 	bsp_wdg_refresh();
-	app_func_logs_event_write(EVENT_SLEEP, NULL);
+	//app_func_logs_event_write(EVENT_SLEEP, NULL);		//Logging here gunks up the FRAM, causing a delay that triggeres watchdog timer
 	bsp_fram_deinit();
 	bsp_sp_deinit();
 
