@@ -93,7 +93,7 @@ static Parameter_Format_Rawdata_t format_PublicKey_Patient = {
 		.data_len = (uint8_t)sizeof(PublicKey_Patient),
 };
 
-static Parameter_Format_Value_t format_ble_broadcast_timeout 	= {10.0, 	600.0, 	60.0, 	10.0};
+static Parameter_Format_Value_t format_ble_broadcast_timeout 	= {10.0, 	600.0, 	119.0, 	10.0};
 static Parameter_Format_Value_t format_ble_idle_connection 		= {10.0, 	600.0, 	300.0, 	10.0};
 static Parameter_Format_Value_t format_ble_disconnect_request 	= {10.0, 	600.0, 	10.0, 	10.0};
 static Parameter_Format_Value_t format_ble_interval 			= {1.0, 	600.0, 	60.0, 	1.0};
@@ -106,7 +106,7 @@ static Parameter_Format_Value_t format_magnet_reset_max_time 	= {1.0, 	60.0, 	13
 static Parameter_Format_Value_t format_battery_er_level 		= {2.0, 	4.0, 	2.6, 	0.1};
 static Parameter_Format_Value_t format_battery_eos_level 		= {2.0, 	4.0, 	2.5, 	0.1};
 static Parameter_Format_Value_t format_language 				= {1.0, 	4.0, 	1.0, 	1.0};
-static Parameter_Format_Value_t format_idle_duration 			= {1.0, 	600.0, 	60.0, 	1.0};
+static Parameter_Format_Value_t format_idle_duration 			= {1.0, 	600.0, 	1.0, 	1.0};
 static Parameter_Format_Value_t format_rtc_interrupt_period 	= {60.0, 	60.0, 	60.0, 	1.0};
 
 static Parameter_Format_Value_t format_num_of_therapy_sessions	= {1.0, 	6.0, 	3.0, 	1.0};
