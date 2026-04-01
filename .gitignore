@@ -26,6 +26,13 @@ FW-BLE/carss_board/s112/ses/Output/
 .claude/
 **/.claude/
 
+# ── Private keys ──────────────────────────────────────────────────────────────
+# ECDSA private key files — never commit these to git
+*_priv_*.txt
+*_priv_*.pem
+*private_key*
+secrets/
+
 # ── Compiler intermediate output ──────────────────────────────────────────────
 # Object files
 *.o
