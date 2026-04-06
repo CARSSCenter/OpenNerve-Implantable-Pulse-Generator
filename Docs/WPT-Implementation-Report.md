@@ -247,6 +247,28 @@ void app_func_sm_confirmation_timer_cb(void) {
 }
 ```
 
+The active-mode EOS check (`app_func_sm_active_eos_check()`) applies the same suppression via its own state guard — it returns immediately without reading or modifying the counters when called while in `STATE_ACT_MODE_WPT_HIGH` or `STATE_ACT_MODE_WPT_PAUSED`.
+
+### 4.6 EOS Counter Clear on Successful Charge
+
+A device that reached EOS before being placed on a charger would otherwise re-enter EOS sleep immediately after the charging session ends, because the ER/EOS counters in `RTC_BKP_DR1`/`DR2` are still set. To handle this, `app_mode_wpt_handler()` reads the battery voltage at the exit block (after the converter has been disabled, so the reading is clean battery voltage unaffected by charging current) and clears both counters if the highest battery voltage exceeds `HPID_BATTERY_ER_LEVEL`:
+
+```c
+// App/Src/app_mode_wpt.c — exit block
+_Float64 er_level_v = 0.0;
+app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL, ...);
+uint16_t er_level_mv = (uint16_t)(er_level_v * 1000.0);
+uint16_t exit_vbat[2] = {0U, 0U};
+app_func_meas_batt_mon_meas(&exit_vbat[0], &exit_vbat[1]);
+uint16_t exit_vbat_max = MAX(exit_vbat[0], exit_vbat[1]);
+if (exit_vbat_max > er_level_mv) {
+    HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0U);
+    HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, 0U);
+}
+```
+
+The ER threshold (higher than EOS) is used deliberately so that a brief or partial charge session that only marginally recovers the battery does not prematurely clear the EOS flag. If the coil is removed before the battery reaches the ER threshold, the counters remain set and the device will re-enter EOS sleep.
+
 ---
 
 ## 5. Boot-Time Behavior: VCHG_DISABLE and Dead-Battery Cold-Start

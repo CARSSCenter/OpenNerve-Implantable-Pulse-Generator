@@ -283,6 +283,7 @@ void app_mode_ble_act_handler(void) {
 				}
 			}
 		}
+		app_func_sm_active_eos_check();
 		curr_state = app_func_sm_current_state_get();
 	}
 }

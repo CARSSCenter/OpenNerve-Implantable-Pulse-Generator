@@ -775,6 +775,7 @@ void app_mode_ble_conn_handler(void) {
 			sens_en = false;
 			app_func_sm_current_state_set(STATE_ACT_MODE_BLE_ACT);
 		}
+		app_func_sm_active_eos_check();
 		curr_state = app_func_sm_current_state_get();
 	}
 

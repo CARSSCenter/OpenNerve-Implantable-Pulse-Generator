@@ -61,7 +61,7 @@ Event label strings are exactly 5 bytes (padded with spaces):
 |---|---|---|
 | `PO   ` | `EVENT_POWER_ON` | MCU powered on and fully initialized (written once per clean boot, not on wakeup from sleep) |
 | `ER   ` | `EVENT_ER` | Battery voltage has been in the Early Replacement range for 3 consecutive checks |
-| `EOS  ` | `EVENT_EOS` | Battery voltage has been at End of Service level for 3 consecutive checks; device shuts down immediately after |
+| `EOS  ` | `EVENT_EOS` | Battery voltage has been at End of Service level for 3 consecutive checks; device transitions to sleep immediately after, then pulls `BATT_SW_EN` LOW to discharge the battery-disconnect timing capacitor (~1–2 min to full disconnect) |
 | `UF   ` | `EVENT_UNRESPONSIVE_FUNCTION` | Watchdog timer fired — written on the **next boot** by checking the reset-cause register |
 | `MD   ` | `EVENT_MAGNET_DETECTION` | Magnet was held and removed for the configured duration (triggers sleep↔wake transition) |
 | `SC   ` | `EVENT_SHORT_CIRCUIT` | Short circuit detected during impedance measurement |
@@ -229,7 +229,8 @@ byte[] ParseTimestamp(string entry) {
 | `App/Bsp/Inc/bsp_fram.h` | FRAM address map (`ADDR_LOG_BASE`, `SIZE_LOG`, etc.) |
 | `App/Src/app.c` | Writes `PO` event on boot |
 | `App/Src/app_state.c` | Writes `SL` (sleep entry), `WK` (wakeup), and `SE` (stim stop on forced power-off) events |
-| `App/Src/app_mode_battery_test.c` | Writes `<BA>`, `ER`, `EOS` events |
+| `App/Src/app_mode_battery_test.c` | Writes `<BA>` and `ER` events; writes `EOS` during sleep-based battery checks |
+| `App/Functions/Src/app_func_state_machine.c` (continued) | Also writes `EOS` event via `app_func_sm_active_eos_check()` — the active-mode EOS path that fires once per minute during BLE, connection, and therapy states |
 | `App/Src/app_mode_impedance_test.c` | Writes `<IM>`, `SC`, `HI`, `NI` events |
 | `App/Src/app_mode_therapy_session.c` | Writes `LSA`, `SS`, `SE` events |
 | `App/Src/app_mode_ble_active.c` | Writes `BC` event on successful BLE authentication |

@@ -88,4 +88,14 @@ void app_func_sm_magnet_lost_cb(uint8_t detected_time);
  */
 void app_func_sm_vrect_coil_cb(bool coil_present);
 
+/**
+ * @brief Check battery voltage for EOS during active operation.
+ *
+ * Call from any active-mode main loop. Internally rate-limited to once per
+ * minute. Skipped in WPT, DVT, sleep, and shutdown states. Transitions to
+ * STATE_SLEEP and logs EVENT_EOS after COUNT_MAX_EOS consecutive readings
+ * below HPID_BATTERY_EOS_LEVEL.
+ */
+void app_func_sm_active_eos_check(void);
+
 #endif /* FUNCTIONS_INC_APP_FUNC_STATE_MACHINE_H_ */

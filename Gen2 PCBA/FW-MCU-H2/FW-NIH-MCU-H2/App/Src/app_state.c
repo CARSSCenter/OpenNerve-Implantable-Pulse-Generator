@@ -93,6 +93,14 @@ void app_state_sleep_handler(void) {
 		GPIO_InitStruct.Pin = IMP_IN_N_SEL2_Pin;   HAL_GPIO_Init(IMP_IN_N_SEL2_GPIO_Port,   &GPIO_InitStruct);
 	}
 
+	/* At EOS, pull BATT_SW_EN low to discharge the battery-disconnect timing cap */
+	{
+		uint32_t eos_counter = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2);
+		if (eos_counter >= COUNT_MAX_EOS) {
+			HAL_GPIO_WritePin(BATT_SW_EN_GPIO_Port, BATT_SW_EN_Pin, GPIO_PIN_RESET);
+		}
+	}
+
 	HAL_SuspendTick();
 	__HAL_RCC_LPTIM1_CLKAM_ENABLE();
 	__HAL_RCC_LPTIM3_CLKAM_ENABLE();
@@ -131,6 +139,9 @@ void app_state_sleep_handler(void) {
 	 * All other floated pins must be explicitly restored here before any
 	 * application code attempts to use them. */
 	{
+		/* Restore BATT_SW_EN regardless of EOS state — if woken before the
+		 * battery-disconnect cap fully discharged, keep batteries connected */
+		HAL_GPIO_WritePin(BATT_SW_EN_GPIO_Port, BATT_SW_EN_Pin, GPIO_PIN_SET);
 
 		GPIO_InitTypeDef GPIO_InitStruct = {0};
 		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

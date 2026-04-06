@@ -249,6 +249,7 @@ void app_mode_therapy_handler(void) {
 		app_func_sm_schd_therapy_enable(true);
 		while(app_func_sm_current_state_get() == STATE_ACT_MODE_THERAPY_SESSION) {
 			bsp_wdg_refresh();
+			app_func_sm_active_eos_check();
 		}
 		app_func_sm_schd_therapy_enable(false);
 		//stimulation stop

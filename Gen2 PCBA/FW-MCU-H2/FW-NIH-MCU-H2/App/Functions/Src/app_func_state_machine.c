@@ -179,6 +179,63 @@ void app_func_sm_wakeup_timer_cb(void) {
 }
 
 /**
+ * @brief Check battery voltage for EOS during active operation.
+ *
+ * Rate-limited to once per minute via HAL_GetTick(). Skipped in WPT, DVT,
+ * sleep, and shutdown states. Uses the same ER/EOS hysteresis and RTC backup
+ * registers as app_mode_battery_test_handler() so both paths share a single
+ * counter. Transitions to STATE_SLEEP and logs EVENT_EOS after COUNT_MAX_EOS
+ * consecutive readings at or below HPID_BATTERY_EOS_LEVEL.
+ */
+void app_func_sm_active_eos_check(void) {
+	static uint32_t last_check_ms = 0;
+	uint32_t now = HAL_GetTick();
+	if ((now - last_check_ms) < 60000U) return;
+	last_check_ms = now;
+
+	if (curr_state == STATE_ACT_MODE_WPT_HIGH  ||
+	    curr_state == STATE_ACT_MODE_WPT_PAUSED ||
+	    curr_state == STATE_ACT_MODE_DVT        ||
+	    curr_state == STATE_SLEEP               ||
+	    curr_state == STATE_SHUTDOWN) return;
+
+	_Float64 battery_er_level  = 0.0;
+	_Float64 battery_eos_level = 0.0;
+	app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL,  (uint8_t*)&battery_er_level,  (uint8_t)sizeof(battery_er_level));
+	app_func_para_data_get((const uint8_t*)HPID_BATTERY_EOS_LEVEL, (uint8_t*)&battery_eos_level, (uint8_t)sizeof(battery_eos_level));
+
+	uint16_t vbatA = 0, vbatB = 0;
+	app_func_meas_batt_mon_enable(true);
+	HAL_Delay(10);
+	app_func_meas_batt_mon_meas(&vbatA, &vbatB);
+	app_func_meas_batt_mon_enable(false);
+
+	_Float64 battery_level = (vbatA >= vbatB)
+	    ? ((_Float64)vbatA / 1000.0)
+	    : ((_Float64)vbatB / 1000.0);
+
+	uint32_t er_counter  = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1);
+	uint32_t eos_counter = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2);
+
+	if (battery_level > battery_er_level) {
+		er_counter  = 0;
+		eos_counter = 0;
+	} else if (battery_level > battery_eos_level) {
+		er_counter++;
+	} else {
+		er_counter++;
+		eos_counter++;
+		if (eos_counter >= COUNT_MAX_EOS) {
+			app_func_logs_event_write((const char*)EVENT_EOS, NULL);
+			curr_state = STATE_SLEEP;
+		}
+	}
+
+	HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, er_counter);
+	HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, eos_counter);
+}
+
+/**
  * @brief Callback when VRECT coil is detected or lost
  *
  * @param coil_present true = coil present (VRECT_DETn low), false = coil removed (VRECT_DETn high)

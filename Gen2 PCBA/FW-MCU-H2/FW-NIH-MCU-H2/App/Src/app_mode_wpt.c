@@ -349,5 +349,23 @@ void app_mode_wpt_handler(void)
     HAL_GPIO_WritePin(CHG1_EN_GPIO_Port,      CHG1_EN_Pin,      GPIO_PIN_RESET);
     HAL_GPIO_WritePin(CHG2_EN_GPIO_Port,      CHG2_EN_Pin,      GPIO_PIN_RESET);
     HAL_GPIO_WritePin(VRECT_MON_EN_GPIO_Port, VRECT_MON_EN_Pin, GPIO_PIN_RESET);
+
+    /* If battery recovered above ER threshold during charging, clear EOS/ER
+     * counters so the device doesn't re-enter EOS sleep after a successful
+     * charge. Converter is already disabled so the reading is clean battery
+     * voltage. Battery monitor was enabled at entry and never disabled. */
+    {
+        _Float64 er_level_v = 0.0;
+        app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL, (uint8_t*)&er_level_v, (uint8_t)sizeof(er_level_v));
+        uint16_t er_level_mv = (uint16_t)(er_level_v * 1000.0);
+        uint16_t exit_vbat[2] = {0U, 0U};
+        app_func_meas_batt_mon_meas(&exit_vbat[0], &exit_vbat[1]);
+        uint16_t exit_vbat_max = (exit_vbat[0] >= exit_vbat[1]) ? exit_vbat[0] : exit_vbat[1];
+        if (exit_vbat_max > er_level_mv) {
+            HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0U);
+            HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, 0U);
+        }
+    }
+
     app_func_ble_enable(false);
 }
