@@ -15,8 +15,7 @@ This tool updates the firmware on an OpenNerve Gen2 IPG wirelessly over Bluetoot
 | Platform | Status | Notes |
 |---|---|---|
 | **Windows 10/11** | Fully supported | Passkey injected automatically — no dialog |
-| **macOS** | Partial | See [macOS Pairing](#macos-pairing) below |
-| Linux | Untested | May work with BlueZ; pairing dialog expected |
+| **macOS** | Not working | See [macOS Pairing](#macos-pairing) below |
 
 ---
 
@@ -76,11 +75,15 @@ arm-none-eabi-objcopy -O binary "${BuildArtifactFileBaseName}.elf" "${BuildArtif
 
 The binary must be **under 256 KB (262,144 bytes)**. The tool will tell you if it's too large before connecting.
 
-### 2. Put the IPG in BLE advertising mode
+### 2. Connect using the Windows app
+
+This ensures that the IPG is paired to the computer before running the ota_update.py script. After connecting and verifying previous firmware version, press the "Quit" button to disconnect.
+
+### 3. Put the IPG in BLE advertising mode
 
 The device must be actively advertising for the tool to find it. On a freshly powered-on device this happens automatically. If the device went to sleep, press the magnet switch or power-cycle to wake it.
 
-### 3. Run the tool
+### 4. Run the tool
 
 ```bash
 python ota_update.py firmware.bin secrets/admin_priv_d_hex.txt
@@ -129,7 +132,7 @@ Connected to OpenNerve (XX:XX:XX:XX:XX:XX)
 OTA update complete.
 ```
 
-### 4. Confirm the update
+### 5. Confirm the update
 
 After the BLE connection drops (~5 seconds), reconnect with the Windows App or any other BLE tool and check the firmware version. The version string (`APP_FW_VER_STR`) is set to the build date in YYMMDD format.
 
@@ -137,18 +140,7 @@ After the BLE connection drops (~5 seconds), reconnect with the Windows App or a
 
 ## macOS Pairing
 
-The IPG requires **LE Secure Connections (LESC)** pairing with MITM protection. On Windows this is handled transparently; on macOS there is a known compatibility issue with how CoreBluetooth negotiates the security level, which causes the device to disconnect after pairing and prevents the update from completing.
-
-**Recommended workaround for macOS:**
-
-1. Power on the IPG so it is advertising.
-2. Open **System Settings → Bluetooth**.
-3. Find **CARSS** in the device list and click **Connect**.
-4. Enter passkey `000000` when prompted.
-5. Once the bond appears in System Settings, power-cycle the IPG.
-6. Run the tool — it should connect on the pre-established bonded link with no further pairing dialog.
-
-If this workaround does not hold across IPG power cycles (the device re-requests pairing every session), the permanent fix is a small change to the nRF52810 BLE firmware: set `min_conn_sec.lesc = 0` in `FW-BLE/app/app_ble_pm.c` to accept Legacy Pairing in addition to LESC. Until that firmware change is made, **Windows is the recommended platform** for running this tool.
+At this time, this tool does not work on MacOS, and requires connecting to the IPG using the OpenNerve Windows app so that the device is paired to the computer before running ota_update.py. Known bug; feel free to fix if you know how!
 
 ---
 
@@ -179,9 +171,9 @@ The **OpenNerve development key** is available upon request from the CARSS team.
 
 This should not happen — the tool injects the passkey automatically on Windows. If it does appear, enter `000000`. The connection should succeed after pairing.
 
-### Pairing dialog appears on macOS / connection drops after entering passkey
+### Device pairs, but OSError occurs
 
-See [macOS Pairing](#macos-pairing) above. The IPG requires LE Secure Connections (LESC) which macOS may not negotiate correctly, causing the device to disconnect after pairing. The device does not restart advertising after a disconnect, so the tool cannot reconnect automatically. **Use Windows** or follow the macOS pre-pairing workaround.
+This can happen if there are issues pairing the IPG with the computer. If you see this, try connecting with the Windows app and then disconnecting. Then power cycle the board by holding the magnet for 15 seconds to power down, wait 5 minutes, then hold the magnet for 5 seconds to power back up.
 
 ### "ECDSA signature rejected" on Admin authentication
 
@@ -206,6 +198,12 @@ The OAD session is lost on disconnect. The tool will exit with an error. Reconne
 ### Device unresponsive after reboot
 
 If the new firmware has a critical bug preventing boot, the device cannot be recovered via OTA. The old firmware bank remains in flash but there is no automatic rollback. Physical J-Link access is required to re-flash. **Test firmware thoroughly before deploying to implanted devices.**
+
+### General Advice
+
+A combination of connecting / disconnecting to the Windows app and power cycling the IPG using the magnetic switch usually solves the problem.
+
+Unconfirmed, but try clearing logs off of FRAM prior to OTA if there are issues.
 
 ---
 
