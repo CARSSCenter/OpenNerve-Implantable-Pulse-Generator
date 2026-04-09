@@ -57,6 +57,7 @@ async def _pair_windows(device: "BLEDevice") -> None:
         return
 
     pairing = ble_dev.device_information.pairing
+
     if pairing.is_paired:
         return  # already bonded — connection will be encrypted immediately
 
@@ -69,6 +70,7 @@ async def _pair_windows(device: "BLEDevice") -> None:
             args.accept()
 
     custom.pairing_requested += _on_pairing_requested
+
     try:
         result = await custom.pair_async(_enum.DevicePairingKinds.PROVIDE_PIN)
     finally:
@@ -87,7 +89,6 @@ async def _pair_windows(device: "BLEDevice") -> None:
         )
 
     await asyncio.sleep(0.5)  # ATT/GATT stabilisation (per Windows App)
-
 
 # ── BLE UUIDs (Nordic UART Service) ──────────────────────────────────────────
 NUS_SERVICE_UUID = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
@@ -159,16 +160,23 @@ def _parse_response(data: bytes) -> tuple[int, int, bytes]:
     """
     if len(data) < 5:
         raise ValueError(f"Response too short: {len(data)} bytes (minimum 5)")
+    #else:
+        #print(" [dbg] parsing length: " + str(len(data)))
     opcode   = data[0]
-    status   = data[1]
-    pay_len  = data[2]
-    payload  = data[3 : 3 + pay_len]
+    pay_len  = data[1]
+    status   = data[2]
+    if (pay_len > 0):
+        payload  = data[3 : 3 + pay_len]
+    else:
+        payload = b'\0x00'
     crc_data = data[3 + pay_len : 3 + pay_len + 2]
+    #print(" [dbg] payload: " + str(payload))
     if len(crc_data) < 2:
         raise ValueError("Response truncated: CRC bytes missing")
     expected = _crc16(data[: 3 + pay_len])
     received = struct.unpack("<H", crc_data)[0]
     if expected != received:
+        #print(" [dbg] CRC expected: {expected} vs received: {received}")
         raise ValueError(
             f"CRC mismatch: expected 0x{expected:04X}, received 0x{received:04X}"
         )
@@ -181,6 +189,7 @@ def _load_private_key(path: str) -> ec.EllipticCurvePrivateKey:
     """Load an ECDSA P-256 private key from a 64-hex-char file."""
     with open(path) as f:
         hex_str = f.read().strip().replace(":", "").replace(" ", "").lower()
+        #print(" [dbg] hex string: " + hex_str)
     if len(hex_str) != 64:
         raise ValueError(
             f"Private key file must contain exactly 64 hex characters (32 bytes). "
@@ -207,6 +216,7 @@ def _sign_message(private_key: ec.EllipticCurvePrivateKey, data: bytes) -> tuple
     return r.to_bytes(32, "big"), s.to_bytes(32, "big"), hash_msg
 
 
+
 # ── BLE session ───────────────────────────────────────────────────────────────
 
 class OTASession:
@@ -216,8 +226,9 @@ class OTASession:
         self._rx_queue: asyncio.Queue[bytes] = asyncio.Queue()
 
     def _on_notify(self, _sender: object, data: bytearray) -> None:
-        print(f"  [dbg] notification received: {bytes(data).hex()}")
+        #print(f"  [dbg] notification received: {bytes(data).hex()}")
         self._rx_queue.put_nowait(bytes(data))
+        #print("[dbg]Put byte in queue")
 
     async def _reinitialize(self) -> None:
         """Re-subscribe to TX notifications after BLE pairing completes.
@@ -228,7 +239,7 @@ class OTASession:
         start_notify succeeds (which also re-enables the CCCD the device may
         have reset during pairing).
         """
-        print("  [dbg] Pairing completed — waiting for GATT re-discovery...")
+        #print("  [dbg] Pairing completed — waiting for GATT re-discovery...")
         try:
             await self._client.stop_notify(NUS_TX_CHAR_UUID)
         except Exception:
@@ -237,11 +248,11 @@ class OTASession:
             await asyncio.sleep(0.5)
             try:
                 await self._client.start_notify(NUS_TX_CHAR_UUID, self._on_notify)
-                print("  [dbg] Re-subscribed to TX notifications.")
+                #print("  [dbg] Re-subscribed to TX notifications.")
                 return
             except Exception as e:
                 err = str(e).lower()
-                print(f"  [dbg] start_notify attempt {attempt + 1}: {type(e).__name__}: {e}")
+                #print(f"  [dbg] start_notify attempt {attempt + 1}: {type(e).__name__}: {e}")
                 # Explicit disconnect errors → device disconnected after pairing (expected)
                 if any(k in err for k in ("disconnect", "not connected", "peripheral is not connected")):
                     raise _PairingDisconnectedError()
@@ -264,11 +275,11 @@ class OTASession:
                 f"NUS TX characteristic {NUS_TX_CHAR_UUID} not found.\n"
                 f"Characteristics on NUS service: {chars}"
             )
-        print(f"  [dbg] NUS TX properties: {tx_char.properties}")
+        #print(f"  [dbg] NUS TX properties: {tx_char.properties}")
         await self._client.start_notify(NUS_TX_CHAR_UUID, self._on_notify)
-        print(f"  [dbg] Subscribed to TX notifications. Settling...")
+        #print(f"  [dbg] Subscribed to TX notifications. Settling...")
         await asyncio.sleep(1.0)
-        print(f"  [dbg] Ready.")
+        #print(f"  [dbg] Ready.")
 
     async def _send(self, opcode: int, payload: bytes, timeout: float = CMD_TIMEOUT_S) -> tuple[int, bytes]:
         """
@@ -276,7 +287,7 @@ class OTASession:
         Raises on timeout, CRC mismatch, or opcode mismatch.
         """
         packet = _build_packet(opcode, payload)
-        print(f"  [dbg] sending opcode=0x{opcode:02X} payload_len={len(payload)} packet={packet[:8].hex()}...")
+        #print(f"  [dbg] sending opcode=0x{opcode:02X} payload_len={len(payload)} packet={packet[:8].hex()}...")
         try:
             await self._client.write_gatt_char(NUS_RX_CHAR_UUID, packet, response=False)
         except BleakError as e:
@@ -287,17 +298,27 @@ class OTASession:
                 await self._client.write_gatt_char(NUS_RX_CHAR_UUID, packet, response=False)
             else:
                 raise
+        except asyncio.TimeoutError:
+        # was delivered successfully.  The device may have already sent its
+        # notification (visible in the queue), so fallthrough to the read.
+            print("Asyncio error")
+            pass
         try:
             raw = await asyncio.wait_for(self._rx_queue.get(), timeout=timeout)
+            #print(" [dbg] received message from queue: " + str(raw))
         except asyncio.TimeoutError:
+            print("asyncio.Timeout error!")
             raise TimeoutError(
                 f"No response to opcode 0x{opcode:02X} within {timeout:.0f}s"
             )
+        #print("  [dbg] parsing response")
         resp_opcode, status, resp_payload = _parse_response(raw)
+        #print(" [dbg] parsed response, opcode: " + str(resp_opcode))
         if resp_opcode != opcode:
             raise ValueError(
                 f"Opcode mismatch: sent 0x{opcode:02X}, received 0x{resp_opcode:02X}"
             )
+        #print(" [dbg] status: " + str(status) + ", response: " + str(resp_payload))
         return status, resp_payload
 
     async def authenticate_admin(self) -> None:
@@ -333,7 +354,10 @@ class OTASession:
         while True:
             attempt += 1
             try:
+                #print(" [dbg] auth attempt " + str(attempt))
+                #print(" [dbg] payload: " + str(payload))
                 status, resp = await self._send(OP_AUTH, payload, timeout=AUTH_RETRY_INTERVAL)
+                #print(" [dbg] status in Auth_admin: " + str(status))
                 break  # got a response — pairing complete and command processed
             except TimeoutError:
                 if loop.time() >= deadline:
@@ -437,7 +461,7 @@ class OTASession:
         On success, the device immediately begins BSL flashing and reboots.
         """
         payload = struct.pack("<I", image_size)
-        status, resp = await self._send(OP_VERIFY_FW_IMAGE, payload, timeout=VERIFY_TIMEOUT_S)
+        status, _ = await self._send(OP_VERIFY_FW_IMAGE, payload, timeout=VERIFY_TIMEOUT_S)
         if status != STATUS_SUCCESS:
             fail_count = resp[0] if resp else "?"
             raise _VerifyFailedError(
@@ -647,7 +671,7 @@ notes:
     try:
         asyncio.run(run_ota(args.firmware, args.key, args.device_name))
         print("OTA update complete.")
-    except (FileNotFoundError, ValueError, RuntimeError) as e:
+    except (FileNotFoundError, ValueError, RuntimeError, OSError) as e:
         print(f"\nError: {e}", file=sys.stderr)
         sys.exit(1)
     except TimeoutError as e:
