@@ -37,8 +37,7 @@ If the J-Link driver is not in USB devices, Start J-Link Configurator, right cli
 
 **Attach cables** Attach the J-Link EDU Mini ribbon cable to the BLE J-Tag headers. Attach a jumper between VUSB and VCHG_RAIL. Apply power via USB-C.
 
-<img width="418" height="508" alt="image" src="https://github.com/user-attachments/assets/0df41112-4e0d-49ee-9816-9853b3ca9e71" />
-
+<img width="500" height="500" alt="OpenNerveBLE2" src="https://github.com/user-attachments/assets/af42a880-d4eb-456a-bbca-6e609ee21661" />
 
 **Connect and Flash:** Open Programmer in nRF Connect. Select J-Link. Add the BLE hex file. Click Erase & Write.
 
