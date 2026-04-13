@@ -8,11 +8,21 @@ April 2026
 
 The Gen2 IPG includes a Hall-effect magnetic switch (`MAG_DET`, PA3) that allows non-contact user interaction through the implant body. It is the primary way to wake the device, put it to sleep, and reset BLE pairing credentials without any physical connection.
 
-All interactions are **gesture-based**: the firmware measures how long the magnet is held and only acts when the magnet is removed, based on that duration. No action is taken on approach alone.
+All interactions mediated through the MCU are **gesture-based**: the firmware measures how long the magnet is held and **only acts when the magnet is removed**, based on that duration. No action is taken on approach alone.
+
+In addition to state changes mediated through the MCU there is an analog circuit that physically connects or disconnects the battery from the rest of the board using the magnetic switch, allowing power cycling in the event of a firmware issue or shutdown for storage. Turnon is mediated by capacitor C800, which triggers a connection between batteries and the rest of the circuit after holding the magnet for 10-15 seconds. Shutdown is mediated by capacitor C802, which disconnects power after 20-30 seconds of holding the magnet. Startup / shutdown occurs as soon as the capacitor charges to the necessary voltage level, and is **not** gesture-based (does not require removing the magnet).
+
+**Important note on magnetic shutdown:** currently, there is an issue in the magnetic switch circuit where, once the device enters shutdown state, capacitor C802 must discharge fully before the IPG can be turned back on. Due to the high resistance between RC2_VC and GND this can take up to five minutes. Furthermore, attempting to turn on the IPG early by applying the magnet will re-charge C802 and further lengthen the discharge time. To avoid issues, 1) remove the magnet as soon as the device enter shutdown, and 2) always wait 5 minutes after shutdown before attempting to turn the IPG back on.
 
 ---
+## Magnetic Switch Circuit
 
-## How Duration Is Measured
+<img width="805" height="661" alt="Screenshot 2026-04-13 at 11 30 36 AM" src="https://github.com/user-attachments/assets/2b44b4a8-a1de-4c3b-b16c-e930819c53d2" />
+
+---
+## Digital State Changes (sleep-wake, BLE reset)
+
+### How Duration Is Measured (Digital)
 
 When a magnet approaches the device, a 1-second LPTIM timer starts counting. Each whole second that passes increments an internal counter. When the magnet is removed, the counter value (in whole seconds elapsed) is passed to the gesture logic.
 
@@ -22,7 +32,7 @@ The maximum measurable duration is 255 seconds (hardware limit of the 8-bit coun
 
 ---
 
-## Gesture Windows
+### Gesture Windows
 
 There are two independent gesture windows, both configurable over BLE by an Admin-authenticated session:
 
@@ -39,9 +49,9 @@ The two windows do not overlap by default (wakeup: 2–6 s, reset: 9–13 s). Th
 
 ---
 
-## Gesture 1: Sleep / Wake Toggle
+### Gesture 1: Sleep / Wake Toggle
 
-### Behavior
+**Behavior**
 
 | Device state when magnet removed | Result |
 |---|---|
@@ -50,7 +60,7 @@ The two windows do not overlap by default (wakeup: 2–6 s, reset: 9–13 s). Th
 | DVT mode | **Ignored** — magnet has no effect |
 | Shutdown state | **Ignored** — magnet has no effect |
 
-### Active states that the magnet will put to sleep
+**Active states that the magnet will put to sleep**
 
 The sleep transition fires from any active state including:
 - BLE advertising (`STATE_ACT_MODE_BLE_ACT`)
@@ -62,7 +72,7 @@ The sleep transition fires from any active state including:
 
 In all of these cases, active operations (stimulation, sensing, charging) stop cleanly before sleep entry. An `EVENT_MAGNET_DETECTION` log entry is written whenever the gesture is recognized.
 
-### Timing with default settings
+**Timing with default settings**
 
 | Hold duration | Result |
 |---|---|
@@ -74,18 +84,18 @@ In all of these cases, active operations (stimulation, sensing, charging) stop c
 
 ---
 
-## Gesture 2: BLE Credential Reset
+### Gesture 2: BLE Credential Reset
 
 This gesture allows the device to temporarily accept connections from any BLE programmer, regardless of the stored passkey or whitelist. It is used to re-pair with a new or replacement programmer if the original is unavailable.
 
-### How it works
+**How it works**
 
 1. Hold the magnet for the **reset window duration** (default 9–13 s), then remove.
 2. An internal counter increments. On the **first qualifying hold**, a 10-minute countdown window opens.
 3. Repeat the gesture until the counter reaches **5** within that 10-minute window.
 4. On the 5th qualifying hold: the device enters **BLE default mode** for 10 minutes.
 
-### BLE default mode
+**BLE default mode**
 
 While active, `app_func_ble_is_default()` returns true. This causes:
 - The stored passkey to be replaced by the **factory default passkey** for the duration
@@ -93,7 +103,7 @@ While active, `app_func_ble_is_default()` returns true. This causes:
 
 BLE default mode expires after 10 minutes, or immediately if the counter window expires before 5 holds are completed.
 
-### Reset gesture state machine
+**Reset gesture state machine**
 
 | Event | Effect |
 |---|---|
@@ -107,13 +117,13 @@ The window and count are reset any time the 10-minute timer runs out without rea
 
 ---
 
-## EOS / Post-Shutdown Behavior
+### EOS / Post-Shutdown Behavior
 
 If the device has reached End of Service (EOS) and entered sleep with `BATT_SW_EN` pulled low (batteries in the process of disconnecting), applying the magnet with a valid wakeup gesture will still wake the device. `BATT_SW_EN` is restored HIGH on wakeup, which halts the battery-disconnect process. Normal BLE advertising begins. The EOS counter remains set — the next battery test (or the next return to sleep) will re-evaluate whether EOS still applies.
 
 ---
 
-## Summary of All Hold Durations (Default Settings)
+### Summary of All Hold Durations (Default Settings)
 
 | Duration | Action |
 |---|---|
@@ -125,7 +135,7 @@ If the device has reached End of Service (EOS) and entered sleep with `BATT_SW_E
 
 ---
 
-## Relevant Source Files
+### Relevant Source Files
 
 | File | Role |
 |---|---|
