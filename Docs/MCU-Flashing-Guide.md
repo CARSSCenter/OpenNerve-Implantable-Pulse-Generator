@@ -29,9 +29,9 @@ Step 2. Connect the JLink’s cable to the “MCU” connector on OpenNerve. The
 
 <img width="321" height="274" alt="image" src="https://github.com/user-attachments/assets/acfd4e47-c6f5-4396-9b1e-68676226b0cd" />
 
-Step 3. Apply USB power to OpenNerve board, ensuring that a jumper is placed between VRECT and the outside pin of VBAT2R to bypass the magnetic switch.
+Step 3. Apply USB power to OpenNerve board, ensuring that a jumper is placed between VCHG_RAIL and the outside pin of VBAT2R to bypass the magnetic switch.
 
- <img width="219" height="251" alt="image" src="https://github.com/user-attachments/assets/39f583eb-db94-4ab4-8bd6-420be3df3562" />
+<img width="400" height="400" alt="VCHG update" src="https://github.com/user-attachments/assets/62705e08-10f7-42b6-a525-17f6b7f35402" />
 
 Step 4. Open STM32Cube Programmer. First, connect to the board using the JLink. Second, Erase the existing firmware. Third, Open the .hex file. Fourth, Download the hex file’s code to the MCU.
 
