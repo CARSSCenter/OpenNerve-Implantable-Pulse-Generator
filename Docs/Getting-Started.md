@@ -37,7 +37,7 @@ Parameter explanation (sine wave):
 * On time: how long to turn the sine wave on
 * Off time: off-interval for sine wave. Set to 0 for continuous output
 
-<img width="219" height="252" alt="image" src="https://github.com/user-attachments/assets/58b53a4f-19fe-4ba3-8618-6404bfcfe1af" />
+<img width="1792" height="1792" alt="VCHG update" src="https://github.com/user-attachments/assets/46d7a1ad-cd4a-40ae-9627-fd3bb57334ea" />
 
 <img width="369" height="318" alt="image" src="https://github.com/user-attachments/assets/d07d34a2-3391-41c1-802e-f2275c0f76ab" />
 
