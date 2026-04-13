@@ -3,7 +3,7 @@
 This guide describes how to use the OpenNerve Gen2 PCBA as a benchtop development board, powered by USB-C connector, and controlled via BLE using the OpenNerve Windows App.
 
 ## Stimulation
-1.	Attach jumper between VRECT and the outside pin of VBAT2R (see picture below) to avoid needing magnet to wake up device
+1.	Attach jumper between VCHG_RAIL and the outside pin of VBAT2R (see picture below) to avoid needing magnet to wake up device
 2.	Carefully insert USB-C port for power
 3.	Open ONrecorder.sln in Visual Studios
 4.	Press the green play button at the top of the GUI to start the program
