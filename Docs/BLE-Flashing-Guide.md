@@ -35,7 +35,7 @@ If the J-Link driver is not in USB devices, Start J-Link Configurator, right cli
 
 ### Flashing BLE Firmware
 
-**Attach cables** Attach the J-Link EDU Mini ribbon cable to the BLE J-Tag headers. Attach a jumper between VBAT2R and the outside pin of VRECT. Apply power via USB-C.
+**Attach cables** Attach the J-Link EDU Mini ribbon cable to the BLE J-Tag headers. Attach a jumper between VUSB and VCHG_RAIL. Apply power via USB-C.
 
 <img width="418" height="508" alt="image" src="https://github.com/user-attachments/assets/0df41112-4e0d-49ee-9816-9853b3ca9e71" />
 
