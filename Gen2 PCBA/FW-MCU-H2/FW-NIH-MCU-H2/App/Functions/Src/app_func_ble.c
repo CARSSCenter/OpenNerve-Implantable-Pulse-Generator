@@ -133,6 +133,7 @@ void app_func_ble_enable(bool enable) {
 				HAL_Delay(50);
 				HAL_GPIO_WritePin(BLE_RSTn_GPIO_Port, BLE_RSTn_Pin, GPIO_PIN_SET);
 				HAL_Delay(200);
+				//bsp_wdg_refresh();	//Only for debugging / flashing! Remove for real use
 			}
 
 			app_func_ble_new_state_get();
