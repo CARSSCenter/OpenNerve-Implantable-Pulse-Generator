@@ -21,6 +21,23 @@ static void app_magnet_lost_cb(uint8_t detected_time) {
  *
  */
 void app_init(void) {
+	/* Dead-battery WPT cold-start guard.
+	 * VCHG_DISABLE was held LOW (converter enabled) since gpio.c init so that VCHG_RAIL
+	 * stays alive if the device is powered by a wireless charger with a depleted battery.
+	 * Wait ~500 ms then check VRECT_DETn.  If no coil is present, disable the converter
+	 * so it does not run unnecessarily on a battery-only boot.
+	 * The IWDG is already running but the refresh LPTIM has not started yet, so kick it
+	 * manually between the two half-delays. */
+	HAL_Delay(250);
+	HAL_IWDG_Refresh(&hiwdg);
+	HAL_Delay(250);
+	if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_SET) {
+		/* VRECT_DETn HIGH = no coil present. Disable converter, continue on battery. */
+		HAL_GPIO_WritePin(VCHG_DISABLE_GPIO_Port, VCHG_DISABLE_Pin, GPIO_PIN_SET);
+	}
+	/* If VRECT_DETn is LOW (coil present), leave VCHG enabled.
+	 * The state machine will enter WPT mode and manage VCHG_DISABLE from there. */
+
 	UNITY_TEST();
 
 	bsp_sp_init(&app_func_command_parser, &bsp_fram_write_cplt_cb);
@@ -31,6 +48,8 @@ void app_init(void) {
 	app_func_logs_init();
 	app_func_para_init();
 	app_func_sm_init();
+
+	app_func_logs_event_write(EVENT_POWER_ON, NULL);
 
 	bsp_wdg_enable(true);
 }
@@ -86,6 +105,11 @@ void app_handler(void) {
 		app_mode_dvt_handler();
 		break;
 
+	case STATE_ACT_MODE_WPT_HIGH:
+	case STATE_ACT_MODE_WPT_PAUSED:
+		app_mode_wpt_handler();
+		break;
+
 	default:
 		break;
 	}
@@ -107,6 +131,7 @@ void HAL_IncTick(void)
   app_mode_ble_act_timer_cb();
   app_mode_ble_conn_timer_cb();
   app_mode_dvt_acc_timer_cb();
+  app_mode_wpt_timer_cb();
 }
 
 /**

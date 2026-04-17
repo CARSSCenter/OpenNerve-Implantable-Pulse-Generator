@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (13.3.rel1)
+# Toolchain: GNU Tools for STM32 (14.3.rel1)
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -13,6 +13,7 @@ C_SRCS += \
 ../App/Src/app_mode_impedance_test.c \
 ../App/Src/app_mode_oad.c \
 ../App/Src/app_mode_therapy_session.c \
+../App/Src/app_mode_wpt.c \
 ../App/Src/app_state.c 
 
 OBJS += \
@@ -24,6 +25,7 @@ OBJS += \
 ./App/Src/app_mode_impedance_test.o \
 ./App/Src/app_mode_oad.o \
 ./App/Src/app_mode_therapy_session.o \
+./App/Src/app_mode_wpt.o \
 ./App/Src/app_state.o 
 
 C_DEPS += \
@@ -35,6 +37,7 @@ C_DEPS += \
 ./App/Src/app_mode_impedance_test.d \
 ./App/Src/app_mode_oad.d \
 ./App/Src/app_mode_therapy_session.d \
+./App/Src/app_mode_wpt.d \
 ./App/Src/app_state.d 
 
 
@@ -45,7 +48,7 @@ App/Src/%.o App/Src/%.su App/Src/%.cyclo: ../App/Src/%.c App/Src/subdir.mk
 clean: clean-App-2f-Src
 
 clean-App-2f-Src:
-	-$(RM) ./App/Src/app.cyclo ./App/Src/app.d ./App/Src/app.o ./App/Src/app.su ./App/Src/app_mode_battery_test.cyclo ./App/Src/app_mode_battery_test.d ./App/Src/app_mode_battery_test.o ./App/Src/app_mode_battery_test.su ./App/Src/app_mode_ble_active.cyclo ./App/Src/app_mode_ble_active.d ./App/Src/app_mode_ble_active.o ./App/Src/app_mode_ble_active.su ./App/Src/app_mode_ble_connection.cyclo ./App/Src/app_mode_ble_connection.d ./App/Src/app_mode_ble_connection.o ./App/Src/app_mode_ble_connection.su ./App/Src/app_mode_bsl.cyclo ./App/Src/app_mode_bsl.d ./App/Src/app_mode_bsl.o ./App/Src/app_mode_bsl.su ./App/Src/app_mode_impedance_test.cyclo ./App/Src/app_mode_impedance_test.d ./App/Src/app_mode_impedance_test.o ./App/Src/app_mode_impedance_test.su ./App/Src/app_mode_oad.cyclo ./App/Src/app_mode_oad.d ./App/Src/app_mode_oad.o ./App/Src/app_mode_oad.su ./App/Src/app_mode_therapy_session.cyclo ./App/Src/app_mode_therapy_session.d ./App/Src/app_mode_therapy_session.o ./App/Src/app_mode_therapy_session.su ./App/Src/app_state.cyclo ./App/Src/app_state.d ./App/Src/app_state.o ./App/Src/app_state.su
+	-$(RM) ./App/Src/app.cyclo ./App/Src/app.d ./App/Src/app.o ./App/Src/app.su ./App/Src/app_mode_battery_test.cyclo ./App/Src/app_mode_battery_test.d ./App/Src/app_mode_battery_test.o ./App/Src/app_mode_battery_test.su ./App/Src/app_mode_ble_active.cyclo ./App/Src/app_mode_ble_active.d ./App/Src/app_mode_ble_active.o ./App/Src/app_mode_ble_active.su ./App/Src/app_mode_ble_connection.cyclo ./App/Src/app_mode_ble_connection.d ./App/Src/app_mode_ble_connection.o ./App/Src/app_mode_ble_connection.su ./App/Src/app_mode_bsl.cyclo ./App/Src/app_mode_bsl.d ./App/Src/app_mode_bsl.o ./App/Src/app_mode_bsl.su ./App/Src/app_mode_impedance_test.cyclo ./App/Src/app_mode_impedance_test.d ./App/Src/app_mode_impedance_test.o ./App/Src/app_mode_impedance_test.su ./App/Src/app_mode_oad.cyclo ./App/Src/app_mode_oad.d ./App/Src/app_mode_oad.o ./App/Src/app_mode_oad.su ./App/Src/app_mode_therapy_session.cyclo ./App/Src/app_mode_therapy_session.d ./App/Src/app_mode_therapy_session.o ./App/Src/app_mode_therapy_session.su ./App/Src/app_mode_wpt.cyclo ./App/Src/app_mode_wpt.d ./App/Src/app_mode_wpt.o ./App/Src/app_mode_wpt.su ./App/Src/app_state.cyclo ./App/Src/app_state.d ./App/Src/app_state.o ./App/Src/app_state.su
 
 .PHONY: clean-App-2f-Src
 

@@ -40,7 +40,7 @@ void MX_IWDG_Init(void)
   hiwdg.Instance = IWDG;
   hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
   hiwdg.Init.Window = 4095;
-  hiwdg.Init.Reload = 1000;
+  hiwdg.Init.Reload = 4000;	// Time in ms for watchdog timer. When set to 1s, it appears that for certain boards BLE MCU does not initialize in time. If you observe this, try increasing to 4s
   hiwdg.Init.EWI = 100;
   if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
   {

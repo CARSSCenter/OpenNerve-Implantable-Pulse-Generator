@@ -7,6 +7,8 @@
 #define INC_APP_MODE_BATTERY_TEST_H_
 #include <stdint.h>
 
+#define COUNT_MAX_EOS	3U		/*!< Consecutive readings below EOS threshold required to confirm EOS */
+
 /**
  * @brief Measure, obtain and record battery voltages
  *

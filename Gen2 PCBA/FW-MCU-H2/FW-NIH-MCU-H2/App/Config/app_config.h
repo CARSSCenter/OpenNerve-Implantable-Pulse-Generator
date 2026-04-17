@@ -25,6 +25,7 @@
 #include "app_mode_oad.h"
 #include "app_mode_therapy_session.h"
 #include "app_mode_dvt.h"
+#include "app_mode_wpt.h"
 #include "app_state.h"
 #include "app.h"
 

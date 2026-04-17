@@ -17,6 +17,14 @@
 #define EVENT_LOWER_STIM_AMP			"LSA  "		/*!< Label message for event "LOWER_STIM_AMP" */
 #define EVENT_HIGH_IMPED				"HI   "		/*!< Label message for event "HIGH_IMPED" */
 #define EVENT_NORMAL_IMPED				"NI   "		/*!< Label message for event "NORMAL_IMPED" */
+#define EVENT_POWER_ON					"PO   "		/*!< Label message for event "POWER_ON" */
+#define EVENT_STIM_START				"SS   "		/*!< Label message for event "STIM_START" */
+#define EVENT_STIM_STOP					"SE   "		/*!< Label message for event "STIM_STOP" */
+#define EVENT_BLE_CONNECT				"BC   "		/*!< Label message for event "BLE_CONNECT" */
+#define EVENT_BLE_DISCONNECT			"BD   "		/*!< Label message for event "BLE_DISCONNECT" */
+#define EVENT_SLEEP						"SL   "		/*!< Label message for event "SLEEP" */
+#define EVENT_WAKEUP					"WK   "		/*!< Label message for event "WAKEUP" */
+#define EVENT_SHUTDOWN					"SD   "		/*!< Label message for event "SHUTDOWN" */
 
 #define LEN_DATA_TYPE_STR				4U			/*!< The length of Label message for data type */
 #define LEN_EVENT_TYPE_STR				5U			/*!< The length of Label message for event type */

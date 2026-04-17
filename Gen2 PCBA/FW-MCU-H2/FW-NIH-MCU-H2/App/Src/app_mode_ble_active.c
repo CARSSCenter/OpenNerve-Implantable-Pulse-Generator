@@ -85,6 +85,7 @@ static Cmd_Resp_t app_mode_ble_act_cmd_parser(Cmd_Req_t req) {
 					app_func_para_data_set((const uint8_t*)HPID_LINKED_PRC_BLE_ID, 		&req.Payload[sizeof(ECDSA_Data_t) + datalen_ipg_fw_version]);
 				}
 				app_func_sm_current_state_set(STATE_ACT_MODE_BLE_CONN);
+			app_func_logs_event_write(EVENT_BLE_CONNECT, NULL);
 			}
 			resp.PayloadLen = (uint8_t)sizeof(uint8_t);
 			resp.Payload = &ble_act_user_class;
@@ -158,6 +159,23 @@ uint8_t app_mode_ble_act_adv_msd_update(uint8_t* p_msd) {
 	HAL_ERROR_CHECK(setBitFromGpioState(buff_offset, buff_freesize, 12, TEMP_EN_GPIO_Port, TEMP_EN_Pin));
 	HAL_ERROR_CHECK(setBitFromGpioState(buff_offset, buff_freesize, 13, IMP_EN_GPIO_Port, IMP_EN_Pin));
 
+	/* WPT status bits (driven by state, not GPIO) */
+	uint16_t wpt_state = app_func_sm_current_state_get();
+	bool wpt_active = (wpt_state == STATE_ACT_MODE_WPT_HIGH || wpt_state == STATE_ACT_MODE_WPT_PAUSED);
+	bool wpt_paused = (wpt_state == STATE_ACT_MODE_WPT_PAUSED);
+	/* bit 14: byte 1, bit 6 of buff_offset */
+	if (wpt_active) {
+		buff_offset[1] |= (uint8_t)(1U << 6);
+	} else {
+		buff_offset[1] &= (uint8_t)(~(1U << 6));
+	}
+	/* bit 15: byte 1, bit 7 of buff_offset */
+	if (wpt_paused) {
+		buff_offset[1] |= (uint8_t)(1U << 7);
+	} else {
+		buff_offset[1] &= (uint8_t)(~(1U << 7));
+	}
+
 	return ((uint8_t)(buff_offset - p_msd));
 }
 
@@ -229,6 +247,10 @@ void app_mode_ble_act_handler(void) {
 
 	while(curr_state == STATE_ACT_MODE_BLE_ACT) {
 		bsp_wdg_refresh();
+		/* Belt-and-suspenders: poll VRECT_DETn alongside EXTI interrupt */
+		if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_RESET) {
+			app_func_sm_current_state_set(STATE_ACT_MODE_WPT_HIGH);
+		}
 		if (adv_ms_timer == 0U) {
 			app_func_sm_current_state_set(STATE_ACT);
 			app_func_ble_enable(false);
@@ -261,6 +283,7 @@ void app_mode_ble_act_handler(void) {
 				}
 			}
 		}
+		app_func_sm_active_eos_check();
 		curr_state = app_func_sm_current_state_get();
 	}
 }

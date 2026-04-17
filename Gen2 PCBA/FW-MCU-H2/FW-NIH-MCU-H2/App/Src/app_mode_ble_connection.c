@@ -176,6 +176,7 @@ static Cmd_Resp_t app_mode_ble_conn_cmd_parser(Cmd_Req_t req) {
 			resp.Status = STATUS_USER_CLASS_ERR;
 		}
 		else {
+			app_func_logs_event_write(EVENT_SHUTDOWN, NULL);
 			app_func_sm_current_state_set(STATE_SHUTDOWN);
 		}
 	}
@@ -741,6 +742,7 @@ void app_mode_ble_conn_handler(void) {
 		bsp_wdg_refresh();
 		if (((idle_connection_ms_timer == 0) || (disconnect_request_ms_timer == 0)) && (app_mode_therapy_confirm() == false)) {
 			app_func_ble_disconnect();
+			app_func_logs_event_write(EVENT_BLE_DISCONNECT, NULL);
 			idle_connection_ms_timer = -1;
 			disconnect_request_ms_timer = -1;
 			app_func_sm_current_state_set(STATE_ACT);
@@ -769,10 +771,41 @@ void app_mode_ble_conn_handler(void) {
 			HAL_Delay(100);
 		}
 		else if (curr_ble_state == BLE_STATE_ADV_STOP) {
+			app_func_logs_event_write(EVENT_BLE_DISCONNECT, NULL);
 			sens_en = false;
 			app_func_sm_current_state_set(STATE_ACT_MODE_BLE_ACT);
 		}
+		app_func_sm_active_eos_check();
 		curr_state = app_func_sm_current_state_get();
+	}
+
+	/* ---- WPT entry cleanup -------------------------------------------------
+	 * If the VRECT EXTI fired while connected, the state is now WPT_HIGH.
+	 * Stop stimulation and sensors before returning, then wait for BLE to
+	 * fully disconnect so app_mode_wpt_handler() starts with a clean BLE state.
+	 * -----------------------------------------------------------------------*/
+	curr_state = app_func_sm_current_state_get();
+	if (curr_state == STATE_ACT_MODE_WPT_HIGH || curr_state == STATE_ACT_MODE_WPT_PAUSED) {
+
+		if (stim_en) {
+			app_mode_therapy_stop();
+			stim_en = false;
+		}
+
+		if (sens_en) {
+			sens_en = false;
+			app_func_meas_vdda_sup_enable(false);
+			app_func_meas_sensor_enable(SENSOR_ID_ECG_HR, false);
+			app_func_meas_sensor_enable(SENSOR_ID_ECG_RR, false);
+			app_func_meas_sensor_enable(SENSOR_ID_ENG1,   false);
+			app_func_meas_sensor_enable(SENSOR_ID_ENG2,   false);
+		}
+
+		/* Power off the BLE chip. This immediately ends the link-layer
+		 * connection and resets ble_curr_state to BLE_STATE_INVALID.
+		 * app_mode_wpt_handler() will call app_func_ble_enable(true) to
+		 * bring it back up fresh before starting advertising.             */
+		app_func_ble_enable(false);
 	}
 }
 
