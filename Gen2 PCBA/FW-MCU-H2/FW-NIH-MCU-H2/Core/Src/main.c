@@ -108,6 +108,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_RTC_Init();
   MX_GPIO_Init();
   MX_GPDMA1_Init();
   MX_USART1_UART_Init();
@@ -123,7 +124,6 @@ int main(void)
   MX_LPTIM3_Init();
   MX_RNG_Init();
   MX_PKA_Init();
-  MX_RTC_Init();
   MX_TIM3_Init();
   MX_TIM6_Init();
   MX_TIM15_Init();

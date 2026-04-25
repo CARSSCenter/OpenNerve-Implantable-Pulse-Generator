@@ -2,7 +2,7 @@
 
 **Target hardware:** Gen2 IPG PCBA
 **MCU:** STM32U585
-**Branch:** `feature/wireless-charging`
+**Branch:** `feature/wireless-charging` (merged into `main`)
 **Firmware path:** `Gen2 PCBA/FW-MCU-H2/FW-NIH-MCU-H2/`
 
 ---
@@ -44,16 +44,16 @@ Wireless coil → rectifier → VRECT rail
 ### 2.2 Charge Rate Control
 
 `CHG_RATE1` (PE8) and `CHG_RATE2` (PE9) control the charge current. The firmware sets:
-- `CHG_RATE1 = LOW`
+- `CHG_RATE1 = HIGH`
 - `CHG_RATE2 = HIGH`
 
-This combination selects **50 mA** charge rate. Other combinations are available but not used in production WPT mode.
+This combination selects **100 mA** charge rate. Other combinations are available but not used in production WPT mode.
 
 These lines are set at the top of `app_mode_wpt_handler()` in `App/Src/app_mode_wpt.c` (lines 114–115):
 
 ```c
-HAL_GPIO_WritePin(CHG_RATE1_GPIO_Port, CHG_RATE1_Pin, GPIO_PIN_RESET); /* LOW  */
-HAL_GPIO_WritePin(CHG_RATE2_GPIO_Port, CHG_RATE2_Pin, GPIO_PIN_SET);   /* HIGH → 50 mA */
+HAL_GPIO_WritePin(CHG_RATE1_GPIO_Port, CHG_RATE1_Pin, GPIO_PIN_SET); /* HIGH */
+HAL_GPIO_WritePin(CHG_RATE2_GPIO_Port, CHG_RATE2_Pin, GPIO_PIN_SET); /* HIGH → 100 mA */
 ```
 
 To change the charge rate, modify these two `HAL_GPIO_WritePin` calls using the LTC4065 datasheet's RATE1/RATE2 truth table.
@@ -120,7 +120,8 @@ The thermistor is a **104AP-2 NTC (10 kΩ at 25°C)**. A **49.9 kΩ** sense resi
 | `App/Src/app_mode_ble_active.c` | VRECT_DETn poll in main loop; WPT status bits 14–15 in MSD |
 | `App/Bsp/Src/bsp_magnet.c` | VRECT_DETn coil detection in existing EXTI callbacks |
 | `App/Config/app_config.h` | `#include "app_mode_wpt.h"` added |
-| `App/Src/app_state.c` | `bsp_adc_init()` added to wake sequence after STOP mode |
+| `App/Src/app_state.c` | `bsp_adc_init()` added to wake sequence after STOP mode (see §6); VRECT_DETn cold-start poll added before STOP entry to handle coil-present-at-boot scenario |
+| `Core/Src/main.c` | `MX_RTC_Init()` hoisted before `MX_GPIO_Init()`; EOS guard added immediately after GPIO init to re-float `BATT_SW_EN` if EOS was previously confirmed (see §5.4) |
 | `App/Src/app_mode_ble_connection.c` | WPT cleanup block added after while loop: stops stimulation, disables sensors, power-cycles BLE chip on `WPT_HIGH`/`WPT_PAUSED` exit |
 | `App/Src/app_mode_wpt.c` | BLE-connected guard added at entry: waits for `BLE_STATE_CONNECT` bit to clear before calling `app_func_ble_adv_start()` |
 
@@ -310,13 +311,38 @@ if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_SET) {
 
 | Scenario | Result |
 |----------|--------|
-| Dead battery + charger present | VCHG_DISABLE stays LOW → VCHG_RAIL sustained → MCU boots fully → WPT mode entered normally |
+| Dead battery (non-EOS) + charger present | VCHG_DISABLE stays LOW → VCHG_RAIL sustained → MCU boots fully → WPT mode entered normally |
+| EOS battery + charger present at boot | VCHG_DISABLE stays LOW; MCU boots; EOS guard re-floats `BATT_SW_EN`; VRECT_DETn poll in sleep handler detects coil → WPT mode entered without cycling coil (see §5.4) |
 | Battery OK + no charger | After 500 ms, VRECT_DETn HIGH → VCHG_DISABLE driven HIGH → converter off, normal operation |
 | Battery OK + charger present | VRECT_DETn LOW → VCHG stays enabled → WPT mode entered via state machine |
 
 The IWDG is initialized by `MX_IWDG_Init()` before `app_init()` is called, but the LPTIM-based watchdog refresh timer has not yet started. The two 250 ms half-delays with an explicit `HAL_IWDG_Refresh()` between them ensure the watchdog does not expire during the startup check.
 
 `VCHG_DISABLE = HIGH` means the converter is **disabled**. After the startup check, the WPT handler drives it LOW when a coil is confirmed present and charging should proceed (see §7.1), and returns it HIGH on exit or pause.
+
+### 5.4 EOS Cold-Start: BATT_SW_EN Guard and VRECT_DETn Poll
+
+When a device has reached EOS and the discharge capacitor has fully drained (batteries physically disconnected), placing a WPT coil powers the MCU via the dead-battery path (§5.2). On this boot, `VRECT_DETn` is already LOW — no falling edge fires, so the EXTI never calls `app_func_sm_vrect_coil_cb(true)`. `app_func_sm_init()` then sees `eos_counter >= COUNT_MAX_EOS` and sets `STATE_SLEEP`. Without a further fix, the device would enter the sleep STOP loop and sit there indefinitely with the coil present, requiring the user to remove and re-place the coil to generate the transition edge.
+
+Two changes address this:
+
+**Fix 1 — EOS guard in `Core/Src/main.c`:**
+`MX_RTC_Init()` was hoisted to before `MX_GPIO_Init()`. A guard block was added immediately after `MX_GPIO_Init()`: if `RTC_BKP_DR2 >= COUNT_MAX_EOS`, `BATT_SW_EN` is immediately re-floated (`GPIO_MODE_ANALOG` / `GPIO_NOPULL`), overriding the default HIGH that `MX_GPIO_Init()` drives. This eliminates the window during which the pin fights the discharge capacitor on every BOR or TPS3831 reset loop.
+
+**Fix 2 — VRECT_DETn poll in `App/Src/app_state.c`:**
+A poll of `VRECT_DETn` was added to `app_state_sleep_handler()`, placed after the BATT_SW_EN EOS float and after the LPTIMs are started, but before the STOP `while` loop:
+
+```c
+/* Cold-start guard: if a WPT coil is already present when entering sleep,
+ * the VRECT_DETn falling edge was missed during boot (MCU was fully off and
+ * the coil was placed before the EXTI was armed). Poll the pin directly so
+ * WPT mode is entered without requiring the user to cycle the coil. */
+if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_RESET) {
+    app_func_sm_vrect_coil_cb(true);
+}
+```
+
+If the coil is present, `app_func_sm_vrect_coil_cb(true)` changes state to `STATE_ACT_MODE_BLE_ACT`. The `while` loop's condition is immediately false, so STOP mode is never entered. The wakeup restore code then runs: `BATT_SW_EN` is driven HIGH (reconnecting the batteries), clocks are restored, FRAM and SPI are re-initialized, and `EVENT_WAKEUP` is logged. `app_handler()` dispatches to `app_mode_ble_act_handler()`, which polls `VRECT_DETn` every 50 ms and transitions directly to `STATE_ACT_MODE_WPT_HIGH`. From there the WPT handler enables the chargers and charging proceeds normally. When the coil is removed and battery voltage is above `HPID_BATTERY_ER_LEVEL`, the WPT exit block clears `RTC_BKP_DR1`/`DR2`, un-asserting EOS for the next boot.
 
 ---
 
@@ -341,6 +367,8 @@ bsp_adc_init();   // ← recalibrate ADC1/ADC4 and relink DMA after STOP mode
 ```
 
 `bsp_adc_init()` runs `HAL_ADCEx_Calibration_Start()` on both ADC1 and ADC4, reinitializes the GPDMA handles, and samples the internal voltage reference to establish `vrefanalog_mv`. With this in place the ADC/DMA subsystem is in the same state as after a cold-boot `app_init()`, and the wake-from-sleep WPT charging path works identically to the reset path.
+
+> **Note:** As of the current codebase, `bsp_adc_init()` is not present in `app_state_sleep_handler()`. If the ADC hang described above is observed in practice (device appears to boot after STOP wakeup but BLE advertising never starts), adding `bsp_adc_init()` to the wake sequence after `bsp_sp_init()` is the recommended fix.
 
 ---
 

@@ -109,7 +109,31 @@ void app_func_sm_init(void) {
 	if (curr_state != STATE_ACT_MODE_DVT && curr_state != STATE_SHUTDOWN) {
 		uint32_t eos_counter = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2);
 		if (eos_counter >= COUNT_MAX_EOS) {
-			curr_state = STATE_SLEEP;
+			/* Measure battery immediately on boot rather than going straight to
+			 * sleep. If voltage has recovered, clear the counters and leave
+			 * curr_state unchanged so the device resumes its normal boot state.
+			 * Only enter sleep if voltage is still at or below the ER threshold. */
+			_Float64 battery_er_level = 0.0;
+			app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL,
+			                       (uint8_t*)&battery_er_level, sizeof(battery_er_level));
+
+			uint16_t vbatA = 0, vbatB = 0;
+			app_func_meas_batt_mon_enable(true);
+			HAL_Delay(10);
+			app_func_meas_batt_mon_meas(&vbatA, &vbatB);
+			app_func_meas_batt_mon_enable(false);
+
+			_Float64 battery_level = (vbatA >= vbatB)
+			    ? ((_Float64)vbatA / 1000.0)
+			    : ((_Float64)vbatB / 1000.0);
+
+			if (battery_level > battery_er_level) {
+				HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0);
+				HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, 0);
+				/* curr_state unchanged — device boots into its normal state */
+			} else {
+				curr_state = STATE_SLEEP;
+			}
 		}
 	}
 
@@ -190,7 +214,7 @@ void app_func_sm_wakeup_timer_cb(void) {
 void app_func_sm_active_eos_check(void) {
 	static uint32_t last_check_ms = 0;
 	uint32_t now = HAL_GetTick();
-	if ((now - last_check_ms) < 60000U) return;
+	if ((now - last_check_ms) < 30000U) return;
 	last_check_ms = now;
 
 	if (curr_state == STATE_ACT_MODE_WPT_HIGH  ||
