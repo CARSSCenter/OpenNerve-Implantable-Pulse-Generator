@@ -24,7 +24,6 @@ import asyncio
 import hashlib
 import math
 import os
-import json
 import struct
 import sys
 import crcmod
@@ -54,7 +53,6 @@ async def _pair_windows(device: "BLEDevice") -> None:
 
     bt_addr = int(device.address.replace(":", "").replace("-", ""), 16)
     ble_dev = await _bt.BluetoothLEDevice.from_bluetooth_address_async(bt_addr)
-    #print(f"  [dbg] from_bluetooth_address_async returned: {ble_dev}")
     if ble_dev is None:
         return
 
@@ -66,7 +64,6 @@ async def _pair_windows(device: "BLEDevice") -> None:
     custom = pairing.custom
 
     def _on_pairing_requested(sender, args):
-        #print(f"  [dbg] pairing_kind={args.pairing_kind}")
         if args.pairing_kind == _enum.DevicePairingKinds.PROVIDE_PIN:
             args.accept("000000")
         else:
@@ -76,7 +73,6 @@ async def _pair_windows(device: "BLEDevice") -> None:
 
     try:
         result = await custom.pair_async(_enum.DevicePairingKinds.PROVIDE_PIN)
-        #print(f"  [dbg] pair result status: {result.status}")
     finally:
         try:
             custom.pairing_requested -= _on_pairing_requested
@@ -143,11 +139,6 @@ _STATUS_NAMES = {
     STATUS_OPCODE_ERR:      "OPCODE_ERROR",
     STATUS_USER_CLASS_ERR:  "USER_CLASS_ERROR",
 }
-
-
-_MACOS_UUID_CACHE_PATH = os.path.join(
-    os.path.expanduser("~"), ".config", "carss", "ble_uuid_cache.json"
-)
 
 
 def _status_name(code: int) -> str:
@@ -512,167 +503,6 @@ async def _discover_device(device_name: str) -> BLEDevice:
         print("  Invalid — enter a number from the list above.")
 
 
-# ── Bonded / connected device lookup (no advertising required) ────────────────
-
-async def _find_bonded_device_windows(device_name: str) -> "str | None":
-    """Windows only: find a paired or connected CARSS device without requiring
-    it to be actively advertising.  Returns a Bluetooth address string like
-    "AA:BB:CC:DD:EE:FF", or None if no match is found.
-
-    Pass 1: currently connected to the OS.
-    Pass 2: paired (bonded) but not necessarily connected.
-    """
-    try:
-        import winrt.windows.devices.bluetooth as _bt
-        import winrt.windows.devices.enumeration as _enum
-    except ImportError:
-        return None
-
-    def _addr_int_to_str(addr_int: int) -> str:
-        b = addr_int.to_bytes(6, "big")
-        return ":".join(f"{x:02X}" for x in b)
-
-    async def _search_selector(selector: str) -> "str | None":
-        try:
-            dev_infos = await _enum.DeviceInformation.find_all_async(selector)
-        except Exception:
-            return None
-        for dev_info in dev_infos:
-            try:
-                ble_dev = await _bt.BluetoothLEDevice.from_id_async(dev_info.id)
-            except Exception:
-                continue
-            if ble_dev is None:
-                continue
-            name = ble_dev.name or ""
-            if device_name.lower() not in name.lower():
-                continue
-            return _addr_int_to_str(ble_dev.bluetooth_address)
-        return None
-
-    # Pass 1: connected
-    try:
-        sel = _bt.BluetoothLEDevice.get_device_selector_from_connection_status(
-            _bt.BluetoothConnectionStatus.CONNECTED
-        )
-        result = await _search_selector(sel)
-        if result:
-            return result
-    except (AttributeError, Exception):
-        pass
-
-    # Pass 2: paired
-    try:
-        sel = _bt.BluetoothLEDevice.get_device_selector_from_pairing_state(True)
-        return await _search_selector(sel)
-    except Exception:
-        return None
-
-
-async def _find_bonded_device_macos(device_name: str, service_uuid: str) -> "str | None":
-    """macOS only: find a CARSS device already connected to CoreBluetooth or
-    cached from a previous run.  Returns the CBPeripheral UUID string (bleak's
-    address on macOS), or None if not found.
-
-    Pass 1: system-level connected peripherals via retrieveConnectedPeripheralsWithServices_.
-    Pass 2: UUID cache → retrievePeripheralsWithIdentifiers_.
-
-    Returns a BLEDevice with details=(CBPeripheral, CentralManagerDelegate) — the exact
-    format bleak's CoreBluetooth client expects — so no re-scan is needed.
-    """
-    if sys.platform != "darwin":
-        return None
-
-    try:
-        from bleak.backends.corebluetooth.CentralManagerDelegate import CentralManagerDelegate
-        from CoreBluetooth import CBUUID
-        from Foundation import NSArray, NSUUID
-    except ImportError:
-        return None
-
-    try:
-        delegate = CentralManagerDelegate()
-        await asyncio.wait_for(delegate.wait_until_ready(), timeout=3.0)
-    except Exception:
-        return None
-
-    cbuuid = CBUUID.UUIDWithString_(service_uuid)
-    service_array = NSArray.arrayWithObject_(cbuuid)
-
-    # Pass 1: peripherals connected to the system right now
-    connected = delegate.central_manager.retrieveConnectedPeripheralsWithServices_(service_array)
-    for peripheral in connected:
-        name = peripheral.name()
-        if name and device_name.lower() in name.lower():
-            uuid_str = peripheral.identifier().UUIDString()
-            return BLEDevice(uuid_str, name, (peripheral, delegate))
-
-    # Pass 2: previously seen UUID from cache
-    cached_uuid = _load_macos_uuid_cache(device_name)
-    if cached_uuid:
-        nsuuid = NSUUID.alloc().initWithUUIDString_(cached_uuid)
-        if nsuuid is not None:
-            uuid_array = NSArray.arrayWithObject_(nsuuid)
-            retrieved = delegate.central_manager.retrievePeripheralsWithIdentifiers_(uuid_array)
-            if retrieved and len(retrieved) > 0:
-                peripheral = retrieved[0]
-                uuid_str = peripheral.identifier().UUIDString()
-                name = peripheral.name() or device_name
-                return BLEDevice(uuid_str, name, (peripheral, delegate))
-
-    return None
-
-
-def _load_macos_uuid_cache(device_name: str) -> "str | None":
-    try:
-        with open(_MACOS_UUID_CACHE_PATH) as f:
-            return json.load(f).get(device_name.lower())
-    except Exception:
-        return None
-
-
-def _save_macos_uuid_cache(device_name: str, uuid_str: str) -> None:
-    try:
-        cache_dir = os.path.dirname(_MACOS_UUID_CACHE_PATH)
-        os.makedirs(cache_dir, exist_ok=True)
-        try:
-            with open(_MACOS_UUID_CACHE_PATH) as f:
-                data = json.load(f)
-        except Exception:
-            data = {}
-        data[device_name.lower()] = uuid_str
-        with open(_MACOS_UUID_CACHE_PATH, "w") as f:
-            json.dump(data, f, indent=2)
-    except Exception:
-        pass
-
-
-async def _find_device(device_name: str) -> "tuple[BLEDevice | str, bool]":
-    """Find the CARSS device, preferring bonded/connected paths over active scanning.
-
-    Returns (device_or_address, was_pre_bonded):
-      - device_or_address: BLEDevice from _discover_device, or a plain address/UUID
-        string when found via platform bonded-device APIs.
-      - was_pre_bonded: True means skip the pairing ceremony (already bonded).
-    """
-    if sys.platform == "darwin":
-        print(f"Checking for already-connected or previously-bonded '{device_name}'...")
-        uuid_str = await _find_bonded_device_macos(device_name, NUS_SERVICE_UUID)
-        if uuid_str:
-            print(f"  Found via CoreBluetooth: {uuid_str}")
-            return uuid_str, True
-
-    elif sys.platform == "win32":
-        print(f"Checking for already-paired '{device_name}' in Windows Bluetooth...")
-        addr_str = await _find_bonded_device_windows(device_name)
-        if addr_str:
-            print(f"  Found bonded device: {addr_str}")
-            return addr_str, True
-
-    device = await _discover_device(device_name)
-    return device, False
-
-
 # ── Progress bar ──────────────────────────────────────────────────────────────
 
 def _print_progress(done: int, total: int, width: int = 40) -> None:
@@ -713,19 +543,12 @@ async def run_ota(firmware_path: str, key_path: str, device_name: str) -> None:
     # ── Connect (with automatic reconnect after first-time BLE pairing) ─────────
     # On macOS the nRF52810 disconnects after pairing completes so the central
     # can reconnect on the newly-encrypted bonded link.  We allow one reconnect.
-    # _find_device checks for already-bonded/connected devices via platform APIs
-    # before falling back to an active BLE scan.
-    device, was_pre_bonded = await _find_device(device_name)
+    device = await _discover_device(device_name)
 
     for connect_attempt in range(1, 3):
-        # device may be a BLEDevice or a plain address/UUID string (bonded path).
-        display_addr = device if isinstance(device, str) else device.address
-        display_name = device_name if isinstance(device, str) else (device.name or device_name)
         if connect_attempt == 1:
-            print(f"Connecting to {display_name} ({display_addr})...")
-            if was_pre_bonded:
-                print("  (device found via bonded/connected path — skipping pairing)")
-            elif sys.platform == "win32":
+            print(f"Connecting to {device.name} ({device.address})...")
+            if sys.platform == "win32":
                 print("  Pairing (passkey injected automatically)...")
                 await _pair_windows(device)
                 print("  Paired.")
@@ -734,27 +557,20 @@ async def run_ota(firmware_path: str, key_path: str, device_name: str) -> None:
         else:
             print(f"\n  Pairing complete. Waiting for device to re-advertise...")
             await asyncio.sleep(5.0)   # give the nRF time to restart advertising
-            device, was_pre_bonded = await _find_device(device_name)
-            display_addr = device if isinstance(device, str) else device.address
-            display_name = device_name if isinstance(device, str) else (device.name or device_name)
+            device = await _discover_device(device_name)  # fresh scan by name
 
         try:
             async with BleakClient(device, timeout=30.0) as client:
                 if not client.is_connected:
-                    raise RuntimeError(f"Failed to connect to {display_name} ({display_addr})")
-                # Persist the CBPeripheral UUID on macOS so future runs can find
-                # this device without advertising.
-                if sys.platform == "darwin":
-                    _save_macos_uuid_cache(device_name, client.address)
-                print(f"Connected to {display_name} ({display_addr})\n")
+                    raise RuntimeError(f"Failed to connect to {device.name} ({device.address})")
+                print(f"Connected to {device.name} ({device.address})\n")
 
-                # Best-effort explicit pair() — skipped when device was found via
-                # bonded path (pair() raises NotImplementedError on CoreBluetooth).
-                if not was_pre_bonded:
-                    try:
-                        await asyncio.wait_for(client.pair(), timeout=5.0)
-                    except Exception:
-                        pass
+                # Best-effort explicit pair() — on macOS this may return immediately
+                # but at least primes the CoreBluetooth state machine.
+                try:
+                    await asyncio.wait_for(client.pair(), timeout=5.0)
+                except Exception:
+                    pass
 
                 session = OTASession(client, private_key)
                 await session.start()
@@ -808,7 +624,7 @@ async def run_ota(firmware_path: str, key_path: str, device_name: str) -> None:
             if isinstance(conn_err, (RuntimeError, ValueError, _VerifyFailedError)):
                 raise
             raise RuntimeError(
-                f"Connection to {display_name} ({display_addr}) failed.\n"
+                f"Connection to {device.name} ({device.address}) failed.\n"
                 f"  {type(conn_err).__name__}: {conn_err}"
             ) from conn_err
 
