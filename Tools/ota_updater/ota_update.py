@@ -533,8 +533,15 @@ async def _find_bonded_device_windows(device_name: str) -> "str | None":
         return ":".join(f"{x:02X}" for x in b)
 
     async def _search_selector(selector: str) -> "str | None":
+        # BLE device selectors require DeviceInformationKind.AssociationEndpoint;
+        # the default kind (DeviceInterface) returns no results for these selectors.
         try:
-            dev_infos = await _enum.DeviceInformation.find_all_async(selector)
+            try:
+                dev_infos = await _enum.DeviceInformation.find_all_async(
+                    selector, None, _enum.DeviceInformationKind.ASSOCIATION_ENDPOINT
+                )
+            except (AttributeError, TypeError):
+                dev_infos = await _enum.DeviceInformation.find_all_async(selector)
         except Exception:
             return None
         for dev_info in dev_infos:
@@ -549,6 +556,18 @@ async def _find_bonded_device_windows(device_name: str) -> "str | None":
                 continue
             return _addr_int_to_str(ble_dev.bluetooth_address)
         return None
+
+    # Pass 0: cached address from a previous successful connection.
+    # Uses from_bluetooth_address_async (same API as _pair_windows) — known to work.
+    cached_addr = _load_macos_uuid_cache(device_name)
+    if cached_addr:
+        try:
+            addr_int = int(cached_addr.replace(":", "").replace("-", ""), 16)
+            ble_dev = await _bt.BluetoothLEDevice.from_bluetooth_address_async(addr_int)
+            if ble_dev is not None and ble_dev.device_information.pairing.is_paired:
+                return cached_addr
+        except Exception:
+            pass
 
     # Pass 1: connected
     try:
@@ -742,10 +761,9 @@ async def run_ota(firmware_path: str, key_path: str, device_name: str) -> None:
             async with BleakClient(device, timeout=30.0) as client:
                 if not client.is_connected:
                     raise RuntimeError(f"Failed to connect to {display_name} ({display_addr})")
-                # Persist the CBPeripheral UUID on macOS so future runs can find
-                # this device without advertising.
-                if sys.platform == "darwin":
-                    _save_macos_uuid_cache(device_name, client.address)
+                # Persist the device address/UUID so future runs can find this
+                # device without advertising (macOS: CBPeripheral UUID; Windows: MAC).
+                _save_macos_uuid_cache(device_name, client.address)
                 print(f"Connected to {display_name} ({display_addr})\n")
 
                 # Best-effort explicit pair() — skipped when device was found via
