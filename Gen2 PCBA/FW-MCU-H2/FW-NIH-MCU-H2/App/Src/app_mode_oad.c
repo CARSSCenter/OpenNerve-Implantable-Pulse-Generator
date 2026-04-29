@@ -112,7 +112,7 @@ void app_mode_oad_handler(void) {
 			HAL_Delay(100);
 		}
 		else if (curr_ble_state == BLE_STATE_ADV_STOP) {
-			app_func_sm_current_state_set(STATE_ACT);
+			app_func_sm_current_state_set(STATE_ACT_MODE_BLE_ACT);
 			curr_state = app_func_sm_current_state_get();
 		}
 		else {

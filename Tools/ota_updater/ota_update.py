@@ -118,7 +118,7 @@ USER_CLASS_ADMIN = 0xFF
 # ── Protocol constants ────────────────────────────────────────────────────────
 FRAM_MAX_SIZE       = 262_144   # 256 KB maximum firmware image size
 CHUNK_SIZE          = 128       # bytes per download packet (OP_DOWNLOAD_FW_IMAGE)
-CMD_TIMEOUT_S       = 10.0      # seconds to wait for a response
+CMD_TIMEOUT_S       = 30.0      # seconds to wait for a response
 VERIFY_TIMEOUT_S    = 30.0      # verify can be slow (device computes SHA-256 of FRAM)
 MAX_VERIFY_ATTEMPTS = 3
 DEFAULT_DEVICE_NAME = "CARSS"
@@ -229,10 +229,13 @@ def _sign_message(private_key: ec.EllipticCurvePrivateKey, data: bytes) -> tuple
 # ── BLE session ───────────────────────────────────────────────────────────────
 
 class OTASession:
-    def __init__(self, client: BleakClient, private_key: ec.EllipticCurvePrivateKey):
+    def __init__(self, client: BleakClient, private_key: ec.EllipticCurvePrivateKey,
+                 disc_event: "asyncio.Event | None" = None):
         self._client = client
         self._private_key = private_key
         self._rx_queue: asyncio.Queue[bytes] = asyncio.Queue()
+        self._disc_event = disc_event or asyncio.Event()
+        self._last_good_offset: int = 0
 
     def _on_notify(self, _sender: object, data: bytearray) -> None:
         #print(f"  [dbg] notification received: {bytes(data).hex()}")
@@ -293,41 +296,51 @@ class OTASession:
     async def _send(self, opcode: int, payload: bytes, timeout: float = CMD_TIMEOUT_S) -> tuple[int, bytes]:
         """
         Send a command and return (status, response_payload).
-        Raises on timeout, CRC mismatch, or opcode mismatch.
+        Raises TimeoutError on timeout, _OadDisconnectedError on BLE disconnect,
+        ValueError on CRC/opcode mismatch.
         """
         packet = _build_packet(opcode, payload)
-        #print(f"  [dbg] sending opcode=0x{opcode:02X} payload_len={len(payload)} packet={packet[:8].hex()}...")
         try:
             await self._client.write_gatt_char(NUS_RX_CHAR_UUID, packet, response=False)
         except BleakError as e:
             if "service discovery" in str(e).lower():
-                # Pairing just completed and CoreBluetooth invalidated the GATT cache.
-                # Reinitialize, then retry the write.
                 await self._reinitialize()
                 await self._client.write_gatt_char(NUS_RX_CHAR_UUID, packet, response=False)
             else:
-                raise
+                raise _OadDisconnectedError(self._last_good_offset) from e
         except asyncio.TimeoutError:
-        # was delivered successfully.  The device may have already sent its
-        # notification (visible in the queue), so fallthrough to the read.
-            print("Asyncio error")
-            pass
+            pass  # write-without-response delivered; response may already be queued
+
+        # Race: response notification vs. BLE disconnect event.
+        rx_task   = asyncio.ensure_future(self._rx_queue.get())
+        disc_task = asyncio.ensure_future(self._disc_event.wait())
         try:
-            raw = await asyncio.wait_for(self._rx_queue.get(), timeout=timeout)
-            #print(" [dbg] received message from queue: " + str(raw))
-        except asyncio.TimeoutError:
-            print("asyncio.Timeout error!")
-            raise TimeoutError(
-                f"No response to opcode 0x{opcode:02X} within {timeout:.0f}s"
+            done, _ = await asyncio.wait(
+                {rx_task, disc_task},
+                timeout=timeout,
+                return_when=asyncio.FIRST_COMPLETED,
             )
-        #print("  [dbg] parsing response")
+        finally:
+            # Always cancel the task that didn't win (or both on timeout).
+            if not rx_task.done():
+                rx_task.cancel()
+            if not disc_task.done():
+                disc_task.cancel()
+
+        if not done:
+            raise TimeoutError(f"No response to opcode 0x{opcode:02X} within {timeout:.0f}s")
+
+        # If we got a real response AND a disconnect simultaneously, prefer the response.
+        if rx_task in done:
+            raw = rx_task.result()
+        else:
+            raise _OadDisconnectedError(self._last_good_offset)
+
         resp_opcode, status, resp_payload = _parse_response(raw)
-        #print(" [dbg] parsed response, opcode: " + str(resp_opcode))
         if resp_opcode != opcode:
             raise ValueError(
                 f"Opcode mismatch: sent 0x{opcode:02X}, received 0x{resp_opcode:02X}"
             )
-        #print(" [dbg] status: " + str(status) + ", response: " + str(resp_payload))
         return status, resp_payload
 
     async def authenticate_admin(self) -> None:
@@ -427,27 +440,41 @@ class OTASession:
             )
         return r_bytes, s_bytes, firmware_hash
 
-    async def download_firmware(self, firmware_bytes: bytes) -> None:
+    async def download_firmware(self, firmware_bytes: bytes, start_offset: int = 0) -> None:
         """
         Step 5: Download firmware in 128-byte chunks using OP_DOWNLOAD_FW_IMAGE (0xF4).
 
         Packet payload (132 bytes): offset(4 LE) + data(128)
         The last chunk is zero-padded to 128 bytes.
-        Each packet is retried once on failure before aborting.
+        Each packet is retried once on transient failure.  BLE disconnect raises
+        _OadDisconnectedError with the last ACK'd offset so the caller can resume.
+
+        start_offset > 0 skips already-written FRAM pages (idempotent write means
+        re-sending them is safe, but skipping saves time).
         """
         image_size = len(firmware_bytes)
         total_packets = math.ceil(image_size / CHUNK_SIZE)
-        offset = 0
-        packet_num = 0
+        # Round start_offset down to the nearest CHUNK_SIZE boundary.
+        offset = (start_offset // CHUNK_SIZE) * CHUNK_SIZE
+        packet_num = offset // CHUNK_SIZE
+        self._last_good_offset = offset
         while offset < image_size:
             chunk = firmware_bytes[offset : offset + CHUNK_SIZE]
             chunk = chunk.ljust(CHUNK_SIZE, b"\x00")
             pkt_payload = struct.pack("<I", offset) + chunk
-            for attempt in range(2):
-                status, _ = await self._send(OP_DOWNLOAD_FW_IMAGE, pkt_payload)
+            for attempt in range(3):
+                try:
+                    status, _ = await self._send(OP_DOWNLOAD_FW_IMAGE, pkt_payload)
+                except TimeoutError:
+                    if attempt < 2:
+                        print(
+                            f"\n  Packet {packet_num} (offset {offset}) timed out, retrying..."
+                        )
+                        continue
+                    raise
                 if status == STATUS_SUCCESS:
                     break
-                if attempt == 0:
+                if attempt < 2:
                     print(
                         f"\n  Packet {packet_num} (offset {offset}) failed "
                         f"({_status_name(status)}), retrying..."
@@ -457,6 +484,7 @@ class OTASession:
                         f"Download failed at byte offset {offset} "
                         f"after retry: {_status_name(status)}"
                     )
+            self._last_good_offset = offset + CHUNK_SIZE
             offset += CHUNK_SIZE
             packet_num += 1
             _print_progress(packet_num, total_packets)
@@ -470,9 +498,9 @@ class OTASession:
         On success, the device immediately begins BSL flashing and reboots.
         """
         payload = struct.pack("<I", image_size)
-        status, _ = await self._send(OP_VERIFY_FW_IMAGE, payload, timeout=VERIFY_TIMEOUT_S)
+        status, resp_payload = await self._send(OP_VERIFY_FW_IMAGE, payload, timeout=VERIFY_TIMEOUT_S)
         if status != STATUS_SUCCESS:
-            fail_count = resp[0] if resp else "?"
+            fail_count = resp_payload[0] if resp_payload and resp_payload != b'\0x00' else "?"
             raise _VerifyFailedError(
                 f"Image verification failed (device failure count: {fail_count})."
             )
@@ -485,6 +513,14 @@ class _PairingDisconnectedError(Exception):
     """Raised when the device disconnects after BLE pairing (expected nRF behaviour).
     The caller should reconnect; the second connection will be bonded/encrypted."""
     pass
+
+class _OadDisconnectedError(Exception):
+    """Raised when the BLE link drops mid-download.
+    last_offset is the byte offset of the last successfully ACK'd packet;
+    the caller reconnects and resumes from there (FRAM is non-volatile)."""
+    def __init__(self, last_offset: int):
+        self.last_offset = last_offset
+        super().__init__(f"BLE disconnected mid-OTA at offset {last_offset}")
 
 
 # ── Device discovery ──────────────────────────────────────────────────────────
@@ -729,106 +765,157 @@ async def run_ota(firmware_path: str, key_path: str, device_name: str) -> None:
     private_key = _load_private_key(key_path)
     print(f"Key file:  {os.path.abspath(key_path)}  [OK]\n")
 
-    # ── Connect (with automatic reconnect after first-time BLE pairing) ─────────
-    # On macOS the nRF52810 disconnects after pairing completes so the central
-    # can reconnect on the newly-encrypted bonded link.  We allow one reconnect.
+    # ── Connect loop ────────────────────────────────────────────────────────────
+    # Three disconnect scenarios are handled automatically:
+    #   1. Post-pairing disconnect (macOS nRF behaviour): reconnect on encrypted link.
+    #   2. Mid-OTA BLE disconnect (nRF conn-param negotiation at ~T+90s on macOS):
+    #      wait for device to re-advertise, reconnect, re-auth, resume download.
+    #      Requires STM32 firmware built with STATE_ACT_MODE_BLE_ACT in app_mode_oad.c.
+    #   3. Multiple verify failures: retransmit full image up to MAX_VERIFY_ATTEMPTS.
+    #
     # _find_device checks for already-bonded/connected devices via platform APIs
     # before falling back to an active BLE scan.
-    device, was_pre_bonded = await _find_device(device_name)
 
-    for connect_attempt in range(1, 3):
-        # device may be a BLEDevice or a plain address/UUID string (bonded path).
-        display_addr = device if isinstance(device, str) else device.address
-        display_name = device_name if isinstance(device, str) else (device.name or device_name)
-        if connect_attempt == 1:
-            print(f"Connecting to {display_name} ({display_addr})...")
-            if was_pre_bonded:
-                print("  (device found via bonded/connected path — skipping pairing)")
-            elif sys.platform == "win32":
-                print("  Pairing (passkey injected automatically)...")
-                await _pair_windows(device)
-                print("  Paired.")
-            else:
-                print("  Note: if a pairing dialog appears, enter passkey: 000000")
-        else:
-            print(f"\n  Pairing complete. Waiting for device to re-advertise...")
-            await asyncio.sleep(5.0)   # give the nRF time to restart advertising
-            device, was_pre_bonded = await _find_device(device_name)
+    MAX_OAD_RECONNECTS = 5
+    RECONNECT_WAIT_S   = 10.0   # seconds between mid-OTA reconnect attempts
+
+    resume_offset   = 0
+    oad_reconnects  = 0
+
+    while True:
+        device, was_pre_bonded = await _find_device(device_name)
+
+        # Inner loop: handles the one-time post-pairing reconnect (macOS).
+        for connect_attempt in range(1, 3):
             display_addr = device if isinstance(device, str) else device.address
             display_name = device_name if isinstance(device, str) else (device.name or device_name)
 
-        try:
-            async with BleakClient(device, timeout=30.0) as client:
-                if not client.is_connected:
-                    raise RuntimeError(f"Failed to connect to {display_name} ({display_addr})")
-                # Persist the device address/UUID so future runs can find this
-                # device without advertising (macOS: CBPeripheral UUID; Windows: MAC).
-                _save_macos_uuid_cache(device_name, client.address)
-                print(f"Connected to {display_name} ({display_addr})\n")
+            if connect_attempt == 1:
+                print(f"Connecting to {display_name} ({display_addr})...")
+                if was_pre_bonded:
+                    print("  (device found via bonded/connected path — skipping pairing)")
+                elif sys.platform == "win32":
+                    print("  Pairing (passkey injected automatically)...")
+                    await _pair_windows(device)
+                    print("  Paired.")
+                else:
+                    print("  Note: if a pairing dialog appears, enter passkey: 000000")
+            else:
+                print(f"\n  Pairing complete. Waiting for device to re-advertise...")
+                await asyncio.sleep(5.0)
+                device, was_pre_bonded = await _find_device(device_name)
+                display_addr = device if isinstance(device, str) else device.address
+                display_name = device_name if isinstance(device, str) else (device.name or device_name)
 
-                # Best-effort explicit pair() — skipped when device was found via
-                # bonded path (pair() raises NotImplementedError on CoreBluetooth).
-                if not was_pre_bonded:
-                    try:
-                        await asyncio.wait_for(client.pair(), timeout=5.0)
-                    except Exception:
-                        pass
+            disc_event = asyncio.Event()
 
-                session = OTASession(client, private_key)
-                await session.start()
+            def _make_disc_cb(ev: asyncio.Event):
+                def _cb(*_args):
+                    ev.set()
+                return _cb
 
-                # ── Step 3: Admin auth ────────────────────────────────────────────
-                print("[1/4] Authenticating as Admin...")
-                await session.authenticate_admin()
-                print("      Admin authentication OK.\n")
+            try:
+                async with BleakClient(
+                    device,
+                    timeout=30.0,
+                    disconnected_callback=_make_disc_cb(disc_event),
+                ) as client:
+                    if not client.is_connected:
+                        raise RuntimeError(f"Failed to connect to {display_name} ({display_addr})")
+                    _save_macos_uuid_cache(device_name, client.address)
+                    print(f"Connected to {display_name} ({display_addr})\n")
 
-                # ── Step 4: Authorize image + steps 5-6 with retry loop ───────────
-                for verify_attempt in range(1, MAX_VERIFY_ATTEMPTS + 1):
-                    if verify_attempt == 1:
-                        print("[2/4] Authorizing firmware image...")
-                    else:
-                        print(f"\n[2/4] Re-authorizing firmware image (attempt {verify_attempt}/{MAX_VERIFY_ATTEMPTS})...")
-                    await session.authorize_firmware(firmware_bytes)
-                    print("      Firmware image authorized. Device entered OAD mode.\n")
+                    if not was_pre_bonded:
+                        try:
+                            await asyncio.wait_for(client.pair(), timeout=5.0)
+                        except Exception:
+                            pass
 
-                    print(f"[3/4] Downloading firmware ({image_size:,} bytes, {total_packets} packets)...")
-                    await session.download_firmware(firmware_bytes)
-                    print("      Download complete.\n")
+                    session = OTASession(client, private_key, disc_event)
+                    await session.start()
 
-                    print("[4/4] Verifying firmware image (device computing SHA-256)...")
-                    try:
-                        await session.verify_firmware(image_size)
-                        break
-                    except _VerifyFailedError as e:
-                        if verify_attempt == MAX_VERIFY_ATTEMPTS:
-                            raise RuntimeError(
-                                f"{e}\n"
-                                f"All {MAX_VERIFY_ATTEMPTS} verify attempts failed. "
-                                "The device has returned to normal BLE connected mode.\n"
-                                "Check the firmware binary and retry from the beginning."
-                            )
-                        print(f"      {e} Retransmitting...\n")
+                    # ── Step 3: Admin auth ──────────────────────────────────────
+                    print("[1/4] Authenticating as Admin...")
+                    await session.authenticate_admin()
+                    print("      Admin authentication OK.\n")
 
-                print("      Verification passed!")
-                print("\n  The device is now flashing the new firmware and will reboot.")
-                print("  The BLE connection will drop momentarily — this is expected.")
-                print("  Wait ~5 seconds, then reconnect to confirm the firmware version.\n")
-                break  # success — no reconnect needed
+                    # ── Steps 4-6: authorize → download (resume if mid-OTA reconnect) → verify
+                    for verify_attempt in range(1, MAX_VERIFY_ATTEMPTS + 1):
+                        if resume_offset > 0:
+                            pct = min(resume_offset * 100 // image_size, 99)
+                            print(f"[2/4] Re-authorizing firmware (resuming at {pct}%)...")
+                        elif verify_attempt == 1:
+                            print("[2/4] Authorizing firmware image...")
+                        else:
+                            print(f"\n[2/4] Re-authorizing firmware image "
+                                  f"(attempt {verify_attempt}/{MAX_VERIFY_ATTEMPTS})...")
+                        await session.authorize_firmware(firmware_bytes)
+                        print("      Firmware image authorized. Device entered OAD mode.\n")
 
-        except _PairingDisconnectedError:
-            if connect_attempt < 2:
-                continue   # reconnect loop handles this
-            raise RuntimeError(
-                "Device disconnected after pairing but failed to reconnect.\n"
-                "Ensure the IPG is still powered on and retry."
-            )
-        except (TimeoutError, Exception) as conn_err:
-            if isinstance(conn_err, (RuntimeError, ValueError, _VerifyFailedError)):
-                raise
-            raise RuntimeError(
-                f"Connection to {display_name} ({display_addr}) failed.\n"
-                f"  {type(conn_err).__name__}: {conn_err}"
-            ) from conn_err
+                        if resume_offset > 0:
+                            remaining = image_size - resume_offset
+                            pct = min(resume_offset * 100 // image_size, 99)
+                            print(f"[3/4] Resuming download from {resume_offset:,} B "
+                                  f"({pct}% done, {remaining:,} B remaining)...")
+                        else:
+                            print(f"[3/4] Downloading firmware "
+                                  f"({image_size:,} bytes, {total_packets} packets)...")
+                        await session.download_firmware(firmware_bytes, start_offset=resume_offset)
+                        resume_offset = 0   # full image in FRAM — reset for any retry
+                        print("      Download complete.\n")
+
+                        print("[4/4] Verifying firmware image (device computing SHA-256)...")
+                        try:
+                            await session.verify_firmware(image_size)
+                            break
+                        except _VerifyFailedError as e:
+                            if verify_attempt == MAX_VERIFY_ATTEMPTS:
+                                raise RuntimeError(
+                                    f"{e}\n"
+                                    f"All {MAX_VERIFY_ATTEMPTS} verify attempts failed. "
+                                    "The device has returned to normal BLE connected mode.\n"
+                                    "Check the firmware binary and retry from the beginning."
+                                )
+                            print(f"      {e} Retransmitting...\n")
+
+                    print("      Verification passed!")
+                    print("\n  The device is now flashing the new firmware and will reboot.")
+                    print("  The BLE connection will drop momentarily — this is expected.")
+                    print("  Wait ~5 seconds, then reconnect to confirm the firmware version.\n")
+                    return  # ── OTA complete ──────────────────────────────────
+
+            except _PairingDisconnectedError:
+                if connect_attempt < 2:
+                    continue
+                raise RuntimeError(
+                    "Device disconnected after pairing but failed to reconnect.\n"
+                    "Ensure the IPG is still powered on and retry."
+                )
+
+            except _OadDisconnectedError as e:
+                resume_offset = e.last_offset
+                oad_reconnects += 1
+                if oad_reconnects > MAX_OAD_RECONNECTS:
+                    raise RuntimeError(
+                        f"OTA failed: BLE connection dropped {MAX_OAD_RECONNECTS} times "
+                        "mid-download. Ensure the device is close to the Mac and retry."
+                    )
+                pct = min(resume_offset * 100 // image_size, 99)
+                print(f"\n  BLE disconnected at {resume_offset:,} B ({pct}%). "
+                      f"Waiting {RECONNECT_WAIT_S:.0f}s for device to re-advertise...")
+                await asyncio.sleep(RECONNECT_WAIT_S)
+                break   # break inner connect loop → retry outer while loop
+
+            except (TimeoutError, Exception) as conn_err:
+                if isinstance(conn_err, (RuntimeError, ValueError, _VerifyFailedError)):
+                    raise
+                raise RuntimeError(
+                    f"Connection to {display_name} ({display_addr}) failed.\n"
+                    f"  {type(conn_err).__name__}: {conn_err}"
+                ) from conn_err
+        else:
+            # Inner loop exhausted without break — pairing reconnect failed.
+            break
 
 
 def main() -> None:
