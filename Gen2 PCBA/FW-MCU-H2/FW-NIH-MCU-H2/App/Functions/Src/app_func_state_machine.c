@@ -223,6 +223,10 @@ void app_func_sm_active_eos_check(void) {
 	    curr_state == STATE_SLEEP               ||
 	    curr_state == STATE_SHUTDOWN) return;
 
+	/* Skip EOS check when VCHG converter reports power-good — device is USB-bench-powered,
+	 * battery ADC reads ~0 V but that does not indicate depleted cells. */
+	if (HAL_GPIO_ReadPin(VCHG_PGOOD_GPIO_Port, VCHG_PGOOD_Pin) == GPIO_PIN_SET) return;
+
 	_Float64 battery_er_level  = 0.0;
 	_Float64 battery_eos_level = 0.0;
 	app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL,  (uint8_t*)&battery_er_level,  (uint8_t)sizeof(battery_er_level));

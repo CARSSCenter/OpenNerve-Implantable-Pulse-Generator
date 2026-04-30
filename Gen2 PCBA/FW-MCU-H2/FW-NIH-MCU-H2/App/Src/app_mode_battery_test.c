@@ -33,6 +33,9 @@ void app_mode_battery_test_volt_get(uint16_t* p_vbatA, uint16_t* p_vbatB) {
 void app_mode_battery_test_handler(void) {
 	uint16_t curr_state = app_func_sm_current_state_get();
 
+	/* Skip battery test EOS check when USB bench power is present (VCHG_PGOOD HIGH). */
+	if (HAL_GPIO_ReadPin(VCHG_PGOOD_GPIO_Port, VCHG_PGOOD_Pin) == GPIO_PIN_SET) return;
+
 	_Float64 battery_er_level = 0.0;
 	_Float64 battery_eos_level = 0.0;
 	app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL, (uint8_t*)&battery_er_level, (uint8_t)sizeof(battery_er_level));
