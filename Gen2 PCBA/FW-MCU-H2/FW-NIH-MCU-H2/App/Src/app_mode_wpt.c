@@ -353,7 +353,7 @@ void app_mode_wpt_handler(void)
     /* If battery recovered above ER threshold during charging, clear EOS/ER
      * counters so the device doesn't re-enter EOS sleep after a successful
      * charge. Converter is already disabled so the reading is clean battery
-     * voltage. Battery monitor was enabled at entry and never disabled. */
+     * voltage. */
     {
         _Float64 er_level_v = 0.0;
         app_func_para_data_get((const uint8_t*)HPID_BATTERY_ER_LEVEL, (uint8_t*)&er_level_v, (uint8_t)sizeof(er_level_v));
@@ -366,6 +366,7 @@ void app_mode_wpt_handler(void)
             HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, 0U);
         }
     }
+    app_func_meas_batt_mon_enable(false);
 
     app_func_ble_enable(false);
 }

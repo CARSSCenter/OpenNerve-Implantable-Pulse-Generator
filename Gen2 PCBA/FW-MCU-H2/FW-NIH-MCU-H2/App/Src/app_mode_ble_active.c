@@ -117,7 +117,10 @@ uint8_t app_mode_ble_act_adv_msd_update(uint8_t* p_msd) {
 	static uint16_t threm[3];
 
 	bsp_adc_single_sampling(HANDLE_ID_ADC1, ADC1_CHANNEL_DVDD, &dvdd_div4, 1, 1000);
+	app_func_meas_batt_mon_enable(true);
+	HAL_Delay(10);
 	app_func_meas_batt_mon_meas(&batt[0], &batt[1]);
+	//app_func_meas_batt_mon_enable(false);
 	bsp_adc_single_sampling(HANDLE_ID_ADC4, ADC4_CHANNEL_IMP_INA, &imp[0], 1, 1000);
 	bsp_adc_single_sampling(HANDLE_ID_ADC4, ADC4_CHANNEL_IMP_INB, &imp[1], 1, 1000);
 	app_func_meas_therm_meas(THERM_ID_REF, (uint8_t*)&threm[0], sizeof(uint16_t), 1000);
@@ -129,7 +132,9 @@ uint8_t app_mode_ble_act_adv_msd_update(uint8_t* p_msd) {
 	uint8_t battB_100mv = batt[1] / 100;
 	uint8_t impA_10mv = imp[0] / 10;
 	uint8_t impB_10mv = imp[1] / 10;
-	uint8_t thremRef_10mv = threm[0] / 10;
+
+	// Clamp to 0xFF when voltage exceeds uint8_t range (>2550 mV wraps around)
+	uint8_t thremRef_10mv = (threm[0] > 2550) ? 0xFF : (uint8_t)(threm[0] / 10);
 	uint8_t thremOut_10mv = threm[1] / 10;
 	uint8_t thremOfst_10mv = threm[2] / 10;
 
