@@ -15,7 +15,7 @@ This tool updates the firmware on an OpenNerve Gen2 IPG wirelessly over Bluetoot
 | Platform | Status | Notes |
 |---|---|---|
 | **Windows 10/11** | Fully supported | Passkey injected automatically — no dialog |
-| **macOS** | Not working | See [macOS Pairing](#macos-pairing) below |
+| **macOS** | Supported | Requires a one-time pre-pairing step — see [macOS Pairing](#macos-pairing) below |
 
 ---
 
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ## Basic Usage
 
 ```bash
-python ota_update.py FIRMWARE.BIN PRIVATE_KEY [--device-name NAME]
+python3 ota_update.py FIRMWARE.BIN PRIVATE_KEY [--device-name NAME]
 ```
 
 | Argument | Description |
@@ -51,13 +51,13 @@ python ota_update.py FIRMWARE.BIN PRIVATE_KEY [--device-name NAME]
 
 ```bash
 # Standard update with default device name
-python ota_update.py firmware.bin secrets/admin_priv_d_hex.txt
+python3 ota_update.py firmware.bin secrets/admin_priv_d_hex.txt
 
 # If your device advertises under a different name
-python ota_update.py firmware.bin secrets/admin_priv_d_hex.txt --device-name "MyOpenNerve"
+python3 ota_update.py firmware.bin secrets/admin_priv_d_hex.txt --device-name "MyOpenNerve"
 
 # Using absolute paths
-python ota_update.py /path/to/build/FW-NIH-MCU-H2.bin ~/keys/admin_priv_d_hex.txt
+python3 ota_update.py /path/to/build/FW-NIH-MCU-H2.bin ~/keys/admin_priv_d_hex.txt
 ```
 
 ---
@@ -75,9 +75,13 @@ arm-none-eabi-objcopy -O binary "${BuildArtifactFileBaseName}.elf" "${BuildArtif
 
 The binary must be **under 256 KB (262,144 bytes)**. The tool will tell you if it's too large before connecting.
 
-### 2. Connect using the Windows app
+### 2. Pair the IPG to your computer
 
-This ensures that the IPG is paired to the computer before running the ota_update.py script. After connecting and verifying previous firmware version, press the "Quit" button to disconnect.
+The IPG must be bonded to your computer before running the script. How to do this depends on your platform:
+
+**Windows:** Open the OpenNerve Windows app, connect to the IPG, then press "Quit" to disconnect. The passkey (`000000`) is handled automatically — no system dialog should appear.
+
+**macOS:** Open a BLE scanner such as [LightBlue](https://punchthrough.com/lightblue/), connect to the IPG (enter passkey `000000` if prompted), then disconnect. This bonds the device to macOS so the script can connect without re-pairing.
 
 ### 3. Put the IPG in BLE advertising mode
 
@@ -86,7 +90,7 @@ The device must be actively advertising for the tool to find it. On a freshly po
 ### 4. Run the tool
 
 ```bash
-python ota_update.py firmware.bin secrets/admin_priv_d_hex.txt
+python3 ota_update.py firmware.bin secrets/admin_priv_d_hex.txt
 ```
 
 The tool will:
@@ -108,9 +112,11 @@ Packets:   768  (128 bytes each)
 
 Key file:  /path/to/admin_priv_d_hex.txt  [OK]
 
-Scanning for BLE devices matching 'OpenNerve'...
-Found: OpenNerve (XX:XX:XX:XX:XX:XX)
-Connected to OpenNerve (XX:XX:XX:XX:XX:XX)
+Checking for already-connected or previously-bonded 'CARSS'...
+  Found via CoreBluetooth: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+Connecting to CARSS (XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)...
+  (device found via bonded/connected path — skipping pairing)
+Connected to CARSS (XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)
 
 [1/4] Authenticating as Admin...
       Admin authentication OK.
@@ -140,7 +146,11 @@ After the BLE connection drops (~5 seconds), reconnect with the Windows App or a
 
 ## macOS Pairing
 
-At this time, this tool does not work on MacOS, and requires connecting to the IPG using the OpenNerve Windows app so that the device is paired to the computer before running ota_update.py. Known bug; feel free to fix if you know how!
+macOS CoreBluetooth requires a device to be bonded before a third-party app can communicate with it over an encrypted link. The one-time pre-pairing step (Step 2 above) satisfies this requirement.
+
+Once bonded, the script finds the device via CoreBluetooth's `retrieveConnectedPeripheralsWithServices` API (if currently connected to the OS) or from a UUID cache stored at `~/.config/carss/ble_uuid_cache.json` (written on first successful connection). This means the device does not need to be actively advertising for the script to find it on subsequent runs, as long as it has been seen before.
+
+If the cache is stale or the device has been re-paired, run the pre-pairing step again with LightBlue and the script will repopulate the cache on the next successful connection.
 
 ---
 
@@ -193,7 +203,13 @@ The tool automatically retransmits all packets and retries verification up to 3 
 
 ### BLE disconnects mid-download
 
-The OAD session is lost on disconnect. The tool will exit with an error. Reconnect, re-run the tool from the beginning. Any partially transferred data in FRAM is harmless — the tool retransmits everything from the start.
+The tool handles this automatically. On disconnect it saves the last successfully acknowledged byte offset, waits 10 seconds for the device to re-advertise, reconnects, re-authenticates, and resumes the download from where it left off (up to 5 reconnect attempts). You should see a message like:
+
+```
+BLE disconnected at 45,056 B (45%). Waiting 10s for device to re-advertise...
+```
+
+If the tool exhausts all reconnect attempts, re-run it from the beginning. Any partially transferred data in FRAM is harmless.
 
 ### Device unresponsive after reboot
 
@@ -212,7 +228,7 @@ Unconfirmed, but try clearing logs off of FRAM prior to OTA if there are issues.
 - **MCU only.** The nRF52810 BLE chip firmware cannot be updated wirelessly.
 - **256 KB image size limit.** The FRAM staging buffer is fixed at 262,144 bytes. The tool checks this before connecting.
 - **No rollback.** After a successful bank swap and reboot, the old firmware is not automatically accessible. Guard the admin private key carefully — if it is lost, OTA updates on affected devices are no longer possible.
-- **No resume.** If a download is interrupted, the entire image must be retransmitted from the beginning. The tool handles this automatically on retry.
+- **Resume on BLE disconnect.** If the BLE link drops mid-download, the tool automatically reconnects and resumes from the last acknowledged offset. If the process is manually interrupted (Ctrl+C) or the tool exits abnormally, the next run will retransmit the full image from the beginning.
 
 ---
 
