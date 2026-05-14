@@ -75,17 +75,17 @@ arm-none-eabi-objcopy -O binary "${BuildArtifactFileBaseName}.elf" "${BuildArtif
 
 The binary must be **under 256 KB (262,144 bytes)**. The tool will tell you if it's too large before connecting.
 
-### 2. Pair the IPG to your computer
+### 2. Put the IPG in BLE advertising mode
+
+The device must be actively advertising for the tool to find it. On a freshly powered-on device this happens automatically. If the device went to sleep, press the magnet switch or power-cycle to wake it.
+
+### 3. Pair the IPG to your computer
 
 The IPG must be bonded to your computer before running the script. How to do this depends on your platform:
 
-**Windows:** Open the OpenNerve Windows app, connect to the IPG, then press "Quit" to disconnect. The passkey (`000000`) is handled automatically — no system dialog should appear.
+**Windows:** Open the OpenNerve Windows app, connect to the IPG, then press "Quit" to disconnect. The passkey (`000000`) is handled automatically — no system dialog should appear. Ensure that after quitting the IPG goes back to BLE advertising mode, and is not in sleep mode.
 
-**macOS:** Open a BLE scanner such as [LightBlue](https://punchthrough.com/lightblue/), connect to the IPG (enter passkey `000000` if prompted), then disconnect. This bonds the device to macOS so the script can connect without re-pairing.
-
-### 3. Put the IPG in BLE advertising mode
-
-The device must be actively advertising for the tool to find it. On a freshly powered-on device this happens automatically. If the device went to sleep, press the magnet switch or power-cycle to wake it.
+**macOS:** Open a BLE scanner such as [LightBlue](https://punchthrough.com/lightblue/), connect to the IPG (enter passkey `000000` if prompted). This bonds the device to macOS so the script can connect without re-pairing. You can run the OTA tool while the IPG is connected to the mac; the tool will identify the already-connected device and go straight to authentication.
 
 ### 4. Run the tool
 
@@ -142,6 +142,8 @@ OTA update complete.
 
 After the BLE connection drops (~5 seconds), reconnect with the Windows App or any other BLE tool and check the firmware version. The version string (`APP_FW_VER_STR`) is set to the build date in YYMMDD format.
 
+**Note:** after restarting the IPG will default into Sleep mode. You can wake it up or power cycle using the magentic switch. If powering a development board via USB, the magnetic switch is disabled, so you will need to press the reset button or power cycle the board manually.
+
 ---
 
 ## macOS Pairing
@@ -188,7 +190,7 @@ This can happen if there are issues pairing the IPG with the computer. If you se
 ### "ECDSA signature rejected" on Admin authentication
 
 - You're using the wrong private key. Verify the key file corresponds to the public key baked into the running firmware (`ecc_publickey.h`).
-- Check the key file has exactly 64 hex characters with no extra whitespace or newlines.
+- Check the key file has exactly 64 hex characters with no extra whitespace, comments, text, or newlines.
 
 ### "Firmware image authorization failed"
 
@@ -203,7 +205,7 @@ The tool automatically retransmits all packets and retries verification up to 3 
 
 ### BLE disconnects mid-download
 
-The tool handles this automatically. On disconnect it saves the last successfully acknowledged byte offset, waits 10 seconds for the device to re-advertise, reconnects, re-authenticates, and resumes the download from where it left off (up to 5 reconnect attempts). You should see a message like:
+The tool is designed to handle this automatically. On disconnect it saves the last successfully acknowledged byte offset, waits 10 seconds for the device to re-advertise, reconnects, re-authenticates, and resumes the download from where it left off (up to 5 reconnect attempts). You should see a message like:
 
 ```
 BLE disconnected at 45,056 B (45%). Waiting 10s for device to re-advertise...
@@ -215,11 +217,13 @@ If the tool exhausts all reconnect attempts, re-run it from the beginning. Any p
 
 If the new firmware has a critical bug preventing boot, the device cannot be recovered via OTA. The old firmware bank remains in flash but there is no automatic rollback. Physical J-Link access is required to re-flash. **Test firmware thoroughly before deploying to implanted devices.**
 
+Always try power cycling before concluding that the firmware is incorrect.
+
 ### General Advice
 
 A combination of connecting / disconnecting to the Windows app and power cycling the IPG using the magnetic switch usually solves the problem.
 
-Unconfirmed, but try clearing logs off of FRAM prior to OTA if there are issues.
+Unconfirmed / probably superstition, but try clearing logs off of FRAM prior to OTA if there are issues.
 
 ---
 
