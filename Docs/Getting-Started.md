@@ -43,7 +43,7 @@ Parameter explanation (sine wave):
 
 
 ## Impedance
-The “get impedance” button will return the impedance magnitude between channels 1 and 2 using a 100us pulse width test stimulation. The approximate impedance range that can be measured is 100 Ohms to 5kOhms. See the “Impedance Measurement Strategy” on GitHub for details of how impedance measurement works.
+The “get impedance” button will return the impedance magnitude between channels 1 and 2 using a 500us pulse width test stimulation. The approximate impedance range that can be measured is 100 Ohms to 5kOhms. See the “Impedance Measurement Strategy” on GitHub for details of how impedance measurement works.
 
 ## Sensing
 OpenNerve has four differential amplifier analog front ends (AFEs) for recording biosignals. Two are exposed as header pins: ECG HR is designed to measure cardiac signals, and EMG1 is designed to measure muscle activity. Two others are only accessibly from holes in the board: ECG RR, which is designed to detect respiration and a second EMG AFE (EMG2). Depending on your specific model, the EMG AFEs may be optimized for neural signals (ENG) instead. The approximate filter coefficients and amplification for each AFE are below:

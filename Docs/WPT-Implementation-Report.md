@@ -346,16 +346,16 @@ If the coil is present, `app_func_sm_vrect_coil_cb(true)` changes state to `STAT
 
 ---
 
-## 6. STOP Mode Wake Fix: ADC Reinitialization
+## 6. STOP Mode Wake Known Issue: ADC Reinitialization Required
 
 After exiting STOP mode, the STM32U585 ADC loses its calibration factors. The first thing `app_mode_ble_act_handler()` does — before powering on the BLE chip — is call `app_mode_ble_act_adv_msd_update()`, which calls `bsp_adc_single_sampling()` eight times (DVDD, two battery voltages, two impedances, three thermistor voltages). Each call goes through `bsp_adc_sampling()`, which polls `while(!sampling.isCompleted)` waiting for the GPDMA transfer-complete callback. If the ADC is uncalibrated, the conversion never completes, the DMA interrupt never fires, and the loop spins forever.
 
 Because TIM6's period-elapsed ISR calls `bsp_wdg_refresh()` during ADC sampling, the IWDG never expires. The device hangs at elevated current draw, `app_func_ble_enable(true)` is never reached, and `BLE_PWRn` stays HIGH — no BLE advertisements appear and the charger never transitions to yellow-light (active charge) mode.
 
-The fix adds `bsp_adc_init()` to the STOP mode wake sequence in `app_state_sleep_handler()`, mirroring what `app_init()` does at cold boot:
+**This fix is not yet implemented.** If the ADC hang described above is observed in practice (device appears to boot after STOP wakeup but BLE advertising never starts), the recommended fix is to add `bsp_adc_init()` to the STOP mode wake sequence in `app_state_sleep_handler()`, after `bsp_sp_init()`, mirroring what `app_init()` does at cold boot:
 
 ```c
-// App/Src/app_state.c — post-STOP wake sequence (after fix)
+// App/Src/app_state.c — post-STOP wake sequence (recommended fix)
 SystemClock_Config();
 __HAL_PWR_CLEAR_FLAG(PWR_FLAG_STOPF);
 HAL_ResumeTick();
@@ -366,9 +366,7 @@ bsp_fram_init(&app_func_logs_write_cplt_cb);
 bsp_adc_init();   // ← recalibrate ADC1/ADC4 and relink DMA after STOP mode
 ```
 
-`bsp_adc_init()` runs `HAL_ADCEx_Calibration_Start()` on both ADC1 and ADC4, reinitializes the GPDMA handles, and samples the internal voltage reference to establish `vrefanalog_mv`. With this in place the ADC/DMA subsystem is in the same state as after a cold-boot `app_init()`, and the wake-from-sleep WPT charging path works identically to the reset path.
-
-> **Note:** As of the current codebase, `bsp_adc_init()` is not present in `app_state_sleep_handler()`. If the ADC hang described above is observed in practice (device appears to boot after STOP wakeup but BLE advertising never starts), adding `bsp_adc_init()` to the wake sequence after `bsp_sp_init()` is the recommended fix.
+`bsp_adc_init()` runs `HAL_ADCEx_Calibration_Start()` on both ADC1 and ADC4, reinitializes the GPDMA handles, and samples the internal voltage reference to establish `vrefanalog_mv`. With this in place the ADC/DMA subsystem would be in the same state as after a cold-boot `app_init()`, and the wake-from-sleep WPT charging path would work identically to the reset path.
 
 ---
 
@@ -379,7 +377,7 @@ bsp_adc_init();   // ← recalibrate ADC1/ADC4 and relink DMA after STOP mode
 ### 7.1 Entry Sequence
 
 ```
-1. CHG_RATE1 = LOW, CHG_RATE2 = HIGH        → select 50 mA charge rate
+1. CHG_RATE1 = HIGH, CHG_RATE2 = HIGH       → select 100 mA charge rate
 2. VRECT_MON_EN = HIGH                       → enable VRECT voltage monitor
 3. VCHG_DISABLE = LOW                        → enable boost converter
 4. app_func_meas_therm_enable(true)          → power up thermistor circuit

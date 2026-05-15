@@ -23,7 +23,7 @@ Step 1. Attach the STLink-V3 by USB  to your computer and confirm that the COM p
 
 <img width="331" height="105" alt="image" src="https://github.com/user-attachments/assets/1a6efead-d04d-4436-9f7c-e34b8b51a19d" />
 
-Step 2. Connect the JLink’s cable to the “MCU” connector on OpenNerve. The cable will need to be correctly centered in its connector, and will be wider than the connector.
+Step 2. Connect the STLink’s cable to the “MCU” connector on OpenNerve. The cable will need to be correctly centered in its connector, and will be wider than the connector.
 
 <img width="468" height="356" alt="image" src="https://github.com/user-attachments/assets/0032528f-be8d-4684-954c-0a4a5d6315a4" />
 
@@ -33,7 +33,7 @@ Step 3. Apply USB power to OpenNerve board, ensuring that a jumper is placed bet
 
 <img width="400" height="400" alt="VCHG update" src="https://github.com/user-attachments/assets/62705e08-10f7-42b6-a525-17f6b7f35402" />
 
-Step 4. Open STM32Cube Programmer. First, connect to the board using the JLink. Second, Erase the existing firmware. Third, Open the .hex file. Fourth, Download the hex file’s code to the MCU.
+Step 4. Open STM32Cube Programmer. First, connect to the board using the STLink. Second, Erase the existing firmware. Third, Open the .hex file. Fourth, Download the hex file’s code to the MCU.
 
  <img width="468" height="215" alt="image" src="https://github.com/user-attachments/assets/c3e89598-b02f-4db7-b796-d511e08308c6" />
 
