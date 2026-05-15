@@ -20,9 +20,13 @@ The impedance measurement circuit (Figure 1) consists of three stages:
 - **Channel Selection:** This circuit selects the measurement nodes among the eight channels and the enclosure.
 - **Amplification Circuits:** The selected nodes are fed into an amplification circuit, where a fully differential amplifier with a gain of 7.20 V/V amplifies the differential voltage between them. The outputs, `IMP_INA` and `IMP_INB`, connect to the microcontroller's ADC pins.
 
-> **Figure 1.** Impedance measurement circuit *(see PDF for schematic)*
+> **Figure 1.** Impedance measurement circuit
+<img width="1024" height="439" alt="Screenshot 2026-05-15 at 10 00 58 AM" src="https://github.com/user-attachments/assets/d11d8400-e49b-4e49-a8ca-3aac0d05a473" />
 
-> **Figure 2.** Input high pass filter circuit *(see PDF for schematic)*
+
+> **Figure 2.** Input high pass filter circuit
+<img width="609" height="560" alt="Screenshot 2026-05-15 at 10 01 14 AM" src="https://github.com/user-attachments/assets/ac9216cc-a74e-4694-8421-f5050fb63de8" />
+
 
 The signals involved in this process are described in Table 1 below.
 
@@ -75,6 +79,10 @@ The impedance measurement algorithm consists of three main steps: stimulation, m
 
 $$|Z_{load}| = \frac{m \times 6}{7.2 \times I_p} \tag{1}$$
 
-> **Figure 3.** IMC output differential voltage (`IMP_INA – IMP_INB`) *(see PDF for waveform plot)*
+> **Figure 3.** IMC output differential voltage (`IMP_INA – IMP_INB`)
+<img width="877" height="373" alt="Screenshot 2026-05-15 at 10 01 43 AM" src="https://github.com/user-attachments/assets/75864727-17a0-44ff-b08f-d1c8a3919575" />
 
-> **Figure 4.** Absolute value of IMC output differential voltage (`IMP_INA – IMP_INB`) and its maxima *(see PDF for waveform plot)*
+
+> **Figure 4.** Absolute value of IMC output differential voltage (`IMP_INA – IMP_INB`) and its maxima
+<img width="883" height="353" alt="Screenshot 2026-05-15 at 10 01 54 AM" src="https://github.com/user-attachments/assets/5bf7b8d8-c8d1-46bc-a1e8-8da77fc85a15" />
+
