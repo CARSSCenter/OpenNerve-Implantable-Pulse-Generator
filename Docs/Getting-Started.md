@@ -8,8 +8,6 @@ Power can be delivered to the OpenNerve Dev Board over USB-C, avoiding the need 
 
 <img width="400" height="400" alt="VCHG update" src="https://github.com/user-attachments/assets/46d7a1ad-cd4a-40ae-9627-fd3bb57334ea" />
 
-<img width="369" height="318" alt="image" src="https://github.com/user-attachments/assets/d07d34a2-3391-41c1-802e-f2275c0f76ab" />
-
 ## OpenNerve Windows App Overview
 You can run the windows app by either opening the solution file (ONrecorder.sln) in Visual Studios and clicking the green arrow at the top or by running directly from the ONrecorded.exe file. If you are using the App for the first time you will need to clone the code from the repository, open it in Visual Studios, then press the green arrow to compile before the .exe file is generated. Code for the Windows App can be found here: https://github.com/CARSSCenter/OpenNerve-Windows-App
 
