@@ -8,7 +8,7 @@
 #include <stdint.h>
 
 /* WPT charging thresholds */
-#define WPT_BATT_ABSENT_THRESHOLD_MV     1000U    /*!< Below 1V = battery absent */
+#define WPT_BATT_ABSENT_THRESHOLD_MV     000U    /*!< Below 0.1V = battery absent */
 #define WPT_BATT_ABSENT_CONSECUTIVE      2U       /*!< 2 consecutive low samples to mark absent */
 #define WPT_THERM_PAUSE_THRESHOLD_C      42.0f    /*!< °C — pause charging above this */
 #define WPT_THERM_RESUME_THRESHOLD_C     42.0f    /*!< °C — resume when below this */
