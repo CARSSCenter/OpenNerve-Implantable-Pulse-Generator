@@ -126,13 +126,13 @@ uint8_t app_func_command_parser(uint8_t* p_data_rx, uint8_t* p_data_rx_len, uint
 	uint8_t cmd_len = 0;
 	uint8_t payload_length = p_data_rx[1];
 
-	if (app_func_command_crc_confirm(p_data_rx, LEN_RESP_HEADER + payload_length + LEN_CRC)) {
+	if ((payload_length <= LEN_RESP_PAYLOAD_MAX) && app_func_command_crc_confirm(p_data_rx, LEN_RESP_HEADER + payload_length + LEN_CRC)) {
 		cmd_len = (LEN_RESP_HEADER + payload_length + LEN_CRC);
 		app_func_command_resp_parser(p_data_rx, cmd_len);
 		(void)memmove(p_data_rx, &p_data_rx[cmd_len], (size_t)SP_BUF_SIZE - cmd_len);
 		*p_data_rx_len -= cmd_len;
 	}
-	else if (app_func_command_crc_confirm(p_data_rx, LEN_REQ_HEADER + payload_length + LEN_CRC)) {
+	else if ((payload_length <= LEN_REQ_PAYLOAD_MAX) && app_func_command_crc_confirm(p_data_rx, LEN_REQ_HEADER + payload_length + LEN_CRC)) {
 		cmd_len = (LEN_REQ_HEADER + payload_length + LEN_CRC);
 		data_tx_len = app_func_command_req_parser(p_data_rx, cmd_len, p_data_tx);
 		(void)memmove(p_data_rx, &p_data_rx[cmd_len], (size_t)SP_BUF_SIZE - cmd_len);
