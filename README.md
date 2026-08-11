@@ -12,6 +12,7 @@ Two versions of the printed circuit board inside OpenNerve have been designed an
 
 <img width="327" height="224" alt="image" src="https://github.com/user-attachments/assets/89c9d8c7-1bac-4f09-b840-aaf73949bcbe" />
 
+<img width="310" height="250" alt="dev-board" src="https://github.com/user-attachments/assets/018cacda-a016-43d1-9078-14b3d2ba8352" />
 
 ## Firmware
 OpenNerve contains two microcontrollers: an nRF52810 which controlls BLE communication (referred to as "BLE"), and an STM32 which controls most other functions (referred to as "MCU"). BLE firmware is the same for both Gen1 and Gen2 PCBAs and can be found [here](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/tree/main/FW-BLE). Instructions for programming a new board can be found in the [BLE Flashing Guide](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/blob/main/Docs/BLE-Flashing-Guide.md) under Docs. MCU firmware is different for Gen1 and Gen2 IPGs; the source code and hex files for each board's MCU firmware can be found in their respective folders, and instructions for compiling and flashing can be found at [MCU Flashing Guide](https://github.com/CARSSCenter/OpenNerve-Implantable-Pulse-Generator/blob/main/Docs/MCU-Flashing-Guide.md).
