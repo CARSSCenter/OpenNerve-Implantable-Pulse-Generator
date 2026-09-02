@@ -244,6 +244,11 @@ void PeriphCommonClock_Config(void);
 
 /* USER CODE BEGIN Private defines */
 
+/* LSE drive level. The 32.768 kHz crystal needs more than CubeMX's default
+ * drive to start reliably; see the LSE startup investigation. Referenced by
+ * SystemClock_Config() and by the unlatch in SystemPower_Config(). */
+#define BSP_LSE_DRIVE  RCC_LSEDRIVE_MEDIUMHIGH
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

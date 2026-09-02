@@ -167,7 +167,7 @@ void SystemClock_Config(void)
   /** Configure LSE Drive Capability
   */
   HAL_PWR_EnableBkUpAccess();
-  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
+  __HAL_RCC_LSEDRIVE_CONFIG(BSP_LSE_DRIVE);
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
@@ -258,6 +258,24 @@ static void SystemPower_Config(void)
     Error_Handler();
   }
 /* USER CODE BEGIN PWR */
+  if (__HAL_RCC_PWR_IS_CLK_DISABLED())
+      {
+        __HAL_RCC_PWR_CLK_ENABLE();
+      }
+      HAL_PWR_EnableBkUpAccess();
+
+      if ((RCC->BDCR & RCC_BDCR_LSEDRV) != BSP_LSE_DRIVE)
+      {
+        uint32_t tickstart = HAL_GetTick();
+
+        CLEAR_BIT(RCC->BDCR, RCC_BDCR_LSEON);
+        while (READ_BIT(RCC->BDCR, RCC_BDCR_LSERDY) != 0U)
+        {
+          if ((HAL_GetTick() - tickstart) > LSE_STARTUP_TIMEOUT) { break; }
+        }
+        MODIFY_REG(RCC->BDCR, RCC_BDCR_LSEDRV, BSP_LSE_DRIVE);
+      }
+
 /* USER CODE END PWR */
 }
 
