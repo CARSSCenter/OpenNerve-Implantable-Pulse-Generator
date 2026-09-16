@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=A400 Old Footprint=ANTENNA_2450AT43B100E New Footprint=ANTENNA_2450AT43B100E
+Change Component Comment: Designator=R801 Old Comment=CRCW020110M0FNED New Comment=CRCW0201100KFNED
+Change Component Comment: Designator=R804 Old Comment=CRCW020110M0FNED New Comment=CRCW0201100KFNED
+Change Component Comment: Designator=C1103 Old Comment=GRM033R61E104KE14J New Comment=GRM033R61C224KE14D

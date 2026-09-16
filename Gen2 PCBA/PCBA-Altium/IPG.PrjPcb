@@ -44,6 +44,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=Rigid_Dev_Board
 
 [Preferences]
 PrefsVaultGUID=
@@ -200,7 +201,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=XIIPTAUF
 
 [Document10]
 DocumentPath=Schematics\05-WPT.Harness
@@ -234,7 +235,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=OUIFNKNN
 
 [Document12]
 DocumentPath=Schematics\06-BatteryManagement.Harness
@@ -268,7 +269,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=UTHCAFSV
 
 [Document14]
 DocumentPath=Schematics\07-PowerManagement.Harness
@@ -302,7 +303,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=FTZDXCYG
 
 [Document16]
 DocumentPath=Schematics\09-IMC.SchDoc
@@ -319,7 +320,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=TQRKGZNG
 
 [Document17]
 DocumentPath=Schematics\10-Sensing.SchDoc
@@ -336,7 +337,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=KDJCBPYE
 
 [Document18]
 DocumentPath=Schematics\10-Sensing.Harness
@@ -421,7 +422,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=ODONUKOR
 
 [Document23]
 DocumentPath=Schematics\13-Digital.Harness
@@ -455,7 +456,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=UDWTZYBE
 
 [Document25]
 DocumentPath=Schematics\14-TestFixture.Harness
@@ -489,7 +490,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=AOFFEYSZ
 
 [Document27]
 DocumentPath=Schematics\15-StimChannelSelection.Harness
@@ -507,6 +508,62 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document28]
+DocumentPath=IPG.BomDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[ProjectVariant1]
+UniqueId=928fe993-0961-42b2-ab87-632dae89a753
+Description=Rigid-Flex_Production
+AllowFabrication=0
+ParameterCount=0
+VariationCount=20
+Variation1=Designator=A400|UniqueId=\LMKPPEEJ\HPGIMNFS\WWOQXXQZ|Kind=1|AlternatePart=
+Variation2=Designator=JP1501|UniqueId=\LMKPPEEJ\NIEVNOFN\KUJJKYBU|Kind=1|AlternatePart=
+Variation3=Designator=JP1502|UniqueId=\LMKPPEEJ\NIEVNOFN\JDIXAQYC|Kind=1|AlternatePart=
+Variation4=Designator=J503|UniqueId=\LMKPPEEJ\YWVBRMKA\DSUITQQY|Kind=1|AlternatePart=
+Variation5=Designator=J502|UniqueId=\LMKPPEEJ\YWVBRMKA\EVSJSRDL|Kind=1|AlternatePart=
+Variation6=Designator=J506|UniqueId=\LMKPPEEJ\YWVBRMKA\CMGLICFK|Kind=1|AlternatePart=
+Variation7=Designator=D704|UniqueId=\LMKPPEEJ\PLYCQIPV\PSZLDRPE|Kind=1|AlternatePart=
+Variation8=Designator=D802|UniqueId=\LMKPPEEJ\MFWAGEFC\LMABKIBA|Kind=1|AlternatePart=
+Variation9=Designator=D705|UniqueId=\LMKPPEEJ\PLYCQIPV\QHEYIIDB|Kind=1|AlternatePart=
+Variation10=Designator=D301|UniqueId=\LMKPPEEJ\LXJPTZFE\SRJQPAIV|Kind=1|AlternatePart=
+Variation11=Designator=D401|UniqueId=\LMKPPEEJ\HPGIMNFS\FSUKUMYH|Kind=1|AlternatePart=
+Variation12=Designator=D402|UniqueId=\LMKPPEEJ\HPGIMNFS\JIKFAJZK|Kind=1|AlternatePart=
+Variation13=Designator=R402|UniqueId=\LMKPPEEJ\HPGIMNFS\YYHEBBZE|Kind=1|AlternatePart=
+Variation14=Designator=R304|UniqueId=\LMKPPEEJ\LXJPTZFE\VTVNGPUV|Kind=1|AlternatePart=
+Variation15=Designator=R401|UniqueId=\LMKPPEEJ\HPGIMNFS\PUPOYAZS|Kind=1|AlternatePart=
+Variation16=Designator=R714|UniqueId=\LMKPPEEJ\PLYCQIPV\EBUPDTMX|Kind=1|AlternatePart=
+Variation17=Designator=R715|UniqueId=\LMKPPEEJ\PLYCQIPV\NWQLASEJ|Kind=1|AlternatePart=
+Variation18=Designator=R805|UniqueId=\LMKPPEEJ\MFWAGEFC\GAIVLSLH|Kind=1|AlternatePart=
+Variation19=Designator=R503|UniqueId=\LMKPPEEJ\YWVBRMKA\GFKAWYXQ|Kind=1|AlternatePart=
+Variation20=Designator=R401|UniqueId=\LMKPPEEJ\HPGIMNFS\ALIMVVIT|Kind=1|AlternatePart=
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueId=464d8295-18ef-41a3-9390-1f207e816da3
+Description=Rigid_Dev_Board
+AllowFabrication=1
+ParameterCount=0
+VariationCount=3
+Variation1=Designator=J401|UniqueId=\LMKPPEEJ\HPGIMNFS\JGDYVQIR|Kind=1|AlternatePart=
+Variation2=Designator=J402|UniqueId=\LMKPPEEJ\HPGIMNFS\LMSMXUGX|Kind=1|AlternatePart=
+Variation3=Designator=R503|UniqueId=\LMKPPEEJ\YWVBRMKA\GFKAWYXQ|Kind=1|AlternatePart=
+ParamVariationCount=0
 
 [Configuration1]
 Name=Sources
@@ -877,6 +934,11 @@ OutputName9=Report Single Pin Nets
 OutputDocumentPath9=
 OutputVariantName9=[No Variations]
 OutputDefault9=0
+OutputType10=BOM_ReportManufacturing
+OutputName10=Manufacturing Data
+OutputDocumentPath10=
+OutputVariantName10=[No Variations]
+OutputDefault10=0
 
 [OutputGroup7]
 Name=Other Outputs
@@ -1171,6 +1233,18 @@ Type156=1
 Type157=1
 Type158=1
 Type159=1
+Type160=1
+Type161=1
+Type162=1
+Type163=1
+Type164=1
+Type165=1
+Type166=1
+Type167=1
+Type168=1
+Type169=1
+Type170=1
+Type171=1
 
 [Difference Levels]
 Type1=1
@@ -1260,6 +1334,14 @@ Type84=1
 Type85=1
 Type86=1
 Type87=1
+Type88=1
+Type89=1
+Type90=1
+Type91=1
+Type92=1
+Type93=1
+Type94=1
+Type95=1
 
 [Electrical Rules Check]
 Type1=1
@@ -1425,6 +1507,8 @@ Type160=0
 Type161=0
 Type162=1
 Type163=1
+Type164=1
+Type165=2
 
 [ERC Connection Matrix]
 L1=NNNNNNNNNNNWNNNWW
