@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=GND Pin=R716-1
+Added Pin To Net: NetName=VDDS_EN Pin=R716-2
+Added Pin To Net: NetName=GND Pin=R717-1
+Added Pin To Net: NetName=VDDA_EN Pin=R717-2
