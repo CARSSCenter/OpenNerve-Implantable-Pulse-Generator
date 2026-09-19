@@ -531,7 +531,7 @@ UniqueId=928fe993-0961-42b2-ab87-632dae89a753
 Description=Rigid-Flex_Production
 AllowFabrication=0
 ParameterCount=0
-VariationCount=20
+VariationCount=22
 Variation1=Designator=A400|UniqueId=\LMKPPEEJ\HPGIMNFS\WWOQXXQZ|Kind=1|AlternatePart=
 Variation2=Designator=JP1501|UniqueId=\LMKPPEEJ\NIEVNOFN\KUJJKYBU|Kind=1|AlternatePart=
 Variation3=Designator=JP1502|UniqueId=\LMKPPEEJ\NIEVNOFN\JDIXAQYC|Kind=1|AlternatePart=
@@ -552,6 +552,8 @@ Variation17=Designator=R715|UniqueId=\LMKPPEEJ\PLYCQIPV\NWQLASEJ|Kind=1|Alternat
 Variation18=Designator=R805|UniqueId=\LMKPPEEJ\MFWAGEFC\GAIVLSLH|Kind=1|AlternatePart=
 Variation19=Designator=R503|UniqueId=\LMKPPEEJ\YWVBRMKA\GFKAWYXQ|Kind=1|AlternatePart=
 Variation20=Designator=R401|UniqueId=\LMKPPEEJ\HPGIMNFS\ALIMVVIT|Kind=1|AlternatePart=
+Variation21=Designator=R707|UniqueId=\LMKPPEEJ\PLYCQIPV\WTFVSJYI|Kind=1|AlternatePart=
+Variation22=Designator=R708|UniqueId=\LMKPPEEJ\PLYCQIPV\SMLVNMWJ|Kind=1|AlternatePart=
 ParamVariationCount=0
 
 [ProjectVariant2]
@@ -559,10 +561,12 @@ UniqueId=464d8295-18ef-41a3-9390-1f207e816da3
 Description=Rigid_Dev_Board
 AllowFabrication=1
 ParameterCount=0
-VariationCount=3
+VariationCount=5
 Variation1=Designator=J401|UniqueId=\LMKPPEEJ\HPGIMNFS\JGDYVQIR|Kind=1|AlternatePart=
 Variation2=Designator=J402|UniqueId=\LMKPPEEJ\HPGIMNFS\LMSMXUGX|Kind=1|AlternatePart=
 Variation3=Designator=R503|UniqueId=\LMKPPEEJ\YWVBRMKA\GFKAWYXQ|Kind=1|AlternatePart=
+Variation4=Designator=R707|UniqueId=\LMKPPEEJ\PLYCQIPV\WTFVSJYI|Kind=1|AlternatePart=
+Variation5=Designator=R708|UniqueId=\LMKPPEEJ\PLYCQIPV\SMLVNMWJ|Kind=1|AlternatePart=
 ParamVariationCount=0
 
 [Configuration1]
