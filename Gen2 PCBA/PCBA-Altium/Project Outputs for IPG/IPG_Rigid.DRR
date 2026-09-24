@@ -1,0 +1,69 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: IPG_Rigid.PcbDoc   9/24/2026  4:04:46 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : TOP to BOT
+ASCII RoundHoles File : IPG_Rigid-RoundHoles.TXT
+ASCII SlotHoles File : IPG_Rigid-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.102mm (4mil)                                            Round             1         PTH        0.00mm (0.00inch)
+T3      0.152mm (6mil)                                            Round             709       PTH        1767.41mm (69.58inch)
+T4      0.5mm (20mil)                                             Round             22        PTH        155.78mm (6.13inch)
+T5      0.6mm (24mil)                                             Slot              4         PTH        37.76mm (1.49inch)
+T6      0.7mm (28mil)                                             Round             20        PTH        41.58mm (1.64inch)
+T7      0.8mm (31mil)                                             Round             2         PTH        16.77mm (0.66inch)
+T8      1.02mm (40mil)                                            Round             64        PTH        362.21mm (14.26inch)
+T9      1.2mm (47mil)                                             Round             2         PTH        16.77mm (0.66inch)
+T10     3.5mm (138mil)                                            Round             4         NPTH       234.58mm (9.24inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              828
+Layer Pair : DVERT to AVERT
+ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX3
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T3      0.152mm (6mil)                                            Round             766       PTH        1434.37mm (56.47inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              766
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              1594
+MicroVia : TOP to DHOR
+ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX6
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.102mm (4mil)                                            Round             572       PTH        1006.04mm (39.61inch)
+T2      0.102mm (4mil)                                            Round             1         PTH        0.00mm (0.00inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              573
+MicroVia : DHOR to DVERT
+ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX7
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.102mm (4mil)                                            Round             496       PTH        987.88mm (38.89inch)
+T2      0.102mm (4mil)                                            Round             1         PTH        0.00mm (0.00inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              497
+MicroVia : AHOR to AVERT
+ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX9
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.102mm (4mil)                                            Round             101       PTH        322.89mm (12.71inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              101
+MicroVia : AHOR to BOT
+ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX10
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.102mm (4mil)                                            Round             31        PTH        192.38mm (7.57inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              31
+----------------------------------------------------------------------------------------------------------------------------------
+MicroVia Totals                                                                     1202
+
+Total Processing Time (hh:mm:ss) : 00:00:01

@@ -1,0 +1,8 @@
+Layer Pairs Export File for PCB: C:\Users\bioME\Desktop\OpenNerve-Implantable-Pulse-Generator\Gen2 PCBA\PCBA-Altium\IPG_Rigid.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=ipg_rigid-roundholes.txt|DrillLayers=gtl,g1,g2,g3,g4,g5,g6,g7,g8,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=ipg_rigid-slotholes.txt|DrillLayers=gtl,g1,g2,g3,g4,g5,g6,g7,g8,gbl
+LayersSetName=DVERT_AVERT_Buried_Vias|DrillFile=ipg_rigid-roundholes.tx3|DrillLayers=g2,g3,g4,g5,g6,g7
+LayersSetName=TOP_DHOR_Blind_Vias|DrillFile=ipg_rigid-roundholes.tx6|DrillLayers=gtl,g1
+LayersSetName=DHOR_DVERT_Buried_Vias|DrillFile=ipg_rigid-roundholes.tx7|DrillLayers=g1,g2
+LayersSetName=AHOR_AVERT_Buried_Vias|DrillFile=ipg_rigid-roundholes.tx9|DrillLayers=g7
+LayersSetName=AHOR_BOT_Blind_Vias|DrillFile=ipg_rigid-roundholes.tx10|DrillLayers=g8,gbl

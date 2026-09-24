@@ -1,0 +1,33 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: IPG_Rigid.GBR   9/24/2026  4:04:27 PM
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.gbr                TOP                                     
+.gbr                DHOR                                    
+.gbr                DVERT                                   
+.gbr                GND 1                                   
+.gbr                POWER                                   
+.gbr                GND 2                                   
+.gbr                GND 3                                   
+.gbr                AVERT                                   
+.gbr                AHOR                                    
+.gbr                BOT                                     
+.gbr                Top Overlay                             
+.gbr                Bottom Overlay                          
+.gbr                Top Solder                              
+.gbr                ThinFlex Bottom Coverlay                
+.gbr                Top Paste                               
+.gbr                Bottom Paste                            
+.gbr                Profile                                 
+.gbr                Non-plated through-hole drill file      
+.gbr                Plated through-hole drill file          
+.gbr                Blind or buried via drill file for drill pairs
+.gbr                Micro Via drill file                    
+.gbr                Micro Via drill file                    
+.gbr                Micro Via drill file                    
+.gbr                Micro Via drill file                    
+------------------------------------------------------------------------------------------
