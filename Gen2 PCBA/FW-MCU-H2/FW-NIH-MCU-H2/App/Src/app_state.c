@@ -93,6 +93,18 @@ void app_state_sleep_handler(void) {
 		GPIO_InitStruct.Pin = IMP_IN_N_SEL2_Pin;   HAL_GPIO_Init(IMP_IN_N_SEL2_GPIO_Port,   &GPIO_InitStruct);
 	}
 
+	/* At EOS, float BATT_SW_EN (hi-Z) to let external circuit control discharge timing */
+	{
+		uint32_t eos_counter = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2);
+		if (eos_counter >= COUNT_MAX_EOS) {
+			GPIO_InitTypeDef batt_sw_gpio = {0};
+			batt_sw_gpio.Pin = BATT_SW_EN_Pin;
+			batt_sw_gpio.Mode = GPIO_MODE_ANALOG;
+			batt_sw_gpio.Pull = GPIO_NOPULL;
+			HAL_GPIO_Init(BATT_SW_EN_GPIO_Port, &batt_sw_gpio);
+		}
+	}
+
 	HAL_SuspendTick();
 	__HAL_RCC_LPTIM1_CLKAM_ENABLE();
 	__HAL_RCC_LPTIM3_CLKAM_ENABLE();
@@ -139,6 +151,18 @@ void app_state_sleep_handler(void) {
 	 * All other floated pins must be explicitly restored here before any
 	 * application code attempts to use them. */
 	{
+		/* Restore BATT_SW_EN regardless of EOS state — re-init to output first
+		 * (pin may be in analog mode if EOS sleep was entered), then drive HIGH */
+		{
+			GPIO_InitTypeDef batt_sw_gpio = {0};
+			batt_sw_gpio.Pin = BATT_SW_EN_Pin;
+			batt_sw_gpio.Mode = GPIO_MODE_OUTPUT_PP;
+			batt_sw_gpio.Pull = GPIO_PULLUP;
+			batt_sw_gpio.Speed = GPIO_SPEED_FREQ_LOW;
+			HAL_GPIO_Init(BATT_SW_EN_GPIO_Port, &batt_sw_gpio);
+			HAL_GPIO_WritePin(BATT_SW_EN_GPIO_Port, BATT_SW_EN_Pin, GPIO_PIN_SET);
+		}
+
 		GPIO_InitTypeDef GPIO_InitStruct = {0};
 		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 
