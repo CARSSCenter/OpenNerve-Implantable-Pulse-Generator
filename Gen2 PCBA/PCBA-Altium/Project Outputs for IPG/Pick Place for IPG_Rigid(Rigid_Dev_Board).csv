@@ -4,9 +4,9 @@ C:\Users\bioME\Desktop\OpenNerve-Implantable-Pulse-Generator\Gen2 PCBA\PCBA-Alti
 ========================================================================================================================
 File Design Information:
 
-Date:       25/09/26
-Time:       16:55
-Revision:   a59564145e18fe85019df38f7a462d6eb1462fe3
+Date:       02/10/26
+Time:       10:59
+Revision:   49e694c9c709fd24c0ce455a90cd1ff7d52924fe
 Variant:    Rigid_Dev_Board
 Units used: mm
 
@@ -213,10 +213,10 @@ Units used: mm
 "R1403","CRCW0402200RFKEDHP","TopLayer","RES0402_REDUCED","29.6350","17.9880","0","Resistor 200 1%, 0402, Non Implant-grade"
 "R1409","CRCW02015K11FNED","TopLayer","R0201_C","37.2872","14.6050","270","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 5110ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
 "R1405","CRCW02015K11FNED","TopLayer","R0201_C","37.2618","7.7470","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 5110ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
-"R1304","CRCW02016K80FNED","TopLayer","R0201_C","10.7000","43.3000","270","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 6800ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
-"R1303","CRCW02016K80FNED","TopLayer","R0201_C","12.3000","46.4000","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 6800ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
+"R1304","CRCW02010000Z0ED","TopLayer","R0201_C","10.7000","43.3000","270","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 0ohm, Surface Mount, 0201"
+"R1303","CRCW02010000Z0ED","TopLayer","R0201_C","12.3000","46.4000","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 0ohm, Surface Mount, 0201"
 "R1301","CRCW020110K0FNED","TopLayer","R0201_C","9.5000","46.4000","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 10000ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
-"R1302","CRCW02016K80FNED","TopLayer","R0201_C","12.3000","44.8000","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 6800ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
+"R1302","CRCW02010000Z0ED","TopLayer","R0201_C","12.3000","44.8000","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 0ohm, Surface Mount, 0201"
 "R1300","CRCW020110K0FNED","TopLayer","R0201_C","9.5000","44.8000","270","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 10000ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
 "R1061","CRCW0201910KFNED","TopLayer","R0201_C","4.8000","39.0200","270","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 910000ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"
 "R1057","CRCW0201150KFNED","TopLayer","R0201_C","2.3000","39.0144","90","Fixed Resistor, Metal Glaze/thick Film, 0.05W, 150000ohm, 30V, 1% +/-Tol, 200ppm/Cel, Surface Mount, 0201"

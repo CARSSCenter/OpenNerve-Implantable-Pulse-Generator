@@ -660,151 +660,359 @@ Variation61=Designator=L601|UniqueId=\LMKPPEEJ\THXILTKB\ESBJWYRW|Kind=1|Alternat
 ParamVariationCount=0
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX3
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\comp_+_bot\components
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX6
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\comp_+_top\components
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX7
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\eda\data
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX9
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\ahor\features
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX10
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\avert\features
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TXT
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\bot\features
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for IPG\IPG_Rigid-SlotHoles.TXT
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\bottom_paste\features
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for IPG\IPG_Rigid.DRR
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\bottom_surface_finish\features
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for IPG\IPG_Rigid.EXTREP
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\comp_+_bot\features
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for IPG\IPG_Rigid.LDP
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\comp_+_top\features
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for IPG\IPG_Rigid.REP
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dhor\features
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for IPG\IPG_Rigid.xls
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_1\features
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_1.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_2\features
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_2.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_3\features
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_3.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_4\features
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_4.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_6\features
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_5.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_7\features
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_6.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_8\features
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_7.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_9\features
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_8.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dielectric_10\features
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_Bot.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_blind_vias_dvert-avert\features
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_Top.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_ahor-bot\features
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Legend_Bot.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_avert-ahor\features
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Legend_Top.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_dhor-dvert\features
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_NPTH_Drill.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_top-dhor\features
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Paste_Bot.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_non-plated_bot-top\features
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Paste_Top.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_plated_bot-top\features
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Plated_Drill_3_8.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\dvert\features
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Profile.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\gnd_1\features
 DItemRevisionGUID=
 
 [GeneratedDocument30]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_PTH_Drill.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\gnd_2\features
 DItemRevisionGUID=
 
 [GeneratedDocument31]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Soldermask_Bot.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\gnd_3\features
 DItemRevisionGUID=
 
 [GeneratedDocument32]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_Soldermask_Top.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\power\features
 DItemRevisionGUID=
 
 [GeneratedDocument33]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_1_2.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\thinflex_bottom_coverlay\features
 DItemRevisionGUID=
 
 [GeneratedDocument34]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_2_3.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\top\features
 DItemRevisionGUID=
 
 [GeneratedDocument35]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_8_9.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\top_paste\features
 DItemRevisionGUID=
 
 [GeneratedDocument36]
-DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_9_10.gbr
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\top_solder\features
 DItemRevisionGUID=
 
 [GeneratedDocument37]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\top_surface_finish\features
+DItemRevisionGUID=
+
+[GeneratedDocument38]
+DocumentPath=Project Outputs for IPG\odb\symbols\uds_oval950.00064x1574.8_270_offset0x254\features
+DItemRevisionGUID=
+
+[GeneratedDocument39]
+DocumentPath=Project Outputs for IPG\odb\symbols\uds_oval950.00064x1574.8_270_offset0x-254\features
+DItemRevisionGUID=
+
+[GeneratedDocument40]
+DocumentPath=Project Outputs for IPG\odb\symbols\uds_oval1102.40064x1727.2_270_offset0x254\features
+DItemRevisionGUID=
+
+[GeneratedDocument41]
+DocumentPath=Project Outputs for IPG\odb\symbols\uds_oval1102.40064x1727.2_270_offset0x-254\features
+DItemRevisionGUID=
+
+[GeneratedDocument42]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX3
+DItemRevisionGUID=
+
+[GeneratedDocument43]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX6
+DItemRevisionGUID=
+
+[GeneratedDocument44]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX7
+DItemRevisionGUID=
+
+[GeneratedDocument45]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX9
+DItemRevisionGUID=
+
+[GeneratedDocument46]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TX10
+DItemRevisionGUID=
+
+[GeneratedDocument47]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument48]
+DocumentPath=Project Outputs for IPG\IPG_Rigid-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument49]
+DocumentPath=Project Outputs for IPG\IPG_Rigid.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument50]
+DocumentPath=Project Outputs for IPG\IPG_Rigid.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument51]
+DocumentPath=Project Outputs for IPG\IPG_Rigid.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument52]
+DocumentPath=Project Outputs for IPG\IPG_Rigid.REP
+DItemRevisionGUID=
+
+[GeneratedDocument53]
+DocumentPath=Project Outputs for IPG\IPG_Rigid.xls
+DItemRevisionGUID=
+
+[GeneratedDocument54]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_1.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument55]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_2.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument56]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_3.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument57]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_4.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument58]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_5.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument59]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_6.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument60]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_7.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument61]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_8.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument62]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_Bot.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument63]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Copper_Signal_Top.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument64]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Legend_Bot.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument65]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Legend_Top.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument66]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_NPTH_Drill.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument67]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Paste_Bot.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument68]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Paste_Top.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument69]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Plated_Drill_3_8.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument70]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Profile.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument71]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_PTH_Drill.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument72]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Soldermask_Bot.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument73]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_Soldermask_Top.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument74]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_1_2.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument75]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_2_3.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument76]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_8_9.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument77]
+DocumentPath=Project Outputs for IPG\IPG_Rigid_uVias_Drill_9_10.gbr
+DItemRevisionGUID=
+
+[GeneratedDocument78]
+DocumentPath=Project Outputs for IPG\odb\matrix\matrix
+DItemRevisionGUID=
+
+[GeneratedDocument79]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\netlists\cadnet\netlist
+DItemRevisionGUID=
+
+[GeneratedDocument80]
 DocumentPath=Project Outputs for IPG\Pick Place for IPG_Rigid(Rigid_Dev_Board).csv
+DItemRevisionGUID=
+
+[GeneratedDocument81]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\profile
+DItemRevisionGUID=
+
+[GeneratedDocument82]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\stephdr
+DItemRevisionGUID=
+
+[GeneratedDocument83]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_blind_vias_dvert-avert\tools
+DItemRevisionGUID=
+
+[GeneratedDocument84]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_ahor-bot\tools
+DItemRevisionGUID=
+
+[GeneratedDocument85]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_avert-ahor\tools
+DItemRevisionGUID=
+
+[GeneratedDocument86]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_dhor-dvert\tools
+DItemRevisionGUID=
+
+[GeneratedDocument87]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_micro_vias_top-dhor\tools
+DItemRevisionGUID=
+
+[GeneratedDocument88]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_non-plated_bot-top\tools
+DItemRevisionGUID=
+
+[GeneratedDocument89]
+DocumentPath=Project Outputs for IPG\odb\steps\pcb\layers\drill_plated_bot-top\tools
 DItemRevisionGUID=
 
 [Configuration1]
@@ -1484,6 +1692,10 @@ OutputName9=ODB++ Files
 OutputDocumentPath9=
 OutputVariantName9=[No Variations]
 OutputDefault9=0
+Configuration9_Name1=ForceUpdateSettings
+Configuration9_Item1=False
+Configuration9_Name2=OutputConfigurationParameter1
+Configuration9_Item2=Compression_None=True|Compression_tar_tgz=True|Compression_zip=True|DifferentFootprints=False|ExportPositivePlaneLayers=False|GenerateDRCRulesFile=False|IncludeComponents=True|IncludeNetList=True|IncludeUnconnectedMidLayerPads=False|IncludeVariantsData=False|IntentionalShorts=False|MergeNetTieNets=False|NeutralizeNetNames=False|ObjsInsideBoardOutlineOnly=False|ODBProfileLayer=-1000|ODBProfileLayerV7=-1|PlotBackDrillingPairs=False|PlotBlindViasPair0_DrillType=Regular|PlotBlindViasPair0_HighLayer=Mid Layer 6|PlotBlindViasPair0_LowLayer=Mid Layer 3|PlotBlindViasPair0_Plot=True|PlotBlindViasPairs=False|PlotBottomLayerPlot=True|PlotBottomOverlayPlot=True|PlotBottomPastePlot=True|PlotBottomSolderPlot=True|PlotCounterHolesPairs=False|PlotDrillDrawingPair0_DrillType=Regular|PlotDrillDrawingPair0_HighLayer=Bottom Layer|PlotDrillDrawingPair0_LowLayer=Top Layer|PlotDrillDrawingPair0_Plot=False|PlotDrillDrawingPair1_DrillType=MicroViaDrill|PlotDrillDrawingPair1_HighLayer=Mid Layer 7|PlotDrillDrawingPair1_LowLayer=Top Layer|PlotDrillDrawingPair1_Plot=False|PlotDrillDrawingPair2_DrillType=MicroViaDrill|PlotDrillDrawingPair2_HighLayer=Mid Layer 3|PlotDrillDrawingPair2_LowLayer=Mid Layer 7|PlotDrillDrawingPair2_Plot=False|PlotDrillDrawingPair3_DrillType=Regular|PlotDrillDrawingPair3_HighLayer=Mid Layer 6|PlotDrillDrawingPair3_LowLayer=Mid Layer 3|PlotDrillDrawingPair3_Plot=False|PlotDrillDrawingPair4_DrillType=MicroViaDrill|PlotDrillDrawingPair4_HighLayer=Mid Layer 8|PlotDrillDrawingPair4_LowLayer=Mid Layer 6|PlotDrillDrawingPair4_Plot=False|PlotDrillDrawingPair5_DrillType=MicroViaDrill|PlotDrillDrawingPair5_HighLayer=Bottom Layer|PlotDrillDrawingPair5_LowLayer=Mid Layer 8|PlotDrillDrawingPair5_Plot=False|PlotDrillDrawingPairs=False|PlotDrillGuidePair0_DrillType=Regular|PlotDrillGuidePair0_HighLayer=Bottom Layer|PlotDrillGuidePair0_LowLayer=Top Layer|PlotDrillGuidePair0_Plot=False|PlotDrillGuidePair1_DrillType=MicroViaDrill|PlotDrillGuidePair1_HighLayer=Mid Layer 7|PlotDrillGuidePair1_LowLayer=Top Layer|PlotDrillGuidePair1_Plot=False|PlotDrillGuidePair2_DrillType=MicroViaDrill|PlotDrillGuidePair2_HighLayer=Mid Layer 3|PlotDrillGuidePair2_LowLayer=Mid Layer 7|PlotDrillGuidePair2_Plot=False|PlotDrillGuidePair3_DrillType=Regular|PlotDrillGuidePair3_HighLayer=Mid Layer 6|PlotDrillGuidePair3_LowLayer=Mid Layer 3|PlotDrillGuidePair3_Plot=False|PlotDrillGuidePair4_DrillType=MicroViaDrill|PlotDrillGuidePair4_HighLayer=Mid Layer 8|PlotDrillGuidePair4_LowLayer=Mid Layer 6|PlotDrillGuidePair4_Plot=False|PlotDrillGuidePair5_DrillType=MicroViaDrill|PlotDrillGuidePair5_HighLayer=Bottom Layer|PlotDrillGuidePair5_LowLayer=Mid Layer 8|PlotDrillGuidePair5_Plot=False|PlotDrillGuidePairs=False|PlotInternalPlane10Plot=False|PlotInternalPlane11Plot=False|PlotInternalPlane12Plot=False|PlotInternalPlane13Plot=False|PlotInternalPlane14Plot=False|PlotInternalPlane15Plot=False|PlotInternalPlane16Plot=False|PlotInternalPlane1Plot=False|PlotInternalPlane2Plot=False|PlotInternalPlane3Plot=False|PlotInternalPlane4Plot=False|PlotInternalPlane5Plot=False|PlotInternalPlane6Plot=False|PlotInternalPlane7Plot=False|PlotInternalPlane8Plot=False|PlotInternalPlane9Plot=False|PlotKeepOutLayerPlot=False|PlotMechanical10Plot=False|PlotMechanical11Plot=False|PlotMechanical12Plot=False|PlotMechanical13Plot=False|PlotMechanical14Plot=False|PlotMechanical15Plot=False|PlotMechanical16Plot=False|PlotMechanical1Plot=False|PlotMechanical2Plot=False|PlotMechanical3Plot=False|PlotMechanical4Plot=False|PlotMechanical5Plot=False|PlotMechanical6Plot=False|PlotMechanical7Plot=False|PlotMechanical8Plot=False|PlotMechanical9Plot=False|PlotMicroViasPair0_DrillType=MicroViaDrill|PlotMicroViasPair0_HighLayer=Mid Layer 7|PlotMicroViasPair0_LowLayer=Top Layer|PlotMicroViasPair0_Plot=True|PlotMicroViasPair1_DrillType=MicroViaDrill|PlotMicroViasPair1_HighLayer=Mid Layer 3|PlotMicroViasPair1_LowLayer=Mid Layer 7|PlotMicroViasPair1_Plot=True|PlotMicroViasPair2_DrillType=MicroViaDrill|PlotMicroViasPair2_HighLayer=Mid Layer 8|PlotMicroViasPair2_LowLayer=Mid Layer 6|PlotMicroViasPair2_Plot=True|PlotMicroViasPair3_DrillType=MicroViaDrill|PlotMicroViasPair3_HighLayer=Bottom Layer|PlotMicroViasPair3_LowLayer=Mid Layer 8|PlotMicroViasPair3_Plot=True|PlotMicroViasPairs=False|PlotMidLayer10Plot=False|PlotMidLayer11Plot=False|PlotMidLayer12Plot=False|PlotMidLayer13Plot=False|PlotMidLayer14Plot=False|PlotMidLayer15Plot=False|PlotMidLayer16Plot=False|PlotMidLayer17Plot=False|PlotMidLayer18Plot=False|PlotMidLayer19Plot=False|PlotMidLayer1Plot=True|PlotMidLayer20Plot=False|PlotMidLayer21Plot=False|PlotMidLayer22Plot=False|PlotMidLayer23Plot=False|PlotMidLayer24Plot=False|PlotMidLayer25Plot=False|PlotMidLayer26Plot=False|PlotMidLayer27Plot=False|PlotMidLayer28Plot=False|PlotMidLayer29Plot=False|PlotMidLayer2Plot=True|PlotMidLayer30Plot=False|PlotMidLayer3Plot=True|PlotMidLayer4Plot=True|PlotMidLayer5Plot=True|PlotMidLayer6Plot=True|PlotMidLayer7Plot=True|PlotMidLayer8Plot=True|PlotMidLayer9Plot=False|PlotNPTHPair0_DrillType=Regular|PlotNPTHPair0_HighLayer=Top Layer|PlotNPTHPair0_LowLayer=Bottom Layer|PlotNPTHPair0_Plot=True|PlotNPTHPairs=False|PlotPTHPair0_DrillType=Regular|PlotPTHPair0_HighLayer=Top Layer|PlotPTHPair0_LowLayer=Bottom Layer|PlotPTHPair0_Plot=True|PlotPTHPairs=False|PlotTopLayerPlot=True|PlotTopOverlayPlot=True|PlotTopPastePlot=True|PlotTopSolderPlot=True|PlotViaTypeDrillDrawingPairs=False|PlotViaTypeDrillGuidePairs=False|PlotViaTypeDrillPairs=False|Record=ODBView|RemoveComponentProperties=False|ToolsByDrillSymbols=False|Units=Metric|Version=8.1|DocumentPath=C:\Users\bioME\Desktop\OpenNerve-Implantable-Pulse-Generator\Gen2 PCBA\PCBA-Altium\IPG_Rigid.PcbDoc
 OutputType10=Plane
 OutputName10=Power-Plane Prints
 OutputDocumentPath10=
@@ -1521,9 +1733,9 @@ Configuration1_Item3=OpenExported=False|AddToProject=False|ReportBOMViolationsIn
 Configuration1_Name4=GroupOrder
 Configuration1_Item4=
 Configuration1_Name5=VisibleOrder
-Configuration1_Item5=Line #=54|Description=100|Designator=100|Quantity=67|Manufacturer Part Number 1=170|Value=100|Comment=100
+Configuration1_Item5=Line #=54|Comment=100|Description=100|Designator=100|Quantity=67|Manufacturer 1=143|Manufacturer Part Number 1=170
 Configuration1_Name6=VisibleOrder_Base
-Configuration1_Item6=Line #=54|Description=100|Designator=100|Quantity=67|Manufacturer Part Number 1=170|Value=100|Comment=100
+Configuration1_Item6=Line #=54|Comment=100|Description=100|Designator=100|Quantity=67|Manufacturer 1=143|Manufacturer Part Number 1=170
 Configuration1_Name7=VisibleOrder_Consolidated
 Configuration1_Item7=Line #=54|Comment=100|Description=100|Designator=100|Quantity=67|Manufacturer 1=143|Manufacturer Part Number 1=170|Manufacturer Lifecycle 1=146|Supplier 1=100|Supplier Part Number 1=142|Supplier Unit Price 1=126|Supplier Subtotal 1=120
 Configuration1_Name8=VisibleOrder_Flat

@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: IPG_Rigid.PcbDoc   9/24/2026  4:04:46 PM
+NCDrill File Report For: IPG_Rigid.PcbDoc   10/2/2026  10:59:04 AM
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : TOP to BOT
@@ -9,10 +9,10 @@ ASCII SlotHoles File : IPG_Rigid-SlotHoles.TXT
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
 T1      0.102mm (4mil)                                            Round             1         PTH        0.00mm (0.00inch)
-T3      0.152mm (6mil)                                            Round             709       PTH        1767.41mm (69.58inch)
+T3      0.152mm (6mil)                                            Round             709       PTH        1768.08mm (69.61inch)
 T4      0.5mm (20mil)                                             Round             22        PTH        155.78mm (6.13inch)
 T5      0.6mm (24mil)                                             Slot              4         PTH        37.76mm (1.49inch)
-T6      0.7mm (28mil)                                             Round             20        PTH        41.58mm (1.64inch)
+T6      0.7mm (28mil)                                             Round             20        PTH        36.20mm (1.43inch)
 T7      0.8mm (31mil)                                             Round             2         PTH        16.77mm (0.66inch)
 T8      1.02mm (40mil)                                            Round             64        PTH        362.21mm (14.26inch)
 T9      1.2mm (47mil)                                             Round             2         PTH        16.77mm (0.66inch)
@@ -24,7 +24,7 @@ ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX3
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T3      0.152mm (6mil)                                            Round             766       PTH        1434.37mm (56.47inch)
+T3      0.152mm (6mil)                                            Round             766       PTH        1434.54mm (56.48inch)
 ----------------------------------------------------------------------------------------------------------------------------------
 Totals                                                                              766
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ T1      0.102mm (4mil)                                            Round         
 T2      0.102mm (4mil)                                            Round             1         PTH        0.00mm (0.00inch)
 ----------------------------------------------------------------------------------------------------------------------------------
 Totals                                                                              497
-MicroVia : AHOR to AVERT
+MicroVia : AVERT to AHOR
 ASCII RoundHoles File : IPG_Rigid-RoundHoles.TX9
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
@@ -66,4 +66,4 @@ Totals                                                                          
 ----------------------------------------------------------------------------------------------------------------------------------
 MicroVia Totals                                                                     1202
 
-Total Processing Time (hh:mm:ss) : 00:00:01
+Total Processing Time (hh:mm:ss) : 00:00:00

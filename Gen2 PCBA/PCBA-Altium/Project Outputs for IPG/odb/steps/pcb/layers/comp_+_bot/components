@@ -1,0 +1,2539 @@
+UNITS=MM
+#
+#Component attribute names
+#
+@0 .comp_mount_type
+@1 .comp_height
+@2 .no_pop
+@3 .comp_ignore
+@4 .comp_variant_list
+@5 .placement_layer
+
+#
+#Component attribute text strings
+#
+&0 bot
+
+# CMP 0
+CMP 56 15.24 20.32 270 N TP305 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 20.32 270 N 354 6 1
+#
+# CMP 1
+CMP 56 10.16 20.32 270 N TP301 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 20.32 270 N 352 10 1
+#
+# CMP 2
+CMP 56 5.08 22.86 270 N TP300 Test_Point ;0=1,1=0.6000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 22.86 270 N 353 10 1
+#
+# CMP 3
+CMP 56 12.7 43.18 270 N TP402 Test_Point ;0=1,1=0.6000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 43.18 270 N 50 8 1
+#
+# CMP 4
+CMP 56 12.7 45.72 270 N TP400 Test_Point ;0=1,1=0.6000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 45.72 270 N 49 8 1
+#
+# CMP 5
+CMP 56 -10.16 33.02 270 N TP1502 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 33.02 270 N 184 8 1
+#
+# CMP 6
+CMP 56 -7.62 33.02 270 N TP1501 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 33.02 270 N 347 7 1
+#
+# CMP 7
+CMP 56 -5.08 33.02 270 N TP1500 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 33.02 270 N 344 8 1
+#
+# CMP 8
+CMP 56 10.16 45.72 270 N TP1302 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 45.72 270 N 28 14 1
+#
+# CMP 9
+CMP 56 -15.24 15.24 270 N TP1115 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -15.24 15.24 270 N 385 8 1
+#
+# CMP 10
+CMP 56 -12.7 22.86 270 N TP1114 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 22.86 270 N 312 10 1
+#
+# CMP 11
+CMP 56 -12.7 20.32 270 N TP1113 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 20.32 270 N 310 6 1
+#
+# CMP 12
+CMP 56 -10.16 15.24 270 N TP1112 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 15.24 270 N 31 6 1
+#
+# CMP 13
+CMP 56 -17.77998984 20.31999746 270 N TP1111 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -17.77998984 20.31999746 270 N 308 8 1
+#
+# CMP 14
+CMP 56 -12.7 15.24 270 N TP1110 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 15.24 270 N 307 6 1
+#
+# CMP 15
+CMP 56 -10.16 20.32 270 N TP1109 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 20.32 270 N 372 8 1
+#
+# CMP 16
+CMP 56 -10.16 17.78 270 N TP1108 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 17.78 270 N 331 8 1
+#
+# CMP 17
+CMP 56 -12.7 17.78 270 N TP1107 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 17.78 270 N 374 1 1
+#
+# CMP 18
+CMP 56 -7.62 20.32 270 N TP1105 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 20.32 270 N 371 9 1
+#
+# CMP 19
+CMP 56 -15.24 17.78 270 N TP1104 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -15.24 17.78 270 N 373 5 1
+#
+# CMP 20
+CMP 56 10.16 40.64 270 N TP1021 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 40.64 270 N 116 13 1
+#
+# CMP 21
+CMP 56 0 40.64 270 N TP1020 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 40.64 270 N 158 12 1
+#
+# CMP 22
+CMP 56 7.62 40.64 270 N TP1019 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 40.64 270 N 115 6 1
+#
+# CMP 23
+CMP 56 0 43.18 270 N TP1018 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 43.18 270 N 157 11 1
+#
+# CMP 24
+CMP 56 12.68499876 33.02 270 N TP1017 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.68499876 33.02 270 N 102 22 1
+#
+# CMP 25
+CMP 56 10.16 33.02 270 N TP1016 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 33.02 270 N 101 22 1
+#
+# CMP 26
+CMP 56 2.54 35.56 270 N TP1015 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 35.56 270 N 140 25 1
+#
+# CMP 27
+CMP 56 5.08 35.56 270 N TP1014 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 35.56 270 N 139 23 1
+#
+# CMP 28
+CMP 56 5.08 38.1 270 N TP1013 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 38.1 270 N 160 10 1
+#
+# CMP 29
+CMP 56 10.16 35.56 270 N TP1012 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 35.56 270 N 122 13 1
+#
+# CMP 30
+CMP 56 2.54 30.48 270 N TP1011 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 30.48 270 N 142 11 1
+#
+# CMP 31
+CMP 56 10.16 30.48 270 N TP1010 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 30.48 270 N 118 11 1
+#
+# CMP 32
+CMP 56 15.24 30.48 270 N TP1009 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 30.48 270 N 117 8 1
+#
+# CMP 33
+CMP 56 7.62 35.56 270 N TP1008 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 35.56 270 N 121 8 1
+#
+# CMP 34
+CMP 56 7.62 38.1 270 N TP1007 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 38.1 270 N 159 6 1
+#
+# CMP 35
+CMP 56 0 35.56 270 N TP1006 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 35.56 270 N 141 8 1
+#
+# CMP 36
+CMP 56 -5.08 25.4 270 N TP910 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 25.4 270 N 366 7 1
+#
+# CMP 37
+CMP 56 -7.62 30.48 270 N TP909 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 30.48 270 N 382 8 1
+#
+# CMP 38
+CMP 56 -10.16 30.48 270 N TP908 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 30.48 270 N 383 7 1
+#
+# CMP 39
+CMP 56 -7.62 27.94 270 N TP907 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 27.94 270 N 367 7 1
+#
+# CMP 40
+CMP 56 -2.54 33.02 270 N TP906 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 33.02 270 N 170 14 1
+#
+# CMP 41
+CMP 56 0 33.02 270 N TP905 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 33.02 270 N 23 12 1
+#
+# CMP 42
+CMP 56 -10.16 25.4 270 N TP904 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 25.4 270 N 164 16 1
+#
+# CMP 43
+CMP 56 7.62 30.48 270 N TP714 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 30.48 270 N 376 7 1
+#
+# CMP 44
+CMP 56 -5.09524 20.3201524 270 N TP713 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.09524 20.3201524 270 N 377 9 1
+#
+# CMP 45
+CMP 56 -7.62 10.16 270 N TP515 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 10.16 270 N 369 6 1
+#
+# CMP 46
+CMP 56 -2.54 17.78 270 N TP514 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 17.78 270 N 370 10 1
+#
+# CMP 47
+CMP 56 -12.7 12.7 270 N TP513 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 12.7 270 N 389 10 1
+#
+# CMP 48
+CMP 56 15.24 35.56 270 N TP406 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 35.56 270 N 47 10 1
+#
+# CMP 49
+CMP 56 15.22499876 43.18 270 N TP1406 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.22499876 43.18 270 N 52 12 1
+#
+# CMP 50
+CMP 56 15.24 38.1 270 N TP1405 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 38.1 270 N 51 12 1
+#
+# CMP 51
+CMP 56 17.78 35.56 90 N TP401 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 17.78 35.56 90 N 17 14 1
+#
+# CMP 52
+CMP 56 10.16 43.18 270 N TP1301 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 43.18 270 N 57 13 1
+#
+# CMP 53
+CMP 56 7.62 45.72 270 N TP1300 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 45.72 270 N 27 4 1
+#
+# CMP 54
+CMP 56 2.54 33.02 270 N TP1000 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 33.02 270 N 143 6 1
+#
+# CMP 55
+CMP 56 5.08 40.64 270 N TP1003 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 40.64 270 N 161 4 1
+#
+# CMP 56
+CMP 56 12.7 30.48 270 N TP1005 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 30.48 270 N 120 8 1
+#
+# CMP 57
+CMP 56 10.16 38.1 270 N TP1004 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 38.1 270 N 123 9 1
+#
+# CMP 58
+CMP 56 12.7 27.94 270 N TP1001 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 27.94 270 N 119 6 1
+#
+# CMP 59
+CMP 56 -5.08 27.94 270 N TP902 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 27.94 270 N 169 9 1
+#
+# CMP 60
+CMP 56 7.62 15.24 270 N TP628 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 15.24 270 N 37 12 1
+#
+# CMP 61
+CMP 56 -5.07998984 30.47999492 270 N TP602 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.07998984 30.47999492 270 N 70 9 1
+#
+# CMP 62
+CMP 56 2.54 17.78 270 N TP630 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 17.78 270 N 67 10 1
+#
+# CMP 63
+CMP 56 2.54 15.24 270 N TP629 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 15.24 270 N 66 7 1
+#
+# CMP 64
+CMP 56 5.08 27.94 270 N TP623 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 27.94 270 N 75 13 1
+#
+# CMP 65
+CMP 56 7.62 10.16 270 N TP635 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 10.16 270 N 39 10 1
+#
+# CMP 66
+CMP 56 -17.79500124 27.95500124 90 N TP708 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -17.79500124 27.95500124 90 N 165 15 1
+#
+# CMP 67
+CMP 56 -10.16 27.94 90 N TP707 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 27.94 90 N 388 9 1
+#
+# CMP 68
+CMP 56 15.24 15.24 90 N TP803 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 15.24 90 N 313 12 1
+#
+# CMP 69
+CMP 56 15.24 25.4 90 N TP802 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 25.4 90 N 181 6 1
+#
+# CMP 70
+CMP 22 -15.36600178 78.5130002 0 N X100 FIDUCIAL ;0=1,1=0.0000,5=0
+PRP Alt_Manufacturer ''
+PRP Alt_Manufacturer_PN ''
+PRP Category ''
+PRP Length_(mm) ''
+PRP Manufacturer ''
+PRP Manufacturer_PN 'FIDUCIAL'
+PRP Medical_Grade_MFR ''
+PRP Medical_Grade_MFR_PN ''
+PRP Note ''
+PRP Package ''
+PRP Rating ''
+PRP Review ''
+PRP Status ''
+PRP Stock ''
+PRP Supplier_1 ''
+PRP Supplier_2 ''
+PRP Supplier_Part_Number_1 ''
+PRP Supplier_Part_Number_2 ''
+PRP Thickness_(mm) ''
+PRP Value ''
+PRP Width_(mm) ''
+TOP 0 -15.36600178 78.5130002 180 N 0 354 Fid
+#
+# CMP 71
+CMP 22 37.2364 78.5130002 0 N X102 FIDUCIAL ;0=1,1=0.0000,5=0
+PRP Alt_Manufacturer ''
+PRP Alt_Manufacturer_PN ''
+PRP Category ''
+PRP Length_(mm) ''
+PRP Manufacturer ''
+PRP Manufacturer_PN 'FIDUCIAL'
+PRP Medical_Grade_MFR ''
+PRP Medical_Grade_MFR_PN ''
+PRP Note ''
+PRP Package ''
+PRP Rating ''
+PRP Review ''
+PRP Status ''
+PRP Stock ''
+PRP Supplier_1 ''
+PRP Supplier_2 ''
+PRP Supplier_Part_Number_1 ''
+PRP Supplier_Part_Number_2 ''
+PRP Thickness_(mm) ''
+PRP Value ''
+PRP Width_(mm) ''
+TOP 0 37.2364 78.5130002 180 N 0 353 Fid
+#
+# CMP 72
+CMP 22 43.3324 -2.3876 0 N X101 FIDUCIAL ;0=1,1=0.0000,5=0
+PRP Alt_Manufacturer ''
+PRP Alt_Manufacturer_PN ''
+PRP Category ''
+PRP Length_(mm) ''
+PRP Manufacturer ''
+PRP Manufacturer_PN 'FIDUCIAL'
+PRP Medical_Grade_MFR ''
+PRP Medical_Grade_MFR_PN ''
+PRP Note ''
+PRP Package ''
+PRP Rating ''
+PRP Review ''
+PRP Status ''
+PRP Stock ''
+PRP Supplier_1 ''
+PRP Supplier_2 ''
+PRP Supplier_Part_Number_1 ''
+PRP Supplier_Part_Number_2 ''
+PRP Thickness_(mm) ''
+PRP Value ''
+PRP Width_(mm) ''
+TOP 0 43.3324 -2.3876 180 N 0 355 Fid
+#
+# CMP 73
+CMP 56 12.7 38.1 90 N TP405 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 38.1 90 N 46 0 1
+#
+# CMP 74
+CMP 56 12.7 40.64 90 N TP404 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 40.64 90 N 45 8 1
+#
+# CMP 75
+CMP 56 10.16 22.86 90 N TP303 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 22.86 90 N 83 14 1
+#
+# CMP 76
+CMP 56 7.62 22.86 90 N TP302 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 22.86 90 N 82 12 1
+#
+# CMP 77
+CMP 56 20.32 20.32 90 N TP712 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 20.32 20.32 90 N 355 14 1
+#
+# CMP 78
+CMP 56 0 25.4 90 N TP901 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 25.4 90 N 22 12 1
+#
+# CMP 79
+CMP 56 -2.54 25.4 90 N TP903 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 25.4 90 N 176 8 1
+#
+# CMP 80
+CMP 56 -7.62 25.4 90 N TP900 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 25.4 90 N 175 7 1
+#
+# CMP 81
+CMP 56 -17.77998984 17.78 90 N TP1101 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -17.77998984 17.78 90 N 311 8 1
+#
+# CMP 82
+CMP 56 -15.24 20.32 90 N TP1100 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -15.24 20.32 90 N 309 7 1
+#
+# CMP 83
+CMP 56 15.24 12.7 90 N TP512 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 12.7 90 N 360 11 1
+#
+# CMP 84
+CMP 56 17.78002032 15.23999746 90 N TP511 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 17.78002032 15.23999746 90 N 361 9 1
+#
+# CMP 85
+CMP 56 17.78001016 17.77999492 90 N TP509 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 17.78001016 17.77999492 90 N 362 9 1
+#
+# CMP 86
+CMP 56 17.78 20.32 90 N TP508 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 17.78 20.32 90 N 356 26 1
+#
+# CMP 87
+CMP 56 -5.08 22.86 90 N TP709 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 22.86 90 N 19 36 1
+#
+# CMP 88
+CMP 56 5.08 33.02 90 N TP711 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 33.02 90 N 18 18 1
+#
+# CMP 89
+CMP 56 17.78 30.48 90 N TP304 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 17.78 30.48 90 N 162 9 1
+#
+# CMP 90
+CMP 56 -2.54 12.7 90 N TP603 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 12.7 90 N 8 16 1
+#
+# CMP 91
+CMP 56 -2.54 27.94 90 N TP604 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 27.94 90 N 7 19 1
+#
+# CMP 92
+CMP 56 -2.53341886 15.23341886 90 N TP608 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.53341886 15.23341886 90 N 20 10 1
+#
+# CMP 93
+CMP 56 0 12.7 90 N TP620 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 12.7 90 N 12 15 1
+#
+# CMP 94
+CMP 56 2.54 27.94 90 N TP621 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 27.94 90 N 11 15 1
+#
+# CMP 95
+CMP 56 7.62 7.62 90 N TP624 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 7.62 90 N 21 10 1
+#
+# CMP 96
+CMP 56 5.08 15.24 90 N TP605 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 15.24 90 N 9 17 1
+#
+# CMP 97
+CMP 56 7.62 12.7 90 N TP622 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 12.7 90 N 13 14 1
+#
+# CMP 98
+CMP 56 10.16 10.16 90 N TP632 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 10.16 90 N 38 25 1
+#
+# CMP 99
+CMP 56 7.62 20.32 90 N TP706 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 20.32 90 N 5 28 1
+#
+# CMP 100
+CMP 56 10.16 17.78 90 N TP701 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 17.78 90 N 178 10 1
+#
+# CMP 101
+CMP 56 12.7 17.78 90 N TP700 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 17.78 90 N 2 23 1
+#
+# CMP 102
+CMP 56 -2.54 20.32 90 N TP600 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 20.32 90 N 69 8 1
+#
+# CMP 103
+CMP 56 -2.54 22.86 90 N TP601 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.54 22.86 90 N 6 12 1
+#
+# CMP 104
+CMP 56 0 27.94 90 N TP607 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 27.94 90 N 68 15 1
+#
+# CMP 105
+CMP 56 -2.53998476 30.47999238 90 N TP606 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -2.53998476 30.47999238 90 N 71 12 1
+#
+# CMP 106
+CMP 56 2.54 20.32 90 N TP618 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 20.32 90 N 74 5 1
+#
+# CMP 107
+CMP 56 2.54 22.86 90 N TP619 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 22.86 90 N 10 10 1
+#
+# CMP 108
+CMP 56 0 22.86 90 N TP627 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 22.86 90 N 73 11 1
+#
+# CMP 109
+CMP 56 0 30.48 90 N TP626 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 30.48 90 N 76 11 1
+#
+# CMP 110
+CMP 56 10.16 7.62 90 N TP633 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 7.62 90 N 40 8 1
+#
+# CMP 111
+CMP 56 5.08 12.7 90 N TP634 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 12.7 90 N 41 9 1
+#
+# CMP 112
+CMP 56 7.62 17.78 90 N TP631 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 7.62 17.78 90 N 42 6 1
+#
+# CMP 113
+CMP 56 10.16 15.24 90 N TP800 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 15.24 90 N 24 5 1
+#
+# CMP 114
+CMP 56 12.7 10.16 90 N TP801 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 10.16 90 N 183 17 1
+#
+# CMP 115
+CMP 56 -12.7 30.48 90 N TP609 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 30.48 90 N 163 161 1
+#
+# CMP 116
+CMP 56 10.16 12.7 90 N TP625 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 10.16 12.7 90 N 163 159 1
+#
+# CMP 117
+CMP 56 5.08 45.72 90 N TP611 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 45.72 90 N 163 162 1
+#
+# CMP 118
+CMP 56 5.08 20.32 90 N TP612 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 20.32 90 N 163 164 1
+#
+# CMP 119
+CMP 56 -5.08 43.18 90 N TP613 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 43.18 90 N 163 169 1
+#
+# CMP 120
+CMP 56 17.78 33.02 90 N TP614 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 17.78 33.02 90 N 163 163 1
+#
+# CMP 121
+CMP 56 5.08 30.48 90 N TP615 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 30.48 90 N 163 160 1
+#
+# CMP 122
+CMP 56 -5.08 15.24 90 N TP616 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 15.24 90 N 163 157 1
+#
+# CMP 123
+CMP 56 15.24 17.78 90 N TP617 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 15.24 17.78 90 N 163 158 1
+#
+# CMP 124
+CMP 56 -7.62 12.7 90 N TP500 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 12.7 90 N 78 12 1
+#
+# CMP 125
+CMP 56 -10.16 10.16 90 N TP507 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 10.16 90 N 79 14 1
+#
+# CMP 126
+CMP 56 -10.16 12.7 90 N TP501 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -10.16 12.7 90 N 15 9 1
+#
+# CMP 127
+CMP 56 -5.08 12.7 90 N TP502 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -5.08 12.7 90 N 26 36 1
+#
+# CMP 128
+CMP 56 -15.24 12.7 90 N TP505 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -15.24 12.7 90 N 390 8 1
+#
+# CMP 129
+CMP 56 -17.78 15.24 90 N TP506 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -17.78 15.24 90 N 393 10 1
+#
+# CMP 130
+CMP 56 -12.7 10.16 90 N TP503 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 10.16 90 N 392 13 1
+#
+# CMP 131
+CMP 56 -7.62 15.24 90 N TP504 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -7.62 15.24 90 N 391 9 1
+#
+# CMP 132
+CMP 56 2.54 25.4 90 N TP510 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 2.54 25.4 90 N 16 23 1
+#
+# CMP 133
+CMP 56 -12.7 27.94 90 N TP704 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 27.94 90 N 4 12 1
+#
+# CMP 134
+CMP 56 -12.7 38.1 90 N TP705 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -12.7 38.1 90 N 25 12 1
+#
+# CMP 135
+CMP 56 0 15.24 90 N TP702 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 0 15.24 90 N 5 27 1
+#
+# CMP 136
+CMP 56 5.08 17.78 90 N TP710 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 5.08 17.78 90 N 166 10 1
+#
+# CMP 137
+CMP 56 -17.78 22.86 90 N TP703 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 -17.78 22.86 90 N 3 10 1
+#
+# CMP 138
+CMP 56 12.7 25.4 90 N TP403 Test_Point ;0=1,1=0.0000,5=0
+PRP Category 'Test point'
+PRP Length_(mm) '0.90'
+PRP Manufacturer 'N/A'
+PRP Manufacturer_PN 'N/A'
+PRP Medical_Grade_MFR 'N/A'
+PRP Medical_Grade_MFR_PN 'N/A'
+PRP Package_Description ''
+PRP PCB_Footprint 'testpad_0p90mm'
+PRP Rating 'N/A'
+PRP Review ''
+PRP Status ''
+PRP Thickness_(mm) 'N/A'
+PRP Value 'Test point'
+PRP Width_(mm) '0.90'
+TOP 0 12.7 25.4 90 N 48 13 1
+#
