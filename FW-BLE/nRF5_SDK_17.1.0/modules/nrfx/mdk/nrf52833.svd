@@ -8,42 +8,35 @@
   <version>1</version>
   <description>nRF52833 reference description for radio MCU with ARM 32-bit Cortex-M4 Microcontroller </description>
   <licenseText>
-Copyright (c) 2010 - 2021, Nordic Semiconductor ASA\n
+Copyright (c) 2010 - 2021, Nordic Semiconductor ASA All rights reserved.\n
 \n
-All rights reserved.\n
+SPDX-License-Identifier: BSD-3-Clause\n
 \n
-Redistribution and use in source and binary forms, with or without modification,\n
-are permitted provided that the following conditions are met:\n
+Redistribution and use in source and binary forms, with or without\n
+modification, are permitted provided that the following conditions are met:\n
 \n
 1. Redistributions of source code must retain the above copyright notice, this\n
    list of conditions and the following disclaimer.\n
 \n
-2. Redistributions in binary form, except as embedded into a Nordic\n
-   Semiconductor ASA integrated circuit in a product or a software update for\n
-   such product, must reproduce the above copyright notice, this list of\n
-   conditions and the following disclaimer in the documentation and/or other\n
-   materials provided with the distribution.\n
+2. Redistributions in binary form must reproduce the above copyright\n
+   notice, this list of conditions and the following disclaimer in the\n
+   documentation and/or other materials provided with the distribution.\n
 \n
 3. Neither the name of Nordic Semiconductor ASA nor the names of its\n
    contributors may be used to endorse or promote products derived from this\n
    software without specific prior written permission.\n
 \n
-4. This software, with or without modification, must only be used with a\n
-   Nordic Semiconductor ASA integrated circuit.\n
-\n
-5. Any software provided in binary form under this license must not be reverse\n
-   engineered, decompiled, modified and/or disassembled.\n
-\n
-THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS\n
-OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES\n
-OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE\n
-DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE\n
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"\n
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n
+IMPLIED WARRANTIES OF MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE\n
+ARE DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE\n
 LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE\n
-GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n
-HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n
-LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT\n
-OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\n
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\n
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\n
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\n
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n
+POSSIBILITY OF SUCH DAMAGE.\n
         </licenseText>
   <addressUnitBits>8</addressUnitBits>
   <width>32</width>
@@ -279,6 +272,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
                     <name>AAA1</name>
                     <description>AAA1</description>
                     <value>0x41414131</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>AAB0</name>
+                    <description>AAB0</description>
+                    <value>0x41414230</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>Unspecified</name>
@@ -33310,7 +33308,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
     </peripheral>
     <peripheral>
       <name>CCM</name>
-      <description>AES CCM Mode Encryption</description>
+      <description>AES CCM mode encryption</description>
       <baseAddress>0x4000F000</baseAddress>
       <alternatePeripheral>AAR</alternatePeripheral>
       <addressBlock>
@@ -33752,7 +33750,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <fields>
             <field>
               <name>MODE</name>
-              <description>The mode of operation to be used. The settings in this register apply whenever either the KSGEN or CRYPT tasks are triggered.</description>
+              <description>The mode of operation to be used. Settings in this register apply whenever either the KSGEN task or the CRYPT task is triggered.</description>
               <lsb>0</lsb>
               <msb>0</msb>
               <enumeratedValues>
@@ -33786,12 +33784,12 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>125Kbps</name>
-                  <description>125 Kbps</description>
+                  <description>125 kbps</description>
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>500Kbps</name>
-                  <description>500 Kbps</description>
+                  <description>500 kbps</description>
                   <value>3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -33818,13 +33816,13 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
         </register>
         <register>
           <name>CNFPTR</name>
-          <description>Pointer to data structure holding AES key and NONCE vector</description>
+          <description>Pointer to data structure holding the AES key and the NONCE vector</description>
           <addressOffset>0x508</addressOffset>
           <access>read-write</access>
           <fields>
             <field>
               <name>CNFPTR</name>
-              <description>Pointer to the data structure holding the AES key and the CCM NONCE vector (see Table 1 CCM data structure overview)</description>
+              <description>Pointer to the data structure holding the AES key and the CCM NONCE vector (see table CCM data structure overview)</description>
               <lsb>0</lsb>
               <msb>31</msb>
             </field>
@@ -33875,14 +33873,14 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
         </register>
         <register>
           <name>MAXPACKETSIZE</name>
-          <description>Length of keystream generated when MODE.LENGTH = Extended.</description>
+          <description>Length of keystream generated when MODE.LENGTH = Extended</description>
           <addressOffset>0x518</addressOffset>
           <access>read-write</access>
           <resetValue>0x000000FB</resetValue>
           <fields>
             <field>
               <name>MAXPACKETSIZE</name>
-              <description>Length of keystream generated when MODE.LENGTH = Extended. This value must be greater or equal to the subsequent packet payload to be encrypted/decrypted.</description>
+              <description>Length of keystream generated when MODE.LENGTH = Extended. This value must be greater than or equal to the subsequent packet payload to be encrypted/decrypted.</description>
               <lsb>0</lsb>
               <msb>7</msb>
             </field>
@@ -33897,7 +33895,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <fields>
             <field>
               <name>RATEOVERRIDE</name>
-              <description>Data rate override setting.</description>
+              <description>Data rate override setting</description>
               <lsb>0</lsb>
               <msb>1</msb>
               <enumeratedValues>
@@ -33913,15 +33911,30 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>125Kbps</name>
-                  <description>125 Kbps</description>
+                  <description>125 kbps</description>
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>500Kbps</name>
-                  <description>500 Kbps</description>
+                  <description>500 kbps</description>
                   <value>3</value>
                 </enumeratedValue>
               </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>HEADERMASK</name>
+          <description>Header (S0) mask.</description>
+          <addressOffset>0x520</addressOffset>
+          <access>read-write</access>
+          <resetValue>0x000000E3</resetValue>
+          <fields>
+            <field>
+              <name>HEADERMASK</name>
+              <description>Header (S0) mask</description>
+              <lsb>0</lsb>
+              <msb>7</msb>
             </field>
           </fields>
         </register>
@@ -40591,7 +40604,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </register>
           <register>
             <name>SIZE</name>
-            <description>Description cluster: Size of region to protect counting from address ACL[n].ADDR. Write '0' as no effect.</description>
+            <description>Description cluster: Size of region to protect counting from address ACL[n].ADDR. Writing a '0' has no effect.</description>
             <addressOffset>0x004</addressOffset>
             <access>read-writeonce</access>
             <resetValue>0x00000000</resetValue>
@@ -40613,36 +40626,36 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
             <fields>
               <field>
                 <name>WRITE</name>
-                <description>Configure write and erase permissions for region n. Write '0' has no effect.</description>
+                <description>Configure write and erase permissions for region n. Writing a '0' has no effect.</description>
                 <lsb>1</lsb>
                 <msb>1</msb>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>Enable</name>
-                    <description>Allow write and erase instructions to region n</description>
+                    <description>Allow write and erase instructions to region n.</description>
                     <value>0</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>Disable</name>
-                    <description>Block write and erase instructions to region n</description>
+                    <description>Block write and erase instructions to region n.</description>
                     <value>1</value>
                   </enumeratedValue>
                 </enumeratedValues>
               </field>
               <field>
                 <name>READ</name>
-                <description>Configure read permissions for region n. Write '0' has no effect.</description>
+                <description>Configure read permissions for region n. Writing a '0' has no effect.</description>
                 <lsb>2</lsb>
                 <msb>2</msb>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>Enable</name>
-                    <description>Allow read instructions to region n</description>
+                    <description>Allow read instructions to region n.</description>
                     <value>0</value>
                   </enumeratedValue>
                   <enumeratedValue>
                     <name>Disable</name>
-                    <description>Block read instructions to region n</description>
+                    <description>Block read instructions to region n.</description>
                     <value>1</value>
                   </enumeratedValue>
                 </enumeratedValues>

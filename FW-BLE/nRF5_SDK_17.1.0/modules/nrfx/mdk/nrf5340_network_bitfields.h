@@ -1,41 +1,34 @@
 /*
 
-Copyright (c) 2010 - 2021, Nordic Semiconductor ASA
+Copyright (c) 2010 - 2021, Nordic Semiconductor ASA All rights reserved.
 
-All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause
 
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
 
-2. Redistributions in binary form, except as embedded into a Nordic
-   Semiconductor ASA integrated circuit in a product or a software update for
-   such product, must reproduce the above copyright notice, this list of
-   conditions and the following disclaimer in the documentation and/or other
-   materials provided with the distribution.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
 
 3. Neither the name of Nordic Semiconductor ASA nor the names of its
    contributors may be used to endorse or promote products derived from this
    software without specific prior written permission.
 
-4. This software, with or without modification, must only be used with a
-   Nordic Semiconductor ASA integrated circuit.
-
-5. Any software provided in binary form under this license must not be reverse
-   engineered, decompiled, modified and/or disassembled.
-
-THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
-OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE
 LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
-OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
 
 */
 
@@ -1611,6 +1604,102 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* Register: DPPIC_CHEN */
 /* Description: Channel enable register */
 
+/* Bit 31 : Enable or disable channel 31 */
+#define DPPIC_CHEN_CH31_Pos (31UL) /*!< Position of CH31 field. */
+#define DPPIC_CHEN_CH31_Msk (0x1UL << DPPIC_CHEN_CH31_Pos) /*!< Bit mask of CH31 field. */
+#define DPPIC_CHEN_CH31_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH31_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 30 : Enable or disable channel 30 */
+#define DPPIC_CHEN_CH30_Pos (30UL) /*!< Position of CH30 field. */
+#define DPPIC_CHEN_CH30_Msk (0x1UL << DPPIC_CHEN_CH30_Pos) /*!< Bit mask of CH30 field. */
+#define DPPIC_CHEN_CH30_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH30_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 29 : Enable or disable channel 29 */
+#define DPPIC_CHEN_CH29_Pos (29UL) /*!< Position of CH29 field. */
+#define DPPIC_CHEN_CH29_Msk (0x1UL << DPPIC_CHEN_CH29_Pos) /*!< Bit mask of CH29 field. */
+#define DPPIC_CHEN_CH29_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH29_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 28 : Enable or disable channel 28 */
+#define DPPIC_CHEN_CH28_Pos (28UL) /*!< Position of CH28 field. */
+#define DPPIC_CHEN_CH28_Msk (0x1UL << DPPIC_CHEN_CH28_Pos) /*!< Bit mask of CH28 field. */
+#define DPPIC_CHEN_CH28_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH28_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 27 : Enable or disable channel 27 */
+#define DPPIC_CHEN_CH27_Pos (27UL) /*!< Position of CH27 field. */
+#define DPPIC_CHEN_CH27_Msk (0x1UL << DPPIC_CHEN_CH27_Pos) /*!< Bit mask of CH27 field. */
+#define DPPIC_CHEN_CH27_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH27_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 26 : Enable or disable channel 26 */
+#define DPPIC_CHEN_CH26_Pos (26UL) /*!< Position of CH26 field. */
+#define DPPIC_CHEN_CH26_Msk (0x1UL << DPPIC_CHEN_CH26_Pos) /*!< Bit mask of CH26 field. */
+#define DPPIC_CHEN_CH26_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH26_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 25 : Enable or disable channel 25 */
+#define DPPIC_CHEN_CH25_Pos (25UL) /*!< Position of CH25 field. */
+#define DPPIC_CHEN_CH25_Msk (0x1UL << DPPIC_CHEN_CH25_Pos) /*!< Bit mask of CH25 field. */
+#define DPPIC_CHEN_CH25_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH25_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 24 : Enable or disable channel 24 */
+#define DPPIC_CHEN_CH24_Pos (24UL) /*!< Position of CH24 field. */
+#define DPPIC_CHEN_CH24_Msk (0x1UL << DPPIC_CHEN_CH24_Pos) /*!< Bit mask of CH24 field. */
+#define DPPIC_CHEN_CH24_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH24_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 23 : Enable or disable channel 23 */
+#define DPPIC_CHEN_CH23_Pos (23UL) /*!< Position of CH23 field. */
+#define DPPIC_CHEN_CH23_Msk (0x1UL << DPPIC_CHEN_CH23_Pos) /*!< Bit mask of CH23 field. */
+#define DPPIC_CHEN_CH23_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH23_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 22 : Enable or disable channel 22 */
+#define DPPIC_CHEN_CH22_Pos (22UL) /*!< Position of CH22 field. */
+#define DPPIC_CHEN_CH22_Msk (0x1UL << DPPIC_CHEN_CH22_Pos) /*!< Bit mask of CH22 field. */
+#define DPPIC_CHEN_CH22_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH22_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 21 : Enable or disable channel 21 */
+#define DPPIC_CHEN_CH21_Pos (21UL) /*!< Position of CH21 field. */
+#define DPPIC_CHEN_CH21_Msk (0x1UL << DPPIC_CHEN_CH21_Pos) /*!< Bit mask of CH21 field. */
+#define DPPIC_CHEN_CH21_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH21_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 20 : Enable or disable channel 20 */
+#define DPPIC_CHEN_CH20_Pos (20UL) /*!< Position of CH20 field. */
+#define DPPIC_CHEN_CH20_Msk (0x1UL << DPPIC_CHEN_CH20_Pos) /*!< Bit mask of CH20 field. */
+#define DPPIC_CHEN_CH20_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH20_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 19 : Enable or disable channel 19 */
+#define DPPIC_CHEN_CH19_Pos (19UL) /*!< Position of CH19 field. */
+#define DPPIC_CHEN_CH19_Msk (0x1UL << DPPIC_CHEN_CH19_Pos) /*!< Bit mask of CH19 field. */
+#define DPPIC_CHEN_CH19_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH19_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 18 : Enable or disable channel 18 */
+#define DPPIC_CHEN_CH18_Pos (18UL) /*!< Position of CH18 field. */
+#define DPPIC_CHEN_CH18_Msk (0x1UL << DPPIC_CHEN_CH18_Pos) /*!< Bit mask of CH18 field. */
+#define DPPIC_CHEN_CH18_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH18_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 17 : Enable or disable channel 17 */
+#define DPPIC_CHEN_CH17_Pos (17UL) /*!< Position of CH17 field. */
+#define DPPIC_CHEN_CH17_Msk (0x1UL << DPPIC_CHEN_CH17_Pos) /*!< Bit mask of CH17 field. */
+#define DPPIC_CHEN_CH17_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH17_Enabled (1UL) /*!< Enable channel */
+
+/* Bit 16 : Enable or disable channel 16 */
+#define DPPIC_CHEN_CH16_Pos (16UL) /*!< Position of CH16 field. */
+#define DPPIC_CHEN_CH16_Msk (0x1UL << DPPIC_CHEN_CH16_Pos) /*!< Bit mask of CH16 field. */
+#define DPPIC_CHEN_CH16_Disabled (0UL) /*!< Disable channel */
+#define DPPIC_CHEN_CH16_Enabled (1UL) /*!< Enable channel */
+
 /* Bit 15 : Enable or disable channel 15 */
 #define DPPIC_CHEN_CH15_Pos (15UL) /*!< Position of CH15 field. */
 #define DPPIC_CHEN_CH15_Msk (0x1UL << DPPIC_CHEN_CH15_Pos) /*!< Bit mask of CH15 field. */
@@ -1709,6 +1798,118 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* Register: DPPIC_CHENSET */
 /* Description: Channel enable set register */
+
+/* Bit 31 : Channel 31 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH31_Pos (31UL) /*!< Position of CH31 field. */
+#define DPPIC_CHENSET_CH31_Msk (0x1UL << DPPIC_CHENSET_CH31_Pos) /*!< Bit mask of CH31 field. */
+#define DPPIC_CHENSET_CH31_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH31_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH31_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 30 : Channel 30 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH30_Pos (30UL) /*!< Position of CH30 field. */
+#define DPPIC_CHENSET_CH30_Msk (0x1UL << DPPIC_CHENSET_CH30_Pos) /*!< Bit mask of CH30 field. */
+#define DPPIC_CHENSET_CH30_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH30_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH30_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 29 : Channel 29 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH29_Pos (29UL) /*!< Position of CH29 field. */
+#define DPPIC_CHENSET_CH29_Msk (0x1UL << DPPIC_CHENSET_CH29_Pos) /*!< Bit mask of CH29 field. */
+#define DPPIC_CHENSET_CH29_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH29_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH29_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 28 : Channel 28 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH28_Pos (28UL) /*!< Position of CH28 field. */
+#define DPPIC_CHENSET_CH28_Msk (0x1UL << DPPIC_CHENSET_CH28_Pos) /*!< Bit mask of CH28 field. */
+#define DPPIC_CHENSET_CH28_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH28_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH28_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 27 : Channel 27 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH27_Pos (27UL) /*!< Position of CH27 field. */
+#define DPPIC_CHENSET_CH27_Msk (0x1UL << DPPIC_CHENSET_CH27_Pos) /*!< Bit mask of CH27 field. */
+#define DPPIC_CHENSET_CH27_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH27_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH27_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 26 : Channel 26 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH26_Pos (26UL) /*!< Position of CH26 field. */
+#define DPPIC_CHENSET_CH26_Msk (0x1UL << DPPIC_CHENSET_CH26_Pos) /*!< Bit mask of CH26 field. */
+#define DPPIC_CHENSET_CH26_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH26_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH26_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 25 : Channel 25 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH25_Pos (25UL) /*!< Position of CH25 field. */
+#define DPPIC_CHENSET_CH25_Msk (0x1UL << DPPIC_CHENSET_CH25_Pos) /*!< Bit mask of CH25 field. */
+#define DPPIC_CHENSET_CH25_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH25_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH25_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 24 : Channel 24 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH24_Pos (24UL) /*!< Position of CH24 field. */
+#define DPPIC_CHENSET_CH24_Msk (0x1UL << DPPIC_CHENSET_CH24_Pos) /*!< Bit mask of CH24 field. */
+#define DPPIC_CHENSET_CH24_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH24_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH24_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 23 : Channel 23 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH23_Pos (23UL) /*!< Position of CH23 field. */
+#define DPPIC_CHENSET_CH23_Msk (0x1UL << DPPIC_CHENSET_CH23_Pos) /*!< Bit mask of CH23 field. */
+#define DPPIC_CHENSET_CH23_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH23_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH23_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 22 : Channel 22 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH22_Pos (22UL) /*!< Position of CH22 field. */
+#define DPPIC_CHENSET_CH22_Msk (0x1UL << DPPIC_CHENSET_CH22_Pos) /*!< Bit mask of CH22 field. */
+#define DPPIC_CHENSET_CH22_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH22_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH22_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 21 : Channel 21 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH21_Pos (21UL) /*!< Position of CH21 field. */
+#define DPPIC_CHENSET_CH21_Msk (0x1UL << DPPIC_CHENSET_CH21_Pos) /*!< Bit mask of CH21 field. */
+#define DPPIC_CHENSET_CH21_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH21_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH21_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 20 : Channel 20 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH20_Pos (20UL) /*!< Position of CH20 field. */
+#define DPPIC_CHENSET_CH20_Msk (0x1UL << DPPIC_CHENSET_CH20_Pos) /*!< Bit mask of CH20 field. */
+#define DPPIC_CHENSET_CH20_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH20_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH20_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 19 : Channel 19 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH19_Pos (19UL) /*!< Position of CH19 field. */
+#define DPPIC_CHENSET_CH19_Msk (0x1UL << DPPIC_CHENSET_CH19_Pos) /*!< Bit mask of CH19 field. */
+#define DPPIC_CHENSET_CH19_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH19_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH19_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 18 : Channel 18 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH18_Pos (18UL) /*!< Position of CH18 field. */
+#define DPPIC_CHENSET_CH18_Msk (0x1UL << DPPIC_CHENSET_CH18_Pos) /*!< Bit mask of CH18 field. */
+#define DPPIC_CHENSET_CH18_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH18_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH18_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 17 : Channel 17 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH17_Pos (17UL) /*!< Position of CH17 field. */
+#define DPPIC_CHENSET_CH17_Msk (0x1UL << DPPIC_CHENSET_CH17_Pos) /*!< Bit mask of CH17 field. */
+#define DPPIC_CHENSET_CH17_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH17_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH17_Set (1UL) /*!< Write: Enable channel */
+
+/* Bit 16 : Channel 16 enable set register. Writing 0 has no effect. */
+#define DPPIC_CHENSET_CH16_Pos (16UL) /*!< Position of CH16 field. */
+#define DPPIC_CHENSET_CH16_Msk (0x1UL << DPPIC_CHENSET_CH16_Pos) /*!< Bit mask of CH16 field. */
+#define DPPIC_CHENSET_CH16_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENSET_CH16_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENSET_CH16_Set (1UL) /*!< Write: Enable channel */
 
 /* Bit 15 : Channel 15 enable set register. Writing 0 has no effect. */
 #define DPPIC_CHENSET_CH15_Pos (15UL) /*!< Position of CH15 field. */
@@ -1825,6 +2026,118 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* Register: DPPIC_CHENCLR */
 /* Description: Channel enable clear register */
 
+/* Bit 31 : Channel 31 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH31_Pos (31UL) /*!< Position of CH31 field. */
+#define DPPIC_CHENCLR_CH31_Msk (0x1UL << DPPIC_CHENCLR_CH31_Pos) /*!< Bit mask of CH31 field. */
+#define DPPIC_CHENCLR_CH31_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH31_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH31_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 30 : Channel 30 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH30_Pos (30UL) /*!< Position of CH30 field. */
+#define DPPIC_CHENCLR_CH30_Msk (0x1UL << DPPIC_CHENCLR_CH30_Pos) /*!< Bit mask of CH30 field. */
+#define DPPIC_CHENCLR_CH30_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH30_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH30_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 29 : Channel 29 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH29_Pos (29UL) /*!< Position of CH29 field. */
+#define DPPIC_CHENCLR_CH29_Msk (0x1UL << DPPIC_CHENCLR_CH29_Pos) /*!< Bit mask of CH29 field. */
+#define DPPIC_CHENCLR_CH29_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH29_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH29_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 28 : Channel 28 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH28_Pos (28UL) /*!< Position of CH28 field. */
+#define DPPIC_CHENCLR_CH28_Msk (0x1UL << DPPIC_CHENCLR_CH28_Pos) /*!< Bit mask of CH28 field. */
+#define DPPIC_CHENCLR_CH28_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH28_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH28_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 27 : Channel 27 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH27_Pos (27UL) /*!< Position of CH27 field. */
+#define DPPIC_CHENCLR_CH27_Msk (0x1UL << DPPIC_CHENCLR_CH27_Pos) /*!< Bit mask of CH27 field. */
+#define DPPIC_CHENCLR_CH27_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH27_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH27_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 26 : Channel 26 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH26_Pos (26UL) /*!< Position of CH26 field. */
+#define DPPIC_CHENCLR_CH26_Msk (0x1UL << DPPIC_CHENCLR_CH26_Pos) /*!< Bit mask of CH26 field. */
+#define DPPIC_CHENCLR_CH26_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH26_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH26_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 25 : Channel 25 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH25_Pos (25UL) /*!< Position of CH25 field. */
+#define DPPIC_CHENCLR_CH25_Msk (0x1UL << DPPIC_CHENCLR_CH25_Pos) /*!< Bit mask of CH25 field. */
+#define DPPIC_CHENCLR_CH25_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH25_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH25_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 24 : Channel 24 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH24_Pos (24UL) /*!< Position of CH24 field. */
+#define DPPIC_CHENCLR_CH24_Msk (0x1UL << DPPIC_CHENCLR_CH24_Pos) /*!< Bit mask of CH24 field. */
+#define DPPIC_CHENCLR_CH24_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH24_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH24_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 23 : Channel 23 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH23_Pos (23UL) /*!< Position of CH23 field. */
+#define DPPIC_CHENCLR_CH23_Msk (0x1UL << DPPIC_CHENCLR_CH23_Pos) /*!< Bit mask of CH23 field. */
+#define DPPIC_CHENCLR_CH23_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH23_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH23_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 22 : Channel 22 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH22_Pos (22UL) /*!< Position of CH22 field. */
+#define DPPIC_CHENCLR_CH22_Msk (0x1UL << DPPIC_CHENCLR_CH22_Pos) /*!< Bit mask of CH22 field. */
+#define DPPIC_CHENCLR_CH22_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH22_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH22_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 21 : Channel 21 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH21_Pos (21UL) /*!< Position of CH21 field. */
+#define DPPIC_CHENCLR_CH21_Msk (0x1UL << DPPIC_CHENCLR_CH21_Pos) /*!< Bit mask of CH21 field. */
+#define DPPIC_CHENCLR_CH21_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH21_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH21_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 20 : Channel 20 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH20_Pos (20UL) /*!< Position of CH20 field. */
+#define DPPIC_CHENCLR_CH20_Msk (0x1UL << DPPIC_CHENCLR_CH20_Pos) /*!< Bit mask of CH20 field. */
+#define DPPIC_CHENCLR_CH20_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH20_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH20_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 19 : Channel 19 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH19_Pos (19UL) /*!< Position of CH19 field. */
+#define DPPIC_CHENCLR_CH19_Msk (0x1UL << DPPIC_CHENCLR_CH19_Pos) /*!< Bit mask of CH19 field. */
+#define DPPIC_CHENCLR_CH19_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH19_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH19_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 18 : Channel 18 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH18_Pos (18UL) /*!< Position of CH18 field. */
+#define DPPIC_CHENCLR_CH18_Msk (0x1UL << DPPIC_CHENCLR_CH18_Pos) /*!< Bit mask of CH18 field. */
+#define DPPIC_CHENCLR_CH18_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH18_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH18_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 17 : Channel 17 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH17_Pos (17UL) /*!< Position of CH17 field. */
+#define DPPIC_CHENCLR_CH17_Msk (0x1UL << DPPIC_CHENCLR_CH17_Pos) /*!< Bit mask of CH17 field. */
+#define DPPIC_CHENCLR_CH17_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH17_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH17_Clear (1UL) /*!< Write: Disable channel */
+
+/* Bit 16 : Channel 16 enable clear register.  Writing 0 has no effect. */
+#define DPPIC_CHENCLR_CH16_Pos (16UL) /*!< Position of CH16 field. */
+#define DPPIC_CHENCLR_CH16_Msk (0x1UL << DPPIC_CHENCLR_CH16_Pos) /*!< Bit mask of CH16 field. */
+#define DPPIC_CHENCLR_CH16_Disabled (0UL) /*!< Read: Channel disabled */
+#define DPPIC_CHENCLR_CH16_Enabled (1UL) /*!< Read: Channel enabled */
+#define DPPIC_CHENCLR_CH16_Clear (1UL) /*!< Write: Disable channel */
+
 /* Bit 15 : Channel 15 enable clear register.  Writing 0 has no effect. */
 #define DPPIC_CHENCLR_CH15_Pos (15UL) /*!< Position of CH15 field. */
 #define DPPIC_CHENCLR_CH15_Msk (0x1UL << DPPIC_CHENCLR_CH15_Pos) /*!< Bit mask of CH15 field. */
@@ -1939,6 +2252,102 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* Register: DPPIC_CHG */
 /* Description: Description collection: Channel group n Note: Writes to this register are ignored if either SUBSCRIBE_CHG[n].EN or SUBSCRIBE_CHG[n].DIS is enabled */
+
+/* Bit 31 : Include or exclude channel 31 */
+#define DPPIC_CHG_CH31_Pos (31UL) /*!< Position of CH31 field. */
+#define DPPIC_CHG_CH31_Msk (0x1UL << DPPIC_CHG_CH31_Pos) /*!< Bit mask of CH31 field. */
+#define DPPIC_CHG_CH31_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH31_Included (1UL) /*!< Include */
+
+/* Bit 30 : Include or exclude channel 30 */
+#define DPPIC_CHG_CH30_Pos (30UL) /*!< Position of CH30 field. */
+#define DPPIC_CHG_CH30_Msk (0x1UL << DPPIC_CHG_CH30_Pos) /*!< Bit mask of CH30 field. */
+#define DPPIC_CHG_CH30_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH30_Included (1UL) /*!< Include */
+
+/* Bit 29 : Include or exclude channel 29 */
+#define DPPIC_CHG_CH29_Pos (29UL) /*!< Position of CH29 field. */
+#define DPPIC_CHG_CH29_Msk (0x1UL << DPPIC_CHG_CH29_Pos) /*!< Bit mask of CH29 field. */
+#define DPPIC_CHG_CH29_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH29_Included (1UL) /*!< Include */
+
+/* Bit 28 : Include or exclude channel 28 */
+#define DPPIC_CHG_CH28_Pos (28UL) /*!< Position of CH28 field. */
+#define DPPIC_CHG_CH28_Msk (0x1UL << DPPIC_CHG_CH28_Pos) /*!< Bit mask of CH28 field. */
+#define DPPIC_CHG_CH28_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH28_Included (1UL) /*!< Include */
+
+/* Bit 27 : Include or exclude channel 27 */
+#define DPPIC_CHG_CH27_Pos (27UL) /*!< Position of CH27 field. */
+#define DPPIC_CHG_CH27_Msk (0x1UL << DPPIC_CHG_CH27_Pos) /*!< Bit mask of CH27 field. */
+#define DPPIC_CHG_CH27_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH27_Included (1UL) /*!< Include */
+
+/* Bit 26 : Include or exclude channel 26 */
+#define DPPIC_CHG_CH26_Pos (26UL) /*!< Position of CH26 field. */
+#define DPPIC_CHG_CH26_Msk (0x1UL << DPPIC_CHG_CH26_Pos) /*!< Bit mask of CH26 field. */
+#define DPPIC_CHG_CH26_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH26_Included (1UL) /*!< Include */
+
+/* Bit 25 : Include or exclude channel 25 */
+#define DPPIC_CHG_CH25_Pos (25UL) /*!< Position of CH25 field. */
+#define DPPIC_CHG_CH25_Msk (0x1UL << DPPIC_CHG_CH25_Pos) /*!< Bit mask of CH25 field. */
+#define DPPIC_CHG_CH25_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH25_Included (1UL) /*!< Include */
+
+/* Bit 24 : Include or exclude channel 24 */
+#define DPPIC_CHG_CH24_Pos (24UL) /*!< Position of CH24 field. */
+#define DPPIC_CHG_CH24_Msk (0x1UL << DPPIC_CHG_CH24_Pos) /*!< Bit mask of CH24 field. */
+#define DPPIC_CHG_CH24_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH24_Included (1UL) /*!< Include */
+
+/* Bit 23 : Include or exclude channel 23 */
+#define DPPIC_CHG_CH23_Pos (23UL) /*!< Position of CH23 field. */
+#define DPPIC_CHG_CH23_Msk (0x1UL << DPPIC_CHG_CH23_Pos) /*!< Bit mask of CH23 field. */
+#define DPPIC_CHG_CH23_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH23_Included (1UL) /*!< Include */
+
+/* Bit 22 : Include or exclude channel 22 */
+#define DPPIC_CHG_CH22_Pos (22UL) /*!< Position of CH22 field. */
+#define DPPIC_CHG_CH22_Msk (0x1UL << DPPIC_CHG_CH22_Pos) /*!< Bit mask of CH22 field. */
+#define DPPIC_CHG_CH22_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH22_Included (1UL) /*!< Include */
+
+/* Bit 21 : Include or exclude channel 21 */
+#define DPPIC_CHG_CH21_Pos (21UL) /*!< Position of CH21 field. */
+#define DPPIC_CHG_CH21_Msk (0x1UL << DPPIC_CHG_CH21_Pos) /*!< Bit mask of CH21 field. */
+#define DPPIC_CHG_CH21_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH21_Included (1UL) /*!< Include */
+
+/* Bit 20 : Include or exclude channel 20 */
+#define DPPIC_CHG_CH20_Pos (20UL) /*!< Position of CH20 field. */
+#define DPPIC_CHG_CH20_Msk (0x1UL << DPPIC_CHG_CH20_Pos) /*!< Bit mask of CH20 field. */
+#define DPPIC_CHG_CH20_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH20_Included (1UL) /*!< Include */
+
+/* Bit 19 : Include or exclude channel 19 */
+#define DPPIC_CHG_CH19_Pos (19UL) /*!< Position of CH19 field. */
+#define DPPIC_CHG_CH19_Msk (0x1UL << DPPIC_CHG_CH19_Pos) /*!< Bit mask of CH19 field. */
+#define DPPIC_CHG_CH19_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH19_Included (1UL) /*!< Include */
+
+/* Bit 18 : Include or exclude channel 18 */
+#define DPPIC_CHG_CH18_Pos (18UL) /*!< Position of CH18 field. */
+#define DPPIC_CHG_CH18_Msk (0x1UL << DPPIC_CHG_CH18_Pos) /*!< Bit mask of CH18 field. */
+#define DPPIC_CHG_CH18_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH18_Included (1UL) /*!< Include */
+
+/* Bit 17 : Include or exclude channel 17 */
+#define DPPIC_CHG_CH17_Pos (17UL) /*!< Position of CH17 field. */
+#define DPPIC_CHG_CH17_Msk (0x1UL << DPPIC_CHG_CH17_Pos) /*!< Bit mask of CH17 field. */
+#define DPPIC_CHG_CH17_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH17_Included (1UL) /*!< Include */
+
+/* Bit 16 : Include or exclude channel 16 */
+#define DPPIC_CHG_CH16_Pos (16UL) /*!< Position of CH16 field. */
+#define DPPIC_CHG_CH16_Msk (0x1UL << DPPIC_CHG_CH16_Pos) /*!< Bit mask of CH16 field. */
+#define DPPIC_CHG_CH16_Excluded (0UL) /*!< Exclude */
+#define DPPIC_CHG_CH16_Included (1UL) /*!< Include */
 
 /* Bit 15 : Include or exclude channel 15 */
 #define DPPIC_CHG_CH15_Pos (15UL) /*!< Position of CH15 field. */
@@ -2586,6 +2995,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define FICR_INFO_PACKAGE_PACKAGE_Pos (0UL) /*!< Position of PACKAGE field. */
 #define FICR_INFO_PACKAGE_PACKAGE_Msk (0xFFFFFFFFUL << FICR_INFO_PACKAGE_PACKAGE_Pos) /*!< Bit mask of PACKAGE field. */
 #define FICR_INFO_PACKAGE_PACKAGE_QK (0x2000UL) /*!< QKxx - 94-pin aQFN */
+#define FICR_INFO_PACKAGE_PACKAGE_CL (0x2005UL) /*!< CLxx - WLCSP */
 #define FICR_INFO_PACKAGE_PACKAGE_Unspecified (0xFFFFFFFFUL) /*!< Unspecified */
 
 /* Register: FICR_INFO_RAM */
