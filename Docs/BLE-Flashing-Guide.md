@@ -9,7 +9,7 @@ This document describes how to flash the nRF52810 microcontroller (referred to a
 ### Important Note
 Power to BLE is turned on by a GPIO pin from MCU (BLE_PWRn). During MCU's startup sequence in Production mode it activates power to BLE and then polls the BLE_RDY line waiting for the nRF52810 to signal that it is ready. If BLE_RDY does not go high, the firmware continuously resets BLE (via BLE_RSTn) in a ~250 ms cycle while refreshing the IWDG (configured for a 4-second timeout) — so the watchdog never fires and the reset loop runs indefinitely. The net effect is that if MCU is flashed but BLE has not yet been flashed, MCU will hold BLE in a reset loop and never proceed to normal operation, preventing BLE from being flashed. There are several ways to work around this:
 1. Flash MCU with the DVT version of firmware, then flash BLE, then re-flash MCU with Production firmware
-2. Connect to MCU using an STLink and start it up in debug mode, adding a breakpoint after it sets BLE_PWRn high to maintain that state while flashing BLE
+2. Connect to MCU using an STLink and start it up in debug mode, adding a breakpoint after it sets BLE_PWRn LOW (active low = on) to maintain that state while flashing BLE
 3. Physically connect the +VDD and +VDD_BLE nets, eliminating the need for MCU to power BLE. This can be easily done using a jumper wire with the female end attached to the DVDD pin J1300 and the male end inserted into the first port of the JLink's ribbon cable, or by soldering a wire to VDD_BLE at TP401.
 
 <img width="2502" height="1012" alt="Jumper Wire DVDD BLE" src="https://github.com/user-attachments/assets/9abf876b-0c06-4ab7-abb5-c8c6dad68820" />
