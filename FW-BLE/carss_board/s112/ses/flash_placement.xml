@@ -42,8 +42,8 @@
     <ProgramSection alignment="4" keep="Yes" load="No" name=".nrf_sections_run_end" address_symbol="__end_nrf_sections_run" />
     <ProgramSection alignment="4" load="No" name=".fast_run" />
     <ProgramSection alignment="4" load="No" name=".data_run" />
-    <ProgramSection alignment="4" load="No" name=".tdata_run" />
     <ProgramSection alignment="4" load="No" name=".tbss" />
+    <ProgramSection alignment="4" load="No" name=".tdata_run" />
     <ProgramSection alignment="4" load="No" name=".bss" />
     <ProgramSection alignment="4" load="No" name=".non_init" />
     <ProgramSection alignment="4" size="__HEAPSIZE__" load="No" name=".heap" />
