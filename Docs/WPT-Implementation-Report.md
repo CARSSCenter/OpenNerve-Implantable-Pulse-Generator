@@ -121,7 +121,7 @@ The thermistor is a **104AP-2 NTC (10 kΩ at 25°C)**. A **49.9 kΩ** sense resi
 | `App/Bsp/Src/bsp_magnet.c` | VRECT_DETn coil detection in existing EXTI callbacks |
 | `App/Config/app_config.h` | `#include "app_mode_wpt.h"` added |
 | `App/Src/app_state.c` | `bsp_adc_init()` added to wake sequence after STOP mode (see §6); VRECT_DETn cold-start poll added before STOP entry to handle coil-present-at-boot scenario |
-| `Core/Src/main.c` | `MX_RTC_Init()` hoisted before `MX_GPIO_Init()`; EOS guard added immediately after GPIO init to re-float `BATT_SW_EN` if EOS was previously confirmed (see §5.4) |
+| `Core/Src/main.c` | `MX_RTC_Init()` hoisted before `MX_GPIO_Init()` (battery-disconnect reset guard lives in `App/Src/app.c`, dev board only; see §5.4) |
 | `App/Src/app_mode_ble_connection.c` | WPT cleanup block added after while loop: stops stimulation, disables sensors, power-cycles BLE chip on `WPT_HIGH`/`WPT_PAUSED` exit |
 | `App/Src/app_mode_wpt.c` | BLE-connected guard added at entry: waits for `BLE_STATE_CONNECT` bit to clear before calling `app_func_ble_adv_start()` |
 
@@ -312,7 +312,7 @@ if (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_SET) {
 | Scenario | Result |
 |----------|--------|
 | Dead battery (non-EOS) + charger present | VCHG_DISABLE stays LOW → VCHG_RAIL sustained → MCU boots fully → WPT mode entered normally |
-| EOS battery + charger present at boot | VCHG_DISABLE stays LOW; MCU boots; EOS guard re-floats `BATT_SW_EN`; VRECT_DETn poll in sleep handler detects coil → WPT mode entered without cycling coil (see §5.4) |
+| EOS battery + charger present at boot | VCHG_DISABLE stays LOW; MCU boots; reset guard sees the coil and drives `BATT_SW_EN` HIGH (dev board only); VRECT_DETn poll in sleep handler detects coil → WPT mode entered without cycling coil (see §5.4) |
 | Battery OK + no charger | After 500 ms, VRECT_DETn HIGH → VCHG_DISABLE driven HIGH → converter off, normal operation |
 | Battery OK + charger present | VRECT_DETn LOW → VCHG stays enabled → WPT mode entered via state machine |
 
@@ -326,8 +326,8 @@ When a device has reached EOS and the discharge capacitor has fully drained (bat
 
 Two changes address this:
 
-**Fix 1 — EOS guard in `Core/Src/main.c`:**
-`MX_RTC_Init()` was hoisted to before `MX_GPIO_Init()`. A guard block was added immediately after `MX_GPIO_Init()`: if `RTC_BKP_DR2 >= COUNT_MAX_EOS`, `BATT_SW_EN` is immediately re-floated (`GPIO_MODE_ANALOG` / `GPIO_NOPULL`), overriding the default HIGH that `MX_GPIO_Init()` drives. This eliminates the window during which the pin fights the discharge capacitor on every BOR or TPS3831 reset loop.
+**Fix 1 — Battery-disconnect reset guard in `App/Src/app.c` (`BOARD_HAS_BATT_DISCONNECT = 1` only):**
+`MX_RTC_Init()` was hoisted to before `MX_GPIO_Init()`. (The `main.c` guard originally described here was never committed, and on Gen2 boards (flag = 0) `BATT_SW_EN` is never floated.) On the dev board, `BATT_SW_EN` is on PG3, which the generated code leaves hi-Z until `app_init()`. At the top of `app_init()`, if a disconnect is pending (`RTC_BKP_DR3` holds the shutdown magic or `RTC_BKP_DR2 >= COUNT_MAX_EOS`) and no coil, magnet or USB power is present, the pin stays floating and the MCU waits for power to drop. Otherwise DR3 is cleared and the pin is driven HIGH. A coil-powered boot therefore always reconnects the batteries so they can charge.
 
 **Fix 2 — VRECT_DETn poll in `App/Src/app_state.c`:**
 A poll of `VRECT_DETn` was added to `app_state_sleep_handler()`, placed after the BATT_SW_EN EOS float and after the LPTIMs are started, but before the STOP `while` loop:

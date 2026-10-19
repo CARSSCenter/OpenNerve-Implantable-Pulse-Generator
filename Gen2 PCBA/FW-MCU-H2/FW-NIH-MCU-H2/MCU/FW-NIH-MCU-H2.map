@@ -1290,7 +1290,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_authentication.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_authentication.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_authentication.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_authentication.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_authentication.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_ble.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_ble.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_ble.o
@@ -1532,7 +1532,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_ble.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_ble.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_ble.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_ble.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_ble.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_command.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_command.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_command.o
@@ -1772,7 +1772,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_command.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_command.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_command.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_command.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_command.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_logs.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_logs.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_logs.o
@@ -2012,7 +2012,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_logs.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_logs.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_logs.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_logs.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_logs.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_measurement.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_measurement.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_measurement.o
@@ -2255,7 +2255,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_measurement.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_measurement.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_measurement.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_measurement.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_measurement.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_parameter.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_parameter.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_parameter.o
@@ -2497,7 +2497,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_parameter.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_parameter.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_parameter.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_parameter.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_parameter.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_state_machine.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_state_machine.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_state_machine.o
@@ -2737,7 +2737,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_state_machine.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_state_machine.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_state_machine.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_state_machine.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_state_machine.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_stimulation.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_stimulation.o
  .group         0x00000000        0xc ./App/Functions/Src/app_func_stimulation.o
@@ -2988,7 +2988,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Functions/Src/app_func_stimulation.o
  .debug_macro   0x00000000       0x64 ./App/Functions/Src/app_func_stimulation.o
  .debug_macro   0x00000000       0x34 ./App/Functions/Src/app_func_stimulation.o
- .debug_macro   0x00000000       0x70 ./App/Functions/Src/app_func_stimulation.o
+ .debug_macro   0x00000000       0x76 ./App/Functions/Src/app_func_stimulation.o
  .group         0x00000000        0xc ./App/Src/DVT/app_mode_dvt.o
  .group         0x00000000        0xc ./App/Src/DVT/app_mode_dvt.o
  .group         0x00000000        0xc ./App/Src/DVT/app_mode_dvt.o
@@ -3229,7 +3229,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/DVT/app_mode_dvt.o
  .debug_macro   0x00000000       0x64 ./App/Src/DVT/app_mode_dvt.o
  .debug_macro   0x00000000       0x34 ./App/Src/DVT/app_mode_dvt.o
- .debug_macro   0x00000000       0x70 ./App/Src/DVT/app_mode_dvt.o
+ .debug_macro   0x00000000       0x76 ./App/Src/DVT/app_mode_dvt.o
  .group         0x00000000        0xc ./App/Src/DVT/app_mode_dvt_test.o
  .group         0x00000000        0xc ./App/Src/DVT/app_mode_dvt_test.o
  .group         0x00000000        0xc ./App/Src/DVT/app_mode_dvt_test.o
@@ -3507,9 +3507,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/DVT/app_mode_dvt_test.o
  .debug_macro   0x00000000       0x64 ./App/Src/DVT/app_mode_dvt_test.o
  .debug_macro   0x00000000       0x34 ./App/Src/DVT/app_mode_dvt_test.o
- .debug_macro   0x00000000       0x70 ./App/Src/DVT/app_mode_dvt_test.o
- .debug_line    0x00000000     0x12f4 ./App/Src/DVT/app_mode_dvt_test.o
- .debug_str     0x00000000   0x17807b ./App/Src/DVT/app_mode_dvt_test.o
+ .debug_macro   0x00000000       0x76 ./App/Src/DVT/app_mode_dvt_test.o
+ .debug_line    0x00000000     0x1369 ./App/Src/DVT/app_mode_dvt_test.o
+ .debug_str     0x00000000   0x1780a4 ./App/Src/DVT/app_mode_dvt_test.o
  .comment       0x00000000       0x44 ./App/Src/DVT/app_mode_dvt_test.o
  .debug_frame   0x00000000       0x6c ./App/Src/DVT/app_mode_dvt_test.o
  .ARM.attributes
@@ -3754,7 +3754,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app.o
  .debug_macro   0x00000000       0x64 ./App/Src/app.o
  .debug_macro   0x00000000       0x34 ./App/Src/app.o
- .debug_macro   0x00000000       0x70 ./App/Src/app.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app.o
  .group         0x00000000        0xc ./App/Src/app_mode_battery_test.o
  .group         0x00000000        0xc ./App/Src/app_mode_battery_test.o
  .group         0x00000000        0xc ./App/Src/app_mode_battery_test.o
@@ -3993,7 +3993,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_battery_test.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_battery_test.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_battery_test.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_battery_test.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_battery_test.o
  .group         0x00000000        0xc ./App/Src/app_mode_ble_active.o
  .group         0x00000000        0xc ./App/Src/app_mode_ble_active.o
  .group         0x00000000        0xc ./App/Src/app_mode_ble_active.o
@@ -4236,7 +4236,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_ble_active.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_ble_active.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_ble_active.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_ble_active.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_ble_active.o
  .group         0x00000000        0xc ./App/Src/app_mode_ble_connection.o
  .group         0x00000000        0xc ./App/Src/app_mode_ble_connection.o
  .group         0x00000000        0xc ./App/Src/app_mode_ble_connection.o
@@ -4477,7 +4477,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_ble_connection.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_ble_connection.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_ble_connection.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_ble_connection.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_ble_connection.o
  .group         0x00000000        0xc ./App/Src/app_mode_bsl.o
  .group         0x00000000        0xc ./App/Src/app_mode_bsl.o
  .group         0x00000000        0xc ./App/Src/app_mode_bsl.o
@@ -4718,7 +4718,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_bsl.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_bsl.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_bsl.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_bsl.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_bsl.o
  .group         0x00000000        0xc ./App/Src/app_mode_impedance_test.o
  .group         0x00000000        0xc ./App/Src/app_mode_impedance_test.o
  .group         0x00000000        0xc ./App/Src/app_mode_impedance_test.o
@@ -4959,7 +4959,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_impedance_test.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_impedance_test.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_impedance_test.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_impedance_test.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_impedance_test.o
  .group         0x00000000        0xc ./App/Src/app_mode_oad.o
  .group         0x00000000        0xc ./App/Src/app_mode_oad.o
  .group         0x00000000        0xc ./App/Src/app_mode_oad.o
@@ -5200,7 +5200,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_oad.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_oad.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_oad.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_oad.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_oad.o
  .group         0x00000000        0xc ./App/Src/app_mode_therapy_session.o
  .group         0x00000000        0xc ./App/Src/app_mode_therapy_session.o
  .group         0x00000000        0xc ./App/Src/app_mode_therapy_session.o
@@ -5441,7 +5441,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_therapy_session.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_therapy_session.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_therapy_session.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_therapy_session.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_therapy_session.o
  .group         0x00000000        0xc ./App/Src/app_mode_wpt.o
  .group         0x00000000        0xc ./App/Src/app_mode_wpt.o
  .group         0x00000000        0xc ./App/Src/app_mode_wpt.o
@@ -5681,7 +5681,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_mode_wpt.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_mode_wpt.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_mode_wpt.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_mode_wpt.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_mode_wpt.o
  .group         0x00000000        0xc ./App/Src/app_state.o
  .group         0x00000000        0xc ./App/Src/app_state.o
  .group         0x00000000        0xc ./App/Src/app_state.o
@@ -5922,7 +5922,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./App/Src/app_state.o
  .debug_macro   0x00000000       0x64 ./App/Src/app_state.o
  .debug_macro   0x00000000       0x34 ./App/Src/app_state.o
- .debug_macro   0x00000000       0x70 ./App/Src/app_state.o
+ .debug_macro   0x00000000       0x76 ./App/Src/app_state.o
  .group         0x00000000        0xc ./Core/Src/adc.o
  .group         0x00000000        0xc ./Core/Src/adc.o
  .group         0x00000000        0xc ./Core/Src/adc.o
@@ -7689,7 +7689,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7c ./Core/Src/main.o
  .debug_macro   0x00000000       0x64 ./Core/Src/main.o
  .debug_macro   0x00000000       0x34 ./Core/Src/main.o
- .debug_macro   0x00000000       0x70 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x76 ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/memorymap.o
  .group         0x00000000        0xc ./Core/Src/memorymap.o
  .group         0x00000000        0xc ./Core/Src/memorymap.o
@@ -7865,7 +7865,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x361 ./Core/Src/memorymap.o
  .debug_macro   0x00000000      0x4c9 ./Core/Src/memorymap.o
  .debug_line    0x00000000      0x9f5 ./Core/Src/memorymap.o
- .debug_str     0x00000000   0x170667 ./Core/Src/memorymap.o
+ .debug_str     0x00000000   0x170674 ./Core/Src/memorymap.o
  .comment       0x00000000       0x44 ./Core/Src/memorymap.o
  .ARM.attributes
                 0x00000000       0x3a ./Core/Src/memorymap.o
@@ -9025,7 +9025,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Core/Src/syscalls.o
  .debug_macro   0x00000000       0xce ./Core/Src/syscalls.o
  .debug_line    0x00000000      0x84f ./Core/Src/syscalls.o
- .debug_str     0x00000000     0x99be ./Core/Src/syscalls.o
+ .debug_str     0x00000000     0x99cb ./Core/Src/syscalls.o
  .comment       0x00000000       0x44 ./Core/Src/syscalls.o
  .debug_frame   0x00000000      0x288 ./Core/Src/syscalls.o
  .ARM.attributes
@@ -9090,7 +9090,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Core/Src/sysmem.o
  .debug_macro   0x00000000      0x1df ./Core/Src/sysmem.o
  .debug_line    0x00000000      0x52b ./Core/Src/sysmem.o
- .debug_str     0x00000000     0x7768 ./Core/Src/sysmem.o
+ .debug_str     0x00000000     0x7775 ./Core/Src/sysmem.o
  .comment       0x00000000       0x44 ./Core/Src/sysmem.o
  .debug_frame   0x00000000       0x34 ./Core/Src/sysmem.o
  .ARM.attributes
@@ -11477,7 +11477,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1c0 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
  .debug_macro   0x00000000      0x361 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
  .debug_line    0x00000000      0xe4e ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
- .debug_str     0x00000000   0x16f789 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
+ .debug_str     0x00000000   0x16f796 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
  .comment       0x00000000       0x44 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
  .debug_frame   0x00000000      0x19c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.o
  .ARM.attributes
@@ -12200,7 +12200,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1c0 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
  .debug_macro   0x00000000      0x361 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
  .debug_line    0x00000000      0x9fd ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
- .debug_str     0x00000000   0x16f421 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
+ .debug_str     0x00000000   0x16f42e ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
  .comment       0x00000000       0x44 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
  .ARM.attributes
                 0x00000000       0x3a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.o
@@ -15346,7 +15346,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1c0 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
  .debug_macro   0x00000000      0x361 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
  .debug_line    0x00000000      0xb98 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
- .debug_str     0x00000000   0x16f6a7 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
+ .debug_str     0x00000000   0x16f6b4 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
  .comment       0x00000000       0x44 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
  .debug_frame   0x00000000       0xa0 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.o
  .ARM.attributes
@@ -21909,7 +21909,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_rnglists
                 0x00002df6       0x14 ./exDrivers/Src/MIS2DHTR_driver.o
 
-.debug_macro    0x00000000    0x4ce4f
+.debug_macro    0x00000000    0x4ce55
  .debug_macro   0x00000000      0x4e1 ./App/Bsp/Src/bsp_adc.o
  .debug_macro   0x000004e1      0xae4 ./App/Bsp/Src/bsp_adc.o
  .debug_macro   0x00000fc5       0x22 ./App/Bsp/Src/bsp_adc.o
@@ -22027,278 +22027,278 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_macro   0x00037c29       0x7c ./App/Bsp/Src/bsp_magnet.o
  .debug_macro   0x00037ca5       0x64 ./App/Bsp/Src/bsp_magnet.o
  .debug_macro   0x00037d09       0x34 ./App/Bsp/Src/bsp_magnet.o
- .debug_macro   0x00037d3d       0x70 ./App/Bsp/Src/bsp_magnet.o
- .debug_macro   0x00037dad      0x4e2 ./App/Bsp/Src/bsp_serialport.o
- .debug_macro   0x0003828f      0x4db ./App/Bsp/Src/bsp_watchdog.o
- .debug_macro   0x0003876a      0x5fd ./App/Functions/Src/app_func_authentication.o
- .debug_macro   0x00038d67       0x22 ./App/Functions/Src/app_func_authentication.o
- .debug_macro   0x00038d89      0x5fd ./App/Functions/Src/app_func_ble.o
- .debug_macro   0x00039386       0x4c ./App/Functions/Src/app_func_ble.o
- .debug_macro   0x000393d2      0x5fd ./App/Functions/Src/app_func_command.o
- .debug_macro   0x000399cf      0x310 ./App/Functions/Src/app_func_command.o
- .debug_macro   0x00039cdf      0x61b ./App/Functions/Src/app_func_logs.o
- .debug_macro   0x0003a2fa       0x76 ./App/Functions/Src/app_func_logs.o
- .debug_macro   0x0003a370      0x634 ./App/Functions/Src/app_func_measurement.o
- .debug_macro   0x0003a9a4       0x6a ./App/Functions/Src/app_func_measurement.o
- .debug_macro   0x0003aa0e       0x16 ./App/Functions/Src/app_func_measurement.o
- .debug_macro   0x0003aa24       0x16 ./App/Functions/Src/app_func_measurement.o
- .debug_macro   0x0003aa3a       0x29 ./App/Functions/Src/app_func_measurement.o
- .debug_macro   0x0003aa63      0x609 ./App/Functions/Src/app_func_parameter.o
- .debug_macro   0x0003b06c      0x1c0 ./App/Functions/Src/app_func_parameter.o
- .debug_macro   0x0003b22c      0x5fd ./App/Functions/Src/app_func_state_machine.o
- .debug_macro   0x0003b829       0x58 ./App/Functions/Src/app_func_state_machine.o
- .debug_macro   0x0003b881      0x613 ./App/Functions/Src/app_func_stimulation.o
- .debug_macro   0x0003be94       0x6a ./App/Functions/Src/app_func_stimulation.o
- .debug_macro   0x0003befe      0xd4d ./App/Functions/Src/app_func_stimulation.o
- .debug_macro   0x0003cc4b      0x5fd ./App/Src/DVT/app_mode_dvt.o
- .debug_macro   0x0003d248      0x5f7 ./App/Src/app.o
- .debug_macro   0x0003d83f      0x604 ./App/Src/app_mode_battery_test.o
- .debug_macro   0x0003de43      0x5f7 ./App/Src/app_mode_ble_active.o
- .debug_macro   0x0003e43a      0x60f ./App/Src/app_mode_ble_connection.o
- .debug_macro   0x0003ea49      0x5fd ./App/Src/app_mode_bsl.o
- .debug_macro   0x0003f046      0x603 ./App/Src/app_mode_impedance_test.o
- .debug_macro   0x0003f649      0x5f7 ./App/Src/app_mode_oad.o
- .debug_macro   0x0003fc40      0x5f7 ./App/Src/app_mode_therapy_session.o
- .debug_macro   0x00040237      0x603 ./App/Src/app_mode_wpt.o
- .debug_macro   0x0004083a       0x28 ./App/Src/app_mode_wpt.o
- .debug_macro   0x00040862      0x5f7 ./App/Src/app_state.o
- .debug_macro   0x00040e59      0x36d ./Core/Src/adc.o
- .debug_macro   0x000411c6      0x36d ./Core/Src/crc.o
- .debug_macro   0x00041533      0x36d ./Core/Src/gpdma.o
- .debug_macro   0x000418a0      0x36d ./Core/Src/gpio.o
- .debug_macro   0x00041c0d      0x36d ./Core/Src/hash.o
- .debug_macro   0x00041f7a      0x36d ./Core/Src/i2c.o
- .debug_macro   0x000422e7      0x36d ./Core/Src/icache.o
- .debug_macro   0x00042654      0x36d ./Core/Src/iwdg.o
- .debug_macro   0x000429c1      0x36d ./Core/Src/lptim.o
- .debug_macro   0x00042d2e      0x5fc ./Core/Src/main.o
- .debug_macro   0x0004332a       0x16 ./Core/Src/main.o
- .debug_macro   0x00043340      0x36d ./Core/Src/pka.o
- .debug_macro   0x000436ad      0x36d ./Core/Src/rng.o
- .debug_macro   0x00043a1a      0x36d ./Core/Src/rtc.o
- .debug_macro   0x00043d87      0x36d ./Core/Src/spi.o
- .debug_macro   0x000440f4      0x363 ./Core/Src/stm32u5xx_hal_msp.o
- .debug_macro   0x00044457      0x36d ./Core/Src/stm32u5xx_it.o
- .debug_macro   0x000447c4      0x35b ./Core/Src/system_stm32u5xx.o
- .debug_macro   0x00044b1f      0x36d ./Core/Src/tim.o
- .debug_macro   0x00044e8c      0x36d ./Core/Src/usart.o
- .debug_macro   0x000451f9      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
- .debug_macro   0x00045571      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
- .debug_macro   0x000458e9      0x360 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
- .debug_macro   0x00045c49      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
- .debug_macro   0x00045f9d      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
- .debug_macro   0x000462f1      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
- .debug_macro   0x00046645      0x355 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
- .debug_macro   0x0004699a      0x355 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
- .debug_macro   0x00046cef      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
- .debug_macro   0x00047043      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
- .debug_macro   0x00047397      0x389 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
- .debug_macro   0x00047720      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
- .debug_macro   0x00047a98      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
- .debug_macro   0x00047dec      0x420 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
- .debug_macro   0x0004820c      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
- .debug_macro   0x00048560      0x386 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
- .debug_macro   0x000488e6      0x362 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
- .debug_macro   0x00048c48      0x35c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
- .debug_macro   0x00048fa4      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
- .debug_macro   0x0004931c      0x370 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
- .debug_macro   0x0004968c      0x37f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
- .debug_macro   0x00049a0b      0x45a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
- .debug_macro   0x00049e65      0x485 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
- .debug_macro   0x0004a2ea      0x35a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
- .debug_macro   0x0004a644      0x355 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
- .debug_macro   0x0004a999      0x35a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
- .debug_macro   0x0004acf3      0x35c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
- .debug_macro   0x0004b04f      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
- .debug_macro   0x0004b3a3      0x35c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
- .debug_macro   0x0004b6ff      0x35a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
- .debug_macro   0x0004ba59      0x37f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
- .debug_macro   0x0004bdd8      0x360 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
- .debug_macro   0x0004c138       0x6d ./Libraries/ECDSA/prime256v1.o
- .debug_macro   0x0004c1a5      0x396 ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
- .debug_macro   0x0004c53b      0x39a ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
- .debug_macro   0x0004c8d5      0x145 ./exDrivers/Src/CY15B108QN_driver.o
- .debug_macro   0x0004ca1a       0x64 ./exDrivers/Src/CY15B108QN_driver.o
- .debug_macro   0x0004ca7e       0x72 ./exDrivers/Src/DAC8050x_driver.o
- .debug_macro   0x0004caf0       0x8e ./exDrivers/Src/DAC8050x_driver.o
- .debug_macro   0x0004cb7e       0x72 ./exDrivers/Src/ISL23315T_driver.o
- .debug_macro   0x0004cbf0       0x40 ./exDrivers/Src/ISL23315T_driver.o
- .debug_macro   0x0004cc30       0x1a ./exDrivers/Src/LT1615_driver.o
- .debug_macro   0x0004cc4a       0x7b ./exDrivers/Src/MIS2DHTR_driver.o
- .debug_macro   0x0004ccc5      0x18a ./exDrivers/Src/MIS2DHTR_driver.o
+ .debug_macro   0x00037d3d       0x76 ./App/Bsp/Src/bsp_magnet.o
+ .debug_macro   0x00037db3      0x4e2 ./App/Bsp/Src/bsp_serialport.o
+ .debug_macro   0x00038295      0x4db ./App/Bsp/Src/bsp_watchdog.o
+ .debug_macro   0x00038770      0x5fd ./App/Functions/Src/app_func_authentication.o
+ .debug_macro   0x00038d6d       0x22 ./App/Functions/Src/app_func_authentication.o
+ .debug_macro   0x00038d8f      0x5fd ./App/Functions/Src/app_func_ble.o
+ .debug_macro   0x0003938c       0x4c ./App/Functions/Src/app_func_ble.o
+ .debug_macro   0x000393d8      0x5fd ./App/Functions/Src/app_func_command.o
+ .debug_macro   0x000399d5      0x310 ./App/Functions/Src/app_func_command.o
+ .debug_macro   0x00039ce5      0x61b ./App/Functions/Src/app_func_logs.o
+ .debug_macro   0x0003a300       0x76 ./App/Functions/Src/app_func_logs.o
+ .debug_macro   0x0003a376      0x634 ./App/Functions/Src/app_func_measurement.o
+ .debug_macro   0x0003a9aa       0x6a ./App/Functions/Src/app_func_measurement.o
+ .debug_macro   0x0003aa14       0x16 ./App/Functions/Src/app_func_measurement.o
+ .debug_macro   0x0003aa2a       0x16 ./App/Functions/Src/app_func_measurement.o
+ .debug_macro   0x0003aa40       0x29 ./App/Functions/Src/app_func_measurement.o
+ .debug_macro   0x0003aa69      0x609 ./App/Functions/Src/app_func_parameter.o
+ .debug_macro   0x0003b072      0x1c0 ./App/Functions/Src/app_func_parameter.o
+ .debug_macro   0x0003b232      0x5fd ./App/Functions/Src/app_func_state_machine.o
+ .debug_macro   0x0003b82f       0x58 ./App/Functions/Src/app_func_state_machine.o
+ .debug_macro   0x0003b887      0x613 ./App/Functions/Src/app_func_stimulation.o
+ .debug_macro   0x0003be9a       0x6a ./App/Functions/Src/app_func_stimulation.o
+ .debug_macro   0x0003bf04      0xd4d ./App/Functions/Src/app_func_stimulation.o
+ .debug_macro   0x0003cc51      0x5fd ./App/Src/DVT/app_mode_dvt.o
+ .debug_macro   0x0003d24e      0x5f7 ./App/Src/app.o
+ .debug_macro   0x0003d845      0x604 ./App/Src/app_mode_battery_test.o
+ .debug_macro   0x0003de49      0x5f7 ./App/Src/app_mode_ble_active.o
+ .debug_macro   0x0003e440      0x60f ./App/Src/app_mode_ble_connection.o
+ .debug_macro   0x0003ea4f      0x5fd ./App/Src/app_mode_bsl.o
+ .debug_macro   0x0003f04c      0x603 ./App/Src/app_mode_impedance_test.o
+ .debug_macro   0x0003f64f      0x5f7 ./App/Src/app_mode_oad.o
+ .debug_macro   0x0003fc46      0x5f7 ./App/Src/app_mode_therapy_session.o
+ .debug_macro   0x0004023d      0x603 ./App/Src/app_mode_wpt.o
+ .debug_macro   0x00040840       0x28 ./App/Src/app_mode_wpt.o
+ .debug_macro   0x00040868      0x5f7 ./App/Src/app_state.o
+ .debug_macro   0x00040e5f      0x36d ./Core/Src/adc.o
+ .debug_macro   0x000411cc      0x36d ./Core/Src/crc.o
+ .debug_macro   0x00041539      0x36d ./Core/Src/gpdma.o
+ .debug_macro   0x000418a6      0x36d ./Core/Src/gpio.o
+ .debug_macro   0x00041c13      0x36d ./Core/Src/hash.o
+ .debug_macro   0x00041f80      0x36d ./Core/Src/i2c.o
+ .debug_macro   0x000422ed      0x36d ./Core/Src/icache.o
+ .debug_macro   0x0004265a      0x36d ./Core/Src/iwdg.o
+ .debug_macro   0x000429c7      0x36d ./Core/Src/lptim.o
+ .debug_macro   0x00042d34      0x5fc ./Core/Src/main.o
+ .debug_macro   0x00043330       0x16 ./Core/Src/main.o
+ .debug_macro   0x00043346      0x36d ./Core/Src/pka.o
+ .debug_macro   0x000436b3      0x36d ./Core/Src/rng.o
+ .debug_macro   0x00043a20      0x36d ./Core/Src/rtc.o
+ .debug_macro   0x00043d8d      0x36d ./Core/Src/spi.o
+ .debug_macro   0x000440fa      0x363 ./Core/Src/stm32u5xx_hal_msp.o
+ .debug_macro   0x0004445d      0x36d ./Core/Src/stm32u5xx_it.o
+ .debug_macro   0x000447ca      0x35b ./Core/Src/system_stm32u5xx.o
+ .debug_macro   0x00044b25      0x36d ./Core/Src/tim.o
+ .debug_macro   0x00044e92      0x36d ./Core/Src/usart.o
+ .debug_macro   0x000451ff      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
+ .debug_macro   0x00045577      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
+ .debug_macro   0x000458ef      0x360 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
+ .debug_macro   0x00045c4f      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
+ .debug_macro   0x00045fa3      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
+ .debug_macro   0x000462f7      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
+ .debug_macro   0x0004664b      0x355 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
+ .debug_macro   0x000469a0      0x355 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
+ .debug_macro   0x00046cf5      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
+ .debug_macro   0x00047049      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
+ .debug_macro   0x0004739d      0x389 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
+ .debug_macro   0x00047726      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
+ .debug_macro   0x00047a9e      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
+ .debug_macro   0x00047df2      0x420 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
+ .debug_macro   0x00048212      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
+ .debug_macro   0x00048566      0x386 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
+ .debug_macro   0x000488ec      0x362 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
+ .debug_macro   0x00048c4e      0x35c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
+ .debug_macro   0x00048faa      0x378 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
+ .debug_macro   0x00049322      0x370 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
+ .debug_macro   0x00049692      0x37f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
+ .debug_macro   0x00049a11      0x45a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
+ .debug_macro   0x00049e6b      0x485 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
+ .debug_macro   0x0004a2f0      0x35a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
+ .debug_macro   0x0004a64a      0x355 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
+ .debug_macro   0x0004a99f      0x35a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
+ .debug_macro   0x0004acf9      0x35c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
+ .debug_macro   0x0004b055      0x354 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
+ .debug_macro   0x0004b3a9      0x35c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
+ .debug_macro   0x0004b705      0x35a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
+ .debug_macro   0x0004ba5f      0x37f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
+ .debug_macro   0x0004bdde      0x360 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
+ .debug_macro   0x0004c13e       0x6d ./Libraries/ECDSA/prime256v1.o
+ .debug_macro   0x0004c1ab      0x396 ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
+ .debug_macro   0x0004c541      0x39a ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
+ .debug_macro   0x0004c8db      0x145 ./exDrivers/Src/CY15B108QN_driver.o
+ .debug_macro   0x0004ca20       0x64 ./exDrivers/Src/CY15B108QN_driver.o
+ .debug_macro   0x0004ca84       0x72 ./exDrivers/Src/DAC8050x_driver.o
+ .debug_macro   0x0004caf6       0x8e ./exDrivers/Src/DAC8050x_driver.o
+ .debug_macro   0x0004cb84       0x72 ./exDrivers/Src/ISL23315T_driver.o
+ .debug_macro   0x0004cbf6       0x40 ./exDrivers/Src/ISL23315T_driver.o
+ .debug_macro   0x0004cc36       0x1a ./exDrivers/Src/LT1615_driver.o
+ .debug_macro   0x0004cc50       0x7b ./exDrivers/Src/MIS2DHTR_driver.o
+ .debug_macro   0x0004cccb      0x18a ./exDrivers/Src/MIS2DHTR_driver.o
 
-.debug_line     0x00000000    0x6594b
- .debug_line    0x00000000      0xf9c ./App/Bsp/Src/bsp_adc.o
- .debug_line    0x00000f9c      0xdb0 ./App/Bsp/Src/bsp_fram.o
- .debug_line    0x00001d4c     0x12a6 ./App/Bsp/Src/bsp_magnet.o
- .debug_line    0x00002ff2     0x1173 ./App/Bsp/Src/bsp_serialport.o
- .debug_line    0x00004165      0xd52 ./App/Bsp/Src/bsp_watchdog.o
- .debug_line    0x00004eb7     0x13b2 ./App/Functions/Src/app_func_authentication.o
- .debug_line    0x00006269     0x1507 ./App/Functions/Src/app_func_ble.o
- .debug_line    0x00007770     0x14d9 ./App/Functions/Src/app_func_command.o
- .debug_line    0x00008c49     0x1752 ./App/Functions/Src/app_func_logs.o
- .debug_line    0x0000a39b     0x1537 ./App/Functions/Src/app_func_measurement.o
- .debug_line    0x0000b8d2     0x185f ./App/Functions/Src/app_func_parameter.o
- .debug_line    0x0000d131     0x15ef ./App/Functions/Src/app_func_state_machine.o
- .debug_line    0x0000e720     0x1eee ./App/Functions/Src/app_func_stimulation.o
- .debug_line    0x0001060e     0x2573 ./App/Src/DVT/app_mode_dvt.o
- .debug_line    0x00012b81     0x13bb ./App/Src/app.o
- .debug_line    0x00013f3c     0x12b4 ./App/Src/app_mode_battery_test.o
- .debug_line    0x000151f0     0x15b3 ./App/Src/app_mode_ble_active.o
- .debug_line    0x000167a3     0x1c30 ./App/Src/app_mode_ble_connection.o
- .debug_line    0x000183d3     0x12f7 ./App/Src/app_mode_bsl.o
- .debug_line    0x000196ca     0x1364 ./App/Src/app_mode_impedance_test.o
- .debug_line    0x0001aa2e     0x1324 ./App/Src/app_mode_oad.o
- .debug_line    0x0001bd52     0x1429 ./App/Src/app_mode_therapy_session.o
- .debug_line    0x0001d17b     0x14ff ./App/Src/app_mode_wpt.o
- .debug_line    0x0001e67a     0x1405 ./App/Src/app_state.o
- .debug_line    0x0001fa7f      0xc2a ./Core/Src/adc.o
- .debug_line    0x000206a9      0xa5c ./Core/Src/crc.o
- .debug_line    0x00021105      0xa0c ./Core/Src/gpdma.o
- .debug_line    0x00021b11      0xb51 ./Core/Src/gpio.o
- .debug_line    0x00022662      0xa43 ./Core/Src/hash.o
- .debug_line    0x000230a5      0xb52 ./Core/Src/i2c.o
- .debug_line    0x00023bf7      0xa12 ./Core/Src/icache.o
- .debug_line    0x00024609      0xa1b ./Core/Src/iwdg.o
- .debug_line    0x00025024      0xbde ./Core/Src/lptim.o
- .debug_line    0x00025c02     0x135a ./Core/Src/main.o
- .debug_line    0x00026f5c      0xa49 ./Core/Src/pka.o
- .debug_line    0x000279a5      0xa64 ./Core/Src/rng.o
- .debug_line    0x00028409      0xb5c ./Core/Src/rtc.o
- .debug_line    0x00028f65      0xacd ./Core/Src/spi.o
- .debug_line    0x00029a32      0xa10 ./Core/Src/stm32u5xx_hal_msp.o
- .debug_line    0x0002a442      0xd3d ./Core/Src/stm32u5xx_it.o
- .debug_line    0x0002b17f      0xb0a ./Core/Src/system_stm32u5xx.o
- .debug_line    0x0002bc89      0xd77 ./Core/Src/tim.o
- .debug_line    0x0002ca00      0xabc ./Core/Src/usart.o
- .debug_line    0x0002d4bc       0x79 ./Core/Startup/startup_stm32u585qiixq.o
- .debug_line    0x0002d535      0xea9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
- .debug_line    0x0002e3de     0x2985 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
- .debug_line    0x00030d63     0x19f6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
- .debug_line    0x00032759     0x1059 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
- .debug_line    0x000337b2      0xcc5 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
- .debug_line    0x00034477      0xac3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
- .debug_line    0x00034f3a     0x148b ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
- .debug_line    0x000363c5     0x2918 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
- .debug_line    0x00038cdd      0xd6f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
- .debug_line    0x00039a4c     0x11a1 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
- .debug_line    0x0003abed      0xfa8 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
- .debug_line    0x0003bb95     0x2100 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
- .debug_line    0x0003dc95      0xd6c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
- .debug_line    0x0003ea01     0x3d5c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
- .debug_line    0x0004275d      0xc56 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
- .debug_line    0x000433b3      0xcf9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
- .debug_line    0x000440ac      0xb09 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
- .debug_line    0x00044bb5     0x1f88 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
- .debug_line    0x00046b3d     0x2186 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
- .debug_line    0x00048cc3      0xca3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
- .debug_line    0x00049966     0x1396 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
- .debug_line    0x0004acfc     0x1897 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
- .debug_line    0x0004c593     0x24fc ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
- .debug_line    0x0004ea8f      0xd5a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
- .debug_line    0x0004f7e9     0x12b6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
- .debug_line    0x00050a9f     0x1a72 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
- .debug_line    0x00052511     0x2711 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
- .debug_line    0x00054c22      0xbe9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
- .debug_line    0x0005580b     0x47c2 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
- .debug_line    0x00059fcd     0x2479 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
- .debug_line    0x0005c446     0x368d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
- .debug_line    0x0005fad3     0x104a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
- .debug_line    0x00060b1d      0x3fe ./Libraries/ECDSA/prime256v1.o
- .debug_line    0x00060f1b     0x2693 ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
- .debug_line    0x000635ae      0xdb9 ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
- .debug_line    0x00064367      0x692 ./exDrivers/Src/CY15B108QN_driver.o
- .debug_line    0x000649f9      0x4c4 ./exDrivers/Src/DAC8050x_driver.o
- .debug_line    0x00064ebd      0x499 ./exDrivers/Src/ISL23315T_driver.o
- .debug_line    0x00065356      0x12b ./exDrivers/Src/LT1615_driver.o
- .debug_line    0x00065481      0x4ca ./exDrivers/Src/MIS2DHTR_driver.o
+.debug_line     0x00000000    0x6644d
+ .debug_line    0x00000000      0xfc3 ./App/Bsp/Src/bsp_adc.o
+ .debug_line    0x00000fc3      0xdd7 ./App/Bsp/Src/bsp_fram.o
+ .debug_line    0x00001d9a     0x131b ./App/Bsp/Src/bsp_magnet.o
+ .debug_line    0x000030b5     0x119a ./App/Bsp/Src/bsp_serialport.o
+ .debug_line    0x0000424f      0xd79 ./App/Bsp/Src/bsp_watchdog.o
+ .debug_line    0x00004fc8     0x1427 ./App/Functions/Src/app_func_authentication.o
+ .debug_line    0x000063ef     0x157c ./App/Functions/Src/app_func_ble.o
+ .debug_line    0x0000796b     0x154e ./App/Functions/Src/app_func_command.o
+ .debug_line    0x00008eb9     0x17c7 ./App/Functions/Src/app_func_logs.o
+ .debug_line    0x0000a680     0x15ac ./App/Functions/Src/app_func_measurement.o
+ .debug_line    0x0000bc2c     0x18d4 ./App/Functions/Src/app_func_parameter.o
+ .debug_line    0x0000d500     0x1664 ./App/Functions/Src/app_func_state_machine.o
+ .debug_line    0x0000eb64     0x1f63 ./App/Functions/Src/app_func_stimulation.o
+ .debug_line    0x00010ac7     0x25e8 ./App/Src/DVT/app_mode_dvt.o
+ .debug_line    0x000130af     0x1433 ./App/Src/app.o
+ .debug_line    0x000144e2     0x1329 ./App/Src/app_mode_battery_test.o
+ .debug_line    0x0001580b     0x1628 ./App/Src/app_mode_ble_active.o
+ .debug_line    0x00016e33     0x1ca5 ./App/Src/app_mode_ble_connection.o
+ .debug_line    0x00018ad8     0x136c ./App/Src/app_mode_bsl.o
+ .debug_line    0x00019e44     0x13d9 ./App/Src/app_mode_impedance_test.o
+ .debug_line    0x0001b21d     0x1399 ./App/Src/app_mode_oad.o
+ .debug_line    0x0001c5b6     0x149e ./App/Src/app_mode_therapy_session.o
+ .debug_line    0x0001da54     0x1574 ./App/Src/app_mode_wpt.o
+ .debug_line    0x0001efc8     0x1481 ./App/Src/app_state.o
+ .debug_line    0x00020449      0xc2a ./Core/Src/adc.o
+ .debug_line    0x00021073      0xa5c ./Core/Src/crc.o
+ .debug_line    0x00021acf      0xa0c ./Core/Src/gpdma.o
+ .debug_line    0x000224db      0xb51 ./Core/Src/gpio.o
+ .debug_line    0x0002302c      0xa43 ./Core/Src/hash.o
+ .debug_line    0x00023a6f      0xb52 ./Core/Src/i2c.o
+ .debug_line    0x000245c1      0xa12 ./Core/Src/icache.o
+ .debug_line    0x00024fd3      0xa1b ./Core/Src/iwdg.o
+ .debug_line    0x000259ee      0xbde ./Core/Src/lptim.o
+ .debug_line    0x000265cc     0x13cf ./Core/Src/main.o
+ .debug_line    0x0002799b      0xa49 ./Core/Src/pka.o
+ .debug_line    0x000283e4      0xa64 ./Core/Src/rng.o
+ .debug_line    0x00028e48      0xb5c ./Core/Src/rtc.o
+ .debug_line    0x000299a4      0xacd ./Core/Src/spi.o
+ .debug_line    0x0002a471      0xa10 ./Core/Src/stm32u5xx_hal_msp.o
+ .debug_line    0x0002ae81      0xd3d ./Core/Src/stm32u5xx_it.o
+ .debug_line    0x0002bbbe      0xb0a ./Core/Src/system_stm32u5xx.o
+ .debug_line    0x0002c6c8      0xd77 ./Core/Src/tim.o
+ .debug_line    0x0002d43f      0xabc ./Core/Src/usart.o
+ .debug_line    0x0002defb       0x79 ./Core/Startup/startup_stm32u585qiixq.o
+ .debug_line    0x0002df74      0xea9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
+ .debug_line    0x0002ee1d     0x2985 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
+ .debug_line    0x000317a2     0x19f6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
+ .debug_line    0x00033198     0x1059 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
+ .debug_line    0x000341f1      0xcc5 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
+ .debug_line    0x00034eb6      0xac3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
+ .debug_line    0x00035979     0x148b ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
+ .debug_line    0x00036e04     0x2918 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
+ .debug_line    0x0003971c      0xd6f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
+ .debug_line    0x0003a48b     0x11a1 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
+ .debug_line    0x0003b62c      0xfa8 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
+ .debug_line    0x0003c5d4     0x2100 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
+ .debug_line    0x0003e6d4      0xd6c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
+ .debug_line    0x0003f440     0x3d5c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
+ .debug_line    0x0004319c      0xc56 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
+ .debug_line    0x00043df2      0xcf9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
+ .debug_line    0x00044aeb      0xb09 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
+ .debug_line    0x000455f4     0x1f88 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
+ .debug_line    0x0004757c     0x2186 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
+ .debug_line    0x00049702      0xca3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
+ .debug_line    0x0004a3a5     0x1396 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
+ .debug_line    0x0004b73b     0x1897 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
+ .debug_line    0x0004cfd2     0x24fc ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
+ .debug_line    0x0004f4ce      0xd5a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
+ .debug_line    0x00050228     0x12b6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
+ .debug_line    0x000514de     0x1a72 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
+ .debug_line    0x00052f50     0x2711 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
+ .debug_line    0x00055661      0xbe9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
+ .debug_line    0x0005624a     0x47c2 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
+ .debug_line    0x0005aa0c     0x2479 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
+ .debug_line    0x0005ce85     0x368d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
+ .debug_line    0x00060512     0x104a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
+ .debug_line    0x0006155c      0x40b ./Libraries/ECDSA/prime256v1.o
+ .debug_line    0x00061967     0x26ad ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
+ .debug_line    0x00064014      0xdd3 ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
+ .debug_line    0x00064de7      0x6ac ./exDrivers/Src/CY15B108QN_driver.o
+ .debug_line    0x00065493      0x4de ./exDrivers/Src/DAC8050x_driver.o
+ .debug_line    0x00065971      0x4b3 ./exDrivers/Src/ISL23315T_driver.o
+ .debug_line    0x00065e24      0x145 ./exDrivers/Src/LT1615_driver.o
+ .debug_line    0x00065f69      0x4e4 ./exDrivers/Src/MIS2DHTR_driver.o
 
-.debug_str      0x00000000   0x193215
- .debug_str     0x00000000   0x193215 ./App/Bsp/Src/bsp_adc.o
-                             0x173307 (size before relaxing)
- .debug_str     0x00193215   0x1726ec ./App/Bsp/Src/bsp_fram.o
- .debug_str     0x00193215   0x177f23 ./App/Bsp/Src/bsp_magnet.o
- .debug_str     0x00193215   0x17369c ./App/Bsp/Src/bsp_serialport.o
- .debug_str     0x00193215   0x17260f ./App/Bsp/Src/bsp_watchdog.o
- .debug_str     0x00193215   0x178212 ./App/Functions/Src/app_func_authentication.o
- .debug_str     0x00193215   0x17831a ./App/Functions/Src/app_func_ble.o
- .debug_str     0x00193215   0x177b4a ./App/Functions/Src/app_func_command.o
- .debug_str     0x00193215   0x177dae ./App/Functions/Src/app_func_logs.o
- .debug_str     0x00193215   0x177c3a ./App/Functions/Src/app_func_measurement.o
- .debug_str     0x00193215   0x178601 ./App/Functions/Src/app_func_parameter.o
- .debug_str     0x00193215   0x1780f6 ./App/Functions/Src/app_func_state_machine.o
- .debug_str     0x00193215   0x17f257 ./App/Functions/Src/app_func_stimulation.o
- .debug_str     0x00193215   0x179109 ./App/Src/DVT/app_mode_dvt.o
- .debug_str     0x00193215   0x178904 ./App/Src/app.o
- .debug_str     0x00193215   0x177b8c ./App/Src/app_mode_battery_test.o
- .debug_str     0x00193215   0x177d9a ./App/Src/app_mode_ble_active.o
- .debug_str     0x00193215   0x1781f8 ./App/Src/app_mode_ble_connection.o
- .debug_str     0x00193215   0x1779ff ./App/Src/app_mode_bsl.o
- .debug_str     0x00193215   0x177cf5 ./App/Src/app_mode_impedance_test.o
- .debug_str     0x00193215   0x17793b ./App/Src/app_mode_oad.o
- .debug_str     0x00193215   0x177fe9 ./App/Src/app_mode_therapy_session.o
- .debug_str     0x00193215   0x177e3f ./App/Src/app_mode_wpt.o
- .debug_str     0x00193215   0x17868b ./App/Src/app_state.o
- .debug_str     0x00193215   0x17196a ./Core/Src/adc.o
- .debug_str     0x00193215   0x170ad0 ./Core/Src/crc.o
- .debug_str     0x00193215   0x171025 ./Core/Src/gpdma.o
- .debug_str     0x00193215   0x1710f2 ./Core/Src/gpio.o
- .debug_str     0x00193215   0x1716c9 ./Core/Src/hash.o
- .debug_str     0x00193215   0x171b20 ./Core/Src/i2c.o
- .debug_str     0x00193215   0x1706c8 ./Core/Src/icache.o
- .debug_str     0x00193215   0x170739 ./Core/Src/iwdg.o
- .debug_str     0x00193215   0x171ac1 ./Core/Src/lptim.o
- .debug_str     0x00193215   0x178100 ./Core/Src/main.o
- .debug_str     0x00193215   0x171182 ./Core/Src/pka.o
- .debug_str     0x00193215   0x17153c ./Core/Src/rng.o
- .debug_str     0x00193215   0x17181c ./Core/Src/rtc.o
- .debug_str     0x00193215   0x171bb0 ./Core/Src/spi.o
- .debug_str     0x00193215   0x1710ed ./Core/Src/stm32u5xx_hal_msp.o
- .debug_str     0x00193215   0x172524 ./Core/Src/stm32u5xx_it.o
- .debug_str     0x00193215   0x16f7ff ./Core/Src/system_stm32u5xx.o
- .debug_str     0x00193215   0x171a2d ./Core/Src/tim.o
- .debug_str     0x00193215   0x171b1d ./Core/Src/usart.o
- .debug_str     0x00193215       0xac ./Core/Startup/startup_stm32u585qiixq.o
- .debug_str     0x00193215   0x17069a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
- .debug_str     0x00193215   0x170afa ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
- .debug_str     0x00193215   0x170651 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
- .debug_str     0x00193215   0x17047a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
- .debug_str     0x00193215   0x16f700 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
- .debug_str     0x00193215   0x16f6a6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
- .debug_str     0x00193215   0x16fb95 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
- .debug_str     0x00193215   0x170201 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
- .debug_str     0x00193215   0x16f8d6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
- .debug_str     0x00193215   0x16fb23 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
- .debug_str     0x00193215   0x16f824 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
- .debug_str     0x00193215   0x17018c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
- .debug_str     0x00193215   0x16fee3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
- .debug_str     0x00193215   0x170a4d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
- .debug_str     0x00193215   0x16fc35 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
- .debug_str     0x00193215   0x16fb33 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
- .debug_str     0x00193215   0x16f60c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
- .debug_str     0x00193215   0x170319 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
- .debug_str     0x00193215   0x170cbc ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
- .debug_str     0x00193215   0x16f993 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
- .debug_str     0x00193215   0x16ff3f ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
- .debug_str     0x00193215   0x170ef4 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
- .debug_str     0x00193215   0x1721f9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
- .debug_str     0x00193215   0x16f700 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
- .debug_str     0x00193215   0x16fb36 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
- .debug_str     0x00193215   0x170614 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
- .debug_str     0x00193215   0x1700f3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
- .debug_str     0x00193215   0x16fc63 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
- .debug_str     0x00193215   0x170c54 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
- .debug_str     0x00193215   0x170acc ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
- .debug_str     0x00193215   0x1704c6 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
- .debug_str     0x00193215   0x16ff78 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
- .debug_str     0x00193215     0x3ff2 ./Libraries/ECDSA/prime256v1.o
- .debug_str     0x00193215   0x172633 ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
- .debug_str     0x00193215   0x171eb2 ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
- .debug_str     0x00193215     0x75bc ./exDrivers/Src/CY15B108QN_driver.o
- .debug_str     0x00193215     0x4191 ./exDrivers/Src/DAC8050x_driver.o
- .debug_str     0x00193215     0x3ffc ./exDrivers/Src/ISL23315T_driver.o
- .debug_str     0x00193215     0x2f83 ./exDrivers/Src/LT1615_driver.o
- .debug_str     0x00193215     0x46f5 ./exDrivers/Src/MIS2DHTR_driver.o
+.debug_str      0x00000000   0x1932a6
+ .debug_str     0x00000000   0x1932a6 ./App/Bsp/Src/bsp_adc.o
+                             0x173314 (size before relaxing)
+ .debug_str     0x001932a6   0x1726f9 ./App/Bsp/Src/bsp_fram.o
+ .debug_str     0x001932a6   0x177f4c ./App/Bsp/Src/bsp_magnet.o
+ .debug_str     0x001932a6   0x1736a9 ./App/Bsp/Src/bsp_serialport.o
+ .debug_str     0x001932a6   0x17261c ./App/Bsp/Src/bsp_watchdog.o
+ .debug_str     0x001932a6   0x17823b ./App/Functions/Src/app_func_authentication.o
+ .debug_str     0x001932a6   0x178343 ./App/Functions/Src/app_func_ble.o
+ .debug_str     0x001932a6   0x177b73 ./App/Functions/Src/app_func_command.o
+ .debug_str     0x001932a6   0x177dd7 ./App/Functions/Src/app_func_logs.o
+ .debug_str     0x001932a6   0x177c63 ./App/Functions/Src/app_func_measurement.o
+ .debug_str     0x001932a6   0x17862a ./App/Functions/Src/app_func_parameter.o
+ .debug_str     0x001932a6   0x17811f ./App/Functions/Src/app_func_state_machine.o
+ .debug_str     0x001932a6   0x17f280 ./App/Functions/Src/app_func_stimulation.o
+ .debug_str     0x001932a6   0x179132 ./App/Src/DVT/app_mode_dvt.o
+ .debug_str     0x001932a6   0x17892d ./App/Src/app.o
+ .debug_str     0x001932a6   0x177bb5 ./App/Src/app_mode_battery_test.o
+ .debug_str     0x001932a6   0x177dc3 ./App/Src/app_mode_ble_active.o
+ .debug_str     0x001932a6   0x178221 ./App/Src/app_mode_ble_connection.o
+ .debug_str     0x001932a6   0x177a28 ./App/Src/app_mode_bsl.o
+ .debug_str     0x001932a6   0x177d1e ./App/Src/app_mode_impedance_test.o
+ .debug_str     0x001932a6   0x177964 ./App/Src/app_mode_oad.o
+ .debug_str     0x001932a6   0x178012 ./App/Src/app_mode_therapy_session.o
+ .debug_str     0x001932a6   0x177e68 ./App/Src/app_mode_wpt.o
+ .debug_str     0x001932a6   0x1786b4 ./App/Src/app_state.o
+ .debug_str     0x001932a6   0x171977 ./Core/Src/adc.o
+ .debug_str     0x001932a6   0x170add ./Core/Src/crc.o
+ .debug_str     0x001932a6   0x171032 ./Core/Src/gpdma.o
+ .debug_str     0x001932a6   0x1710ff ./Core/Src/gpio.o
+ .debug_str     0x001932a6   0x1716d6 ./Core/Src/hash.o
+ .debug_str     0x001932a6   0x171b2d ./Core/Src/i2c.o
+ .debug_str     0x001932a6   0x1706d5 ./Core/Src/icache.o
+ .debug_str     0x001932a6   0x170746 ./Core/Src/iwdg.o
+ .debug_str     0x001932a6   0x171ace ./Core/Src/lptim.o
+ .debug_str     0x001932a6   0x178129 ./Core/Src/main.o
+ .debug_str     0x001932a6   0x17118f ./Core/Src/pka.o
+ .debug_str     0x001932a6   0x171549 ./Core/Src/rng.o
+ .debug_str     0x001932a6   0x171829 ./Core/Src/rtc.o
+ .debug_str     0x001932a6   0x171bbd ./Core/Src/spi.o
+ .debug_str     0x001932a6   0x1710fa ./Core/Src/stm32u5xx_hal_msp.o
+ .debug_str     0x001932a6   0x172531 ./Core/Src/stm32u5xx_it.o
+ .debug_str     0x001932a6   0x16f80c ./Core/Src/system_stm32u5xx.o
+ .debug_str     0x001932a6   0x171a3a ./Core/Src/tim.o
+ .debug_str     0x001932a6   0x171b2a ./Core/Src/usart.o
+ .debug_str     0x001932a6       0xb9 ./Core/Startup/startup_stm32u585qiixq.o
+ .debug_str     0x001932a6   0x1706a7 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.o
+ .debug_str     0x001932a6   0x170b07 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc.o
+ .debug_str     0x001932a6   0x17065e ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_adc_ex.o
+ .debug_str     0x001932a6   0x170487 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.o
+ .debug_str     0x001932a6   0x16f70d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc.o
+ .debug_str     0x001932a6   0x16f6b3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_crc_ex.o
+ .debug_str     0x001932a6   0x16fba2 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.o
+ .debug_str     0x001932a6   0x17020e ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.o
+ .debug_str     0x001932a6   0x16f8e3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.o
+ .debug_str     0x001932a6   0x16fb30 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.o
+ .debug_str     0x001932a6   0x16f831 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.o
+ .debug_str     0x001932a6   0x170199 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash.o
+ .debug_str     0x001932a6   0x16fef0 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_hash_ex.o
+ .debug_str     0x001932a6   0x170a5a ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.o
+ .debug_str     0x001932a6   0x16fc42 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.o
+ .debug_str     0x001932a6   0x16fb40 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.o
+ .debug_str     0x001932a6   0x16f619 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_iwdg.o
+ .debug_str     0x001932a6   0x170326 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_lptim.o
+ .debug_str     0x001932a6   0x170cc9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pka.o
+ .debug_str     0x001932a6   0x16f9a0 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.o
+ .debug_str     0x001932a6   0x16ff4c ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.o
+ .debug_str     0x001932a6   0x170f01 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.o
+ .debug_str     0x001932a6   0x172206 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.o
+ .debug_str     0x001932a6   0x16f70d ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng.o
+ .debug_str     0x001932a6   0x16fb43 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.o
+ .debug_str     0x001932a6   0x170621 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.o
+ .debug_str     0x001932a6   0x170100 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.o
+ .debug_str     0x001932a6   0x16fc70 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.o
+ .debug_str     0x001932a6   0x170c61 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.o
+ .debug_str     0x001932a6   0x170ad9 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.o
+ .debug_str     0x001932a6   0x1704d3 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.o
+ .debug_str     0x001932a6   0x16ff85 ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.o
+ .debug_str     0x001932a6     0x400c ./Libraries/ECDSA/prime256v1.o
+ .debug_str     0x001932a6   0x17264d ./Middlewares/EEPROM_Emul/Core/eeprom_emul.o
+ .debug_str     0x001932a6   0x171ecc ./Middlewares/EEPROM_Emul/Porting/flash_interface.o
+ .debug_str     0x001932a6     0x75d6 ./exDrivers/Src/CY15B108QN_driver.o
+ .debug_str     0x001932a6     0x41ab ./exDrivers/Src/DAC8050x_driver.o
+ .debug_str     0x001932a6     0x4016 ./exDrivers/Src/ISL23315T_driver.o
+ .debug_str     0x001932a6     0x2f9d ./exDrivers/Src/LT1615_driver.o
+ .debug_str     0x001932a6     0x470f ./exDrivers/Src/MIS2DHTR_driver.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./App/Bsp/Src/bsp_adc.o
@@ -22500,6 +22500,6 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_frame   0x0000ed30       0x38 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.macos64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v8-m.main+fp/hard/libgcc.a(_udivmoddi4.o)
 
 .debug_line_str
-                0x00000000       0x90
+                0x00000000       0x9d
  .debug_line_str
-                0x00000000       0x90 ./Core/Startup/startup_stm32u585qiixq.o
+                0x00000000       0x9d ./Core/Startup/startup_stm32u585qiixq.o

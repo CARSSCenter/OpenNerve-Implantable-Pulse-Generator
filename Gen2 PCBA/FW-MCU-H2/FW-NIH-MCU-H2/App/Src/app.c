@@ -21,6 +21,33 @@ static void app_magnet_lost_cb(uint8_t detected_time) {
  *
  */
 void app_init(void) {
+#if BOARD_HAS_BATT_DISCONNECT
+	/* Battery-disconnect reset guard.
+	 * BATT.SW_EN (PG3) is hi-Z from reset until here. If a shutdown or EOS disconnect was in
+	 * progress and nothing external is waking / powering the device, this boot came from a reset
+	 * during the discharge window (e.g. brownout as the switch opens): keep the pin floating
+	 * and wait for power to drop. A deliberate power-on always has the magnet, a WPT coil or
+	 * USB present, so stale backup-register values cannot keep the device off. */
+	{
+		bool disconnect_pending = (HAL_RTCEx_BKUPRead(&hrtc, BATT_DISCONNECT_BKP_REG) == BATT_DISCONNECT_MAGIC) ||
+		                          (HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2) >= COUNT_MAX_EOS);
+		bool external = (HAL_GPIO_ReadPin(VRECT_DETn_GPIO_Port, VRECT_DETn_Pin) == GPIO_PIN_RESET) ||
+		                (HAL_GPIO_ReadPin(MAG_DET_GPIO_Port, MAG_DET_Pin) == GPIO_PIN_SET) ||
+		                (HAL_GPIO_ReadPin(VCHG_PGOOD_GPIO_Port, VCHG_PGOOD_Pin) == GPIO_PIN_SET);
+
+		if (disconnect_pending && !external) {
+			app_state_batt_sw_float();
+			while (1) {
+				HAL_IWDG_Refresh(&hiwdg);
+				HAL_Delay(100);
+			}
+		}
+
+		HAL_RTCEx_BKUPWrite(&hrtc, BATT_DISCONNECT_BKP_REG, 0U);
+		app_state_batt_sw_hold();
+	}
+#endif
+
 	/* Dead-battery WPT cold-start guard.
 	 * VCHG_DISABLE was held LOW (converter enabled) since gpio.c init so that VCHG_RAIL
 	 * stays alive if the device is powered by a wireless charger with a depleted battery.

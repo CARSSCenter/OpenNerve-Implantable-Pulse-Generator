@@ -119,7 +119,9 @@ The window and count are reset any time the 10-minute timer runs out without rea
 
 ### EOS / Post-Shutdown Behavior
 
-If the device has reached End of Service (EOS) and entered sleep with `BATT_SW_EN` pulled low (batteries in the process of disconnecting), applying the magnet with a valid wakeup gesture will still wake the device. `BATT_SW_EN` is restored HIGH on wakeup, which halts the battery-disconnect process. Normal BLE advertising begins. The EOS counter remains set — the next battery test (or the next return to sleep) will re-evaluate whether EOS still applies.
+This applies only to builds with `BOARD_HAS_BATT_DISCONNECT = 1` (dev board, `BATT_SW_EN` on PG3). On Gen2 boards (flag = 0) EOS only enters sleep and the batteries are never disconnected, because PA15's reset-state pull-up recharged the timing capacitor and caused a reset loop.
+
+If the device has reached End of Service (EOS) and entered sleep with `BATT_SW_EN` floated (batteries in the process of disconnecting), applying the magnet with a valid wakeup gesture will still wake the device. `BATT_SW_EN` is restored HIGH on wakeup, which halts the battery-disconnect process. Normal BLE advertising begins. The EOS counter remains set — the next battery test (or the next return to sleep) will re-evaluate whether EOS still applies.
 
 ---
 

@@ -71,6 +71,22 @@
 #define	DEFAULT_STATE	STATE_ACT_MODE_BLE_ACT		/*!< The default state after power-on */
 #endif
 
+/* Board support for battery disconnect via BATT.SW_EN.
+ * 0 = Gen2 board: BATT.SW_EN is on PA15 (JTDI), whose reset-state pull-up recharges the
+ *     disconnect timing capacitor and causes a reset loop, so the battery is never disconnected.
+ *     SHUTDOWN drives IPG_SHDN (non-functional in hardware) and EOS only enters sleep.
+ * 1 = Dev board (Dev_Board_Tapeout): BATT.SW_EN moved to PG3 (ball G11). SHUTDOWN and EOS
+ *     float the pin, and the battery disconnects after the capacitor discharges (~1-2 min).
+ * Flashing a 1 build onto a Gen2 board re-introduces the reset loop at EOS. */
+#define BOARD_HAS_BATT_DISCONNECT	0
+
+#if BOARD_HAS_BATT_DISCONNECT
+#define BATT_DISCONNECT_GPIO_Port	GPIOG
+#define BATT_DISCONNECT_Pin			GPIO_PIN_3
+#define BATT_DISCONNECT_BKP_REG		RTC_BKP_DR3		/*!< Holds BATT_DISCONNECT_MAGIC while a commanded shutdown is in progress */
+#define BATT_DISCONNECT_MAGIC		0x5D5D5D5DU
+#endif
+
 //#define SWV_TRACE
 
 #ifdef USE_UNITY

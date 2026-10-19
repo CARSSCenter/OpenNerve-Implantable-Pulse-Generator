@@ -61,7 +61,7 @@ Event label strings are exactly 5 bytes (padded with spaces):
 |---|---|---|
 | `PO   ` | `EVENT_POWER_ON` | MCU powered on and fully initialized (written once per clean boot, not on wakeup from sleep) |
 | `ER   ` | `EVENT_ER` | Battery voltage has been in the Early Replacement range for 3 consecutive checks |
-| `EOS  ` | `EVENT_EOS` | Battery voltage has been at End of Service level for 3 consecutive checks; device transitions to sleep immediately after, then pulls `BATT_SW_EN` LOW to discharge the battery-disconnect timing capacitor (~1–2 min to full disconnect) |
+| `EOS  ` | `EVENT_EOS` | Battery voltage has been at End of Service level for 3 consecutive checks; device transitions to sleep immediately after. On builds with `BOARD_HAS_BATT_DISCONNECT = 1` (dev board), the sleep handler then floats `BATT_SW_EN` (PG3) so the battery-disconnect timing capacitor discharges (~1–2 min to full disconnect); on Gen2 boards (flag = 0) the device only sleeps |
 | `UF   ` | `EVENT_UNRESPONSIVE_FUNCTION` | Watchdog timer fired — written on the **next boot** by checking the reset-cause register |
 | `MD   ` | `EVENT_MAGNET_DETECTION` | Magnet was held and removed for the configured duration (triggers sleep↔wake transition) |
 | `SC   ` | `EVENT_SHORT_CIRCUIT` | Short circuit detected during impedance measurement |
@@ -74,7 +74,7 @@ Event label strings are exactly 5 bytes (padded with spaces):
 | `BD   ` | `EVENT_BLE_DISCONNECT` | BLE client disconnected (idle timeout, explicit disconnect request, or hardware-side link loss) |
 | `SL   ` | `EVENT_SLEEP` | Device entering sleep (low-power STOP) state |
 | `WK   ` | `EVENT_WAKEUP` | Device woken from sleep and peripherals re-initialized |
-| `SD   ` | `EVENT_SHUTDOWN` | Intentional shutdown commanded via BLE (`OP_SHUTDOWN_SYSTEM`). Does not appear for EOS shutdowns — those are logged as `EOS  ` instead. |
+| `SD   ` | `EVENT_SHUTDOWN` | Intentional shutdown commanded via BLE (`OP_SHUTDOWN_SYSTEM`). On dev-board builds (`BOARD_HAS_BATT_DISCONNECT = 1`) this floats `BATT_SW_EN` and the battery disconnects ~1–2 min later. Does not appear for EOS shutdowns — those are logged as `EOS  ` instead. |
 
 > **Note:** `OC   ` (open circuit) is defined in the header but has no call site — it is never written by current firmware.
 

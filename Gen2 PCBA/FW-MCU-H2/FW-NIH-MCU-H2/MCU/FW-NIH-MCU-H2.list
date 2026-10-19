@@ -31,17 +31,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  13 .debug_rnglists 00002e0a  00000000  00000000  00093068  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_macro  0004ce4f  00000000  00000000  00095e72  2**0
+ 14 .debug_macro  0004ce55  00000000  00000000  00095e72  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   0006594b  00000000  00000000  000e2cc1  2**0
+ 15 .debug_line   0006644d  00000000  00000000  000e2cc7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    00193215  00000000  00000000  0014860c  2**0
+ 16 .debug_str    001932a6  00000000  00000000  00149114  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000043  00000000  00000000  002db821  2**0
+ 17 .comment      00000043  00000000  00000000  002dc3ba  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  0000ed68  00000000  00000000  002db864  2**2
+ 18 .debug_frame  0000ed68  00000000  00000000  002dc400  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line_str 00000090  00000000  00000000  002ea5cc  2**0
+ 19 .debug_line_str 0000009d  00000000  00000000  002eb168  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -9433,67 +9433,67 @@ void app_func_para_init (void) {
  800486e:	3330      	adds	r3, #48	@ 0x30
  8004870:	b2db      	uxtb	r3, r3
  8004872:	727b      	strb	r3, [r7, #9]
- 8004874:	2353      	movs	r3, #83	@ 0x53
+ 8004874:	234f      	movs	r3, #79	@ 0x4f
  8004876:	2b4a      	cmp	r3, #74	@ 0x4a
  8004878:	d105      	bne.n	8004886 <app_func_para_init+0x376>
- 800487a:	2365      	movs	r3, #101	@ 0x65
+ 800487a:	2363      	movs	r3, #99	@ 0x63
  800487c:	2b61      	cmp	r3, #97	@ 0x61
  800487e:	d102      	bne.n	8004886 <app_func_para_init+0x376>
- 8004880:	2370      	movs	r3, #112	@ 0x70
+ 8004880:	2374      	movs	r3, #116	@ 0x74
  8004882:	2b6e      	cmp	r3, #110	@ 0x6e
  8004884:	d037      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 8004886:	2353      	movs	r3, #83	@ 0x53
+ 8004886:	234f      	movs	r3, #79	@ 0x4f
  8004888:	2b46      	cmp	r3, #70	@ 0x46
  800488a:	d034      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 800488c:	2353      	movs	r3, #83	@ 0x53
+ 800488c:	234f      	movs	r3, #79	@ 0x4f
  800488e:	2b4d      	cmp	r3, #77	@ 0x4d
  8004890:	d105      	bne.n	800489e <app_func_para_init+0x38e>
- 8004892:	2365      	movs	r3, #101	@ 0x65
+ 8004892:	2363      	movs	r3, #99	@ 0x63
  8004894:	2b61      	cmp	r3, #97	@ 0x61
  8004896:	d102      	bne.n	800489e <app_func_para_init+0x38e>
- 8004898:	2370      	movs	r3, #112	@ 0x70
+ 8004898:	2374      	movs	r3, #116	@ 0x74
  800489a:	2b72      	cmp	r3, #114	@ 0x72
  800489c:	d02b      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 800489e:	2353      	movs	r3, #83	@ 0x53
+ 800489e:	234f      	movs	r3, #79	@ 0x4f
  80048a0:	2b41      	cmp	r3, #65	@ 0x41
  80048a2:	d102      	bne.n	80048aa <app_func_para_init+0x39a>
- 80048a4:	2365      	movs	r3, #101	@ 0x65
+ 80048a4:	2363      	movs	r3, #99	@ 0x63
  80048a6:	2b70      	cmp	r3, #112	@ 0x70
  80048a8:	d025      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 80048aa:	2353      	movs	r3, #83	@ 0x53
+ 80048aa:	234f      	movs	r3, #79	@ 0x4f
  80048ac:	2b4d      	cmp	r3, #77	@ 0x4d
  80048ae:	d105      	bne.n	80048bc <app_func_para_init+0x3ac>
- 80048b0:	2365      	movs	r3, #101	@ 0x65
+ 80048b0:	2363      	movs	r3, #99	@ 0x63
  80048b2:	2b61      	cmp	r3, #97	@ 0x61
  80048b4:	d102      	bne.n	80048bc <app_func_para_init+0x3ac>
- 80048b6:	2370      	movs	r3, #112	@ 0x70
+ 80048b6:	2374      	movs	r3, #116	@ 0x74
  80048b8:	2b79      	cmp	r3, #121	@ 0x79
  80048ba:	d01c      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 80048bc:	2353      	movs	r3, #83	@ 0x53
+ 80048bc:	234f      	movs	r3, #79	@ 0x4f
  80048be:	2b4a      	cmp	r3, #74	@ 0x4a
  80048c0:	d105      	bne.n	80048ce <app_func_para_init+0x3be>
- 80048c2:	2365      	movs	r3, #101	@ 0x65
+ 80048c2:	2363      	movs	r3, #99	@ 0x63
  80048c4:	2b75      	cmp	r3, #117	@ 0x75
  80048c6:	d102      	bne.n	80048ce <app_func_para_init+0x3be>
- 80048c8:	2370      	movs	r3, #112	@ 0x70
+ 80048c8:	2374      	movs	r3, #116	@ 0x74
  80048ca:	2b6e      	cmp	r3, #110	@ 0x6e
  80048cc:	d013      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 80048ce:	2353      	movs	r3, #83	@ 0x53
+ 80048ce:	234f      	movs	r3, #79	@ 0x4f
  80048d0:	2b4a      	cmp	r3, #74	@ 0x4a
  80048d2:	d105      	bne.n	80048e0 <app_func_para_init+0x3d0>
- 80048d4:	2365      	movs	r3, #101	@ 0x65
+ 80048d4:	2363      	movs	r3, #99	@ 0x63
  80048d6:	2b75      	cmp	r3, #117	@ 0x75
  80048d8:	d102      	bne.n	80048e0 <app_func_para_init+0x3d0>
- 80048da:	2370      	movs	r3, #112	@ 0x70
+ 80048da:	2374      	movs	r3, #116	@ 0x74
  80048dc:	2b6c      	cmp	r3, #108	@ 0x6c
  80048de:	d00a      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 80048e0:	2353      	movs	r3, #83	@ 0x53
+ 80048e0:	234f      	movs	r3, #79	@ 0x4f
  80048e2:	2b41      	cmp	r3, #65	@ 0x41
  80048e4:	d102      	bne.n	80048ec <app_func_para_init+0x3dc>
- 80048e6:	2365      	movs	r3, #101	@ 0x65
+ 80048e6:	2363      	movs	r3, #99	@ 0x63
  80048e8:	2b75      	cmp	r3, #117	@ 0x75
  80048ea:	d004      	beq.n	80048f6 <app_func_para_init+0x3e6>
- 80048ec:	2353      	movs	r3, #83	@ 0x53
+ 80048ec:	234f      	movs	r3, #79	@ 0x4f
  80048ee:	2b53      	cmp	r3, #83	@ 0x53
  80048f0:	d001      	beq.n	80048f6 <app_func_para_init+0x3e6>
  80048f2:	2301      	movs	r3, #1
@@ -9503,73 +9503,73 @@ void app_func_para_init (void) {
  80048fa:	3330      	adds	r3, #48	@ 0x30
  80048fc:	b2db      	uxtb	r3, r3
  80048fe:	72bb      	strb	r3, [r7, #10]
- 8004900:	2353      	movs	r3, #83	@ 0x53
+ 8004900:	234f      	movs	r3, #79	@ 0x4f
  8004902:	2b4a      	cmp	r3, #74	@ 0x4a
  8004904:	d105      	bne.n	8004912 <app_func_para_init+0x402>
- 8004906:	2365      	movs	r3, #101	@ 0x65
+ 8004906:	2363      	movs	r3, #99	@ 0x63
  8004908:	2b61      	cmp	r3, #97	@ 0x61
  800490a:	d102      	bne.n	8004912 <app_func_para_init+0x402>
- 800490c:	2370      	movs	r3, #112	@ 0x70
+ 800490c:	2374      	movs	r3, #116	@ 0x74
  800490e:	2b6e      	cmp	r3, #110	@ 0x6e
  8004910:	d051      	beq.n	80049b6 <app_func_para_init+0x4a6>
- 8004912:	2353      	movs	r3, #83	@ 0x53
+ 8004912:	234f      	movs	r3, #79	@ 0x4f
  8004914:	2b46      	cmp	r3, #70	@ 0x46
  8004916:	d04c      	beq.n	80049b2 <app_func_para_init+0x4a2>
- 8004918:	2353      	movs	r3, #83	@ 0x53
+ 8004918:	234f      	movs	r3, #79	@ 0x4f
  800491a:	2b4d      	cmp	r3, #77	@ 0x4d
  800491c:	d105      	bne.n	800492a <app_func_para_init+0x41a>
- 800491e:	2365      	movs	r3, #101	@ 0x65
+ 800491e:	2363      	movs	r3, #99	@ 0x63
  8004920:	2b61      	cmp	r3, #97	@ 0x61
  8004922:	d102      	bne.n	800492a <app_func_para_init+0x41a>
- 8004924:	2370      	movs	r3, #112	@ 0x70
+ 8004924:	2374      	movs	r3, #116	@ 0x74
  8004926:	2b72      	cmp	r3, #114	@ 0x72
  8004928:	d041      	beq.n	80049ae <app_func_para_init+0x49e>
- 800492a:	2353      	movs	r3, #83	@ 0x53
+ 800492a:	234f      	movs	r3, #79	@ 0x4f
  800492c:	2b41      	cmp	r3, #65	@ 0x41
  800492e:	d102      	bne.n	8004936 <app_func_para_init+0x426>
- 8004930:	2365      	movs	r3, #101	@ 0x65
+ 8004930:	2363      	movs	r3, #99	@ 0x63
  8004932:	2b70      	cmp	r3, #112	@ 0x70
  8004934:	d039      	beq.n	80049aa <app_func_para_init+0x49a>
- 8004936:	2353      	movs	r3, #83	@ 0x53
+ 8004936:	234f      	movs	r3, #79	@ 0x4f
  8004938:	2b4d      	cmp	r3, #77	@ 0x4d
  800493a:	d105      	bne.n	8004948 <app_func_para_init+0x438>
- 800493c:	2365      	movs	r3, #101	@ 0x65
+ 800493c:	2363      	movs	r3, #99	@ 0x63
  800493e:	2b61      	cmp	r3, #97	@ 0x61
  8004940:	d102      	bne.n	8004948 <app_func_para_init+0x438>
- 8004942:	2370      	movs	r3, #112	@ 0x70
+ 8004942:	2374      	movs	r3, #116	@ 0x74
  8004944:	2b79      	cmp	r3, #121	@ 0x79
  8004946:	d02e      	beq.n	80049a6 <app_func_para_init+0x496>
- 8004948:	2353      	movs	r3, #83	@ 0x53
+ 8004948:	234f      	movs	r3, #79	@ 0x4f
  800494a:	2b4a      	cmp	r3, #74	@ 0x4a
  800494c:	d105      	bne.n	800495a <app_func_para_init+0x44a>
- 800494e:	2365      	movs	r3, #101	@ 0x65
+ 800494e:	2363      	movs	r3, #99	@ 0x63
  8004950:	2b75      	cmp	r3, #117	@ 0x75
  8004952:	d102      	bne.n	800495a <app_func_para_init+0x44a>
- 8004954:	2370      	movs	r3, #112	@ 0x70
+ 8004954:	2374      	movs	r3, #116	@ 0x74
  8004956:	2b6e      	cmp	r3, #110	@ 0x6e
  8004958:	d023      	beq.n	80049a2 <app_func_para_init+0x492>
- 800495a:	2353      	movs	r3, #83	@ 0x53
+ 800495a:	234f      	movs	r3, #79	@ 0x4f
  800495c:	2b4a      	cmp	r3, #74	@ 0x4a
  800495e:	d105      	bne.n	800496c <app_func_para_init+0x45c>
- 8004960:	2365      	movs	r3, #101	@ 0x65
+ 8004960:	2363      	movs	r3, #99	@ 0x63
  8004962:	2b75      	cmp	r3, #117	@ 0x75
  8004964:	d102      	bne.n	800496c <app_func_para_init+0x45c>
- 8004966:	2370      	movs	r3, #112	@ 0x70
+ 8004966:	2374      	movs	r3, #116	@ 0x74
  8004968:	2b6c      	cmp	r3, #108	@ 0x6c
  800496a:	d018      	beq.n	800499e <app_func_para_init+0x48e>
- 800496c:	2353      	movs	r3, #83	@ 0x53
+ 800496c:	234f      	movs	r3, #79	@ 0x4f
  800496e:	2b41      	cmp	r3, #65	@ 0x41
  8004970:	d102      	bne.n	8004978 <app_func_para_init+0x468>
- 8004972:	2365      	movs	r3, #101	@ 0x65
+ 8004972:	2363      	movs	r3, #99	@ 0x63
  8004974:	2b75      	cmp	r3, #117	@ 0x75
  8004976:	d010      	beq.n	800499a <app_func_para_init+0x48a>
- 8004978:	2353      	movs	r3, #83	@ 0x53
+ 8004978:	234f      	movs	r3, #79	@ 0x4f
  800497a:	2b53      	cmp	r3, #83	@ 0x53
  800497c:	d00b      	beq.n	8004996 <app_func_para_init+0x486>
- 800497e:	2353      	movs	r3, #83	@ 0x53
+ 800497e:	234f      	movs	r3, #79	@ 0x4f
  8004980:	2b4f      	cmp	r3, #79	@ 0x4f
  8004982:	d006      	beq.n	8004992 <app_func_para_init+0x482>
- 8004984:	2353      	movs	r3, #83	@ 0x53
+ 8004984:	234f      	movs	r3, #79	@ 0x4f
  8004986:	2b4e      	cmp	r3, #78	@ 0x4e
  8004988:	d101      	bne.n	800498e <app_func_para_init+0x47e>
  800498a:	2331      	movs	r3, #49	@ 0x31
@@ -9596,10 +9596,10 @@ void app_func_para_init (void) {
  80049b4:	e000      	b.n	80049b8 <app_func_para_init+0x4a8>
  80049b6:	2331      	movs	r3, #49	@ 0x31
  80049b8:	72fb      	strb	r3, [r7, #11]
- 80049ba:	2320      	movs	r3, #32
+ 80049ba:	2331      	movs	r3, #49	@ 0x31
  80049bc:	2b20      	cmp	r3, #32
  80049be:	d10b      	bne.n	80049d8 <app_func_para_init+0x4c8>
- 80049c0:	2332      	movs	r3, #50	@ 0x32
+ 80049c0:	2339      	movs	r3, #57	@ 0x39
  80049c2:	3b30      	subs	r3, #48	@ 0x30
  80049c4:	4a36      	ldr	r2, [pc, #216]	@ (8004aa0 <app_func_para_init+0x590>)
  80049c6:	fb82 1203 	smull	r1, r2, r2, r3
@@ -9610,14 +9610,14 @@ void app_func_para_init (void) {
  80049d2:	3330      	adds	r3, #48	@ 0x30
  80049d4:	b2db      	uxtb	r3, r3
  80049d6:	e013      	b.n	8004a00 <app_func_para_init+0x4f0>
- 80049d8:	2320      	movs	r3, #32
+ 80049d8:	2331      	movs	r3, #49	@ 0x31
  80049da:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
  80049de:	4613      	mov	r3, r2
  80049e0:	009b      	lsls	r3, r3, #2
  80049e2:	4413      	add	r3, r2
  80049e4:	005b      	lsls	r3, r3, #1
  80049e6:	461a      	mov	r2, r3
- 80049e8:	2332      	movs	r3, #50	@ 0x32
+ 80049e8:	2339      	movs	r3, #57	@ 0x39
  80049ea:	3b30      	subs	r3, #48	@ 0x30
  80049ec:	4413      	add	r3, r2
  80049ee:	4a2c      	ldr	r2, [pc, #176]	@ (8004aa0 <app_func_para_init+0x590>)
@@ -9629,10 +9629,10 @@ void app_func_para_init (void) {
  80049fc:	3330      	adds	r3, #48	@ 0x30
  80049fe:	b2db      	uxtb	r3, r3
  8004a00:	733b      	strb	r3, [r7, #12]
- 8004a02:	2320      	movs	r3, #32
+ 8004a02:	2331      	movs	r3, #49	@ 0x31
  8004a04:	2b20      	cmp	r3, #32
  8004a06:	d111      	bne.n	8004a2c <app_func_para_init+0x51c>
- 8004a08:	2332      	movs	r3, #50	@ 0x32
+ 8004a08:	2339      	movs	r3, #57	@ 0x39
  8004a0a:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
  8004a0e:	4b24      	ldr	r3, [pc, #144]	@ (8004aa0 <app_func_para_init+0x590>)
  8004a10:	fb83 1302 	smull	r1, r3, r3, r2
@@ -9648,14 +9648,14 @@ void app_func_para_init (void) {
  8004a26:	3330      	adds	r3, #48	@ 0x30
  8004a28:	b2db      	uxtb	r3, r3
  8004a2a:	e018      	b.n	8004a5e <app_func_para_init+0x54e>
- 8004a2c:	2320      	movs	r3, #32
+ 8004a2c:	2331      	movs	r3, #49	@ 0x31
  8004a2e:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
  8004a32:	4613      	mov	r3, r2
  8004a34:	009b      	lsls	r3, r3, #2
  8004a36:	4413      	add	r3, r2
  8004a38:	005b      	lsls	r3, r3, #1
  8004a3a:	461a      	mov	r2, r3
- 8004a3c:	2332      	movs	r3, #50	@ 0x32
+ 8004a3c:	2339      	movs	r3, #57	@ 0x39
  8004a3e:	3b30      	subs	r3, #48	@ 0x30
  8004a40:	441a      	add	r2, r3
  8004a42:	4b17      	ldr	r3, [pc, #92]	@ (8004aa0 <app_func_para_init+0x590>)
@@ -30863,7 +30863,7 @@ static void app_state_power_off(void) {
 
 /**
  * @brief Handler for shutdown state
- * 
+ *
  */
 void app_state_shutdown_handler(void) {
  800f280:	b580      	push	{r7, lr}
@@ -30874,12 +30874,17 @@ void app_state_shutdown_handler(void) {
  800f288:	f7f2 fa98 	bl	80017bc <bsp_sp_deinit>
 	app_state_power_off();
  800f28c:	f7ff ffe2 	bl	800f254 <app_state_power_off>
-
+	while (1) {
+		bsp_wdg_refresh();
+		HAL_Delay(100);
+	}
+#else
 	HAL_GPIO_WritePin(IPG_SHDN_GPIO_Port, IPG_SHDN_Pin, GPIO_PIN_SET);
  800f290:	2201      	movs	r2, #1
  800f292:	f44f 5180 	mov.w	r1, #4096	@ 0x1000
  800f296:	4802      	ldr	r0, [pc, #8]	@ (800f2a0 <app_state_shutdown_handler+0x20>)
  800f298:	f008 fbd2 	bl	8017a40 <HAL_GPIO_WritePin>
+#endif
 }
  800f29c:	bf00      	nop
  800f29e:	bd80      	pop	{r7, pc}
@@ -31104,7 +31109,10 @@ void app_state_sleep_handler(void) {
  800f452:	4619      	mov	r1, r3
  800f454:	4835      	ldr	r0, [pc, #212]	@ (800f52c <app_state_sleep_handler+0x288>)
  800f456:	f008 f825 	bl	80174a4 <HAL_GPIO_Init>
+	if (HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2) >= COUNT_MAX_EOS) {
+		app_state_batt_sw_float();
 	}
+#endif
 
 	HAL_SuspendTick();
  800f45a:	f002 fda9 	bl	8011fb0 <HAL_SuspendTick>
@@ -31267,11 +31275,11 @@ void app_state_sleep_handler(void) {
  800f5ac:	6393      	str	r3, [r2, #56]	@ 0x38
 	HAL_ResumeTick();
  800f5ae:	f002 fd0f 	bl	8011fd0 <HAL_ResumeTick>
-	/* Restore all pins that were set to hi-Z during sleep.
-	 * bsp_sp_init (called below) handles I2C2, SPI1, and SPI1_BLE_CSn.
-	 * All other floated pins must be explicitly restored here before any
-	 * application code attempts to use them. */
-	{
+#if BOARD_HAS_BATT_DISCONNECT
+		/* Keep the battery connected (halts an EOS disconnect in progress) */
+		app_state_batt_sw_hold();
+#endif
+
 		GPIO_InitTypeDef GPIO_InitStruct = {0};
  800f5b2:	463b      	mov	r3, r7
  800f5b4:	2200      	movs	r2, #0

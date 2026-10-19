@@ -21,16 +21,56 @@ static void app_state_power_off(void) {
 	app_func_ble_enable(false);
 }
 
+#if BOARD_HAS_BATT_DISCONNECT
+/**
+ * @brief Float BATT.SW_EN (hi-Z) so the timing capacitor discharges and the battery disconnects
+ *
+ */
+void app_state_batt_sw_float(void) {
+	GPIO_InitTypeDef batt_sw_gpio = {0};
+	batt_sw_gpio.Pin = BATT_DISCONNECT_Pin;
+	batt_sw_gpio.Mode = GPIO_MODE_ANALOG;
+	batt_sw_gpio.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(BATT_DISCONNECT_GPIO_Port, &batt_sw_gpio);
+}
+
+/**
+ * @brief Drive BATT.SW_EN high to keep the battery connected (halts a disconnect in progress)
+ *
+ */
+void app_state_batt_sw_hold(void) {
+	GPIO_InitTypeDef batt_sw_gpio = {0};
+	HAL_GPIO_WritePin(BATT_DISCONNECT_GPIO_Port, BATT_DISCONNECT_Pin, GPIO_PIN_SET);
+	batt_sw_gpio.Pin = BATT_DISCONNECT_Pin;
+	batt_sw_gpio.Mode = GPIO_MODE_OUTPUT_PP;
+	batt_sw_gpio.Pull = GPIO_NOPULL;
+	batt_sw_gpio.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(BATT_DISCONNECT_GPIO_Port, &batt_sw_gpio);
+}
+#endif
+
 /**
  * @brief Handler for shutdown state
- * 
+ *
  */
 void app_state_shutdown_handler(void) {
 	bsp_fram_deinit();
 	bsp_sp_deinit();
 	app_state_power_off();
 
+#if BOARD_HAS_BATT_DISCONNECT
+	/* Mark the shutdown so a reset during the discharge window does not reconnect the battery */
+	HAL_RTCEx_BKUPWrite(&hrtc, BATT_DISCONNECT_BKP_REG, BATT_DISCONNECT_MAGIC);
+	app_state_batt_sw_float();
+
+	/* Wait here for power to drop; do not return and re-run the deinit sequence */
+	while (1) {
+		bsp_wdg_refresh();
+		HAL_Delay(100);
+	}
+#else
 	HAL_GPIO_WritePin(IPG_SHDN_GPIO_Port, IPG_SHDN_Pin, GPIO_PIN_SET);
+#endif
 }
 
 /**
@@ -93,6 +133,14 @@ void app_state_sleep_handler(void) {
 		GPIO_InitStruct.Pin = IMP_IN_N_SEL2_Pin;   HAL_GPIO_Init(IMP_IN_N_SEL2_GPIO_Port,   &GPIO_InitStruct);
 	}
 
+#if BOARD_HAS_BATT_DISCONNECT
+	/* At EOS, float BATT.SW_EN to start the battery disconnect. A magnet wake or WPT coil
+	 * during the discharge window drives it high again on wakeup below. */
+	if (HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2) >= COUNT_MAX_EOS) {
+		app_state_batt_sw_float();
+	}
+#endif
+
 	HAL_SuspendTick();
 	__HAL_RCC_LPTIM1_CLKAM_ENABLE();
 	__HAL_RCC_LPTIM3_CLKAM_ENABLE();
@@ -139,6 +187,11 @@ void app_state_sleep_handler(void) {
 	 * All other floated pins must be explicitly restored here before any
 	 * application code attempts to use them. */
 	{
+#if BOARD_HAS_BATT_DISCONNECT
+		/* Keep the battery connected (halts an EOS disconnect in progress) */
+		app_state_batt_sw_hold();
+#endif
+
 		GPIO_InitTypeDef GPIO_InitStruct = {0};
 		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 
